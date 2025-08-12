@@ -3,8 +3,29 @@
 
 # Today I Learned (TIL)
 
+
+# 📂 Repository Structure
+
+📦 Root
+├── 📁 DB
+├── 📁 Edu
+│ └── 📁 BootCamp
+│ └── 📁 LikeLionCloudEngineering_4th
+│ └── 📁 Week_3
+├── 📁 OS
+└── 📁 Programming_Languages
+
 ## 📂 Directory
-- [Edu](./Edu)
+## 🔗 Quick Access
+- **[DB](./DB)**
+- **[Edu](./Edu)**
+  - [BootCamp](./Edu/BootCamp)
+    - [LikeLionCloudEngineering_4th](./Edu/BootCamp/LikeLionCloudEngineering_4th)
+      - [Week_3](./Edu/BootCamp/LikeLionCloudEngineering_4th/Week_3)
+- **[OS](./OS)**
+- **[Programming_Languages](./Programming_Languages)**
+
+
 
 📝 기초
 
