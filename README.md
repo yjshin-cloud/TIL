@@ -1,6 +1,10 @@
 # TIL
 # Today I Learned
 
+# Today I Learned (TIL)
+
+## 📂 Directory
+- [Edu](./Edu)
 
 📝 기초
 
