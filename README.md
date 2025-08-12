@@ -6,14 +6,16 @@
 
 # 📂 Repository Structure
 
+```
 📦 Root
 ├── 📁 DB
 ├── 📁 Edu
-│ └── 📁 BootCamp
-│ └── 📁 LikeLionCloudEngineering_4th
-│ └── 📁 Week_3
+│   └── 📁 BootCamp
+│      └── 📁 LikeLionCloudEngineering_4th
+│         └── 📁 Week_3
 ├── 📁 OS
 └── 📁 Programming_Languages
+```
 
 ## 📂 Directory
 ## 🔗 Quick Access
