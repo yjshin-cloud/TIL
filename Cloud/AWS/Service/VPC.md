@@ -21,14 +21,17 @@ AWS 클라우드 안에서 내가 원하는 방식으로 네트워크 공간을 
 🔒 보안 제어: Security Group, Network ACL로 접근 제어 가능
 
 ### 3. VPC 구조 시각화
+
+```mermaid
 graph TD
-    Internet[🌍 Internet] --> IGW[🚪 Internet Gateway]
-    IGW --> PublicSubnet[🟢 Public Subnet]
-    PublicSubnet --> EC2_Public[💻 EC2 (웹 서버)]
+    Internet["Internet"] --> IGW["Internet Gateway"]
+    IGW --> PublicSubnet["Public Subnet"]
+    PublicSubnet --> EC2_Public["EC2 (Web Server)"]
     
-    PublicSubnet --> NATGW[🔄 NAT Gateway]
-    NATGW --> PrivateSubnet[🔒 Private Subnet]
-    PrivateSubnet --> EC2_Private[💾 EC2 (DB 서버)]
+    PublicSubnet --> NATGW["NAT Gateway"]
+    NATGW --> PrivateSubnet["Private Subnet"]
+    PrivateSubnet --> EC2_Private["EC2 (DB Server)"]
+```
 
 설명
 
@@ -67,16 +70,18 @@ EC2, RDS 등 리소스 배치
 
 # 🖥️ EC2 + VPC 아키텍처
 
+```mermaid
 graph TD
-    Internet[🌍 인터넷] --> IGW[🚪 Internet Gateway]
-    IGW --> RT_Public[📑 라우팅 테이블 (Public)]
-    RT_Public --> PublicSubnet[🟢 Public Subnet]
-    PublicSubnet --> EC2_Public[💻 EC2 (웹 서버)]
+    Internet["Internet"] --> IGW["Internet Gateway"]
+    IGW --> RT_Public["Routing Table Public"]
+    RT_Public --> PublicSubnet["Public Subnet"]
+    PublicSubnet --> EC2_Public["EC2 Web Server"]
 
-    PublicSubnet --> NATGW[🔄 NAT Gateway]
-    NATGW --> RT_Private[📑 라우팅 테이블 (Private)]
-    RT_Private --> PrivateSubnet[🔒 Private Subnet]
-    PrivateSubnet --> EC2_Private[💾 EC2 (DB 서버)]
+    PublicSubnet --> NATGW["NAT Gateway"]
+    NATGW --> RT_Private["Routing Table Private"]
+    RT_Private --> PrivateSubnet["Private Subnet"]
+    PrivateSubnet --> EC2_Private["EC2 DB Server"]
+```
 
 ## ✨ 구조 설명
 
@@ -118,3 +123,4 @@ EC2, RDS, ELB 같은 AWS 서비스의 기반 인프라 역할을 합니다.
 
 * 참고 링크 :
 https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/what-is-amazon-vpc.html
+https://velog.io/@yjshin/AWS-VPC-Virtual-Private-Cloud
