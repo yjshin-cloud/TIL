@@ -1,4 +1,4 @@
-# 📚 Go 언어 - Variables & Constants 완벽 가이드
+v# 📚 Go 언어 - Variables & Constants 완벽 가이드
 
 > 🎯 **목표**: Go 언어의 변수와 상수를 완벽하게 이해하고 실무에서 활용할 수 있도록 학습
 
