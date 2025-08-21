@@ -524,23 +524,12 @@ mindmap
 
 ### 📈 **성장 궤적**
 ```mermaid
-gitgraph
-    commit id: "1주차 시작"
-    commit id: "Git 마스터"
-    commit id: "Java 기초"
-    branch oop-learning
-    commit id: "클래스 설계"
-    commit id: "인터페이스 구현"
-    commit id: "다형성 활용"
-    checkout main
-    merge oop-learning
-    branch advanced-topics
-    commit id: "스레드 프로그래밍"
-    commit id: "분산 시스템"
-    checkout main
-    merge advanced-topics
-    commit id: "배포 실습"
-    commit id: "2주차 완성"
+timeline
+    title 2주차 성장 궤적
+    1주차 : 1주차 시작, Git 마스터, Java 기초
+    OOP 학습 : 클래스 설계, 인터페이스 구현, 다형성 활용
+    고급 주제 : 스레드 프로그래밍, 분산 시스템
+    최종 : 배포 실습, 2주차 완성
 ```
 
 ---
