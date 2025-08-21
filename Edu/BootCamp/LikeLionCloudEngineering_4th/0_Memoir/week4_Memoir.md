@@ -8,25 +8,14 @@
 ### 🗓️ 전체 부트캠프 진행상황
 
 ```mermaid
-gantt
+timeline
     title 멋쟁이 사자처럼 4기 부트캠프 진행 현황
-    dateFormat  YYYY-MM-DD
-    section 1주차
-    오리엔테이션         :done,    w1-orient, 2025-07-29, 1d
-    Java 기초           :done,    w1-java, 2025-07-30, 4d
-    section 2주차  
-    객체지향 프로그래밍  :done,    w2-oop, 2025-08-05, 3d
-    컬렉션 프레임워크    :done,    w2-collections, 2025-08-07, 2d
-    section 3주차
-    예외 처리           :done,    w3-exception, 2025-08-12, 2d
-    파일 입출력         :done,    w3-io, 2025-08-14, 2d
-    람다식 & 스트림     :done,    w3-lambda, 2025-08-16, 1d
-    section 4주차 (현재)
-    JDBC 기초           :done,    w4-jdbc-basic, 2025-08-18, 1d
-    보안 & DAO 패턴     :done,    w4-jdbc-advanced, 2025-08-19, 1d
-    CSS 선택자          :done,    w4-css-basic, 2025-08-20, 1d
-    section 5주차 (예정)
-    Spring Framework    :active,  w5-spring, 2025-08-21, 5d
+    July 2025 : 오리엔테이션, Java 기초
+    August 2025 : 객체지향 프로그래밍, 컬렉션 프레임워크
+    August 2025 : 예외 처리, 파일 입출력, 람다식 & 스트림
+    August 2025 : JDBC 기초, 보안 & DAO 패턴, CSS 선택자
+    August 2025 (예정) : Spring Framework
+
 ```
 
 ### 📊 4주차 상세 학습 진행도
@@ -197,11 +186,11 @@ vs
 ### 📈 주차별 누적 학습량 비교
 
 ```mermaid
-xychart-beta
-    title "주차별 실습 시간 비교 (시간)"
-    x-axis [1주차, 2주차, 3주차, 4주차]
-    y-axis "학습 시간" 0 --> 30
-    bar [22, 28, 26, 25]
+pie title 주차별 실습 시간 비율
+    "1주차 (22시간)" : 22
+    "2주차 (28시간)" : 28
+    "3주차 (26시간)" : 26
+    "4주차 (25시간)" : 25
 ```
 
 ### 🎯 기술 스택 발전도
@@ -346,25 +335,29 @@ graph LR
 ### 🎯 핵심 역량별 성장도
 
 ```mermaid
-radar
-    title 4주차 역량 발전도 (10점 만점)
-    "Java 문법" : [7, 8]
-    "데이터베이스" : [2, 8]
-    "보안 의식" : [3, 9]
-    "설계 능력" : [5, 7]
-    "디버깅" : [4, 7]
-    "문제 해결" : [6, 8]
+timeline
+    title 핵심 역량 성장 추이
+    Java 문법 : 7점 → 8점
+    데이터베이스 : 2점 → 8점
+    보안 의식 : 3점 → 9점
+    설계 능력 : 5점 → 7점
+    디버깅 : 4점 → 7점
+    문제 해결 : 6점 → 8점
 ```
 
 ### 📊 학습 패턴 분석
 
 #### 시간대별 집중도
 ```mermaid
-xychart-beta
-    title "시간대별 학습 효율성"
-    x-axis [오전9시, 오전11시, 오후1시, 오후3시, 오후5시, 저녁7시, 저녁9시]
-    y-axis "집중도 (1~10)" 0 --> 10
-    line [6, 9, 4, 8, 7, 9, 5]
+timeline
+    title 시간대별 학습 효율성 (집중도 1~10)
+    오전 9시 : 6
+    오전 11시 : 9
+    오후 1시 : 4
+    오후 3시 : 8
+    오후 5시 : 7
+    저녁 7시 : 9
+    저녁 9시 : 5
 ```
 
 **분석 결과:**
