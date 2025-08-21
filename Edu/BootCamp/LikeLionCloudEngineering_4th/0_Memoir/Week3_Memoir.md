@@ -368,18 +368,14 @@ gantt
 ### 학습 전 vs 후 비교
 
 ```mermaid
-radar
-    title 데이터베이스 역량 변화
-    
-    options
-        scale 0..5
-        
-    data
-        labels [기초개념, SQL작성, JOIN활용, 트랜잭션, 성능튜닝, 실무적용]
-        label-0 "학습 전"
-        dataset-0 [1, 1, 0, 0, 0, 0]
-        label-1 "학습 후"
-        dataset-1 [5, 5, 4, 4, 3, 4]
+timeline
+    title 데이터베이스 역량 변화 (0~5)
+    기초개념 : 1 → 5
+    SQL 작성 : 1 → 5
+    JOIN 활용 : 0 → 4
+    트랜잭션 : 0 → 4
+    성능 튜닝 : 0 → 3
+    실무 적용 : 0 → 4
 ```
 
 ### 🏆 최고의 성취
