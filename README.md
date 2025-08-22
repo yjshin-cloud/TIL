@@ -5,6 +5,7 @@
 
 
 # 📂 Repository Structure
+## 📂 Directory
 
 ```text
 📦 Root
@@ -28,7 +29,7 @@
             └── 📁 Easy_Rust
 ```
 
-## 📂 Directory
+
 ## 🔗 Quick Access
 - **[Cloud](./Cloud)**
 - **[DB](./DB)**
