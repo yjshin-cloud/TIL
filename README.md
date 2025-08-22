@@ -6,16 +6,24 @@
 
 # 📂 Repository Structure
 
-```
+```text
 📦 Root
 ├── 📁 Cloud
 ├── 📁 DB
 ├── 📁 Edu
 │   └── 📁 BootCamp
 │      └── 📁 LikeLionCloudEngineering_4th
-│         └── 📁 Week_3
+│         ├── 📁 0_Memoir
+│         └── 📁 1_DailyStudy
 ├── 📁 OS
 └── 📁 Programming_Languages
+    ├── 📁 FrontEnd
+    └── 📁 BackEnd
+        ├── 📁 Go
+        │   └── 📁 NomadCoders
+        │       └── 📁 Getting_Started_with_Go_Quickly_and_Easily
+        └── 📁 Rust
+            └── 📁 Easy_Rust
 ```
 
 ## 📂 Directory
