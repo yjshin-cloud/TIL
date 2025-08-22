@@ -31,6 +31,10 @@
 
 
 ## 🔗 Quick Access
+
+<details>
+<summary>📂 더보기</summary>
+
 - **[Cloud](./Cloud)**
   - [AWS](./Cloud/AWS)
     - [Service](./Cloud/AWS/Service)
@@ -54,7 +58,7 @@
     - [Rust](./Programming_Languages/BackEnd/Rust)
       - [Easy_Rust](./Programming_Languages/BackEnd/Rust/Easy_Rust)
 
-
+</details>
 
 
 ## 📝 기초
