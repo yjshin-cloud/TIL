@@ -170,24 +170,23 @@ cannot assign to name (declared const)
 ## 4️⃣ 변수 vs 상수 실행 흐름 비교
 
 ```mermaid
-flowchart TD
-    subgraph "변수 (Variable) 흐름"
-        A1[var name := "Go"] --> B1[메모리에 공간 할당]
-        B1 --> C1[값 저장: "Go"]
-        C1 --> D1[값 변경 가능 ✅]
-        D1 --> E1[name = "Golang"]
-        E1 --> F1[새로운 값으로 업데이트]
-    end
-    
-    subgraph "상수 (Constant) 흐름"
-        A2[const name = "Go"] --> B2[컴파일 시점에 값 결정]
-        B2 --> C2[프로그램에 값 임베딩]
-        C2 --> D2[값 변경 시도 ❌]
-        D2 --> E2[컴파일 에러 발생]
-    end
-    
-    style D1 fill:#c8e6c9
-    style E2 fill:#ffcdd2
+flowchart LR
+    %% 변수 흐름 (왼쪽)
+    A1[변수 선언: var name := Go] --> B1[메모리 공간 할당]
+    B1 --> C1[값 저장: Go]
+    C1 --> D1[값 변경 가능 ✅]
+    D1 --> E1[name = Golang]
+    E1 --> F1[새로운 값으로 업데이트]
+
+    %% 상수 흐름 (오른쪽)
+    A2[상수 선언: const name = Go] --> B2[컴파일 시 값 결정]
+    B2 --> C2[프로그램에 값 임베딩]
+    C2 --> D2[값 변경 시도 ❌]
+    D2 --> E2[컴파일 에러 발생]
+
+    %% 비교 연결
+    A1 -. 비교 .-> A2
+    F1 -. 결과 .-> E2
 ```
 
 ---
