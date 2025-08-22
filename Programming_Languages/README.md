@@ -3,25 +3,29 @@
 프론트엔드(Front End)와 백엔드(Back End)를 학습하면서 기록한 자료들을 정리한 공간입니다.  
 각 언어별로 강의 링크와 학습 저장소를 연결해두었습니다.
 
+## 📂 Directory Structure
+
+```text
 📦 Programming_Languages
-┣ 📂 FrontEnd
-┗ 📂 BackEnd
-┣ 📂 Go
-│ ┗ 📂 NomadCoders
-│ ┗ 📜 Getting_Started_with_Go_Quickly_and_Easily
-┗ 📂 Rust
-┗ 📜 Easy_Rust
+ ┣ 📂 FrontEnd
+ ┗ 📂 BackEnd
+    ┣ 📂 Go
+    │  ┗ 📂 NomadCoders
+    │     ┗ 📜 Getting_Started_with_Go_Quickly_and_Easily
+    ┗ 📂 Rust
+       ┗ 📜 Easy_Rust
+```
 
 ---
 
-# 🎨 Front End
+## 🎨 Front End
 (추후 정리 예정)
 
 ---
 
-# ⚙️ Back End
+## ⚙️ Back End
 
-## 🚀 Go (Golang)
+### 🚀 Go (Golang)
 
 > **NomadCoders - 쉽고 빠른 Go 시작하기**
 
@@ -38,7 +42,7 @@
 
 ---
 
-## 🦀 Rust
+### 🦀 Rust
 
 > **Easy Rust Korean**
 
