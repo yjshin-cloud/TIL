@@ -10,33 +10,19 @@ AWS 리소스(EC2, S3, RDS 등)에 접근할 수 있는 사용자(User), 그룹(
 
 ## 2️⃣ IAM의 주요 개념
 
-사용자(User)
-
-AWS에 접근하는 개별 계정 (개발자, 운영자 등)
-
-그룹(Group)
-
-여러 사용자에게 동일한 권한을 부여할 때 사용
-
-역할(Role)
-
-사용자나 서비스에 임시 권한을 위임할 때 사용 (예: EC2가 S3에 접근하도록 Role 부여)
-
-정책(Policy)
-
-JSON 형식으로 작성된 권한 정의서 (예: S3 읽기 전용, EC2 시작 권한 등)
+> 사용자(User) - AWS에 접근하는 개별 계정 (개발자, 운영자 등) <br>
+> 그룹(Group) - 여러 사용자에게 동일한 권한을 부여할 때 사용 <br>
+> 역할(Role) - 사용자나 서비스에 임시 권한을 위임할 때 사용 (예: EC2가 S3에 접근하도록 Role 부여) <br>
+> 정책(Policy) - JSON 형식으로 작성된 권한 정의서 (예: S3 읽기 전용, EC2 시작 권한 등)
 
 ## 3️⃣ IAM의 특징
 
-🆓 무료 서비스 (사용자 관리 자체에는 비용 없음)
+### 🆓 무료 서비스 (사용자 관리 자체에는 비용 없음)
 
-🌍 세분화된 접근 제어 (서비스, 리소스 단위까지 제어 가능)
-
-🔒 MFA(다중 인증) 지원 → 보안 강화
-
-📊 CloudTrail 연동 → 누가 언제 어떤 작업을 했는지 기록 가능
-
-⏱️ 임시 보안 자격 증명(STS) → 짧은 기간만 권한을 위임 가능
+> 🌍 세분화된 접근 제어 (서비스, 리소스 단위까지 제어 가능) <br>
+> 🔒 MFA(다중 인증) 지원 → 보안 강화 <br>
+> 📊 CloudTrail 연동 → 누가 언제 어떤 작업을 했는지 기록 가능 <br>
+> ⏱️ 임시 보안 자격 증명(STS) → 짧은 기간만 권한을 위임 가능
 
 ## 4️⃣ IAM 아키텍처 개념도
 
@@ -81,7 +67,7 @@ graph TD
 
 ## 👉 한마디로, AWS 보안의 관문(Gatekeeper) 역할을 합니다.
 
-* 참고 링크
+* 참고 링크 <br>
   https://velog.io/@yjshin/AWS-IAM-Identity-and-Access-Management
   https://docs.aws.amazon.com/ko_kr/iam/?icmpid=docs_homepage_security
   https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/introduction.html
