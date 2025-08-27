@@ -28,13 +28,13 @@ jobs:
       - name: Install deps
         run: npm ci || npm install
 
-      - name: Build (documents → documents/.vuepress/dist)
+      - name: Build (docs → docs/.vuepress/dist)
         run: npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: documents/.vuepress/dist
+          path: docs/.vuepress/dist   # ⬅️ 꼭 docs 경로!
 
   deploy:
     needs: build

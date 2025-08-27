@@ -2,8 +2,8 @@
   "name": "til",
   "description": "오늘 배운 건 오늘 적자",
   "scripts": {
-    "docs:dev": "vuepress dev documents",
-    "docs:build": "vuepress build documents"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "vuepress": "next",
