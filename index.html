@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Youngjoon Shin — Cloud/SRE-Ready Engineer</title>
+  <meta name="description" content="클라우드 엔지니어 전향을 준비하는 부트캠프 훈련생 Youngjoon Shin의 GitHub 소개 블로그. Go, Django, Java, Docker, Kubernetes." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230b1020'/><text x='50' y='58' text-anchor='middle' font-size='48' fill='%23fff' font-family='Arial,Helvetica,sans-serif'>YS</text></svg>">
+  <style>
+    /* ----- Base & Theme --------------------------------------------------- */
+    :root {
+      --bg: #0b1020;           /* dark indigo */
+      --bg-elev: #0f152b;      /* elevated surface */
+      --text: #e6eaf7;         /* soft white */
+      --muted: #aab3d0;        /* muted text */
+      --accent: #7aa2ff;       /* blue */
+      --accent-2: #81f5d1;     /* mint */
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --maxw: 1120px;
+      --radius: 18px;
+      --code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Apple SD Gothic Neo, Pretendard, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f8ff;
+        --bg-elev: #ffffff;
+        --text: #0b1020;
+        --muted: #425074;
+        --border: rgba(0,0,0,0.08);
+        --shadow: 0 10px 30px rgba(30, 50, 110, 0.15);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; color: var(--text); background: radial-gradient(1200px 800px at 20% -10%, rgba(122,162,255,0.15), transparent 60%), radial-gradient(1000px 800px at 110% 10%, rgba(129,245,209,0.12), transparent 60%), var(--bg);
+      font-family: var(--sans); line-height: 1.6; letter-spacing: 0.2px; 
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+    /* ----- Utilities ------------------------------------------------------ */
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); box-shadow: var(--shadow); backdrop-filter: blur(4px);
+      font-weight: 600; font-size: 14px; color: var(--text); }
+    .chip svg { width: 18px; height: 18px; opacity: 0.9; }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 12px; font-weight: 700; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b1020; }
+    .btn.ghost { background: var(--bg-elev); color: var(--text); }
+    .section { padding: 80px 0; }
+    .card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    .grid { display: grid; gap: 20px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 920px) { .grid-3 { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } }
+
+    /* ----- Header --------------------------------------------------------- */
+    header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.0)); border-bottom: 1px solid var(--border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: 0.6px; }
+    .brand .logo { width: 34px; height: 34px; border-radius: 12px; background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2), var(--accent)); display: grid; place-items: center; color: #0b1020; font-weight: 900; }
+    nav a { margin-left: 20px; font-weight: 700; color: var(--text); opacity: 0.9; }
+
+    /* ----- Hero ----------------------------------------------------------- */
+    .hero { padding: 100px 0 60px; }
+    .hero h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.1; margin: 0 0 12px; }
+    .hero p.lead { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); margin: 0 0 22px; }
+    .hero .row { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; }
+    @media (max-width: 920px) { .hero .row { grid-template-columns: 1fr; } }
+    .hero .panel { border: 1px dashed var(--border); border-radius: var(--radius); padding: 16px; display: grid; gap: 12px; }
+    .hero .ticker { font-family: var(--code); white-space: nowrap; overflow: hidden; border-right: 2px solid var(--accent); width: 0; animation: typing 4.6s steps(40, end) forwards, blink 1.2s step-end infinite; }
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    /* ----- Section headings ---------------------------------------------- */
+    .title { font-size: clamp(24px, 3.6vw, 34px); margin: 0 0 6px; }
+    .subtitle { color: var(--muted); margin: 0 0 26px; }
+
+    /* ----- Skills --------------------------------------------------------- */
+    .skills { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 920px) { .skills { grid-template-columns: 1fr; } }
+    .skills .group h4 { margin: 0 0 12px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    /* ----- Projects ------------------------------------------------------- */
+    .project { display: grid; gap: 12px; }
+    .project .meta { color: var(--muted); font-size: 14px; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    /* ----- Blog ----------------------------------------------------------- */
+    .post { display: grid; gap: 8px; }
+
+    /* ----- Timeline ------------------------------------------------------- */
+    .timeline { position: relative; margin-left: 8px; padding-left: 24px; }
+    .timeline::before { content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--accent), var(--accent-2)); border-radius: 2px; }
+    .tl-item { position: relative; margin-bottom: 18px; }
+    .tl-item::before { content: ""; position: absolute; left: -2px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(122,162,255,0.25); }
+    .tl-item h4 { margin: 0; }
+
+    /* ----- Footer --------------------------------------------------------- */
+    footer { border-top: 1px solid var(--border); padding: 32px 0; color: var(--muted); font-size: 14px; }
+
+    /* ----- Decorative gradient border ------------------------------------ */
+    .g-border { position: relative; border-radius: calc(var(--radius) + 2px); padding: 2px; background: linear-gradient(135deg, rgba(122,162,255,0.6), rgba(129,245,209,0.6)); }
+    .g-border > .inner { border-radius: var(--radius); background: var(--bg-elev); height: 100%; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">YS</div>
+        <div>Youngjoon Shin</div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div>
+          <h1>Cloud/SRE 지향의 플랫폼 엔지니어</h1>
+          <p class="lead">부트캠프에서 다져온 탄탄한 기본기와 <strong>자동화/관측성</strong> 중심의 사고로, <strong>안정성과 생산성</strong>을 동시에 올리는 것을 목표로 합니다. 주 스택은 <strong>Go, Django, Java, Docker, Kubernetes</strong> 입니다.</p>
+          <div class="badges" aria-label="Primary Tech Stack">
+            <span class="chip" title="Go">
+              <!-- Go Icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5h6M1 13h8M5 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="17" cy="12" r="5.5" stroke="currentColor" stroke-width="2"/></svg>
+              Go
+            </span>
+            <span class="chip" title="Django">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><path d="M8 8h8v8H8z" fill="currentColor" opacity=".12"/></svg>
+              Django
+            </span>
+            <span class="chip" title="Java">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 18h10M6 15c4-1 8 1 12 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 6c2 1 0 2 2 3s-2 1-2 3-2-2-2-3 2-2 2-3z" fill="currentColor"/></svg>
+              Java
+            </span>
+            <span class="chip" title="Docker">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 14h18a2 2 0 0 1-2 2H7a4 4 0 0 1-4-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="7" y="9" width="3" height="3" fill="currentColor"/><rect x="11" y="9" width="3" height="3" fill="currentColor"/><rect x="15" y="9" width="3" height="3" fill="currentColor"/></svg>
+              Docker
+            </span>
+            <span class="chip" title="Kubernetes">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l8 5v10l-8 5-8-5V7l8-5z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+              Kubernetes
+            </span>
+          </div>
+          <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#projects">프로젝트 보기</a>
+            <a class="btn ghost" href="#contact">협업 문의</a>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <div class="ticker" aria-live="polite">$ whoami ➜ SRE 마인드로 자동화하고, 측정하고, 개선합니다.</div>
+            <div class="g-border">
+              <div class="inner" style="padding:16px; display:grid; gap:8px;">
+                <strong>관심사</strong>
+                <span class="muted">SLO/SLI • GitOps • Observability • Cost Optimization • Incident Response • IaC</span>
+                <div class="badges">
+                  <span class="chip">Terraform</span>
+                  <span class="chip">Prometheus</span>
+                  <span class="chip">Grafana</span>
+                  <span class="chip">Argo CD</span>
+                  <span class="chip">OpenTelemetry</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container grid grid-2">
+      <div class="card">
+        <h2 class="title">About</h2>
+        <p class="subtitle">클라우드 엔지니어 전향을 목표로 학습과 실전을 병행 중입니다.</p>
+        <p>
+          부트캠프에서 백엔드와 클라우드의 기본기를 쌓았고, 이후 <strong>IaC</strong>, <strong>관측성(Observability)</strong>, <strong>CI/CD</strong>에 집중해 작은 팀에서도 재사용 가능한 <em>플랫폼 형태의 도구</em>를 만드는 데 관심이 있습니다.
+          장애를 <em>예방</em>하고, <em>발견</em>하고, <em>평온하게 복구</em>하도록 돕는 자동화에 기여하고 싶습니다.
+        </p>
+        <pre class="card" style="font-family: var(--code); overflow:auto; background: #060914; color:#c7d2ff; border-color:#1d2547;">
+<code># SRE 신념
+- 모든 반복은 자동화로 치환
+- 신뢰성은 데이터(SLI/SLO)로 측정
+- 배포는 안전하고 되돌리기 쉬워야 함
+- 개발자 경험(DevEx)을 최우선으로</code></pre>
+      </div>
+      <div class="card">
+        <h2 class="title">Quick Stats</h2>
+        <div class="grid grid-3" style="align-items:stretch;">
+          <div class="card" style="text-align:center;">
+            <div style="font-size:36px; font-weight:900;">99.9%</div>
+            <div class="meta">목표 가용성(SLO)</div>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:36px; font-weight:900;">&lt;15m</div>
+            <div class="meta">평균 복구시간(MTTR) 목표</div>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:36px; font-weight:900;">100%</div>
+            <div class="meta">IaC 커버리지 목표</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="title">Skills</h2>
+      <p class="subtitle">핵심 스택과 업무에 바로 쓰는 도구들</p>
+      <div class="skills">
+        <div class="group card">
+          <h4>Languages</h4>
+          <div class="badges">
+            <span class="chip">Go</span>
+            <span class="chip">Python</span>
+            <span class="chip">Java</span>
+            <span class="chip">TypeScript</span>
+          </div>
+        </div>
+        <div class="group card">
+          <h4>Frameworks</h4>
+          <div class="badges">
+            <span class="chip">Django</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Spring Boot</span>
+          </div>
+        </div>
+        <div class="group card">
+          <h4>Cloud & DevOps</h4>
+          <div class="badges">
+            <span class="chip">Docker</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">Helm</span>
+            <span class="chip">Argo CD</span>
+            <span class="chip">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="group card">
+          <h4>IaC & Observability</h4>
+          <div class="badges">
+            <span class="chip">Terraform</span>
+            <span class="chip">Terragrunt</span>
+            <span class="chip">Prometheus</span>
+            <span class="chip">Grafana</span>
+            <span class="chip">OpenTelemetry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="title">Projects</h2>
+      <p class="subtitle">클라우드/SRE 역량을 보여주는 대표 작업물</p>
+      <div class="grid grid-3">
+        <article class="card project">
+          <h3>Self-Service IaC Portal</h3>
+          <p class="meta">Terraform + GitHub Actions + OIDC | RBAC • 승인 워크플로우 • 표준 모듈</p>
+          <p>개발팀이 템플릿을 선택해 VPC/DB/K8s 네임스페이스 등을 <strong>셀프서비스</strong>로 생성하도록 하는 포털. Drift 감지와 변경 승인 자동화 포함.</p>
+          <div class="stack">
+            <span class="chip">Terraform</span><span class="chip">Go</span><span class="chip">OpenID Connect</span>
+          </div>
+          <p><a href="#">Repo</a> · <a href="#">Docs</a></p>
+        </article>
+        <article class="card project">
+          <h3>Observability Starter Kit</h3>
+          <p class="meta">Prometheus + Loki + Tempo + Grafana | Golden Signals 대시보드</p>
+          <p>K8s 용 <strong>원클릭 관측성</strong> 번들. 서비스 라벨 표준과 SLI 추출 규칙, 경보 룰을 함께 제공하여 Onboarding 시간을 단축.</p>
+          <div class="stack">
+            <span class="chip">Helm</span><span class="chip">Kubernetes</span><span class="chip">OpenTelemetry</span>
+          </div>
+          <p><a href="#">Repo</a> · <a href="#">Dashboard</a></p>
+        </article>
+        <article class="card project">
+          <h3>Blue/Green with Argo Rollouts</h3>
+          <p class="meta">무중단 배포 • 자동 롤백 • 카나리 실험</p>
+          <p>실험군/대조군 트래픽 분할로 <strong>안전한 배포</strong> 구현. 지표 기반 자동 롤백과 배포 승인 규칙을 정의.</p>
+          <div class="stack">
+            <span class="chip">Argo Rollouts</span><span class="chip">K8s</span><span class="chip">Prometheus</span>
+          </div>
+          <p><a href="#">Repo</a> · <a href="#">Runbook</a></p>
+        </article>
+        <article class="card project">
+          <h3>K8s Operator: Scheduled DB Backups</h3>
+          <p class="meta">Go Operator • Cron-like 스케줄 • S3 백업 • 복구 테스트</p>
+          <p>RDS 호환 DB의 스냅샷/정합성 체크/복구 리허설을 자동화하는 <strong>맞춤 오퍼레이터</strong>.</p>
+          <div class="stack">
+            <span class="chip">Go</span><span class="chip">Kubebuilder</span><span class="chip">S3</span>
+          </div>
+          <p><a href="#">Repo</a> · <a href="#">Design</a></p>
+        </article>
+        <article class="card project">
+          <h3>Cost Anomaly Watcher</h3>
+          <p class="meta">비용 이상탐지 • Slack 알림 • 권장사항 생성</p>
+          <p>클라우드 비용을 일 단위로 수집하여 시계열 이상치를 탐지하고 <strong>자동 권장</strong>을 생성(Idle, RI/SP 제안).</p>
+          <div class="stack">
+            <span class="chip">Python</span><span class="chip">Timeseries</span><span class="chip">Slack API</span>
+          </div>
+          <p><a href="#">Repo</a> · <a href="#">Write-up</a></p>
+        </article>
+        <article class="card project">
+          <h3>Incident Response Runbooks</h3>
+          <p class="meta">SLO 기반 경보 • 표준 Runbook • 게임데이</p>
+          <p>서비스별 표준 <strong>Runbook</strong> 템플릿과 게임데이 시나리오. On-call 대응 품질을 균질화.</p>
+          <div class="stack">
+            <span class="chip">Markdown</span><span class="chip">Grafana</span><span class="chip">PagerDuty/Discord</span>
+          </div>
+          <p><a href="#">Playbooks</a> · <a href="#">GameDay</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="section">
+    <div class="container">
+      <h2 class="title">Blog</h2>
+      <p class="subtitle">학습/실험/회고를 기록합니다.</p>
+      <div class="grid grid-3">
+        <article class="card post">
+          <h3><a href="#">SLO/SLI를 처음 도입하며 부딪힌 5가지 문제</a></h3>
+          <p class="meta">Post • Observability • 6 min</p>
+          <p>에러 버짓에서 시작해 알람 룰을 재설계한 경험을 공유합니다. 노이즈를 줄이고 의미 있는 경보만 남기는 과정.</p>
+        </article>
+        <article class="card post">
+          <h3><a href="#">Helm vs. Kustomize, 팀에 맞는 선택은?</a></h3>
+          <p class="meta">Post • K8s • 8 min</p>
+          <p>패키징 vs. 패치 모델 관점에서 두 접근의 협업성/유지보수성을 비교합니다.</p>
+        </article>
+        <article class="card post">
+          <h3><a href="#">GitOps로 배포 시간을 절반으로</a></h3>
+          <p class="meta">Post • GitOps • 5 min</p>
+          <p>Argo CD 파이프라인에서 사전 검증과 자동 롤백을 결합한 사례.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section">
+    <div class="container grid grid-2">
+      <div class="card">
+        <h2 class="title">Journey</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <h4>부트캠프 수료 & 클라우드 집중 학습</h4>
+            <div class="meta">AWS 기초 · 리눅스 · 네트워크 · 컨테이너 · CI/CD</div>
+          </div>
+          <div class="tl-item">
+            <h4>개인/팀 프로젝트 — 관측성 번들, IaC 포털</h4>
+            <div class="meta">문서화 · 재현 가능한 데모 · 자동화 스크립트</div>
+          </div>
+          <div class="tl-item">
+            <h4>클라우드 엔지니어 지원 준비</h4>
+            <div class="meta">이력서/블로그 정리 · 포트폴리오 리팩토링</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="title">Credentials</h2>
+        <ul>
+          <li><strong>AWS</strong> — (예: CCP, SAA) 준비/응시 계획</li>
+          <li><strong>Kubernetes</strong> — (예: CKAD/CKA) 준비/응시 계획</li>
+          <li><strong>기술 블로그</strong> — 아키텍처/회고 글 지속 발행</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container card">
+      <h2 class="title">Contact</h2>
+      <p class="subtitle">협업 제안, 코드 리뷰, 스터디 환영합니다.</p>
+      <div class="badges">
+        <a class="chip" href="mailto:your.email@example.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2"/><path d="M4 8l8 5 8-5" stroke="currentColor" stroke-width="2"/></svg>
+          your.email@example.com
+        </a>
+        <a class="chip" href="https://github.com/your-github" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.72-4.04-1.61-4.04-1.61-.55-1.41-1.35-1.79-1.35-1.79-1.11-.76.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.09 1.86 2.86 1.32 3.56 1.01.11-.8.43-1.32.78-1.62-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.5.12-3.12 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.62.24 2.82.12 3.12.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.44.38.83 1.12.83 2.26v3.35c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+        <a class="chip" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.52c0-1.32-.02-3.02-1.84-3.02-1.85 0-2.13 1.44-2.13 2.93v5.61H9.39V9h3.41v1.56h.05c.48-.9 1.66-1.84 3.42-1.84 3.66 0 4.34 2.41 4.34 5.55v6.18ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Youngjoon Shin — Built with HTML & CSS</div>
+  </footer>
+
+  <script>
+    // 연도 표기만을 위한 아주 작은 JS. (요구가 HTML/CSS라면 이 블록은 제거해도 무방합니다)
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
