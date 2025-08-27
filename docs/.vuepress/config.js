@@ -1,4 +1,3 @@
-// docs/.vuepress/config.js
 const { defineUserConfig } = require('vuepress')
 const { viteBundler } = require('@vuepress/bundler-vite')
 const { defaultTheme } = require('@vuepress/theme-default')
@@ -19,18 +18,35 @@ module.exports = defineUserConfig({
             { text: 'Edu', link: '/Edu/' },
             { text: 'OS', link: '/OS/' },
             { text: 'Programming', link: '/Programming_Languages/' },
-            { text: 'GitHub', link: 'https://github.com/yjshin-cloud/TIL' }
+            { text: 'GitHub', link: 'https://github.com/yjshin-cloud/TIL' },
         ],
 
-        // ⬇️ 폴더 구조 자동 사이드바
-        sidebar: 'structure',
+        // ✅ 홈은 수동, 하위는 자동(structure)
+        sidebar: {
+            '/': [
+                {
+                    text: 'Sections',
+                    collapsible: true,
+                    children: [
+                        '/Cloud/',
+                        '/DB/',
+                        '/Edu/',
+                        '/OS/',
+                        '/Programming_Languages/',
+                    ],
+                },
+            ],
+            '/Cloud/': 'structure',
+            '/DB/': 'structure',
+            '/Edu/': 'structure',
+            '/OS/': 'structure',
+            '/Programming_Languages/': 'structure',
+        },
 
-        // 편집 링크 정확도 향상(문서 루트가 docs 이므로)
         repo: 'yjshin-cloud/TIL',
         docsRepo: 'yjshin-cloud/TIL',
         docsBranch: 'main',
         docsDir: 'docs',
-
         editLink: true,
         lastUpdated: true,
         contributors: true,
