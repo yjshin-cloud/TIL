@@ -1,12 +1,14 @@
+/* 사이드바 내용이 길어질 때 세로 스크롤을 활성화합니다. */
 .vp-sidebar .sidebar-items {
   max-height: calc(100vh - var(--navbar-height, 3.6rem));
   overflow-y: auto;
   padding-right: 6px;
   scrollbar-gutter: stable;
 }
+
+/* (선택) 스크롤바 스타일을 살짝 다듬습니다. */
 .vp-sidebar .sidebar-items::-webkit-scrollbar { width: 8px; }
 .vp-sidebar .sidebar-items::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.25);
   border-radius: 4px;
 }
-.vp-sidebar .sidebar-items::-webkit-scrollbar-track { background: transparent; }
