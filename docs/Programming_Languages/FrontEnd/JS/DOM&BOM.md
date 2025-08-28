@@ -765,8 +765,11 @@ mindmap
 
 ---
 
-*이 가이드는 2025년 8월 25일 기준으로 작성되었습니다. 웹 표준은 지속적으로 발전하므로 최신 정보는 공식 문서를 참조하시기 바랍니다.* 버튼
-        const removeFirstBtn = document.getElementById('remove-first-btn'); // 첫 아이템 삭제 버튼
+*이 가이드는 2025년 8월 25일 기준으로 작성되었습니다. 
+웹 표준은 지속적으로 발전하므로 최신 정보는 공식 문서를 참조하시기 바랍니다.* 버튼
+
+```
+const removeFirstBtn = document.getElementById('remove-first-btn'); // 첫 아이템 삭제 버튼
         const removeLastBtn = document.getElementById('remove-last-btn');   // 마지막 아이템 삭제 버튼
 
         // --- 2단계: '추가' 버튼에 클릭 이벤트 설정 ---

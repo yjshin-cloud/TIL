@@ -1,49 +1,34 @@
-const { defineUserConfig } = require('vuepress')
-const { viteBundler } = require('@vuepress/bundler-vite')
-const { defaultTheme } = require('@vuepress/theme-default')
-const { searchPlugin } = require('@vuepress/plugin-search')
+import { defineUserConfig } from 'vuepress'
+import { viteBundler } from '@vuepress/bundler-vite'
+import { defaultTheme } from '@vuepress/theme-default'
+import { searchPlugin } from '@vuepress/plugin-search'
 
-module.exports = defineUserConfig({
-    base: '/TIL/',
+const isProd = process.env.NODE_ENV === 'production'
+
+export default defineUserConfig({
+    base: isProd ? '/TIL/' : '/',
     lang: 'ko-KR',
     title: 'YJ Shin TIL Blog',
     description: 'Today I Learned',
-    bundler: viteBundler(),
-
+    bundler: viteBundler({
+        viteOptions: {
+            clearScreen: false,
+            server: {
+                host: 'localhost', // ⬅️ 여기!
+                port: 8080,
+                strictPort: true,
+                open: true,
+            },
+            build: { chunkSizeWarningLimit: 1024 },
+        },
+    }),
     theme: defaultTheme({
         navbar: [
             { text: '홈', link: '/' },
-            { text: 'Cloud', link: '/Cloud/' },
-            { text: 'DB', link: '/DB/' },
-            { text: 'Edu', link: '/Edu/' },
-            { text: 'OS', link: '/OS/' },
-            { text: 'Programming', link: '/Programming_Languages/' },
             { text: 'GitHub', link: 'https://github.com/yjshin-cloud/TIL' },
+            { text: 'Blog', link: 'https://velog.io/@yjshin/posts' },
         ],
-
-        // ✅ 홈은 수동, 하위는 자동(structure)
-        sidebar: {
-            '/': [
-                {
-                    text: 'Sections',
-                    collapsible: true,
-                    children: [
-                        '/Cloud/',
-                        '/DB/',
-                        '/Edu/',
-                        '/OS/',
-                        '/Programming_Languages/',
-                    ],
-                },
-            ],
-            '/Cloud/': 'structure',
-            '/DB/': 'structure',
-            '/Edu/': 'structure',
-            '/OS/': 'structure',
-            '/Programming_Languages/': 'structure',
-        },
-
-        repo: 'yjshin-cloud/TIL',
+        sidebar: 'auto',
         docsRepo: 'yjshin-cloud/TIL',
         docsBranch: 'main',
         docsDir: 'docs',
@@ -51,6 +36,5 @@ module.exports = defineUserConfig({
         lastUpdated: true,
         contributors: true,
     }),
-
     plugins: [searchPlugin({ maxSuggestions: 10 })],
 })
