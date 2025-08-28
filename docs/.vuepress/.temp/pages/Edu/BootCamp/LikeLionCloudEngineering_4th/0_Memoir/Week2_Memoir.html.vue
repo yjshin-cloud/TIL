@@ -1,0 +1,534 @@
+<template><div><h1 id="멋쟁이사자처럼-2주차-회고록" tabindex="-1"><a class="header-anchor" href="#멋쟁이사자처럼-2주차-회고록"><span>멋쟁이사자처럼 2주차 회고록</span></a></h1>
+<p><em>객체지향 프로그래밍과 실무 기술 스택 마스터 🎯</em></p>
+<hr>
+<h2 id="📅-학습-기간" tabindex="-1"><a class="header-anchor" href="#📅-학습-기간"><span>📅 학습 기간</span></a></h2>
+<p><strong>2025년 8월 4일 - 8월 8일 (5일차)</strong></p>
+<hr>
+<h2 id="🚀-2주차-핵심-테마-이론에서-실무로" tabindex="-1"><a class="header-anchor" href="#🚀-2주차-핵심-테마-이론에서-실무로"><span>🚀 2주차 핵심 테마: <strong>&quot;이론에서 실무로&quot;</strong></span></a></h2>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">mindmap</span>
+<span class="line">  root<span class="token text string">((2주차 핵심 학습))</span></span>
+<span class="line">    객체지향 프로그래밍</span>
+<span class="line">      클래스와 객체</span>
+<span class="line">      상속과 다형성</span>
+<span class="line">      추상화와 캡슐화</span>
+<span class="line">      인터페이스 설계</span>
+<span class="line">    실무 기술 스택</span>
+<span class="line">      HTTP 통신</span>
+<span class="line">      API 연동</span>
+<span class="line">      의존성 관리</span>
+<span class="line">      환경 변수 관리</span>
+<span class="line">    고급 Java 개념</span>
+<span class="line">      스레드와 동시성</span>
+<span class="line">      함수형 프로그래밍</span>
+<span class="line">      예외 처리</span>
+<span class="line">      제네릭스</span>
+<span class="line">    배포와 운영</span>
+<span class="line">      서버 개념</span>
+<span class="line">      배포 전략</span>
+<span class="line">      클라우드 기초</span>
+<span class="line">      Docker 입문</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="📊-주요-학습-성취도" tabindex="-1"><a class="header-anchor" href="#📊-주요-학습-성취도"><span>📊 주요 학습 성취도</span></a></h2>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">gantt</span></span>
+<span class="line">    title 2주차 학습 일정 및 완성도</span>
+<span class="line">    dateFormat  YYYY-MM-DD</span>
+<span class="line">    section Day 5 <span class="token text string">(8/4)</span></span>
+<span class="line">    OOP 기초 개념        <span class="token operator">:</span>done, d1, 2025-08-04, 2025-08-04</span>
+<span class="line">    클래스 설계          <span class="token operator">:</span>done, d2, 2025-08-04, 2025-08-04</span>
+<span class="line">    인터페이스 구현      <span class="token operator">:</span>done, d3, 2025-08-04, 2025-08-04</span>
+<span class="line">    </span>
+<span class="line">    section Day 6 <span class="token text string">(8/5)</span></span>
+<span class="line">    계산기 프로젝트      <span class="token operator">:</span>done, d4, 2025-08-05, 2025-08-05</span>
+<span class="line">    함수형 프로그래밍    <span class="token operator">:</span>done, d5, 2025-08-05, 2025-08-05</span>
+<span class="line">    </span>
+<span class="line">    section Day 7 <span class="token text string">(8/6)</span></span>
+<span class="line">    스레드 프로그래밍    <span class="token operator">:</span>done, d6, 2025-08-06, 2025-08-06</span>
+<span class="line">    동시성 처리          <span class="token operator">:</span>done, d7, 2025-08-06, 2025-08-06</span>
+<span class="line">    분산 시스템 개념     <span class="token operator">:</span>done, d8, 2025-08-06, 2025-08-06</span>
+<span class="line">    </span>
+<span class="line">    section Day 8 <span class="token text string">(8/7)</span></span>
+<span class="line">    의존성 관리          <span class="token operator">:</span>done, d9, 2025-08-07, 2025-08-07</span>
+<span class="line">    Maven과 외부 라이브러리 <span class="token operator">:</span>done, d10, 2025-08-07, 2025-08-07</span>
+<span class="line">    배포 개념 학습       <span class="token operator">:</span>done, d11, 2025-08-07, 2025-08-07</span>
+<span class="line">    </span>
+<span class="line">    section Day 9 <span class="token text string">(8/8)</span></span>
+<span class="line">    웹 서버 구축         <span class="token operator">:</span>done, d12, 2025-08-08, 2025-08-08</span>
+<span class="line">    Tomcat 서버          <span class="token operator">:</span>done, d13, 2025-08-08, 2025-08-08</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="📚-일차별-상세-학습-내용" tabindex="-1"><a class="header-anchor" href="#📚-일차별-상세-학습-내용"><span>📚 일차별 상세 학습 내용</span></a></h2>
+<h3 id="🧱-day-5-8-4-객체지향-프로그래밍의-진정한-시작" tabindex="-1"><a class="header-anchor" href="#🧱-day-5-8-4-객체지향-프로그래밍의-진정한-시작"><span>🧱 <strong>Day 5 (8/4): 객체지향 프로그래밍의 진정한 시작</strong></span></a></h3>
+<h4 id="🎯-핵심-키워드" tabindex="-1"><a class="header-anchor" href="#🎯-핵심-키워드"><span>🎯 핵심 키워드</span></a></h4>
+<ul>
+<li><strong>OOP 4대 원칙</strong>: 캡슐화, 상속, 다형성, 추상화</li>
+<li><strong>추상 클래스</strong>: <code v-pre>abstract class Chatbot</code></li>
+<li><strong>인터페이스</strong>: <code v-pre>interface IGemini</code></li>
+<li><strong>상속과 오버라이딩</strong>: <code v-pre>extends</code>, <code v-pre>@Override</code></li>
+</ul>
+<h4 id="💡-실전-프로젝트-gemini-챗봇-구현" tabindex="-1"><a class="header-anchor" href="#💡-실전-프로젝트-gemini-챗봇-구현"><span>💡 실전 프로젝트: Gemini 챗봇 구현</span></a></h4>
+<div class="language-java line-numbers-mode" data-highlighter="prismjs" data-ext="java"><pre v-pre><code class="language-java"><span class="line"><span class="token comment">// 추상 클래스를 활용한 설계</span></span>
+<span class="line"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Chatbot</span> <span class="token keyword">implements</span> <span class="token class-name">IGemini</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token class-name">String</span> apiKey<span class="token punctuation">;</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">protected</span> <span class="token class-name">Chatbot</span><span class="token punctuation">(</span><span class="token class-name">String</span> apiKey<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">this</span><span class="token punctuation">.</span>apiKey <span class="token operator">=</span> apiKey<span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token annotation punctuation">@Override</span></span>
+<span class="line">    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">chat</span><span class="token punctuation">(</span><span class="token class-name">String</span> message<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token class-name">String</span> templateMessage <span class="token operator">=</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token class-name">String</span> geminiResponse <span class="token operator">=</span> <span class="token function">callGemini</span><span class="token punctuation">(</span>apiKey<span class="token punctuation">,</span> templateMessage<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token keyword">return</span> <span class="token function">changeResult</span><span class="token punctuation">(</span>geminiResponse<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="🔍-깊이-있는-이해" tabindex="-1"><a class="header-anchor" href="#🔍-깊이-있는-이해"><span>🔍 깊이 있는 이해</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">classDiagram</span></span>
+<span class="line">    <span class="token keyword">class</span> IGemini <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token annotation important">&lt;&lt;interface>></span></span>
+<span class="line">        +chat<span class="token text string">(String message)</span> String</span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">class</span> Chatbot <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token annotation important">&lt;&lt;abstract>></span></span>
+<span class="line">        #String apiKey</span>
+<span class="line">        +chat<span class="token text string">(String message)</span> String</span>
+<span class="line">        -handleMessage<span class="token text string">(String message)</span> String</span>
+<span class="line">        -callGemini<span class="token text string">(String apiKey, String text)</span> String</span>
+<span class="line">        -changeResult<span class="token text string">(String result)</span> String</span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">class</span> RoleChatbot <span class="token punctuation">{</span></span>
+<span class="line">        -String role</span>
+<span class="line">        +RoleChatbot<span class="token text string">(String apiKey)</span></span>
+<span class="line">        +RoleChatbot<span class="token text string">(String apiKey, String role)</span></span>
+<span class="line">        +chat<span class="token text string">(String message)</span> String</span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line">    IGemini <span class="token arrow operator">&lt;|..</span> Chatbot</span>
+<span class="line">    Chatbot <span class="token arrow operator">&lt;|--</span> RoleChatbot</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h3 id="🔧-day-6-8-5-계산기-프로젝트와-함수형-프로그래밍" tabindex="-1"><a class="header-anchor" href="#🔧-day-6-8-5-계산기-프로젝트와-함수형-프로그래밍"><span>🔧 <strong>Day 6 (8/5): 계산기 프로젝트와 함수형 프로그래밍</strong></span></a></h3>
+<h4 id="🎯-핵심-키워드-1" tabindex="-1"><a class="header-anchor" href="#🎯-핵심-키워드-1"><span>🎯 핵심 키워드</span></a></h4>
+<ul>
+<li><strong>인터페이스 설계</strong>: <code v-pre>ICalculator</code></li>
+<li><strong>함수형 프로그래밍</strong>: Lambda, Stream API</li>
+<li><strong>코드 재사용성</strong>: 모듈화된 설계</li>
+</ul>
+<h4 id="🧮-계산기-프로젝트-아키텍처" tabindex="-1"><a class="header-anchor" href="#🧮-계산기-프로젝트-아키텍처"><span>🧮 계산기 프로젝트 아키텍처</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">graph</span> TD</span>
+<span class="line">    A<span class="token text string">[Calculator Interface]</span> <span class="token arrow operator">--></span> B<span class="token text string">[BasicCalculator]</span></span>
+<span class="line">    A <span class="token arrow operator">--></span> C<span class="token text string">[ScientificCalculator]</span></span>
+<span class="line">    A <span class="token arrow operator">--></span> D<span class="token text string">[ProgrammerCalculator]</span></span>
+<span class="line">    </span>
+<span class="line">    B <span class="token arrow operator">--></span> E<span class="token text string">[Add Operation]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> F<span class="token text string">[Subtract Operation]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> G<span class="token text string">[Multiply Operation]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> H<span class="token text string">[Divide Operation]</span></span>
+<span class="line">    </span>
+<span class="line">    C <span class="token arrow operator">--></span> I<span class="token text string">[Sin/Cos/Tan]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> J<span class="token text string">[Log/Ln]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> K<span class="token text string">[Power Functions]</span></span>
+<span class="line">    </span>
+<span class="line">    D <span class="token arrow operator">--></span> L<span class="token text string">[Binary Operations]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> M<span class="token text string">[Hex Operations]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> N<span class="token text string">[Bitwise Operations]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="💫-함수형-프로그래밍-도입" tabindex="-1"><a class="header-anchor" href="#💫-함수형-프로그래밍-도입"><span>💫 함수형 프로그래밍 도입</span></a></h4>
+<ul>
+<li>Lambda 표현식으로 코드 간소화</li>
+<li>Stream API를 통한 데이터 처리 최적화</li>
+<li>불변성(Immutability) 개념 이해</li>
+</ul>
+<hr>
+<h3 id="⚡-day-7-8-6-스레드와-분산-시스템의-세계" tabindex="-1"><a class="header-anchor" href="#⚡-day-7-8-6-스레드와-분산-시스템의-세계"><span>⚡ <strong>Day 7 (8/6): 스레드와 분산 시스템의 세계</strong></span></a></h3>
+<h4 id="🎯-핵심-키워드-2" tabindex="-1"><a class="header-anchor" href="#🎯-핵심-키워드-2"><span>🎯 핵심 키워드</span></a></h4>
+<ul>
+<li><strong>멀티스레딩</strong>: <code v-pre>Thread</code>, <code v-pre>Runnable</code></li>
+<li><strong>동시성 제어</strong>: <code v-pre>synchronized</code>, <code v-pre>volatile</code></li>
+<li><strong>분산 처리</strong>: Redis, 메시지 큐</li>
+<li><strong>클라우드 컴퓨팅</strong>: 확장성과 가용성</li>
+</ul>
+<h4 id="🔄-스레드-동작-원리" tabindex="-1"><a class="header-anchor" href="#🔄-스레드-동작-원리"><span>🔄 스레드 동작 원리</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">sequenceDiagram</span></span>
+<span class="line">    <span class="token keyword">participant</span> Main as 메인 스레드</span>
+<span class="line">    <span class="token keyword">participant</span> T1 as 작업 스레드 1</span>
+<span class="line">    <span class="token keyword">participant</span> T2 as 작업 스레드 2</span>
+<span class="line">    <span class="token keyword">participant</span> Redis as Redis 서버</span>
+<span class="line">    </span>
+<span class="line">    Main<span class="token arrow operator">->></span>T1<span class="token operator">:</span> 작업 1 할당</span>
+<span class="line">    Main<span class="token arrow operator">->></span>T2<span class="token operator">:</span> 작업 2 할당</span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">par</span> 병렬 처리</span>
+<span class="line">        T1<span class="token arrow operator">->></span>Redis<span class="token operator">:</span> 데이터 읽기</span>
+<span class="line">        Redis<span class="token arrow operator">-->></span>T1<span class="token operator">:</span> 데이터 반환</span>
+<span class="line">    <span class="token keyword">and</span></span>
+<span class="line">        T2<span class="token arrow operator">->></span>Redis<span class="token operator">:</span> 데이터 쓰기</span>
+<span class="line">        Redis<span class="token arrow operator">-->></span>T2<span class="token operator">:</span> 완료 응답</span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    T1<span class="token arrow operator">-->></span>Main<span class="token operator">:</span> 작업 1 완료</span>
+<span class="line">    T2<span class="token arrow operator">-->></span>Main<span class="token operator">:</span> 작업 2 완료</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="🌐-분산-시스템-아키텍처" tabindex="-1"><a class="header-anchor" href="#🌐-분산-시스템-아키텍처"><span>🌐 분산 시스템 아키텍처</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">graph</span> TB</span>
+<span class="line">    <span class="token keyword">subgraph</span> <span class="token string">"로드 밸런서"</span></span>
+<span class="line">        LB<span class="token text string">[Load Balancer]</span></span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">subgraph</span> <span class="token string">"애플리케이션 서버"</span></span>
+<span class="line">        AS1<span class="token text string">[App Server 1]</span></span>
+<span class="line">        AS2<span class="token text string">[App Server 2]</span></span>
+<span class="line">        AS3<span class="token text string">[App Server 3]</span></span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">subgraph</span> <span class="token string">"데이터 계층"</span></span>
+<span class="line">        Redis<span class="token text string">[(Redis Cache)]</span></span>
+<span class="line">        DB<span class="token text string">[(MySQL Database)]</span></span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    Client <span class="token arrow operator">--></span> LB</span>
+<span class="line">    LB <span class="token arrow operator">--></span> AS1</span>
+<span class="line">    LB <span class="token arrow operator">--></span> AS2</span>
+<span class="line">    LB <span class="token arrow operator">--></span> AS3</span>
+<span class="line">    </span>
+<span class="line">    AS1 <span class="token arrow operator">--></span> Redis</span>
+<span class="line">    AS2 <span class="token arrow operator">--></span> Redis</span>
+<span class="line">    AS3 <span class="token arrow operator">--></span> Redis</span>
+<span class="line">    </span>
+<span class="line">    AS1 <span class="token arrow operator">--></span> DB</span>
+<span class="line">    AS2 <span class="token arrow operator">--></span> DB</span>
+<span class="line">    AS3 <span class="token arrow operator">--></span> DB</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h3 id="📦-day-8-8-7-의존성-관리와-배포의-첫-걸음" tabindex="-1"><a class="header-anchor" href="#📦-day-8-8-7-의존성-관리와-배포의-첫-걸음"><span>📦 <strong>Day 8 (8/7): 의존성 관리와 배포의 첫 걸음</strong></span></a></h3>
+<h4 id="🎯-핵심-키워드-3" tabindex="-1"><a class="header-anchor" href="#🎯-핵심-키워드-3"><span>🎯 핵심 키워드</span></a></h4>
+<ul>
+<li><strong>의존성 관리</strong>: Maven, pom.xml</li>
+<li><strong>환경 변수</strong>: <code v-pre>.env</code> 파일, Dotenv</li>
+<li><strong>외부 라이브러리</strong>: Jackson, HTTP Client</li>
+<li><strong>배포 개념</strong>: Docker, 클라우드 서비스</li>
+</ul>
+<h4 id="📋-의존성의-종류와-특징" tabindex="-1"><a class="header-anchor" href="#📋-의존성의-종류와-특징"><span>📋 의존성의 종류와 특징</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">mindmap</span>
+<span class="line">  root<span class="token text string">((의존성 유형))</span></span>
+<span class="line">    내장 라이브러리</span>
+<span class="line">      java.util.*</span>
+<span class="line">      java.net.*</span>
+<span class="line">      java.io.*</span>
+<span class="line">    외부 라이브러리</span>
+<span class="line">      Jackson</span>
+<span class="line">        JSON 파싱</span>
+<span class="line">        객체 매핑</span>
+<span class="line">      Dotenv</span>
+<span class="line">        환경 변수 관리</span>
+<span class="line">        설정 분리</span>
+<span class="line">      HTTP Client</span>
+<span class="line">        API 통신</span>
+<span class="line">        REST 호출</span>
+<span class="line">    프레임워크</span>
+<span class="line">      Spring Boot</span>
+<span class="line">        의존성 주입</span>
+<span class="line">        자동 설정</span>
+<span class="line">      Maven</span>
+<span class="line">        빌드 관리</span>
+<span class="line">        패키지 관리</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="🚀-배포-파이프라인-개념" tabindex="-1"><a class="header-anchor" href="#🚀-배포-파이프라인-개념"><span>🚀 배포 파이프라인 개념</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">flowchart</span> LR</span>
+<span class="line">    A<span class="token text string">[개발 완료]</span> <span class="token arrow operator">--></span> B<span class="token text string">[빌드]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> C<span class="token text string">[테스트]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> D<span class="token text string">[패키징]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> E<span class="token text string">[배포]</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">subgraph</span> <span class="token string">"배포 환경"</span></span>
+<span class="line">        E <span class="token arrow operator">--></span> F<span class="token text string">[개발 서버]</span></span>
+<span class="line">        E <span class="token arrow operator">--></span> G<span class="token text string">[스테이징 서버]</span></span>
+<span class="line">        E <span class="token arrow operator">--></span> H<span class="token text string">[운영 서버]</span></span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">subgraph</span> <span class="token string">"클라우드 서비스"</span></span>
+<span class="line">        I<span class="token text string">[AWS EC2]</span></span>
+<span class="line">        J<span class="token text string">[Docker Container]</span></span>
+<span class="line">        K<span class="token text string">[Kubernetes]</span></span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    F <span class="token arrow operator">-.-></span> I</span>
+<span class="line">    G <span class="token arrow operator">-.-></span> J</span>
+<span class="line">    H <span class="token arrow operator">-.-></span> K</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="💻-실전-maven-설정" tabindex="-1"><a class="header-anchor" href="#💻-실전-maven-설정"><span>💻 실전 Maven 설정</span></a></h4>
+<div class="language-xml line-numbers-mode" data-highlighter="prismjs" data-ext="xml"><pre v-pre><code class="language-xml"><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.google.ai<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>genai<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>latest<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.github.cdimascio<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>dotenv-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.fasterxml.jackson.core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>jackson-databind<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.15.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h3 id="🌐-day-9-8-8-웹-서버와-실전-배포" tabindex="-1"><a class="header-anchor" href="#🌐-day-9-8-8-웹-서버와-실전-배포"><span>🌐 <strong>Day 9 (8/8): 웹 서버와 실전 배포</strong></span></a></h3>
+<h4 id="🎯-핵심-키워드-4" tabindex="-1"><a class="header-anchor" href="#🎯-핵심-키워드-4"><span>🎯 핵심 키워드</span></a></h4>
+<ul>
+<li><strong>웹 서버</strong>: Apache Tomcat</li>
+<li><strong>서블릿</strong>: Java 웹 애플리케이션</li>
+<li><strong>WAS</strong>: Web Application Server</li>
+<li><strong>실전 배포</strong>: Render, Docker</li>
+</ul>
+<h4 id="🏗️-웹-서버-아키텍처" tabindex="-1"><a class="header-anchor" href="#🏗️-웹-서버-아키텍처"><span>🏗️ 웹 서버 아키텍처</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">graph</span> TB</span>
+<span class="line">    <span class="token keyword">subgraph</span> <span class="token string">"클라이언트 측"</span></span>
+<span class="line">        Browser<span class="token text string">[웹 브라우저]</span></span>
+<span class="line">        Mobile<span class="token text string">[모바일 앱]</span></span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    <span class="token keyword">subgraph</span> <span class="token string">"서버 측"</span></span>
+<span class="line">        Tomcat<span class="token text string">[Apache Tomcat]</span></span>
+<span class="line">        Servlet<span class="token text string">[Java Servlet]</span></span>
+<span class="line">        Business<span class="token text string">[비즈니스 로직]</span></span>
+<span class="line">        DB<span class="token text string">[(데이터베이스)]</span></span>
+<span class="line">    <span class="token keyword">end</span></span>
+<span class="line">    </span>
+<span class="line">    Browser <span class="token arrow operator">--></span> <span class="token label property">|HTTP 요청|</span> Tomcat</span>
+<span class="line">    Mobile <span class="token arrow operator">--></span> <span class="token label property">|HTTP 요청|</span> Tomcat</span>
+<span class="line">    Tomcat <span class="token arrow operator">--></span> Servlet</span>
+<span class="line">    Servlet <span class="token arrow operator">--></span> Business</span>
+<span class="line">    Business <span class="token arrow operator">--></span> DB</span>
+<span class="line">    </span>
+<span class="line">    DB <span class="token arrow operator">--></span> Business</span>
+<span class="line">    Business <span class="token arrow operator">--></span> Servlet</span>
+<span class="line">    Servlet <span class="token arrow operator">--></span> Tomcat</span>
+<span class="line">    Tomcat <span class="token arrow operator">--></span> <span class="token label property">|HTTP 응답|</span> Browser</span>
+<span class="line">    Tomcat <span class="token arrow operator">--></span> <span class="token label property">|HTTP 응답|</span> Mobile</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="📈-학습-성장-지표" tabindex="-1"><a class="header-anchor" href="#📈-학습-성장-지표"><span>📈 학습 성장 지표</span></a></h2>
+<h3 id="🎯-역량별-성취도" tabindex="-1"><a class="header-anchor" href="#🎯-역량별-성취도"><span>🎯 역량별 성취도</span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">xychart-beta</span>
+<span class="line">    title <span class="token string">"2주차 주요 역량 성장도"</span></span>
+<span class="line">    <span class="token arrow operator">x-</span>axis <span class="token text string">["OOP 이해도", "API 활용", "의존성 관리", "배포 개념", "스레드 이해"]</span></span>
+<span class="line">    y-axis <span class="token string">"성취도 (%)"</span> 0 <span class="token arrow operator">--></span> 100</span>
+<span class="line">    bar <span class="token text string">[85, 75, 70, 60, 80]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="📊-일차별-학습-만족도" tabindex="-1"><a class="header-anchor" href="#📊-일차별-학습-만족도"><span>📊 일차별 학습 만족도</span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">xychart-beta</span>
+<span class="line">    title <span class="token string">"2주차 일일 학습 만족도"</span></span>
+<span class="line">    <span class="token arrow operator">x-</span>axis <span class="token text string">[Day5, Day6, Day7, Day8, Day9]</span></span>
+<span class="line">    y-axis <span class="token string">"만족도"</span> 0 <span class="token arrow operator">--></span> 10</span>
+<span class="line">    line <span class="token text string">[8, 7, 9, 6, 8]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="🎉-주요-성취-및-돌파구" tabindex="-1"><a class="header-anchor" href="#🎉-주요-성취-및-돌파구"><span>🎉 주요 성취 및 돌파구</span></a></h2>
+<h3 id="✅-기술적-성취" tabindex="-1"><a class="header-anchor" href="#✅-기술적-성취"><span>✅ <strong>기술적 성취</strong></span></a></h3>
+<ol>
+<li>
+<p><strong>객체지향 설계 패턴 체득</strong></p>
+<ul>
+<li>추상 클래스와 인터페이스의 실전 활용</li>
+<li>상속과 다형성을 통한 코드 재사용성 극대화</li>
+<li>캡슐화를 통한 안전한 데이터 관리</li>
+</ul>
+</li>
+<li>
+<p><strong>실무 기술 스택 도입</strong></p>
+<ul>
+<li>Maven을 통한 전문적인 의존성 관리</li>
+<li>환경변수 분리를 통한 보안 강화</li>
+<li>HTTP 클라이언트를 활용한 API 통신</li>
+</ul>
+</li>
+<li>
+<p><strong>고급 프로그래밍 개념 습득</strong></p>
+<ul>
+<li>멀티스레딩과 동시성 프로그래밍 이해</li>
+<li>함수형 프로그래밍 패러다임 도입</li>
+<li>분산 시스템 아키텍처 개념 정립</li>
+</ul>
+</li>
+</ol>
+<h3 id="🚀-프로젝트-성과" tabindex="-1"><a class="header-anchor" href="#🚀-프로젝트-성과"><span>🚀 <strong>프로젝트 성과</strong></span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">pie</span> title 2주차 주요 프로젝트 성과</span>
+<span class="line">    <span class="token string">"Gemini 챗봇 고도화"</span> <span class="token operator">:</span> 35</span>
+<span class="line">    <span class="token string">"계산기 OOP 설계"</span> <span class="token operator">:</span> 25</span>
+<span class="line">    <span class="token string">"스레드 실습 프로젝트"</span> <span class="token operator">:</span> 20</span>
+<span class="line">    <span class="token string">"웹 서버 배포 실습"</span> <span class="token operator">:</span> 20</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="💡-핵심-깨달음과-인사이트" tabindex="-1"><a class="header-anchor" href="#💡-핵심-깨달음과-인사이트"><span>💡 핵심 깨달음과 인사이트</span></a></h2>
+<h3 id="🧠-개념적-이해의-전환점" tabindex="-1"><a class="header-anchor" href="#🧠-개념적-이해의-전환점"><span>🧠 <strong>개념적 이해의 전환점</strong></span></a></h3>
+<blockquote>
+<p><strong>&quot;코딩에서 엔지니어링으로의 전환&quot;</strong></p>
+</blockquote>
+<p>2주차는 단순한 코딩을 넘어서 <strong>소프트웨어 엔지니어링</strong>의 진정한 의미를 깨닫는 시간이었습니다.</p>
+<h4 id="🎯-패러다임-전환-포인트" tabindex="-1"><a class="header-anchor" href="#🎯-패러다임-전환-포인트"><span>🎯 <strong>패러다임 전환 포인트</strong></span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">journey</span></span>
+<span class="line">    title 학습 패러다임의 진화</span>
+<span class="line">    section 1주차</span>
+<span class="line">      기본 문법 학습    <span class="token operator">:</span> 3</span>
+<span class="line">      Git 사용법       <span class="token operator">:</span> 4</span>
+<span class="line">      개발환경 구축     <span class="token operator">:</span> 4</span>
+<span class="line">    section 2주차  </span>
+<span class="line">      객체지향 설계     <span class="token operator">:</span> 8</span>
+<span class="line">      실무 기술 적용    <span class="token operator">:</span> 7</span>
+<span class="line">      아키텍처 이해     <span class="token operator">:</span> 6</span>
+<span class="line">      배포와 운영      <span class="token operator">:</span> 5</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🔍-가장-인상-깊었던-순간들" tabindex="-1"><a class="header-anchor" href="#🔍-가장-인상-깊었던-순간들"><span>🔍 <strong>가장 인상 깊었던 순간들</strong></span></a></h3>
+<h4 id="_1-추상화의-힘을-깨달은-순간" tabindex="-1"><a class="header-anchor" href="#_1-추상화의-힘을-깨달은-순간"><span>1. <strong>추상화의 힘을 깨달은 순간</strong></span></a></h4>
+<div class="language-java line-numbers-mode" data-highlighter="prismjs" data-ext="java"><pre v-pre><code class="language-java"><span class="line"><span class="token comment">// 이전: 절차적 코딩</span></span>
+<span class="line"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">chatWithGemini</span><span class="token punctuation">(</span><span class="token class-name">String</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">// 현재: 객체지향 설계</span></span>
+<span class="line"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Chatbot</span> <span class="token keyword">implements</span> <span class="token class-name">IGemini</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token class-name">String</span> <span class="token function">chat</span><span class="token punctuation">(</span><span class="token class-name">String</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>추상 클래스와 인터페이스를 통해 **&quot;확장 가능한 설계&quot;**의 진정한 의미를 이해했습니다.</p>
+<h4 id="_2-의존성-관리의-중요성-체감" tabindex="-1"><a class="header-anchor" href="#_2-의존성-관리의-중요성-체감"><span>2. <strong>의존성 관리의 중요성 체감</strong></span></a></h4>
+<p>Maven을 통해 외부 라이브러리를 관리하면서, **&quot;거인의 어깨에 서기&quot;**의 개발 철학을 체험했습니다.</p>
+<h4 id="_3-스레드와-분산처리의-현실성" tabindex="-1"><a class="header-anchor" href="#_3-스레드와-분산처리의-현실성"><span>3. <strong>스레드와 분산처리의 현실성</strong></span></a></h4>
+<p>Redis를 활용한 분산 처리 개념을 학습하면서 <strong>실무 클라우드 환경</strong>에 대한 이해도가 급상승했습니다.</p>
+<hr>
+<h2 id="⚠️-도전과제-및-개선점" tabindex="-1"><a class="header-anchor" href="#⚠️-도전과제-및-개선점"><span>⚠️ 도전과제 및 개선점</span></a></h2>
+<h3 id="🤔-어려웠던-부분들" tabindex="-1"><a class="header-anchor" href="#🤔-어려웠던-부분들"><span>🤔 <strong>어려웠던 부분들</strong></span></a></h3>
+<h4 id="_1-추상적-개념의-구체화" tabindex="-1"><a class="header-anchor" href="#_1-추상적-개념의-구체화"><span>1. <strong>추상적 개념의 구체화</strong></span></a></h4>
+<ul>
+<li><strong>문제</strong>: OOP의 추상 개념들이 실무에서 어떻게 활용되는지 연결이 어려웠음</li>
+<li><strong>해결책</strong>: 실전 프로젝트를 통한 체험적 학습으로 극복</li>
+</ul>
+<h4 id="_2-스레드-프로그래밍의-복잡성" tabindex="-1"><a class="header-anchor" href="#_2-스레드-프로그래밍의-복잡성"><span>2. <strong>스레드 프로그래밍의 복잡성</strong></span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">graph</span> TD</span>
+<span class="line">    A<span class="token text string">[단일 스레드]</span> <span class="token arrow operator">--></span> B<span class="token text string">{복잡도}</span></span>
+<span class="line">    B <span class="token arrow operator">--></span><span class="token label property">|Low|</span> C<span class="token text string">[순차 실행]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span><span class="token label property">|High|</span> D<span class="token text string">[멀티 스레드]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> E<span class="token text string">[동기화 문제]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> F<span class="token text string">[데드락 위험]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> G<span class="token text string">[성능 최적화]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_3-배포-환경의-복잡성" tabindex="-1"><a class="header-anchor" href="#_3-배포-환경의-복잡성"><span>3. <strong>배포 환경의 복잡성</strong></span></a></h4>
+<ul>
+<li>Docker, Kubernetes, AWS 등 <strong>배포 생태계의 방대함</strong></li>
+<li>학습 우선순위 설정의 어려움</li>
+</ul>
+<h3 id="📈-개선-전략" tabindex="-1"><a class="header-anchor" href="#📈-개선-전략"><span>📈 <strong>개선 전략</strong></span></a></h3>
+<ol>
+<li><strong>반복 학습</strong>: 어려운 개념은 다양한 예제로 반복 실습</li>
+<li><strong>실무 연결</strong>: 모든 학습 내용을 실무 시나리오와 연결하여 이해</li>
+<li><strong>점진적 확장</strong>: 기초부터 고급까지 단계적 학습 접근</li>
+</ol>
+<hr>
+<h2 id="🎯-3주차-학습-목표-및-계획" tabindex="-1"><a class="header-anchor" href="#🎯-3주차-학습-목표-및-계획"><span>🎯 3주차 학습 목표 및 계획</span></a></h2>
+<h3 id="🚀-우선순위-최상" tabindex="-1"><a class="header-anchor" href="#🚀-우선순위-최상"><span>🚀 <strong>우선순위 최상</strong></span></a></h3>
+<ul>
+<li>[ ] <strong>Spring Boot 프레임워크</strong> 마스터</li>
+<li>[ ] <strong>RESTful API</strong> 설계 및 구현</li>
+<li>[ ] <strong>데이터베이스 연동</strong> (JPA/MyBatis)</li>
+<li>[ ] <strong>테스트 코드 작성</strong> (JUnit)</li>
+</ul>
+<h3 id="📋-중요도-상" tabindex="-1"><a class="header-anchor" href="#📋-중요도-상"><span>📋 <strong>중요도 상</strong></span></a></h3>
+<ul>
+<li>[ ] <strong>Docker 컨테이너화</strong> 실습</li>
+<li>[ ] <strong>AWS 기초 서비스</strong> 활용</li>
+<li>[ ] <strong>CI/CD 파이프라인</strong> 구축</li>
+<li>[ ] <strong>마이크로서비스</strong> 아키텍처 이해</li>
+</ul>
+<h3 id="🔧-기반-기술-보강" tabindex="-1"><a class="header-anchor" href="#🔧-기반-기술-보강"><span>🔧 <strong>기반 기술 보강</strong></span></a></h3>
+<ul>
+<li>[ ] <strong>Linux 명령어</strong> 숙달</li>
+<li>[ ] <strong>네트워크 프로그래밍</strong> 기초</li>
+<li>[ ] <strong>보안</strong> 기본 개념</li>
+<li>[ ] <strong>모니터링 도구</strong> 활용</li>
+</ul>
+<h3 id="📚-학습-전략" tabindex="-1"><a class="header-anchor" href="#📚-학습-전략"><span>📚 <strong>학습 전략</strong></span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">mindmap</span>
+<span class="line">  root<span class="token text string">((3주차 학습 전략))</span></span>
+<span class="line">    실무 중심 학습</span>
+<span class="line">      팀 프로젝트 참여</span>
+<span class="line">      코드 리뷰 문화</span>
+<span class="line">      실전 배포 경험</span>
+<span class="line">    기술 스택 확장</span>
+<span class="line">      Spring 생태계</span>
+<span class="line">      AWS 클라우드</span>
+<span class="line">      DevOps 도구</span>
+<span class="line">    포트폴리오 구축</span>
+<span class="line">      GitHub 관리</span>
+<span class="line">      기술 블로그 운영</span>
+<span class="line">      프로젝트 문서화</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="📊-2주차-종합-평가" tabindex="-1"><a class="header-anchor" href="#📊-2주차-종합-평가"><span>📊 2주차 종합 평가</span></a></h2>
+<h3 id="🏆-성공-지표" tabindex="-1"><a class="header-anchor" href="#🏆-성공-지표"><span>🏆 <strong>성공 지표</strong></span></a></h3>
+<ul>
+<li><strong>객체지향 프로그래밍</strong>: 85% 달성 ✅</li>
+<li><strong>실무 기술 적용</strong>: 75% 달성 ✅</li>
+<li><strong>프로젝트 완성도</strong>: 80% 달성 ✅</li>
+<li><strong>개념 이해도</strong>: 85% 달성 ✅</li>
+</ul>
+<h3 id="📈-성장-궤적" tabindex="-1"><a class="header-anchor" href="#📈-성장-궤적"><span>📈 <strong>성장 궤적</strong></span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">timeline</span>
+<span class="line">    title 2주차 성장 궤적</span>
+<span class="line">    1주차 <span class="token operator">:</span> 1주차 시작, Git 마스터, Java 기초</span>
+<span class="line">    OOP 학습 <span class="token operator">:</span> 클래스 설계, 인터페이스 구현, 다형성 활용</span>
+<span class="line">    고급 주제 <span class="token operator">:</span> 스레드 프로그래밍, 분산 시스템</span>
+<span class="line">    최종 <span class="token operator">:</span> 배포 실습, 2주차 완성</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="🔗-유용한-학습-리소스-업데이트" tabindex="-1"><a class="header-anchor" href="#🔗-유용한-학습-리소스-업데이트"><span>🔗 유용한 학습 리소스 업데이트</span></a></h2>
+<h3 id="📚-새로-발견한-학습-사이트" tabindex="-1"><a class="header-anchor" href="#📚-새로-발견한-학습-사이트"><span>📚 <strong>새로 발견한 학습 사이트</strong></span></a></h3>
+<ul>
+<li><a href="https://mvnrepository.com/" target="_blank" rel="noopener noreferrer">Maven Repository</a> - 의존성 관리의 보물창고</li>
+<li><a href="https://www.baeldung.com/" target="_blank" rel="noopener noreferrer">Baeldung</a> - 실무 중심 Java 튜토리얼</li>
+<li><a href="https://api.together.ai/" target="_blank" rel="noopener noreferrer">Together AI</a> - AI API 실습 플랫폼</li>
+<li><a href="https://groq.com/" target="_blank" rel="noopener noreferrer">Groq</a> - 무료 AI 모델 테스팅</li>
+</ul>
+<h3 id="🛠️-실무-도구-추가" tabindex="-1"><a class="header-anchor" href="#🛠️-실무-도구-추가"><span>🛠️ <strong>실무 도구 추가</strong></span></a></h3>
+<ul>
+<li><strong>Render</strong>: 간편한 배포 플랫폼</li>
+<li><strong>Dotenv</strong>: 환경변수 관리</li>
+<li><strong>Jackson</strong>: JSON 처리의 표준</li>
+<li><strong>Apache Tomcat</strong>: Java 웹 서버의 기본</li>
+</ul>
+<h3 id="📖-추가-학습-자료" tabindex="-1"><a class="header-anchor" href="#📖-추가-학습-자료"><span>📖 <strong>추가 학습 자료</strong></span></a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/" target="_blank" rel="noopener noreferrer">Oracle Java Documentation</a> - 공식 문서</li>
+<li><a href="https://spring.io/projects/spring-framework" target="_blank" rel="noopener noreferrer">Spring Framework Reference</a> - Spring 공식 가이드</li>
+<li><a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer">Docker Documentation</a> - 컨테이너화 완벽 가이드</li>
+</ul>
+<hr>
+<h2 id="💬-개인적-소감-및-다짐" tabindex="-1"><a class="header-anchor" href="#💬-개인적-소감-및-다짐"><span>💬 개인적 소감 및 다짐</span></a></h2>
+<h3 id="🌟-2주차를-한-문장으로-요약한다면" tabindex="-1"><a class="header-anchor" href="#🌟-2주차를-한-문장으로-요약한다면"><span>🌟 <strong>2주차를 한 문장으로 요약한다면?</strong></span></a></h3>
+<blockquote>
+<p><strong>&quot;코딩 장인에서 소프트웨어 아키텍트로의 첫 걸음을 내디딘 시간&quot;</strong></p>
+</blockquote>
+<h3 id="🔥-가장-뿌듯했던-순간" tabindex="-1"><a class="header-anchor" href="#🔥-가장-뿌듯했던-순간"><span>🔥 <strong>가장 뿌듯했던 순간</strong></span></a></h3>
+<p>Gemini API를 활용한 챗봇을 추상 클래스와 인터페이스로 리팩토링하면서, <strong>객체지향 설계의 우아함</strong>을 체험한 순간이었습니다. 코드가 단순히 동작하는 것을 넘어서 <strong>확장 가능하고 유지보수하기 쉬운 구조</strong>로 진화하는 것을 보며 진정한 엔지니어링을 맛봤습니다.</p>
+<h3 id="🚀-앞으로의-다짐" tabindex="-1"><a class="header-anchor" href="#🚀-앞으로의-다짐"><span>🚀 <strong>앞으로의 다짐</strong></span></a></h3>
+<p>앞으로 3주차에서는 <strong>Spring Boot와 클라우드 기술</strong>을 마스터하여 실제 운영 가능한 서비스를 만들어보겠습니다. 단순히 코드를 작성하는 것이 아니라, <strong>사용자에게 가치를 제공하는 시스템</strong>을 구축하는 것이 목표입니다.</p>
+<h3 id="🎯-클라우드-엔지니어로서의-비전" tabindex="-1"><a class="header-anchor" href="#🎯-클라우드-엔지니어로서의-비전"><span>🎯 <strong>클라우드 엔지니어로서의 비전</strong></span></a></h3>
+<p>2주간의 학습을 통해 **&quot;기술을 통해 세상을 연결하는 엔지니어&quot;**가 되고 싶다는 확신이 더욱 강해졌습니다.</p>
+<hr>
+<h2 id="🏁-마무리" tabindex="-1"><a class="header-anchor" href="#🏁-마무리"><span>🏁 마무리</span></a></h2>
+<p>2주차는 **&quot;depth와 breadth의 균형&quot;**을 맞춘 시간이었습니다.</p>
+<p>객체지향 프로그래밍의 깊이 있는 이해와 동시에, 실무에서 필요한 다양한 기술들을 폭넓게 경험했습니다. 특히 <strong>AI 도구를 활용한 학습 가속화</strong>와 <strong>실전 프로젝트를 통한 체험적 학습</strong>이 시너지를 이뤄 놀라운 성장을 이룰 수 있었습니다.</p>
+<p>3주차에서는 더욱 실무에 가까운 프로젝트들을 통해 <strong>실제 사용자를 위한 서비스</strong>를 만들어보겠습니다! 🚀</p>
+<hr>
+<p><em>&quot;객체지향으로 설계하고, 클라우드로 확장하며, AI와 함께 성장하는 멋쟁이사자처럼!&quot;</em> 🦁</p>
+<hr>
+<p><strong>작성일</strong>: 2025년 8월 14일<br>
+<strong>작성자</strong>: 클라우드 엔지니어 지망생<br>
+<strong>태그</strong>: <code v-pre>#멋쟁이사자처럼</code> <code v-pre>#2주차회고</code> <code v-pre>#OOP</code> <code v-pre>#Java</code> <code v-pre>#스레드</code> <code v-pre>#배포</code> <code v-pre>#의존성관리</code></p>
+</div></template>
+
+

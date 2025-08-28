@@ -1,0 +1,698 @@
+<template><div><h1 id="🗄️-sql-완벽-가이드-기초부터-실무까지" tabindex="-1"><a class="header-anchor" href="#🗄️-sql-완벽-가이드-기초부터-실무까지"><span>🗄️ SQL 완벽 가이드 - 기초부터 실무까지</span></a></h1>
+<p>🚀  DDL, DML, DQL 등 복습</p>
+<hr>
+<h2 id="📋-목차" tabindex="-1"><a class="header-anchor" href="#📋-목차"><span>📋 목차</span></a></h2>
+<ul>
+<li><a href="#%EF%B8%8F-sql%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80?">🎯 SQL이란 무엇인가?</a></li>
+<li><a href="#%EF%B8%8F-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%A1%B0">🏗️ 데이터베이스 기본 구조</a></li>
+<li><a href="#%EF%B8%8F-ddl---%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%95%EC%9D%98%EC%96%B4">📐 DDL - 데이터 정의어</a></li>
+<li><a href="#%EF%B8%8F-dml---%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A1%B0%EC%9E%91%EC%96%B4">✏️ DML - 데이터 조작어</a></li>
+<li><a href="#%EF%B8%8F-dql---%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A7%88%EC%9D%98%EC%96%B4">🔍 DQL - 데이터 질의어</a></li>
+<li><a href="#%EF%B8%8F-%EC%8B%A4%EB%AC%B4%EC%97%90%EC%84%9C-%EC%A3%BC%EC%9D%98%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%B9%98%EB%AA%85%EC%A0%81-%EC%8B%A4%EC%88%98%EB%93%A4">⚠️ 실무 치명적 실수들</a></li>
+<li><a href="#%EF%B8%8F-%EC%8B%A4%EC%8A%B5-%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A4">🎮 실습 시나리오</a></li>
+<li><a href="#%EF%B8%8F-%ED%95%99%EC%8A%B5-%EB%A1%9C%EB%93%9C%EB%A7%B5">🗺️ 학습 로드맵</a></li>
+</ul>
+<hr>
+<h2 id="🎯-sql이란-무엇인가" tabindex="-1"><a class="header-anchor" href="#🎯-sql이란-무엇인가"><span>🎯 SQL이란 무엇인가?</span></a></h2>
+<p>**SQL(Structured Query Language)**은 데이터베이스와 대화하는 언어입니다.</p>
+<blockquote>
+<p>💡 <strong>쉬운 비유</strong>: 외국인과 대화할 때 영어를 사용하듯이, 데이터베이스와 대화할 때는 SQL을 사용해요!</p>
+</blockquote>
+<h3 id="📊-sql의-3가지-분류" tabindex="-1"><a class="header-anchor" href="#📊-sql의-3가지-분류"><span>📊 SQL의 3가지 분류</span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">graph</span> TD</span>
+<span class="line">    A<span class="token text string">[🗄️ SQL]</span> <span class="token arrow operator">--></span> B<span class="token text string">[📐 DDL&lt;br/>Data Definition Language]</span></span>
+<span class="line">    A <span class="token arrow operator">--></span> C<span class="token text string">[✏️ DML&lt;br/>Data Manipulation Language]</span>  </span>
+<span class="line">    A <span class="token arrow operator">--></span> D<span class="token text string">[🔍 DQL&lt;br/>Data Query Language]</span></span>
+<span class="line">    </span>
+<span class="line">    B <span class="token arrow operator">--></span> B1<span class="token text string">[CREATE&lt;br/>테이블 생성 🏗️]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> B2<span class="token text string">[ALTER&lt;br/>테이블 수정 🔧]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> B3<span class="token text string">[DROP&lt;br/>테이블 삭제 🗑️]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> B4<span class="token text string">[TRUNCATE&lt;br/>데이터 전체 삭제 🧹]</span></span>
+<span class="line">    </span>
+<span class="line">    C <span class="token arrow operator">--></span> C1<span class="token text string">[INSERT&lt;br/>데이터 삽입 ➕]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> C2<span class="token text string">[UPDATE&lt;br/>데이터 수정 ✏️]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> C3<span class="token text string">[DELETE&lt;br/>데이터 삭제 ➖]</span></span>
+<span class="line">    </span>
+<span class="line">    D <span class="token arrow operator">--></span> D1<span class="token text string">[SELECT&lt;br/>데이터 조회 👀]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> D2<span class="token text string">[WHERE&lt;br/>조건 필터 🎯]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> D3<span class="token text string">[GROUP BY&lt;br/>그룹화 📊]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> D4<span class="token text string">[ORDER BY&lt;br/>정렬 🔢]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>분류</th>
+<th>역할</th>
+<th>비유</th>
+<th>주요 명령어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DDL</strong></td>
+<td>데이터베이스 구조 설계</td>
+<td>🏗️ 건물 설계도 그리기</td>
+<td>CREATE, ALTER, DROP</td>
+</tr>
+<tr>
+<td><strong>DML</strong></td>
+<td>데이터 조작</td>
+<td>✏️ 엑셀에 데이터 입력/수정</td>
+<td>INSERT, UPDATE, DELETE</td>
+</tr>
+<tr>
+<td><strong>DQL</strong></td>
+<td>데이터 조회</td>
+<td>🔍 도서관에서 책 찾기</td>
+<td>SELECT, WHERE, GROUP BY</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🏗️-데이터베이스-기본-구조" tabindex="-1"><a class="header-anchor" href="#🏗️-데이터베이스-기본-구조"><span>🏗️ 데이터베이스 기본 구조</span></a></h2>
+<h3 id="📊-엑셀과-데이터베이스-비교" tabindex="-1"><a class="header-anchor" href="#📊-엑셀과-데이터베이스-비교"><span>📊 엑셀과 데이터베이스 비교</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>엑셀</th>
+<th>데이터베이스</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📁 <strong>엑셀 파일</strong></td>
+<td>🗄️ <strong>데이터베이스</strong></td>
+<td>전체 데이터 저장소</td>
+</tr>
+<tr>
+<td>📋 <strong>시트</strong></td>
+<td>📊 <strong>테이블</strong></td>
+<td>실제 데이터가 저장되는 공간</td>
+</tr>
+<tr>
+<td>📈 <strong>열</strong></td>
+<td>🏷️ <strong>컬럼(필드)</strong></td>
+<td>데이터의 속성</td>
+</tr>
+<tr>
+<td>➡️ <strong>행</strong></td>
+<td>📝 <strong>로우(레코드)</strong></td>
+<td>실제 데이터 한 건</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🎨-실습용-테이블-설계" tabindex="-1"><a class="header-anchor" href="#🎨-실습용-테이블-설계"><span>🎨 실습용 테이블 설계</span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">erDiagram</span></span>
+<span class="line">    CUSTOMERS <span class="token arrow operator">||--o{</span> ORDERS <span class="token operator">:</span> <span class="token string">"고객이 주문을 함"</span></span>
+<span class="line">    </span>
+<span class="line">    CUSTOMERS <span class="token punctuation">{</span></span>
+<span class="line">        int customer_id PK <span class="token string">"🔑 고객번호 (기본키)"</span></span>
+<span class="line">        varchar name <span class="token string">"👤 고객명"</span></span>
+<span class="line">        varchar city <span class="token string">"🏢 거주도시"</span></span>
+<span class="line">        date join_date <span class="token string">"📅 가입일"</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line">    ORDERS <span class="token punctuation">{</span></span>
+<span class="line">        int order_id PK <span class="token string">"🔑 주문번호 (기본키)"</span> </span>
+<span class="line">        date order_date <span class="token string">"📅 주문일"</span></span>
+<span class="line">        decimal amount <span class="token string">"💰 주문금액"</span></span>
+<span class="line">        int customer_id FK <span class="token string">"👤 고객번호 (외래키)"</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="📐-ddl-데이터-정의어" tabindex="-1"><a class="header-anchor" href="#📐-ddl-데이터-정의어"><span>📐 DDL - 데이터 정의어</span></a></h2>
+<blockquote>
+<p><strong>DDL은 건축가가 건물 설계도를 그리는 것과 같아요!</strong> 🏗️</p>
+</blockquote>
+<h3 id="🏠-1-create-table-테이블-생성" tabindex="-1"><a class="header-anchor" href="#🏠-1-create-table-테이블-생성"><span>🏠 1. CREATE TABLE - 테이블 생성</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🏢 고객 테이블 생성</span></span>
+<span class="line"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> customers <span class="token punctuation">(</span></span>
+<span class="line">    customer_id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>  <span class="token comment">-- 🔑 고유번호 (자동증가)</span></span>
+<span class="line">    name        <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>            <span class="token comment">-- 👤 이름 (필수입력)</span></span>
+<span class="line">    city        <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                     <span class="token comment">-- 🏢 도시 (선택입력) </span></span>
+<span class="line">    join_date   <span class="token keyword">DATE</span>                            <span class="token comment">-- 📅 가입일</span></span>
+<span class="line"><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🛒 주문 테이블 생성</span></span>
+<span class="line"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> orders <span class="token punctuation">(</span></span>
+<span class="line">    order_id    <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>  <span class="token comment">-- 🔑 주문번호</span></span>
+<span class="line">    order_date  <span class="token keyword">DATE</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>                   <span class="token comment">-- 📅 주문일</span></span>
+<span class="line">    amount      <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>          <span class="token comment">-- 💰 주문금액</span></span>
+<span class="line">    customer_id <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>                    <span class="token comment">-- 👤 고객번호 (외래키)</span></span>
+<span class="line">    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>customer_id<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> customers<span class="token punctuation">(</span>customer_id<span class="token punctuation">)</span></span>
+<span class="line"><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="📝-데이터-타입-완전-정리" tabindex="-1"><a class="header-anchor" href="#📝-데이터-타입-완전-정리"><span>📝 데이터 타입 완전 정리</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>타입</th>
+<th>설명</th>
+<th>예시</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>INT</code></td>
+<td>정수</td>
+<td><code v-pre>123</code>, <code v-pre>-456</code></td>
+<td>번호, 수량</td>
+</tr>
+<tr>
+<td><code v-pre>VARCHAR(n)</code></td>
+<td>가변길이 문자</td>
+<td><code v-pre>'홍길동'</code> (최대 n글자)</td>
+<td>이름, 제목</td>
+</tr>
+<tr>
+<td><code v-pre>CHAR(n)</code></td>
+<td>고정길이 문자</td>
+<td><code v-pre>'A001'</code> (항상 n글자)</td>
+<td>코드, ID</td>
+</tr>
+<tr>
+<td><code v-pre>DATE</code></td>
+<td>날짜</td>
+<td><code v-pre>'2025-12-31'</code></td>
+<td>생일, 주문일</td>
+</tr>
+<tr>
+<td><code v-pre>DECIMAL(m,d)</code></td>
+<td>정밀 소수</td>
+<td><code v-pre>1234.56</code></td>
+<td>금액, 비율</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🔒-제약조건-완전-정리" tabindex="-1"><a class="header-anchor" href="#🔒-제약조건-완전-정리"><span>🔒 제약조건 완전 정리</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>제약조건</th>
+<th>의미</th>
+<th>실생활 비유</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>PRIMARY KEY</code></td>
+<td>🔑 기본키</td>
+<td>주민등록번호 (유일무이)</td>
+<td><code v-pre>customer_id INT PRIMARY KEY</code></td>
+</tr>
+<tr>
+<td><code v-pre>NOT NULL</code></td>
+<td>❗ 필수입력</td>
+<td>필수항목 체크</td>
+<td><code v-pre>name VARCHAR(50) NOT NULL</code></td>
+</tr>
+<tr>
+<td><code v-pre>AUTO_INCREMENT</code></td>
+<td>🔢 자동증가</td>
+<td>번호표 자동발행</td>
+<td><code v-pre>order_id INT AUTO_INCREMENT</code></td>
+</tr>
+<tr>
+<td><code v-pre>FOREIGN KEY</code></td>
+<td>🔗 외래키</td>
+<td>회원카드 번호</td>
+<td><code v-pre>FOREIGN KEY (customer_id)...</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="✏️-dml-데이터-조작어" tabindex="-1"><a class="header-anchor" href="#✏️-dml-데이터-조작어"><span>✏️ DML - 데이터 조작어</span></a></h2>
+<blockquote>
+<p><strong>DML은 엑셀에서 데이터를 입력하고 수정하는 것과 똑같아요!</strong> 📊</p>
+</blockquote>
+<h3 id="➕-1-insert-데이터-삽입" tabindex="-1"><a class="header-anchor" href="#➕-1-insert-데이터-삽입"><span>➕ 1. INSERT - 데이터 삽입</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 👥 고객 데이터 한 번에 여러 건 입력</span></span>
+<span class="line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> customers <span class="token punctuation">(</span>name<span class="token punctuation">,</span> city<span class="token punctuation">,</span> join_date<span class="token punctuation">)</span> <span class="token keyword">VALUES</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token string">'🎯 오타니'</span><span class="token punctuation">,</span> <span class="token string">'🏢 서울'</span><span class="token punctuation">,</span> <span class="token string">'2025-01-01'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token string">'🎨 손흥민'</span><span class="token punctuation">,</span> <span class="token string">'🏢 대전'</span><span class="token punctuation">,</span> <span class="token string">'2025-05-05'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token string">'🎵 박지성'</span><span class="token punctuation">,</span> <span class="token string">'🏢 대구'</span><span class="token punctuation">,</span> <span class="token string">'2025-07-07'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token string">'🎭 차범근'</span><span class="token punctuation">,</span> <span class="token string">'🏢 부산'</span><span class="token punctuation">,</span> <span class="token string">'2025-09-09'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token string">'🎪 메시'</span><span class="token punctuation">,</span> <span class="token string">'🏢 인천'</span><span class="token punctuation">,</span> <span class="token string">'2025-11-11'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token string">'🎬 호날두'</span><span class="token punctuation">,</span> <span class="token string">'🏢 서울'</span><span class="token punctuation">,</span> <span class="token string">'2025-02-02'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token string">'🎤 홀란드'</span><span class="token punctuation">,</span> <span class="token string">'🏢 서울'</span><span class="token punctuation">,</span> <span class="token string">'2025-04-04'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🛒 주문 데이터 입력</span></span>
+<span class="line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> orders <span class="token punctuation">(</span>customer_id<span class="token punctuation">,</span> order_date<span class="token punctuation">,</span> amount<span class="token punctuation">)</span> <span class="token keyword">VALUES</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'2026-01-01'</span><span class="token punctuation">,</span> <span class="token number">1000.00</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   <span class="token comment">-- 쇼타로의 첫 주문</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'2026-01-02'</span><span class="token punctuation">,</span> <span class="token number">2000.15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   <span class="token comment">-- 쇼타로의 두 번째 주문</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'2026-02-01'</span><span class="token punctuation">,</span> <span class="token number">3000.10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   <span class="token comment">-- 이안의 주문</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'2026-02-02'</span><span class="token punctuation">,</span> <span class="token number">3000.12</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   <span class="token comment">-- 이안의 두 번째 주문</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'2026-03-01'</span><span class="token punctuation">,</span> <span class="token number">12345.67</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">-- 지우의 대량 주문</span></span>
+<span class="line">    <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'2026-05-05'</span><span class="token punctuation">,</span> <span class="token number">10000.00</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">-- 예은의 주문</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="✏️-2-update-데이터-수정" tabindex="-1"><a class="header-anchor" href="#✏️-2-update-데이터-수정"><span>✏️ 2. UPDATE - 데이터 수정</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🏠 특정 고객의 도시 변경 (이사)</span></span>
+<span class="line"><span class="token keyword">UPDATE</span> customers </span>
+<span class="line"><span class="token keyword">SET</span> city <span class="token operator">=</span> <span class="token string">'🏢 광주'</span> </span>
+<span class="line"><span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'🎵 박지성'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 💸 2월 주문 10% 할인 이벤트</span></span>
+<span class="line"><span class="token keyword">UPDATE</span> orders </span>
+<span class="line"><span class="token keyword">SET</span> amount <span class="token operator">=</span> amount <span class="token operator">*</span> <span class="token number">0.9</span> </span>
+<span class="line"><span class="token keyword">WHERE</span> order_date <span class="token operator">>=</span> <span class="token string">'2026-02-01'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📊 여러 컬럼 동시 수정</span></span>
+<span class="line"><span class="token keyword">UPDATE</span> customers </span>
+<span class="line"><span class="token keyword">SET</span> city <span class="token operator">=</span> <span class="token string">'🏢 세종'</span><span class="token punctuation">,</span> join_date <span class="token operator">=</span> <span class="token string">'2025-12-25'</span></span>
+<span class="line"><span class="token keyword">WHERE</span> customer_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="➖-3-delete-데이터-삭제" tabindex="-1"><a class="header-anchor" href="#➖-3-delete-데이터-삭제"><span>➖ 3. DELETE - 데이터 삭제</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🗑️ 특정 주문 취소</span></span>
+<span class="line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">WHERE</span> order_id <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🏢 특정 도시 고객 모두 삭제 (사업 철수)</span></span>
+<span class="line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">WHERE</span> city <span class="token operator">=</span> <span class="token string">'🏢 인천'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ⚠️ 조건 없으면 모든 데이터 삭제! (절대 주의!)</span></span>
+<span class="line"><span class="token comment">-- DELETE FROM customers;  -- 😱 위험!</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="🔍-dql-데이터-질의어" tabindex="-1"><a class="header-anchor" href="#🔍-dql-데이터-질의어"><span>🔍 DQL - 데이터 질의어</span></a></h2>
+<blockquote>
+<p><strong>DQL은 도서관에서 원하는 책을 찾는 것과 같아요!</strong> 📚</p>
+</blockquote>
+<h3 id="👀-1-기본-select-문법" tabindex="-1"><a class="header-anchor" href="#👀-1-기본-select-문법"><span>👀 1. 기본 SELECT 문법</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 📋 모든 고객 조회</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🎯 특정 컬럼만 선택 조회</span></span>
+<span class="line"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> city <span class="token keyword">FROM</span> customers<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🔄 중복 제거하여 조회 (유니크한 도시만)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> city <span class="token keyword">FROM</span> customers<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🏷️ 별칭(Alias) 사용하여 조회</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    name <span class="token keyword">AS</span> 고객명<span class="token punctuation">,</span></span>
+<span class="line">    city <span class="token keyword">AS</span> 거주도시<span class="token punctuation">,</span></span>
+<span class="line">    join_date <span class="token keyword">AS</span> 가입일</span>
+<span class="line"><span class="token keyword">FROM</span> customers<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🎯-2-where-조건절" tabindex="-1"><a class="header-anchor" href="#🎯-2-where-조건절"><span>🎯 2. WHERE 조건절</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🏢 서울 거주 고객만 조회</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers <span class="token keyword">WHERE</span> city <span class="token operator">=</span> <span class="token string">'서울'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📅 2025년 5월 이후 가입 고객</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers <span class="token keyword">WHERE</span> join_date <span class="token operator">>=</span> <span class="token string">'2025-05-01'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 💰 주문금액이 3000원 이상인 주문</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> orders <span class="token keyword">WHERE</span> amount <span class="token operator">>=</span> <span class="token number">3000</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🔗 여러 조건 조합 (AND, OR, NOT)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">WHERE</span> city <span class="token operator">=</span> <span class="token string">'서울'</span> <span class="token operator">AND</span> join_date <span class="token operator">>=</span> <span class="token string">'2025-02-01'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📝 범위 조건 (BETWEEN)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">WHERE</span> amount <span class="token operator">BETWEEN</span> <span class="token number">1000</span> <span class="token operator">AND</span> <span class="token number">5000</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📋 목록 조건 (IN)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">WHERE</span> city <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'서울'</span><span class="token punctuation">,</span> <span class="token string">'부산'</span><span class="token punctuation">,</span> <span class="token string">'대구'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🔍 패턴 검색 (LIKE)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'%란%'</span><span class="token punctuation">;</span>  <span class="token comment">-- 이름에 '안'이 포함된 고객</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="📊-3-group-by와-집계함수" tabindex="-1"><a class="header-anchor" href="#📊-3-group-by와-집계함수"><span>📊 3. GROUP BY와 집계함수</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🏢 도시별 고객 수 집계</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    city <span class="token keyword">AS</span> 도시<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 고객수</span>
+<span class="line"><span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> city<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 👤 고객별 총 주문금액과 주문횟수</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    customer_id <span class="token keyword">AS</span> 고객번호<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 주문횟수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">SUM</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총주문금액<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">AVG</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 평균주문금액<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">MAX</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 최대주문금액<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">MIN</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 최소주문금액</span>
+<span class="line"><span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> customer_id<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📅 월별 매출 분석</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    DATE_FORMAT<span class="token punctuation">(</span>order_date<span class="token punctuation">,</span> <span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 주문월<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 주문건수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">SUM</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총매출<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">AVG</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 평균주문금액</span>
+<span class="line"><span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> DATE_FORMAT<span class="token punctuation">(</span>order_date<span class="token punctuation">,</span> <span class="token string">'%Y-%m'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 주문월<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🎨-4-having-그룹-조건" tabindex="-1"><a class="header-anchor" href="#🎨-4-having-그룹-조건"><span>🎨 4. HAVING - 그룹 조건</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 💰 총 주문금액이 5000원 이상인 고객만</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    customer_id<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">SUM</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총주문금액</span>
+<span class="line"><span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> customer_id</span>
+<span class="line"><span class="token keyword">HAVING</span> <span class="token function">SUM</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">5000</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🏢 고객이 2명 이상인 도시만</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    city<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 고객수</span>
+<span class="line"><span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> city</span>
+<span class="line"><span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🔢-5-order-by-정렬" tabindex="-1"><a class="header-anchor" href="#🔢-5-order-by-정렬"><span>🔢 5. ORDER BY 정렬</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 📅 가입일 오름차순 정렬</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> join_date<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 💰 주문금액 내림차순 정렬 (큰 것부터)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> orders <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> amount <span class="token keyword">DESC</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🏢 도시별, 가입일 순 다중 정렬</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> city<span class="token punctuation">,</span> join_date<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🎯 NULL 값 처리</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> city <span class="token keyword">DESC</span> NULLS <span class="token keyword">LAST</span><span class="token punctuation">;</span>  <span class="token comment">-- NULL을 마지막에</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="⏭️-6-limit으로-개수-제한" tabindex="-1"><a class="header-anchor" href="#⏭️-6-limit으로-개수-제한"><span>⏭️ 6. LIMIT으로 개수 제한</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🥇 상위 3개 주문만 조회 (TOP 3)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> amount <span class="token keyword">DESC</span> </span>
+<span class="line"><span class="token keyword">LIMIT</span> <span class="token number">3</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📄 페이징 처리 (2번째부터 3개씩)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> order_date </span>
+<span class="line"><span class="token keyword">LIMIT</span> <span class="token number">3</span> <span class="token keyword">OFFSET</span> <span class="token number">3</span><span class="token punctuation">;</span>  <span class="token comment">-- 또는 LIMIT 3, 3</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🎯 각 고객의 최신 주문 1건씩</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> customer_id<span class="token punctuation">,</span> </span>
+<span class="line">       FIRST_VALUE<span class="token punctuation">(</span>order_date<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> customer_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> order_date <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 최신주문일</span>
+<span class="line"><span class="token keyword">FROM</span> orders<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🔗-7-join-맛보기" tabindex="-1"><a class="header-anchor" href="#🔗-7-join-맛보기"><span>🔗 7. JOIN 맛보기</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 👥 고객정보와 주문정보 함께 조회</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    c<span class="token punctuation">.</span>name <span class="token keyword">AS</span> 고객명<span class="token punctuation">,</span></span>
+<span class="line">    c<span class="token punctuation">.</span>city <span class="token keyword">AS</span> 거주도시<span class="token punctuation">,</span></span>
+<span class="line">    o<span class="token punctuation">.</span>order_date <span class="token keyword">AS</span> 주문일<span class="token punctuation">,</span></span>
+<span class="line">    o<span class="token punctuation">.</span>amount <span class="token keyword">AS</span> 주문금액</span>
+<span class="line"><span class="token keyword">FROM</span> customers c</span>
+<span class="line"><span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> orders o <span class="token keyword">ON</span> c<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id</span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> o<span class="token punctuation">.</span>order_date <span class="token keyword">DESC</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🏢 도시별 총 매출 (JOIN + GROUP BY)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    c<span class="token punctuation">.</span>city <span class="token keyword">AS</span> 도시<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> 주문건수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총매출</span>
+<span class="line"><span class="token keyword">FROM</span> customers c</span>
+<span class="line"><span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> orders o <span class="token keyword">ON</span> c<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id</span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> c<span class="token punctuation">.</span>city</span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 총매출 <span class="token keyword">DESC</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="⚠️-실무에서-주의해야-할-치명적-실수들" tabindex="-1"><a class="header-anchor" href="#⚠️-실무에서-주의해야-할-치명적-실수들"><span>⚠️ 실무에서 주의해야 할 치명적 실수들</span></a></h2>
+<blockquote>
+<p><strong>20년차 DBA가 실제로 겪거나 목격한 실무 사고들입니다</strong> 😱</p>
+</blockquote>
+<h3 id="🔥-1-dml-관련-치명적-실수" tabindex="-1"><a class="header-anchor" href="#🔥-1-dml-관련-치명적-실수"><span>🔥 1. DML 관련 치명적 실수</span></a></h3>
+<h4 id="❌-where-절-없는-update-delete" tabindex="-1"><a class="header-anchor" href="#❌-where-절-없는-update-delete"><span>❌ WHERE 절 없는 UPDATE/DELETE</span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 😱 절대 하지 말 것! 전체 주문 데이터 삭제</span></span>
+<span class="line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> orders<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 😱 모든 고객 이름이 '홍길동'으로 변경</span></span>
+<span class="line"><span class="token keyword">UPDATE</span> customers <span class="token keyword">SET</span> name <span class="token operator">=</span> <span class="token string">'홍길동'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ✅ 올바른 방법 - 반드시 WHERE 조건 추가</span></span>
+<span class="line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> orders <span class="token keyword">WHERE</span> order_id <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">UPDATE</span> customers <span class="token keyword">SET</span> name <span class="token operator">=</span> <span class="token string">'홍길동'</span> <span class="token keyword">WHERE</span> customer_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="💡-실무-팁-안전한-update-delete-방법" tabindex="-1"><a class="header-anchor" href="#💡-실무-팁-안전한-update-delete-방법"><span>💡 <strong>실무 팁: 안전한 UPDATE/DELETE 방법</strong></span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 1️⃣ 먼저 SELECT로 확인</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers <span class="token keyword">WHERE</span> city <span class="token operator">=</span> <span class="token string">'대구'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 2️⃣ 확인 후 DELETE 실행  </span></span>
+<span class="line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> customers <span class="token keyword">WHERE</span> city <span class="token operator">=</span> <span class="token string">'대구'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 3️⃣ 트랜잭션 사용 (안전장치)</span></span>
+<span class="line"><span class="token keyword">START</span> <span class="token keyword">TRANSACTION</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> orders <span class="token keyword">WHERE</span> order_date <span class="token operator">&lt;</span> <span class="token string">'2025-01-01'</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment">-- 확인 후 COMMIT 또는 ROLLBACK</span></span>
+<span class="line"><span class="token keyword">COMMIT</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="🔒-트랜잭션-없이-중요한-작업" tabindex="-1"><a class="header-anchor" href="#🔒-트랜잭션-없이-중요한-작업"><span>🔒 트랜잭션 없이 중요한 작업</span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 😱 계좌이체 시 트랜잭션 미사용 (중간에 오류나면 돈 증발!)</span></span>
+<span class="line"><span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">-</span> <span class="token number">100000</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">-- A계좌 출금</span></span>
+<span class="line"><span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">+</span> <span class="token number">100000</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment">-- B계좌 입금</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ✅ 트랜잭션으로 안전하게</span></span>
+<span class="line"><span class="token keyword">START</span> <span class="token keyword">TRANSACTION</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">-</span> <span class="token number">100000</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">+</span> <span class="token number">100000</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token comment">-- 모든 작업이 성공했을 때만 COMMIT</span></span>
+<span class="line"><span class="token keyword">COMMIT</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment">-- 오류 발생시 ROLLBACK으로 모든 작업 취소</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🗑️-2-ddl-관련-치명적-실수" tabindex="-1"><a class="header-anchor" href="#🗑️-2-ddl-관련-치명적-실수"><span>🗑️ 2. DDL 관련 치명적 실수</span></a></h3>
+<h4 id="💥-운영-중인-테이블-drop" tabindex="-1"><a class="header-anchor" href="#💥-운영-중인-테이블-drop"><span>💥 운영 중인 테이블 DROP</span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 😱 절대 금지! 테이블과 데이터가 영구 삭제</span></span>
+<span class="line"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> customers<span class="token punctuation">;</span>  </span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 😱 데이터베이스 전체 삭제 (회사 망함)</span></span>
+<span class="line"><span class="token keyword">DROP</span> <span class="token keyword">DATABASE</span> production_db<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ✅ 데이터만 삭제하고 구조는 유지</span></span>
+<span class="line"><span class="token keyword">TRUNCATE</span> <span class="token keyword">TABLE</span> temp_customers<span class="token punctuation">;</span>  <span class="token comment">-- 임시 테이블만!</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ✅ 안전한 삭제 순서</span></span>
+<span class="line"><span class="token comment">-- 1. 백업 생성</span></span>
+<span class="line"><span class="token comment">-- 2. 테스트 환경에서 검증  </span></span>
+<span class="line"><span class="token comment">-- 3. 점검시간에 운영환경 적용</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="📋-백업-없이-스키마-변경" tabindex="-1"><a class="header-anchor" href="#📋-백업-없이-스키마-변경"><span>📋 백업 없이 스키마 변경</span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 😱 위험! 컬럼 삭제시 데이터 영구 손실</span></span>
+<span class="line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> customers <span class="token keyword">DROP</span> <span class="token keyword">COLUMN</span> email<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 😱 데이터 타입 변경으로 데이터 손실</span></span>
+<span class="line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> orders <span class="token keyword">MODIFY</span> <span class="token keyword">COLUMN</span> amount <span class="token keyword">INT</span><span class="token punctuation">;</span>  <span class="token comment">-- 소수점 손실</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ✅ 안전한 스키마 변경 절차</span></span>
+<span class="line"><span class="token comment">-- 1. 전체 DB 백업</span></span>
+<span class="line"><span class="token comment">-- 2. 새 컬럼 추가 후 데이터 마이그레이션</span></span>
+<span class="line"><span class="token comment">-- 3. 검증 완료 후 기존 컬럼 삭제</span></span>
+<span class="line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> customers <span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> new_email <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment">-- 데이터 복사 및 검증 과정...</span></span>
+<span class="line"><span class="token comment">-- ALTER TABLE customers DROP COLUMN email;  -- 나중에 삭제</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🐌-3-성능-관련-치명적-실수" tabindex="-1"><a class="header-anchor" href="#🐌-3-성능-관련-치명적-실수"><span>🐌 3. 성능 관련 치명적 실수</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 😱 인덱스 무시하는 쿼리 (느려터짐)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">WHERE</span> <span class="token keyword">YEAR</span><span class="token punctuation">(</span>order_date<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2026</span><span class="token punctuation">;</span>  <span class="token comment">-- 함수 사용으로 인덱스 타지 않음</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 😱 전체 테이블 스캔 유발</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'%김%'</span><span class="token punctuation">;</span>  <span class="token comment">-- 앞에 %가 있으면 인덱스 못 씀</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ✅ 인덱스 활용 가능한 조건</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> orders </span>
+<span class="line"><span class="token keyword">WHERE</span> order_date <span class="token operator">>=</span> <span class="token string">'2026-01-01'</span> <span class="token operator">AND</span> order_date <span class="token operator">&lt;</span> <span class="token string">'2027-01-01'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'김%'</span><span class="token punctuation">;</span>  <span class="token comment">-- 뒤에만 %가 있으면 인덱스 활용 가능</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🚨-실무-사고-사례들" tabindex="-1"><a class="header-anchor" href="#🚨-실무-사고-사례들"><span>🚨 <strong>실무 사고 사례들</strong></span></a></h3>
+<table>
+<thead>
+<tr>
+<th>사고 유형</th>
+<th>실제 사례</th>
+<th>결과</th>
+<th>예방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WHERE 절 누락</strong></td>
+<td><code v-pre>DELETE FROM users</code></td>
+<td>😱 전체 회원정보 삭제</td>
+<td>✅ 항상 SELECT로 먼저 확인</td>
+</tr>
+<tr>
+<td><strong>잘못된 JOIN</strong></td>
+<td><code v-pre>UPDATE A, B SET A.status = 'D'</code></td>
+<td>😱 모든 데이터 상태 변경</td>
+<td>✅ JOIN 조건 필수 확인</td>
+</tr>
+<tr>
+<td><strong>운영DB 접속</strong></td>
+<td>개발용 스크립트를 운영DB에 실행</td>
+<td>😱 실서비스 중단</td>
+<td>✅ 접속 정보 이중 확인</td>
+</tr>
+<tr>
+<td><strong>인덱스 삭제</strong></td>
+<td>성능 튜닝 중 인덱스 DROP</td>
+<td>😱 서비스 응답시간 폭증</td>
+<td>✅ 실행계획 사전 분석</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🎮-실습-시나리오" tabindex="-1"><a class="header-anchor" href="#🎮-실습-시나리오"><span>🎮 실습 시나리오</span></a></h2>
+<h3 id="📈-시나리오-1-전자상거래-데이터-분석" tabindex="-1"><a class="header-anchor" href="#📈-시나리오-1-전자상거래-데이터-분석"><span>📈 시나리오 1: 전자상거래 데이터 분석</span></a></h3>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">flowchart</span> TD</span>
+<span class="line">    A<span class="token text string">[🛒 고객 가입]</span> <span class="token arrow operator">--></span> B<span class="token text string">[📦 상품 주문]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> C<span class="token text string">[📊 데이터 분석]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> D<span class="token text string">[💰 매출 리포트]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> E<span class="token text string">[👥 고객 세분화]</span>  </span>
+<span class="line">    C <span class="token arrow operator">--></span> F<span class="token text string">[📦 재고 관리]</span></span>
+<span class="line">    </span>
+<span class="line">    D <span class="token arrow operator">--></span> D1<span class="token text string">[월별 매출]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> D2<span class="token text string">[상품별 매출]</span></span>
+<span class="line">    E <span class="token arrow operator">--></span> E1<span class="token text string">[VIP 고객]</span></span>
+<span class="line">    E <span class="token arrow operator">--></span> E2<span class="token text string">[신규 고객]</span></span>
+<span class="line">    F <span class="token arrow operator">--></span> F1<span class="token text string">[인기 상품]</span></span>
+<span class="line">    F <span class="token arrow operator">--></span> F2<span class="token text string">[재주문 패턴]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="🎯-레벨-1-기본-조회-연습" tabindex="-1"><a class="header-anchor" href="#🎯-레벨-1-기본-조회-연습"><span>🎯 <strong>레벨 1: 기본 조회 연습</strong></span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🏢 서울 거주 고객 목록</span></span>
+<span class="line"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> join_date </span>
+<span class="line"><span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">WHERE</span> city <span class="token operator">=</span> <span class="token string">'서울'</span></span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> join_date<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📅 2026년 1월 주문 내역  </span></span>
+<span class="line"><span class="token keyword">SELECT</span> order_id<span class="token punctuation">,</span> customer_id<span class="token punctuation">,</span> order_date<span class="token punctuation">,</span> amount</span>
+<span class="line"><span class="token keyword">FROM</span> orders</span>
+<span class="line"><span class="token keyword">WHERE</span> order_date <span class="token operator">>=</span> <span class="token string">'2026-01-01'</span> <span class="token operator">AND</span> order_date <span class="token operator">&lt;</span> <span class="token string">'2026-02-01'</span></span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> order_date<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 💰 주문금액 상위 5건</span></span>
+<span class="line"><span class="token keyword">SELECT</span> customer_id<span class="token punctuation">,</span> order_date<span class="token punctuation">,</span> amount</span>
+<span class="line"><span class="token keyword">FROM</span> orders</span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> amount <span class="token keyword">DESC</span></span>
+<span class="line"><span class="token keyword">LIMIT</span> <span class="token number">5</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="🎯-레벨-2-집계-분석-연습" tabindex="-1"><a class="header-anchor" href="#🎯-레벨-2-집계-분석-연습"><span>🎯 <strong>레벨 2: 집계 분석 연습</strong></span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🏢 도시별 고객 수와 평균 주문금액</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    c<span class="token punctuation">.</span>city <span class="token keyword">AS</span> 도시<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> c<span class="token punctuation">.</span>customer_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> 고객수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총주문건수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">AVG</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 평균주문금액</span>
+<span class="line"><span class="token keyword">FROM</span> customers c</span>
+<span class="line"><span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> orders o <span class="token keyword">ON</span> c<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id</span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> c<span class="token punctuation">.</span>city</span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 평균주문금액 <span class="token keyword">DESC</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📊 월별 매출 추이</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    DATE_FORMAT<span class="token punctuation">(</span>order_date<span class="token punctuation">,</span> <span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 월<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 주문건수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">SUM</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총매출<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">AVG</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 평균주문금액</span>
+<span class="line"><span class="token keyword">FROM</span> orders</span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> DATE_FORMAT<span class="token punctuation">(</span>order_date<span class="token punctuation">,</span> <span class="token string">'%Y-%m'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 월<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 👤 고객별 주문 현황</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    c<span class="token punctuation">.</span>name <span class="token keyword">AS</span> 고객명<span class="token punctuation">,</span></span>
+<span class="line">    c<span class="token punctuation">.</span>city <span class="token keyword">AS</span> 거주도시<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> 주문횟수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 총주문금액<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token keyword">COALESCE</span><span class="token punctuation">(</span><span class="token function">MAX</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_date<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'주문없음'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 최근주문일</span>
+<span class="line"><span class="token keyword">FROM</span> customers c</span>
+<span class="line"><span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> orders o <span class="token keyword">ON</span> c<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id</span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> c<span class="token punctuation">.</span>customer_id<span class="token punctuation">,</span> c<span class="token punctuation">.</span>name<span class="token punctuation">,</span> c<span class="token punctuation">.</span>city</span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 총주문금액 <span class="token keyword">DESC</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="🎯-레벨-3-실무-응용-연습" tabindex="-1"><a class="header-anchor" href="#🎯-레벨-3-실무-응용-연습"><span>🎯 <strong>레벨 3: 실무 응용 연습</strong></span></a></h4>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🌟 VIP 고객 (총 주문금액 5000원 이상)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    c<span class="token punctuation">.</span>customer_id<span class="token punctuation">,</span></span>
+<span class="line">    c<span class="token punctuation">.</span>name <span class="token keyword">AS</span> VIP고객명<span class="token punctuation">,</span></span>
+<span class="line">    c<span class="token punctuation">.</span>city <span class="token keyword">AS</span> 거주도시<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> 주문횟수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총주문금액<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">AVG</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 평균주문금액</span>
+<span class="line"><span class="token keyword">FROM</span> customers c</span>
+<span class="line"><span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> orders o <span class="token keyword">ON</span> c<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id</span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> c<span class="token punctuation">.</span>customer_id<span class="token punctuation">,</span> c<span class="token punctuation">.</span>name<span class="token punctuation">,</span> c<span class="token punctuation">.</span>city</span>
+<span class="line"><span class="token keyword">HAVING</span> <span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">5000</span></span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 총주문금액 <span class="token keyword">DESC</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 😢 휴면 고객 (한 번도 주문하지 않은 고객)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    c<span class="token punctuation">.</span>customer_id<span class="token punctuation">,</span></span>
+<span class="line">    c<span class="token punctuation">.</span>name <span class="token keyword">AS</span> 휴면고객<span class="token punctuation">,</span></span>
+<span class="line">    c<span class="token punctuation">.</span>city <span class="token keyword">AS</span> 거주도시<span class="token punctuation">,</span></span>
+<span class="line">    c<span class="token punctuation">.</span>join_date <span class="token keyword">AS</span> 가입일<span class="token punctuation">,</span></span>
+<span class="line">    DATEDIFF<span class="token punctuation">(</span>CURDATE<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">.</span>join_date<span class="token punctuation">)</span> <span class="token keyword">AS</span> 가입후일수</span>
+<span class="line"><span class="token keyword">FROM</span> customers c</span>
+<span class="line"><span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> orders o <span class="token keyword">ON</span> c<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id</span>
+<span class="line"><span class="token keyword">WHERE</span> o<span class="token punctuation">.</span>customer_id <span class="token operator">IS</span> <span class="token boolean">NULL</span></span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> c<span class="token punctuation">.</span>join_date<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 📈 고객 생애가치 분석 (CLV - Customer Lifetime Value)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    c<span class="token punctuation">.</span>name <span class="token keyword">AS</span> 고객명<span class="token punctuation">,</span></span>
+<span class="line">    DATEDIFF<span class="token punctuation">(</span><span class="token function">MAX</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_date<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">MIN</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_date<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token keyword">AS</span> 활동기간일<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총주문횟수<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> 총구매액<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>order_id<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 평균주문금액<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token keyword">CASE</span> </span>
+<span class="line">        <span class="token keyword">WHEN</span> <span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">10000</span> <span class="token keyword">THEN</span> <span class="token string">'🥇 플래티넘'</span></span>
+<span class="line">        <span class="token keyword">WHEN</span> <span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">5000</span> <span class="token keyword">THEN</span> <span class="token string">'🥈 골드'</span>  </span>
+<span class="line">        <span class="token keyword">WHEN</span> <span class="token function">SUM</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">1000</span> <span class="token keyword">THEN</span> <span class="token string">'🥉 실버'</span></span>
+<span class="line">        <span class="token keyword">ELSE</span> <span class="token string">'🔰 브론즈'</span></span>
+<span class="line">    <span class="token keyword">END</span> <span class="token keyword">AS</span> 고객등급</span>
+<span class="line"><span class="token keyword">FROM</span> customers c</span>
+<span class="line"><span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> orders o <span class="token keyword">ON</span> c<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id</span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> c<span class="token punctuation">.</span>customer_id<span class="token punctuation">,</span> c<span class="token punctuation">.</span>name</span>
+<span class="line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 총구매액 <span class="token keyword">DESC</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="🔧-시나리오-2-데이터-품질-관리" tabindex="-1"><a class="header-anchor" href="#🔧-시나리오-2-데이터-품질-관리"><span>🔧 시나리오 2: 데이터 품질 관리</span></a></h3>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre v-pre><code class="language-sql"><span class="line"><span class="token comment">-- 🔍 중복 데이터 탐지</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    name<span class="token punctuation">,</span> </span>
+<span class="line">    city<span class="token punctuation">,</span> </span>
+<span class="line">    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 중복건수</span>
+<span class="line"><span class="token keyword">FROM</span> customers </span>
+<span class="line"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> name<span class="token punctuation">,</span> city </span>
+<span class="line"><span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- ⚠️ 데이터 이상치 검증</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token string">'주문금액 이상'</span> <span class="token keyword">AS</span> 검증항목<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 이상건수</span>
+<span class="line"><span class="token keyword">FROM</span> orders <span class="token keyword">WHERE</span> amount <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token operator">OR</span> amount <span class="token operator">IS</span> <span class="token boolean">NULL</span></span>
+<span class="line"><span class="token keyword">UNION</span> <span class="token keyword">ALL</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token string">'미래 주문일'</span> <span class="token keyword">AS</span> 검증항목<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 이상건수  </span>
+<span class="line"><span class="token keyword">FROM</span> orders <span class="token keyword">WHERE</span> order_date <span class="token operator">></span> CURDATE<span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">UNION</span> <span class="token keyword">ALL</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token string">'가입일 이상'</span> <span class="token keyword">AS</span> 검증항목<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 이상건수</span>
+<span class="line"><span class="token keyword">FROM</span> customers <span class="token keyword">WHERE</span> join_date <span class="token operator">></span> CURDATE<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 🔗 참조 무결성 검사 (존재하지 않는 고객의 주문)</span></span>
+<span class="line"><span class="token keyword">SELECT</span> </span>
+<span class="line">    o<span class="token punctuation">.</span>order_id <span class="token keyword">AS</span> 문제주문번호<span class="token punctuation">,</span></span>
+<span class="line">    o<span class="token punctuation">.</span>customer_id <span class="token keyword">AS</span> 존재하지않는고객번호<span class="token punctuation">,</span></span>
+<span class="line">    o<span class="token punctuation">.</span>order_date<span class="token punctuation">,</span></span>
+<span class="line">    o<span class="token punctuation">.</span>amount</span>
+<span class="line"><span class="token keyword">FROM</span> orders o</span>
+<span class="line"><span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> customers c <span class="token keyword">ON</span> o<span class="token punctuation">.</span>customer_id <span class="token operator">=</span> c</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+
+

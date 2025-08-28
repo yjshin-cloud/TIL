@@ -1,0 +1,260 @@
+<template><div><h1 id="멋쟁이사자처럼-1주차-회고록" tabindex="-1"><a class="header-anchor" href="#멋쟁이사자처럼-1주차-회고록"><span>멋쟁이사자처럼 1주차 회고록</span></a></h1>
+<p><em>클라우드 엔지니어링 여정의 시작 🚀</em></p>
+<hr>
+<h2 id="📅-학습-기간" tabindex="-1"><a class="header-anchor" href="#📅-학습-기간"><span>📅 학습 기간</span></a></h2>
+<p><strong>2025년 7월 29일 - 8월 1일 (4일차)</strong></p>
+<hr>
+<h2 id="🎯-주요-학습-목표-및-성취도" tabindex="-1"><a class="header-anchor" href="#🎯-주요-학습-목표-및-성취도"><span>🎯 주요 학습 목표 및 성취도</span></a></h2>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">gantt</span></span>
+<span class="line">    title 1주차 학습 일정 및 성취도</span>
+<span class="line">    dateFormat  YYYY-MM-DD</span>
+<span class="line">    section Day 1 <span class="token text string">(7/29)</span></span>
+<span class="line">    AI 도구 소개       <span class="token operator">:</span>done, d1, 2025-07-29, 2025-07-29</span>
+<span class="line">    클라우드 개념      <span class="token operator">:</span>done, d2, 2025-07-29, 2025-07-29</span>
+<span class="line">    학습 로드맵        <span class="token operator">:</span>done, d3, 2025-07-29, 2025-07-29</span>
+<span class="line">    </span>
+<span class="line">    section Day 2 <span class="token text string">(7/30)</span></span>
+<span class="line">    Git 기초          <span class="token operator">:</span>done, d4, 2025-07-30, 2025-07-30</span>
+<span class="line">    GitHub 연동       <span class="token operator">:</span>done, d5, 2025-07-30, 2025-07-30</span>
+<span class="line">    Markdown 문법     <span class="token operator">:</span>done, d6, 2025-07-30, 2025-07-30</span>
+<span class="line">    </span>
+<span class="line">    section Day 3 <span class="token text string">(7/31)</span></span>
+<span class="line">    Java 개발환경     <span class="token operator">:</span>done, d7, 2025-07-31, 2025-07-31</span>
+<span class="line">    IntelliJ 설정     <span class="token operator">:</span>done, d8, 2025-07-31, 2025-07-31</span>
+<span class="line">    기본 문법         <span class="token operator">:</span>done, d9, 2025-07-31, 2025-07-31</span>
+<span class="line">    </span>
+<span class="line">    section Day 4 <span class="token text string">(8/1)</span></span>
+<span class="line">    Obsidian 활용     <span class="token operator">:</span>done, d10, 2025-08-01, 2025-08-01</span>
+<span class="line">    흐름 제어 구조    <span class="token operator">:</span>done, d11, 2025-08-01, 2025-08-01</span>
+<span class="line">    Gemini API 연동   <span class="token operator">:</span>done, d12, 2025-08-01, 2025-08-01</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="📚-일차별-학습-내용" tabindex="-1"><a class="header-anchor" href="#📚-일차별-학습-내용"><span>📚 일차별 학습 내용</span></a></h2>
+<h3 id="🌟-day-1-7-29-ai와-클라우드의-첫-만남" tabindex="-1"><a class="header-anchor" href="#🌟-day-1-7-29-ai와-클라우드의-첫-만남"><span>🌟 <strong>Day 1 (7/29): AI와 클라우드의 첫 만남</strong></span></a></h3>
+<h4 id="핵심-키워드" tabindex="-1"><a class="header-anchor" href="#핵심-키워드"><span>핵심 키워드</span></a></h4>
+<ul>
+<li><strong>AI 도구 활용</strong>: Claude, Gemini, NotebookLM</li>
+<li><strong>클라우드 개념</strong>: AWS, Azure, GCP 기초</li>
+<li><strong>시각화</strong>: Mermaid, Diagrams.net</li>
+</ul>
+<h4 id="주요-성과" tabindex="-1"><a class="header-anchor" href="#주요-성과"><span>주요 성과</span></a></h4>
+<ul>
+<li>클라우드 엔지니어링 로드맵 시각화 완성</li>
+<li>AI 도구를 활용한 학습 방법론 습득</li>
+<li>자기소개서 작성법 및 취업 전략 수립</li>
+</ul>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">mindmap</span>
+<span class="line">  root<span class="token text string">((Day 1 학습))</span></span>
+<span class="line">    AI 도구</span>
+<span class="line">      Claude</span>
+<span class="line">      Gemini</span>
+<span class="line">      NotebookLM</span>
+<span class="line">    클라우드 기초</span>
+<span class="line">      AWS</span>
+<span class="line">      Azure</span>
+<span class="line">      GCP</span>
+<span class="line">    시각화 도구</span>
+<span class="line">      Mermaid</span>
+<span class="line">      Diagrams.net</span>
+<span class="line">      Napkin AI</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h3 id="🔧-day-2-7-30-git-github-마스터하기" tabindex="-1"><a class="header-anchor" href="#🔧-day-2-7-30-git-github-마스터하기"><span>🔧 <strong>Day 2 (7/30): Git/GitHub 마스터하기</strong></span></a></h3>
+<h4 id="핵심-키워드-1" tabindex="-1"><a class="header-anchor" href="#핵심-키워드-1"><span>핵심 키워드</span></a></h4>
+<ul>
+<li><strong>버전 관리</strong>: Git 기초 명령어</li>
+<li><strong>협업 도구</strong>: GitHub 연동</li>
+<li><strong>문서화</strong>: Markdown 문법</li>
+</ul>
+<h4 id="주요-학습-명령어" tabindex="-1"><a class="header-anchor" href="#주요-학습-명령어"><span>주요 학습 명령어</span></a></h4>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre v-pre><code class="language-bash"><span class="line"><span class="token comment"># Git 기본 워크플로우</span></span>
+<span class="line"><span class="token function">git</span> init</span>
+<span class="line"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span></span>
+<span class="line"><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"message"</span></span>
+<span class="line"><span class="token function">git</span> push origin main</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 원격 저장소 연결</span></span>
+<span class="line"><span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token punctuation">[</span>URL<span class="token punctuation">]</span></span>
+<span class="line"><span class="token function">git</span> branch <span class="token parameter variable">-M</span> main</span>
+<span class="line"><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin main</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="트러블슈팅-경험" tabindex="-1"><a class="header-anchor" href="#트러블슈팅-경험"><span>트러블슈팅 경험</span></a></h4>
+<ul>
+<li>원격 저장소 권한 문제 해결</li>
+<li>커밋 충돌 해결 방법 학습</li>
+<li>자격증명 관리 (Windows/Mac 환경별 차이점)</li>
+</ul>
+<hr>
+<h3 id="☕-day-3-7-31-java-개발-환경-구축" tabindex="-1"><a class="header-anchor" href="#☕-day-3-7-31-java-개발-환경-구축"><span>☕ <strong>Day 3 (7/31): Java 개발 환경 구축</strong></span></a></h3>
+<h4 id="핵심-키워드-2" tabindex="-1"><a class="header-anchor" href="#핵심-키워드-2"><span>핵심 키워드</span></a></h4>
+<ul>
+<li><strong>IDE 설정</strong>: IntelliJ IDEA 커스터마이징</li>
+<li><strong>개발 환경</strong>: JDK 17 (Zulu) 설치</li>
+<li><strong>AI 코딩</strong>: Gemini Code Assist 연동</li>
+</ul>
+<h4 id="개발-환경-세팅" tabindex="-1"><a class="header-anchor" href="#개발-환경-세팅"><span>개발 환경 세팅</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">graph</span> LR</span>
+<span class="line">    A<span class="token text string">[IntelliJ IDEA]</span> <span class="token arrow operator">--></span> B<span class="token text string">[JDK 17 Zulu]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> C<span class="token text string">[GitHub 연동]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> D<span class="token text string">[Gemini Code Assist]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> E<span class="token text string">[프로젝트 생성]</span></span>
+<span class="line">    E <span class="token arrow operator">--></span> F<span class="token text string">[HelloWorld 실행]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="필수-플러그인-설치" tabindex="-1"><a class="header-anchor" href="#필수-플러그인-설치"><span>필수 플러그인 설치</span></a></h4>
+<ul>
+<li>Atom Material File Icons</li>
+<li>Rainbow Brackets</li>
+<li>Translation</li>
+<li>Gemini Code Assist</li>
+</ul>
+<hr>
+<h3 id="🧠-day-4-8-1-지식-관리-시스템-구축" tabindex="-1"><a class="header-anchor" href="#🧠-day-4-8-1-지식-관리-시스템-구축"><span>🧠 <strong>Day 4 (8/1): 지식 관리 시스템 구축</strong></span></a></h3>
+<h4 id="핵심-키워드-3" tabindex="-1"><a class="header-anchor" href="#핵심-키워드-3"><span>핵심 키워드</span></a></h4>
+<ul>
+<li><strong>노트 관리</strong>: Obsidian 활용법</li>
+<li><strong>제어 구조</strong>: if-else, for, while 문</li>
+<li><strong>API 연동</strong>: Gemini API 실습</li>
+</ul>
+<h4 id="obsidian-특화-기능" tabindex="-1"><a class="header-anchor" href="#obsidian-특화-기능"><span>Obsidian 특화 기능</span></a></h4>
+<ul>
+<li><code v-pre>[[링크]]</code> 문법으로 노트 연결</li>
+<li>태그 시스템으로 분류</li>
+<li>그래프 뷰로 지식 관계 시각화</li>
+<li>콜아웃 문법으로 중요 내용 강조</li>
+</ul>
+<h4 id="제어-구조-학습" tabindex="-1"><a class="header-anchor" href="#제어-구조-학습"><span>제어 구조 학습</span></a></h4>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">flowchart</span> TD</span>
+<span class="line">    A<span class="token text string">[프로그램 시작]</span> <span class="token arrow operator">--></span> B<span class="token text string">{조건문}</span></span>
+<span class="line">    B <span class="token arrow operator">--></span><span class="token label property">|참|</span> C<span class="token text string">[실행 블록 1]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span><span class="token label property">|거짓|</span> D<span class="token text string">[실행 블록 2]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> E<span class="token text string">[반복문]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> E</span>
+<span class="line">    E <span class="token arrow operator">--></span> F<span class="token text string">{반복 조건}</span></span>
+<span class="line">    F <span class="token arrow operator">--></span><span class="token label property">|참|</span> G<span class="token text string">[반복 실행]</span></span>
+<span class="line">    G <span class="token arrow operator">--></span> F</span>
+<span class="line">    F <span class="token arrow operator">--></span><span class="token label property">|거짓|</span> H<span class="token text string">[프로그램 종료]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
+<h2 id="💡-주요-깨달음" tabindex="-1"><a class="header-anchor" href="#💡-주요-깨달음"><span>💡 주요 깨달음</span></a></h2>
+<h3 id="✅-성공-포인트" tabindex="-1"><a class="header-anchor" href="#✅-성공-포인트"><span>✅ <strong>성공 포인트</strong></span></a></h3>
+<ol>
+<li>
+<p><strong>AI 도구의 적극 활용</strong></p>
+<ul>
+<li>학습 속도 대폭 향상</li>
+<li>개념 이해도 증진</li>
+<li>실무 적용 가능성 확인</li>
+</ul>
+</li>
+<li>
+<p><strong>체계적인 지식 관리</strong></p>
+<ul>
+<li>Obsidian을 통한 연결된 학습</li>
+<li>Git을 통한 버전 관리</li>
+<li>Markdown을 통한 표준화된 문서화</li>
+</ul>
+</li>
+<li>
+<p><strong>실습 중심 학습</strong></p>
+<ul>
+<li>이론과 실습의 균형</li>
+<li>트러블슈팅 경험 축적</li>
+<li>실제 프로젝트 환경 구축</li>
+</ul>
+</li>
+</ol>
+<h3 id="⚠️-도전-과제" tabindex="-1"><a class="header-anchor" href="#⚠️-도전-과제"><span>⚠️ <strong>도전 과제</strong></span></a></h3>
+<ol>
+<li>
+<p><strong>환경 설정의 복잡성</strong></p>
+<ul>
+<li>운영체제별 차이점 극복 필요</li>
+<li>자격증명 관리의 어려움</li>
+</ul>
+</li>
+<li>
+<p><strong>정보의 양적 압박</strong></p>
+<ul>
+<li>빠른 속도의 강의 진행</li>
+<li>복습 시간 확보 필요</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="📈-성장-지표" tabindex="-1"><a class="header-anchor" href="#📈-성장-지표"><span>📈 성장 지표</span></a></h2>
+<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line">xychart-beta</span>
+<span class="line">    title <span class="token string">"1주차 학습 성취도"</span></span>
+<span class="line">    <span class="token arrow operator">x-</span>axis <span class="token text string">[Day1, Day2, Day3, Day4]</span></span>
+<span class="line">    y-axis <span class="token string">"이해도 (%)"</span> 0 <span class="token arrow operator">--></span> 100</span>
+<span class="line">    bar <span class="token text string">[30, 60, 75, 85]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="세부-역량별-성장" tabindex="-1"><a class="header-anchor" href="#세부-역량별-성장"><span>세부 역량별 성장</span></a></h3>
+<ul>
+<li><strong>Git/GitHub 활용</strong>: 20% → 80%</li>
+<li><strong>Java 기초</strong>: 0% → 70%</li>
+<li><strong>AI 도구 활용</strong>: 40% → 90%</li>
+<li><strong>문서화 능력</strong>: 50% → 85%</li>
+</ul>
+<hr>
+<h2 id="🎯-다음-주-목표" tabindex="-1"><a class="header-anchor" href="#🎯-다음-주-목표"><span>🎯 다음 주 목표</span></a></h2>
+<h3 id="🚀-우선순위-높음" tabindex="-1"><a class="header-anchor" href="#🚀-우선순위-높음"><span>🚀 <strong>우선순위 높음</strong></span></a></h3>
+<ul>
+<li>[ ] Java 기본 문법 완전 숙달</li>
+<li>[ ] 객체지향 프로그래밍 개념 학습</li>
+<li>[ ] 실무 프로젝트 시작</li>
+</ul>
+<h3 id="📋-보완-학습" tabindex="-1"><a class="header-anchor" href="#📋-보완-학습"><span>📋 <strong>보완 학습</strong></span></a></h3>
+<ul>
+<li>[ ] Linux 명령어 기초</li>
+<li>[ ] 데이터베이스 기초 (MySQL)</li>
+<li>[ ] Spring Boot 프레임워크 입문</li>
+</ul>
+<h3 id="🔧-환경-개선" tabindex="-1"><a class="header-anchor" href="#🔧-환경-개선"><span>🔧 <strong>환경 개선</strong></span></a></h3>
+<ul>
+<li>[ ] 개발 워크플로우 최적화</li>
+<li>[ ] 코드 품질 관리 도구 도입</li>
+<li>[ ] 팀 협업 도구 활용법 학습</li>
+</ul>
+<hr>
+<h2 id="💭-개인적-소감" tabindex="-1"><a class="header-anchor" href="#💭-개인적-소감"><span>💭 개인적 소감</span></a></h2>
+<h3 id="🌟-가장-인상-깊었던-순간" tabindex="-1"><a class="header-anchor" href="#🌟-가장-인상-깊었던-순간"><span>🌟 <strong>가장 인상 깊었던 순간</strong></span></a></h3>
+<p>첫날 클라우드 엔지니어링 로드맵을 AI로 시각화했을 때, 막연했던 학습 목표가 구체적으로 보이기 시작했습니다. 특히 Mermaid 문법으로 복잡한 개념을 한눈에 볼 수 있게 정리하는 과정에서 **&quot;시각화의 힘&quot;**을 실감했습니다.</p>
+<h3 id="🤔-가장-어려웠던-부분" tabindex="-1"><a class="header-anchor" href="#🤔-가장-어려웠던-부분"><span>🤔 <strong>가장 어려웠던 부분</strong></span></a></h3>
+<p>Git의 개념적 이해는 쉬웠지만, 실제 GitHub와 연동하면서 발생하는 권한 문제나 충돌 상황들을 해결하는 것이 예상보다 복잡했습니다. 하지만 이런 <strong>실전 경험</strong>이야말로 진짜 학습이라는 생각이 들었습니다.</p>
+<h3 id="🔥-동기부여된-요소" tabindex="-1"><a class="header-anchor" href="#🔥-동기부여된-요소"><span>🔥 <strong>동기부여된 요소</strong></span></a></h3>
+<p>AI 도구들의 발전 속도가 놀라웠습니다. Gemini Code Assist로 코드 작성 도움을 받고, Claude로 개념을 정리하고, NotebookLM으로 오디오 요약까지 만들 수 있다는 것이 <strong>미래의 개발자 역할</strong>에 대해 새롭게 생각해보게 했습니다.</p>
+<hr>
+<h2 id="🔗-유용한-리소스-모음" tabindex="-1"><a class="header-anchor" href="#🔗-유용한-리소스-모음"><span>🔗 유용한 리소스 모음</span></a></h2>
+<h3 id="📖-학습-사이트" tabindex="-1"><a class="header-anchor" href="#📖-학습-사이트"><span>📖 <strong>학습 사이트</strong></span></a></h3>
+<ul>
+<li><a href="https://www.programiz.com/java-programming" target="_blank" rel="noopener noreferrer">Programiz Java</a> - 기초 개념 학습</li>
+<li><a href="https://www.geeksforgeeks.org/" target="_blank" rel="noopener noreferrer">GeeksforGeeks</a> - 심화 주제 탐구</li>
+<li><a href="https://git-scm.com/book/ko/v2/" target="_blank" rel="noopener noreferrer">Git 공식 문서</a> - Git 완벽 가이드</li>
+</ul>
+<h3 id="🛠️-도구-및-플랫폼" tabindex="-1"><a class="header-anchor" href="#🛠️-도구-및-플랫폼"><span>🛠️ <strong>도구 및 플랫폼</strong></span></a></h3>
+<ul>
+<li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> - 코드 저장소</li>
+<li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude.ai</a> - AI 어시스턴트</li>
+<li><a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian</a> - 지식 관리</li>
+<li><a href="https://mermaid.live/" target="_blank" rel="noopener noreferrer">Mermaid Live Editor</a> - 다이어그램 작성</li>
+</ul>
+<h3 id="🎓-추가-학습-자료" tabindex="-1"><a class="header-anchor" href="#🎓-추가-학습-자료"><span>🎓 <strong>추가 학습 자료</strong></span></a></h3>
+<ul>
+<li><a href="https://aws.amazon.com/ko/certification/" target="_blank" rel="noopener noreferrer">AWS 인증 경로</a></li>
+<li><a href="https://roadmap.sh/java" target="_blank" rel="noopener noreferrer">Java 로드맵</a></li>
+<li><a href="https://www.acmicpc.net/" target="_blank" rel="noopener noreferrer">백준 온라인 저지</a> - 알고리즘 연습</li>
+</ul>
+<hr>
+<h2 id="🏁-마무리" tabindex="-1"><a class="header-anchor" href="#🏁-마무리"><span>🏁 마무리</span></a></h2>
+<p>1주차를 돌아보면, 단순히 기술을 배운 것이 아니라 **&quot;어떻게 효율적으로 학습할 것인가&quot;**에 대한 방법론을 터득한 시간이었습니다.</p>
+<p>AI 도구의 도움을 받아 빠르게 개념을 이해하고, Git으로 코드를 관리하며, Obsidian으로 지식을 체계화하는 <strong>현대적인 학습 패러다임</strong>을 경험했습니다.</p>
+<p>앞으로의 여정이 더욱 기대됩니다! 🚀</p>
+<hr>
+<p><em>&quot;코드도 배우고, AI도 활용하고, 미래도 준비하는 멋쟁이사자처럼!&quot;</em> 🦁</p>
+<hr>
+<p><strong>작성일</strong>: 2025년 8월 14일<br>
+<strong>작성자</strong>: 클라우드 엔지니어 지망생<br>
+<strong>태그</strong>: <code v-pre>#멋쟁이사자처럼</code> <code v-pre>#회고</code> <code v-pre>#Java</code> <code v-pre>#Git</code> <code v-pre>#AI도구</code> <code v-pre>#1주차</code></p>
+</div></template>
+
+
