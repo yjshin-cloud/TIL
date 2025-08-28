@@ -1033,25 +1033,19 @@ public class JdbcMemberDAO implements MemberDAO {
 
 ```mermaid
 graph TD
-    A[4주차 완료] --> B[5주차 시작]
-    B --> C[Spring Framework 기초]
-    B --> D[웹 애플리케이션 구조]
-    B --> E[HTTP & 서블릿]
+    A["4주차 완료"] --> B["5주차 시작"]
+    B --> C["Spring Framework 기초"]
+    B --> D["웹 애플리케이션 구조"]
+    B --> E["HTTP & 서블릿"]
     
-    C --> C1[의존성 주입<br/>Dependency Injection]
-    C --> C2[스프링 컨테이너<br/>Application Context]
+    C --> C1["의존성 주입\nDependency Injection"]
+    C --> C2["스프링 컨테이너\nApplication Context"]
     
-    D --> D1[MVC 패턴<br/>Model-View-Controller]
-    D --> D2[템플릿 엔진<br/>Thymeleaf]
+    D --> D1["MVC 패턴\nModel-View-Controller"]
+    D --> D2["템플릿 엔진\nThymeleaf"]
     
-    E --> E1[HTTP 메서드<br/>GET, POST, PUT, DELETE]
-    E --> E2[요청/응답 처리<br/>Request/Response]
-    
-    style A fill:#c8e6c9
-    style B fill:#fff3e0
-    style C fill:#e3f2fd
-    style D fill:#fce4ec
-    style E fill:#f3e5f5
+    E --> E1["HTTP 메서드\nGET, POST, PUT, DELETE"]
+    E --> E2["요청/응답 처리\nRequest/Response"]
 ```
 
 ### 📋 구체적 학습 계획
