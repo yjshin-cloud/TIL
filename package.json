@@ -1,7 +1,4 @@
 {
-  "name": "til",
-  "version": "1.0.0",
-  "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
@@ -12,8 +9,5 @@
     "@vuepress/bundler-vite": "next",
     "@vuepress/plugin-search": "next",
     "sass-embedded": "^1.91.0"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }

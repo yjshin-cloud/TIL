@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -30,9 +31,17 @@ jobs:
         env:
           NODE_ENV: development
 
-      # ✅ 빌드 때만 prod + GitHub Pages용 base 플래그
+      # (선택) 설치 검증: devDeps 존재 여부 & vuepress 버전
+      - name: Debug deps
+        run: |
+          node -v
+          npm -v
+          npm pkg get devDependencies
+          npx --yes vuepress@next -v
+
+      # ✅ 빌드에서만 prod + base='/TIL/' 플래그
       - name: Build VuePress (docs → docs/.vuepress/dist)
-        run: npx vuepress@next build docs
+        run: npx --yes vuepress@next build docs
         env:
           NODE_ENV: production
           GITHUB_PAGES: "true"
