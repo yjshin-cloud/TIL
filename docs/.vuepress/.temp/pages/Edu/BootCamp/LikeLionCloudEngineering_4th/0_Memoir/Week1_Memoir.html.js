@@ -1,3 +1,16 @@
 import comp from "C:/likelion/workspace/TIL/docs/.vuepress/.temp/pages/Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir.html.vue"
 const data = JSON.parse("{\"path\":\"/Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir.html\",\"title\":\"멋쟁이사자처럼 1주차 회고록\",\"lang\":\"ko-KR\",\"frontmatter\":{},\"git\":{\"updatedTime\":1756307520000,\"contributors\":[{\"name\":\"yjshin-cloud\",\"username\":\"yjshin-cloud\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":1,\"url\":\"https://github.com/yjshin-cloud\"},{\"name\":\"yjshin.cloud\",\"username\":\"\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":1}],\"changelog\":[{\"hash\":\"a25b1690258363e622bea4ff5ccd8e22aaa7ddef\",\"time\":1756307520000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin.cloud\",\"message\":\"TEST4\"},{\"hash\":\"1b6a1e0e58770068bf05302a773c5e8a1e5ef3eb\",\"time\":1755162002000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Add files via upload\"}]},\"filePathRelative\":\"Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir.md\"}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

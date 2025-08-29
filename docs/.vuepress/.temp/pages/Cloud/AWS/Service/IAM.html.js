@@ -1,3 +1,16 @@
 import comp from "C:/likelion/workspace/TIL/docs/.vuepress/.temp/pages/Cloud/AWS/Service/IAM.html.vue"
 const data = JSON.parse("{\"path\":\"/Cloud/AWS/Service/IAM.html\",\"title\":\"🔐 AWS IAM (Identity and Access Management) 이해하기\",\"lang\":\"ko-KR\",\"frontmatter\":{},\"git\":{\"updatedTime\":1756307520000,\"contributors\":[{\"name\":\"yjshin-cloud\",\"username\":\"yjshin-cloud\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":2,\"url\":\"https://github.com/yjshin-cloud\"},{\"name\":\"yjshin.cloud\",\"username\":\"\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":1}],\"changelog\":[{\"hash\":\"a25b1690258363e622bea4ff5ccd8e22aaa7ddef\",\"time\":1756307520000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin.cloud\",\"message\":\"TEST4\"},{\"hash\":\"87798e63a6b4127891a6c2eac4c3c0335420d99a\",\"time\":1755886603000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Update IAM.md\"},{\"hash\":\"f6ccce06a0c98a3d3284613ed2c11bcefa60191c\",\"time\":1755886451000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Create IAM.md\"}]},\"filePathRelative\":\"Cloud/AWS/Service/IAM.md\"}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

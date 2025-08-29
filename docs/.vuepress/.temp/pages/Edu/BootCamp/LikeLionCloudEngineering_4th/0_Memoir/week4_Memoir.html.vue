@@ -1085,27 +1085,21 @@
 <h2 id="🔮-5주차-학습-계획" tabindex="-1"><a class="header-anchor" href="#🔮-5주차-학습-계획"><span>🔮 5주차 학습 계획</span></a></h2>
 <h3 id="🎯-다음-주-목표" tabindex="-1"><a class="header-anchor" href="#🎯-다음-주-목표"><span>🎯 다음 주 목표</span></a></h3>
 <div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid"><pre v-pre><code class="language-mermaid"><span class="line"><span class="token keyword">graph</span> TD</span>
-<span class="line">    A<span class="token text string">[4주차 완료]</span> <span class="token arrow operator">--></span> B<span class="token text string">[5주차 시작]</span></span>
-<span class="line">    B <span class="token arrow operator">--></span> C<span class="token text string">[Spring Framework 기초]</span></span>
-<span class="line">    B <span class="token arrow operator">--></span> D<span class="token text string">[웹 애플리케이션 구조]</span></span>
-<span class="line">    B <span class="token arrow operator">--></span> E<span class="token text string">[HTTP &amp; 서블릿]</span></span>
+<span class="line">    A<span class="token text string">["4주차 완료"]</span> <span class="token arrow operator">--></span> B<span class="token text string">["5주차 시작"]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> C<span class="token text string">["Spring Framework 기초"]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> D<span class="token text string">["웹 애플리케이션 구조"]</span></span>
+<span class="line">    B <span class="token arrow operator">--></span> E<span class="token text string">["HTTP &amp; 서블릿"]</span></span>
 <span class="line">    </span>
-<span class="line">    C <span class="token arrow operator">--></span> C1<span class="token text string">[의존성 주입&lt;br/>Dependency Injection]</span></span>
-<span class="line">    C <span class="token arrow operator">--></span> C2<span class="token text string">[스프링 컨테이너&lt;br/>Application Context]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> C1<span class="token text string">["의존성 주입\nDependency Injection"]</span></span>
+<span class="line">    C <span class="token arrow operator">--></span> C2<span class="token text string">["스프링 컨테이너\nApplication Context"]</span></span>
 <span class="line">    </span>
-<span class="line">    D <span class="token arrow operator">--></span> D1<span class="token text string">[MVC 패턴&lt;br/>Model-View-Controller]</span></span>
-<span class="line">    D <span class="token arrow operator">--></span> D2<span class="token text string">[템플릿 엔진&lt;br/>Thymeleaf]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> D1<span class="token text string">["MVC 패턴\nModel-View-Controller"]</span></span>
+<span class="line">    D <span class="token arrow operator">--></span> D2<span class="token text string">["템플릿 엔진\nThymeleaf"]</span></span>
 <span class="line">    </span>
-<span class="line">    E <span class="token arrow operator">--></span> E1<span class="token text string">[HTTP 메서드&lt;br/>GET, POST, PUT, DELETE]</span></span>
-<span class="line">    E <span class="token arrow operator">--></span> E2<span class="token text string">[요청/응답 처리&lt;br/>Request/Response]</span></span>
-<span class="line">    </span>
-<span class="line">    <span class="token keyword">style</span> A <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#c8e6c9</span></span>
-<span class="line">    <span class="token keyword">style</span> B <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#fff3e0</span></span>
-<span class="line">    <span class="token keyword">style</span> C <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#e3f2fd</span></span>
-<span class="line">    <span class="token keyword">style</span> D <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#fce4ec</span></span>
-<span class="line">    <span class="token keyword">style</span> E <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f3e5f5</span></span>
+<span class="line">    E <span class="token arrow operator">--></span> E1<span class="token text string">["HTTP 메서드\nGET, POST, PUT, DELETE"]</span></span>
+<span class="line">    E <span class="token arrow operator">--></span> E2<span class="token text string">["요청/응답 처리\nRequest/Response"]</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="📋-구체적-학습-계획" tabindex="-1"><a class="header-anchor" href="#📋-구체적-학습-계획"><span>📋 구체적 학습 계획</span></a></h3>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="📋-구체적-학습-계획" tabindex="-1"><a class="header-anchor" href="#📋-구체적-학습-계획"><span>📋 구체적 학습 계획</span></a></h3>
 <table>
 <thead>
 <tr>

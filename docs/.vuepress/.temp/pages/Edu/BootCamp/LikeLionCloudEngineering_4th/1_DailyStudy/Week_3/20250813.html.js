@@ -1,3 +1,16 @@
 import comp from "C:/likelion/workspace/TIL/docs/.vuepress/.temp/pages/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813.html.vue"
 const data = JSON.parse("{\"path\":\"/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813.html\",\"title\":\"MySQL 8.0 완전 복습 가이드 📚\",\"lang\":\"ko-KR\",\"frontmatter\":{},\"git\":{\"updatedTime\":1756307520000,\"contributors\":[{\"name\":\"yjshin-cloud\",\"username\":\"yjshin-cloud\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":2,\"url\":\"https://github.com/yjshin-cloud\"},{\"name\":\"yjshin.cloud\",\"username\":\"\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":1}],\"changelog\":[{\"hash\":\"a25b1690258363e622bea4ff5ccd8e22aaa7ddef\",\"time\":1756307520000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin.cloud\",\"message\":\"TEST4\"},{\"hash\":\"0ac6f67abd1e09f4f32ba42bcee914690c869e65\",\"time\":1755440667000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Rename Edu/BootCamp/LikeLionCloudEngineering_4th/Week_3/20250813.md to Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813.md\"},{\"hash\":\"9dcb2a47508792ceb6d1d4232c690a2c9d02de3f\",\"time\":1755088934000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Create 20250813.md\"}]},\"filePathRelative\":\"Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813.md\"}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

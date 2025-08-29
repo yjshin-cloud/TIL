@@ -1,3 +1,16 @@
 import comp from "C:/likelion/workspace/TIL/docs/.vuepress/.temp/pages/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812.html.vue"
 const data = JSON.parse("{\"path\":\"/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812.html\",\"title\":\"🗄️ SQL 완벽 가이드 - 기초부터 실무까지\",\"lang\":\"ko-KR\",\"frontmatter\":{},\"git\":{\"updatedTime\":1756307520000,\"contributors\":[{\"name\":\"yjshin-cloud\",\"username\":\"yjshin-cloud\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":5,\"url\":\"https://github.com/yjshin-cloud\"},{\"name\":\"yjshin.cloud\",\"username\":\"\",\"email\":\"yjshin.cloud@gmail.com\",\"commits\":1}],\"changelog\":[{\"hash\":\"a25b1690258363e622bea4ff5ccd8e22aaa7ddef\",\"time\":1756307520000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin.cloud\",\"message\":\"TEST4\"},{\"hash\":\"06f2761d4da815ed9f8ff2936916f0bb2189da33\",\"time\":1755440634000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Rename Edu/BootCamp/LikeLionCloudEngineering_4th/Week_3/20250812.md to Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812.md\"},{\"hash\":\"a4433fc8924a5626b6dc818b32a459d2765edf16\",\"time\":1755005831000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Add files via upload\"},{\"hash\":\"e2fa60c7846a3e0417ea3a61d4723597c73eaf45\",\"time\":1755005065000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Delete Edu/BootCamp/LikeLionCloudEngineering_4th/Week_3 directory\"},{\"hash\":\"a1a660ffba4202a4dd7d08671209e327726787b8\",\"time\":1755002814000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Update 20250812.md\"},{\"hash\":\"ba4d508f1431afa29b2c14df7cc3f8403ba217f0\",\"time\":1755002408000,\"email\":\"yjshin.cloud@gmail.com\",\"author\":\"yjshin-cloud\",\"message\":\"Create 20250812.md\"}]},\"filePathRelative\":\"Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812.md\"}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -9,14 +9,7 @@ export const SEARCH_INDEX = [
   {
     "title": "",
     "headers": [],
-    "path": "/OS/",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/DB/",
+    "path": "/Cloud/",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -30,7 +23,14 @@ export const SEARCH_INDEX = [
   {
     "title": "",
     "headers": [],
-    "path": "/Cloud/",
+    "path": "/DB/",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "",
+    "headers": [],
+    "path": "/OS/",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -79,16 +79,16 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
-    "title": "Edu/BootCamp",
+    "title": "Cloud/AWS",
     "headers": [],
-    "path": "/Edu/BootCamp/",
+    "path": "/Cloud/AWS/",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "Cloud/AWS",
+    "title": "Edu/BootCamp",
     "headers": [],
-    "path": "/Cloud/AWS/",
+    "path": "/Edu/BootCamp/",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -103,13 +103,6 @@ export const SEARCH_INDEX = [
     "title": "Programming_Languages/FrontEnd",
     "headers": [],
     "path": "/Programming_Languages/FrontEnd/",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Edu/BootCamp/LikeLionCloudEngineering_4th",
-    "headers": [],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -921,6 +914,13 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
+    "title": "Edu/BootCamp/LikeLionCloudEngineering_4th",
+    "headers": [],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "Programming_Languages/BackEnd/Go",
     "headers": [],
     "path": "/Programming_Languages/BackEnd/Go/",
@@ -1289,13 +1289,6 @@ export const SEARCH_INDEX = [
       }
     ],
     "path": "/Programming_Languages/FrontEnd/JS/DOM_BOM.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy",
-    "headers": [],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2427,7 +2420,212 @@ export const SEARCH_INDEX = [
         "children": []
       }
     ],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/week4_Memoir.html",
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "🌟 5주차 회고록 (Week 5 Retrospective)",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📚 이번 주 학습 주제",
+        "slug": "📚-이번-주-학습-주제",
+        "link": "#📚-이번-주-학습-주제",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔥 핵심 학습 영역",
+            "slug": "🔥-핵심-학습-영역",
+            "link": "#🔥-핵심-학습-영역",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎯 학습 흐름 시각화",
+        "slug": "🎯-학습-흐름-시각화",
+        "link": "#🎯-학습-흐름-시각화",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "✅ Keep (잘한 점)",
+        "slug": "✅-keep-잘한-점",
+        "link": "#✅-keep-잘한-점",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎉 성과 하이라이트",
+            "slug": "🎉-성과-하이라이트",
+            "link": "#🎉-성과-하이라이트",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💡 핵심 깨달음",
+            "slug": "💡-핵심-깨달음",
+            "link": "#💡-핵심-깨달음",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🚧 Problem (아쉬운 점)",
+        "slug": "🚧-problem-아쉬운-점",
+        "link": "#🚧-problem-아쉬운-점",
+        "children": [
+          {
+            "level": 3,
+            "title": "⚠️ 개선이 필요한 영역",
+            "slug": "⚠️-개선이-필요한-영역",
+            "link": "#⚠️-개선이-필요한-영역",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔍 구체적인 어려움들",
+            "slug": "🔍-구체적인-어려움들",
+            "link": "#🔍-구체적인-어려움들",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔨 Try (개선할 점)",
+        "slug": "🔨-try-개선할-점",
+        "link": "#🔨-try-개선할-점",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 단기 목표 (1-2주)",
+            "slug": "🎯-단기-목표-1-2주",
+            "link": "#🎯-단기-목표-1-2주",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🚀 중기 목표 (1개월)",
+            "slug": "🚀-중기-목표-1개월",
+            "link": "#🚀-중기-목표-1개월",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📋 학습 전략",
+            "slug": "📋-학습-전략",
+            "link": "#📋-학습-전략",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "💼 현업 적용 인사이트",
+        "slug": "💼-현업-적용-인사이트",
+        "link": "#💼-현업-적용-인사이트",
+        "children": [
+          {
+            "level": 3,
+            "title": "🌐 JavaScript 비동기 프로그래밍",
+            "slug": "🌐-javascript-비동기-프로그래밍",
+            "link": "#🌐-javascript-비동기-프로그래밍",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "⚙️ Spring IoC/DI 패턴",
+            "slug": "⚙️-spring-ioc-di-패턴",
+            "link": "#⚙️-spring-ioc-di-패턴",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🎨 CSS Layout의 현업 활용",
+            "slug": "🎨-css-layout의-현업-활용",
+            "link": "#🎨-css-layout의-현업-활용",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📊 성장 지표",
+        "slug": "📊-성장-지표",
+        "link": "#📊-성장-지표",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 학습 성취도",
+            "slug": "🎯-학습-성취도",
+            "link": "#🎯-학습-성취도",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📈 주간 학습 시간 분배",
+            "slug": "📈-주간-학습-시간-분배",
+            "link": "#📈-주간-학습-시간-분배",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔮 다음 주 학습 계획",
+        "slug": "🔮-다음-주-학습-계획",
+        "link": "#🔮-다음-주-학습-계획",
+        "children": [
+          {
+            "level": 3,
+            "title": "Week 6 로드맵",
+            "slug": "week-6-로드맵",
+            "link": "#week-6-로드맵",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🎯 구체적 목표",
+            "slug": "🎯-구체적-목표",
+            "link": "#🎯-구체적-목표",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "✨ 마무리",
+        "slug": "✨-마무리",
+        "link": "#✨-마무리",
+        "children": [
+          {
+            "level": 3,
+            "title": "🌟 이번 주의 가장 큰 성장",
+            "slug": "🌟-이번-주의-가장-큰-성장",
+            "link": "#🌟-이번-주의-가장-큰-성장",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🚀 앞으로의 다짐",
+            "slug": "🚀-앞으로의-다짐",
+            "link": "#🚀-앞으로의-다짐",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy",
+    "headers": [],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2439,1517 +2637,339 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
-    "title": "🎯 JDBC 학습 가이드 - 8월 18일 실습",
+    "title": "🌱 프로그래밍 언어 러스트를 배웁시다!",
     "headers": [
       {
-        "level": 2,
-        "title": "📚 목차",
-        "slug": "📚-목차",
-        "link": "#📚-목차",
+        "level": 3,
+        "title": "Easy Rust in Korean: Intro (001편)",
+        "slug": "easy-rust-in-korean-intro-001편",
+        "link": "#easy-rust-in-korean-intro-001편",
         "children": []
       },
       {
         "level": 2,
-        "title": "🤔 JDBC란 무엇인가?",
-        "slug": "🤔-jdbc란-무엇인가",
-        "link": "#🤔-jdbc란-무엇인가",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎯 왜 JDBC를 배워야 할까?",
-            "slug": "🎯-왜-jdbc를-배워야-할까",
-            "link": "#🎯-왜-jdbc를-배워야-할까",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "⚙️ 개발 환경 설정",
-        "slug": "⚙️-개발-환경-설정",
-        "link": "#⚙️-개발-환경-설정",
-        "children": [
-          {
-            "level": 3,
-            "title": "필요한 도구들",
-            "slug": "필요한-도구들",
-            "link": "#필요한-도구들",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Maven 설정 (pom.xml)",
-            "slug": "maven-설정-pom-xml",
-            "link": "#maven-설정-pom-xml",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "환경변수 설정 (.env 파일)",
-            "slug": "환경변수-설정-env-파일",
-            "link": "#환경변수-설정-env-파일",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🧠 핵심 개념 이해",
-        "slug": "🧠-핵심-개념-이해",
-        "link": "#🧠-핵심-개념-이해",
-        "children": [
-          {
-            "level": 3,
-            "title": "JDBC 4대 핵심 객체",
-            "slug": "jdbc-4대-핵심-객체",
-            "link": "#jdbc-4대-핵심-객체",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📝 객체별 역할",
-            "slug": "📝-객체별-역할",
-            "link": "#📝-객체별-역할",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🚀 실습 1: 기본 CRUD 작업",
-        "slug": "🚀-실습-1-기본-crud-작업",
-        "link": "#🚀-실습-1-기본-crud-작업",
-        "children": [
-          {
-            "level": 3,
-            "title": "1단계: 데이터베이스 연결하기",
-            "slug": "_1단계-데이터베이스-연결하기",
-            "link": "#_1단계-데이터베이스-연결하기",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2단계: 테이블 생성 (DDL)",
-            "slug": "_2단계-테이블-생성-ddl",
-            "link": "#_2단계-테이블-생성-ddl",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "3단계: 데이터 삽입 (DML)",
-            "slug": "_3단계-데이터-삽입-dml",
-            "link": "#_3단계-데이터-삽입-dml",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "4단계: 데이터 조회 (SELECT)",
-            "slug": "_4단계-데이터-조회-select",
-            "link": "#_4단계-데이터-조회-select",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "💡 try-with-resources가 뭔가요?",
-            "slug": "💡-try-with-resources가-뭔가요",
-            "link": "#💡-try-with-resources가-뭔가요",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🛡️ 실습 2: SQL Injection 보안",
-        "slug": "🛡️-실습-2-sql-injection-보안",
-        "link": "#🛡️-실습-2-sql-injection-보안",
-        "children": [
-          {
-            "level": 3,
-            "title": "⚠️ 위험한 코드: Statement 사용",
-            "slug": "⚠️-위험한-코드-statement-사용",
-            "link": "#⚠️-위험한-코드-statement-사용",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "✅ 안전한 코드: PreparedStatement 사용",
-            "slug": "✅-안전한-코드-preparedstatement-사용",
-            "link": "#✅-안전한-코드-preparedstatement-사용",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔄 Statement vs PreparedStatement 비교",
-            "slug": "🔄-statement-vs-preparedstatement-비교",
-            "link": "#🔄-statement-vs-preparedstatement-비교",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🏗️ 실습 3: DAO 패턴 적용",
-        "slug": "🏗️-실습-3-dao-패턴-적용",
-        "link": "#🏗️-실습-3-dao-패턴-적용",
-        "children": [
-          {
-            "level": 3,
-            "title": "DAO 패턴이란?",
-            "slug": "dao-패턴이란",
-            "link": "#dao-패턴이란",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📊 데이터베이스 설계",
-            "slug": "📊-데이터베이스-설계",
-            "link": "#📊-데이터베이스-설계",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "1단계: DTO (Data Transfer Object) 정의",
-            "slug": "_1단계-dto-data-transfer-object-정의",
-            "link": "#_1단계-dto-data-transfer-object-정의",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2단계: DAO 인터페이스 정의",
-            "slug": "_2단계-dao-인터페이스-정의",
-            "link": "#_2단계-dao-인터페이스-정의",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "3단계: DAO 구현체 작성",
-            "slug": "_3단계-dao-구현체-작성",
-            "link": "#_3단계-dao-구현체-작성",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🎯 실습별 학습 포인트",
-        "slug": "🎯-실습별-학습-포인트",
-        "link": "#🎯-실습별-학습-포인트",
-        "children": [
-          {
-            "level": 3,
-            "title": "📋 실습 1: 기본 CRUD",
-            "slug": "📋-실습-1-기본-crud",
-            "link": "#📋-실습-1-기본-crud",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔒 실습 2: SQL Injection 보안",
-            "slug": "🔒-실습-2-sql-injection-보안",
-            "link": "#🔒-실습-2-sql-injection-보안",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🏛️ 실습 3: DAO 패턴",
-            "slug": "🏛️-실습-3-dao-패턴",
-            "link": "#🏛️-실습-3-dao-패턴",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🔄 JDBC 실행 흐름",
-        "slug": "🔄-jdbc-실행-흐름",
-        "link": "#🔄-jdbc-실행-흐름",
+        "title": "📌 영상 핵심 요약",
+        "slug": "📌-영상-핵심-요약",
+        "link": "#📌-영상-핵심-요약",
         "children": []
       },
       {
         "level": 2,
-        "title": "💡 초보자를 위한 팁",
-        "slug": "💡-초보자를-위한-팁",
-        "link": "#💡-초보자를-위한-팁",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎯 기억해야 할 핵심 3가지",
-            "slug": "🎯-기억해야-할-핵심-3가지",
-            "link": "#🎯-기억해야-할-핵심-3가지",
-            "children": []
-          }
-        ]
+        "title": "🎯 러스트 언어 특징 정리",
+        "slug": "🎯-러스트-언어-특징-정리",
+        "link": "#🎯-러스트-언어-특징-정리",
+        "children": []
       },
       {
         "level": 2,
-        "title": "💡 초보자를 위한 팁",
-        "slug": "💡-초보자를-위한-팁-1",
-        "link": "#💡-초보자를-위한-팁-1",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎯 기억해야 할 핵심 5가지",
-            "slug": "🎯-기억해야-할-핵심-5가지",
-            "link": "#🎯-기억해야-할-핵심-5가지",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🚨 자주 하는 실수들과 해결책",
-            "slug": "🚨-자주-하는-실수들과-해결책",
-            "link": "#🚨-자주-하는-실수들과-해결책",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "✅ 좋은 코딩 습관",
-            "slug": "✅-좋은-코딩-습관",
-            "link": "#✅-좋은-코딩-습관",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🎓 학습 단계별 체크리스트",
-            "slug": "🎓-학습-단계별-체크리스트",
-            "link": "#🎓-학습-단계별-체크리스트",
-            "children": []
-          }
-        ]
+        "title": "📊 학습 구조 (Mermaid 다이어그램)",
+        "slug": "📊-학습-구조-mermaid-다이어그램",
+        "link": "#📊-학습-구조-mermaid-다이어그램",
+        "children": []
       },
       {
         "level": 2,
-        "title": "🎓 마무리",
-        "slug": "🎓-마무리",
-        "link": "#🎓-마무리",
-        "children": [
-          {
-            "level": 3,
-            "title": "다음 단계로 가기 위한 로드맵",
-            "slug": "다음-단계로-가기-위한-로드맵",
-            "link": "#다음-단계로-가기-위한-로드맵",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔗 학습 자료 링크",
-            "slug": "🔗-학습-자료-링크",
-            "link": "#🔗-학습-자료-링크",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📝 오늘 배운 내용 최종 요약",
-            "slug": "📝-오늘-배운-내용-최종-요약",
-            "link": "#📝-오늘-배운-내용-최종-요약",
-            "children": []
-          }
-        ]
+        "title": "🌟 초보자에게 전하는 메시지",
+        "slug": "🌟-초보자에게-전하는-메시지",
+        "link": "#🌟-초보자에게-전하는-메시지",
+        "children": []
       }
     ],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818.html",
+    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JDBC DAO/DTO 패턴 완전 가이드",
+    "title": "🦀 Rust 기초 강의 정리 - 주석(Comment)과 변수 경고 처리",
     "headers": [
       {
         "level": 2,
-        "title": "📋 목차",
-        "slug": "📋-목차",
-        "link": "#📋-목차",
+        "title": "📌 핵심 요약",
+        "slug": "📌-핵심-요약",
+        "link": "#📌-핵심-요약",
         "children": []
       },
       {
         "level": 2,
-        "title": "프로젝트 개요",
-        "slug": "프로젝트-개요",
-        "link": "#프로젝트-개요",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎯 학습 목표",
-            "slug": "🎯-학습-목표",
-            "link": "#🎯-학습-목표",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔧 주요 기술 스택",
-            "slug": "🔧-주요-기술-스택",
-            "link": "#🔧-주요-기술-스택",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "아키텍처 다이어그램",
-        "slug": "아키텍처-다이어그램",
-        "link": "#아키텍처-다이어그램",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "프로젝트 설정 (pom.xml)",
-        "slug": "프로젝트-설정-pom-xml",
-        "link": "#프로젝트-설정-pom-xml",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "데이터베이스 스키마",
-        "slug": "데이터베이스-스키마",
-        "link": "#데이터베이스-스키마",
-        "children": [
-          {
-            "level": 3,
-            "title": "🗄️ DDL/DML SQL",
-            "slug": "🗄️-ddl-dml-sql",
-            "link": "#🗄️-ddl-dml-sql",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "DTO (Data Transfer Object)",
-        "slug": "dto-data-transfer-object",
-        "link": "#dto-data-transfer-object",
-        "children": [
-          {
-            "level": 3,
-            "title": "📝 DTO 구조 다이어그램",
-            "slug": "📝-dto-구조-다이어그램",
-            "link": "#📝-dto-구조-다이어그램",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "💻 DTO 코드 구현",
-            "slug": "💻-dto-코드-구현",
-            "link": "#💻-dto-코드-구현",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "DAO (Data Access Object) 인터페이스",
-        "slug": "dao-data-access-object-인터페이스",
-        "link": "#dao-data-access-object-인터페이스",
-        "children": [
-          {
-            "level": 3,
-            "title": "🔄 DAO 흐름도",
-            "slug": "🔄-dao-흐름도",
-            "link": "#🔄-dao-흐름도",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "💻 DAO 인터페이스 코드",
-            "slug": "💻-dao-인터페이스-코드",
-            "link": "#💻-dao-인터페이스-코드",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "데이터베이스 연결 유틸리티",
-        "slug": "데이터베이스-연결-유틸리티",
-        "link": "#데이터베이스-연결-유틸리티",
-        "children": [
-          {
-            "level": 3,
-            "title": "🔐 환경변수 설정 (.env 파일)",
-            "slug": "🔐-환경변수-설정-env-파일",
-            "link": "#🔐-환경변수-설정-env-파일",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "💻 DB 연결 유틸리티 코드",
-            "slug": "💻-db-연결-유틸리티-코드",
-            "link": "#💻-db-연결-유틸리티-코드",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "DAO 구현체 (JDBC)",
-        "slug": "dao-구현체-jdbc",
-        "link": "#dao-구현체-jdbc",
-        "children": [
-          {
-            "level": 3,
-            "title": "🔄 JDBC 처리 흐름",
-            "slug": "🔄-jdbc-처리-흐름",
-            "link": "#🔄-jdbc-처리-흐름",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "💻 UserJdbcDAO 구현",
-            "slug": "💻-userjdbcdao-구현",
-            "link": "#💻-userjdbcdao-구현",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "💻 MemoJdbcDAO 구현",
-            "slug": "💻-memojdbcdao-구현",
-            "link": "#💻-memojdbcdao-구현",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "서블릿 구현",
-        "slug": "서블릿-구현",
-        "link": "#서블릿-구현",
-        "children": [
-          {
-            "level": 3,
-            "title": "🌐 서블릿 처리 흐름",
-            "slug": "🌐-서블릿-처리-흐름",
-            "link": "#🌐-서블릿-처리-흐름",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📝 흐름 설명",
-            "slug": "📝-흐름-설명",
-            "link": "#📝-흐름-설명",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🗂️ 목차",
-        "slug": "🗂️-목차",
-        "link": "#🗂️-목차",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🎯 HTML이란?",
-        "slug": "🎯-html이란",
-        "link": "#🎯-html이란",
-        "children": [
-          {
-            "level": 3,
-            "title": "🔍 HTML의 특징",
-            "slug": "🔍-html의-특징",
-            "link": "#🔍-html의-특징",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🏗️ HTML 태그의 기본 구조",
-        "slug": "🏗️-html-태그의-기본-구조",
-        "link": "#🏗️-html-태그의-기본-구조",
-        "children": [
-          {
-            "level": 3,
-            "title": "📝 기본 문법 패턴",
-            "slug": "📝-기본-문법-패턴",
-            "link": "#📝-기본-문법-패턴",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "📝 주요 HTML 태그들",
-        "slug": "📝-주요-html-태그들",
-        "link": "#📝-주요-html-태그들",
-        "children": [
-          {
-            "level": 3,
-            "title": "🏠 1. 문서 구조 태그",
-            "slug": "🏠-1-문서-구조-태그",
-            "link": "#🏠-1-문서-구조-태그",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "✍️ 2. 텍스트 관련 태그",
-            "slug": "✍️-2-텍스트-관련-태그",
-            "link": "#✍️-2-텍스트-관련-태그",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔗 3. 링크와 미디어 태그",
-            "slug": "🔗-3-링크와-미디어-태그",
-            "link": "#🔗-3-링크와-미디어-태그",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📋 4. 목록 태그",
-            "slug": "📋-4-목록-태그",
-            "link": "#📋-4-목록-태그",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📦 5. 컨테이너 태그",
-            "slug": "📦-5-컨테이너-태그",
-            "link": "#📦-5-컨테이너-태그",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🎨 HTML 속성(Attribute)",
-        "slug": "🎨-html-속성-attribute",
-        "link": "#🎨-html-속성-attribute",
-        "children": [
-          {
-            "level": 3,
-            "title": "🌍 전역 속성 (모든 태그에서 사용 가능)",
-            "slug": "🌍-전역-속성-모든-태그에서-사용-가능",
-            "link": "#🌍-전역-속성-모든-태그에서-사용-가능",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔗 링크 전용 속성",
-            "slug": "🔗-링크-전용-속성",
-            "link": "#🔗-링크-전용-속성",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🖼️ 이미지 전용 속성",
-            "slug": "🖼️-이미지-전용-속성",
-            "link": "#🖼️-이미지-전용-속성",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "💡 실전 예제",
-        "slug": "💡-실전-예제",
-        "link": "#💡-실전-예제",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎨 나만의 자기소개 페이지 만들기",
-            "slug": "🎨-나만의-자기소개-페이지-만들기",
-            "link": "#🎨-나만의-자기소개-페이지-만들기",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "📊 태그와 속성 관계도",
-        "slug": "📊-태그와-속성-관계도",
-        "link": "#📊-태그와-속성-관계도",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🏷️ 태그 분류 시스템",
-        "slug": "🏷️-태그-분류-시스템",
-        "link": "#🏷️-태그-분류-시스템",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📱 폼(Form) 완벽 가이드",
-        "slug": "📱-폼-form-완벽-가이드",
-        "link": "#📱-폼-form-완벽-가이드",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎯 회원가입 폼 예제",
-            "slug": "🎯-회원가입-폼-예제",
-            "link": "#🎯-회원가입-폼-예제",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🎭 시맨틱 HTML 태그",
-        "slug": "🎭-시맨틱-html-태그",
-        "link": "#🎭-시맨틱-html-태그",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎨 완전한 시맨틱 웹페이지 구조",
-            "slug": "🎨-완전한-시맨틱-웹페이지-구조",
-            "link": "#🎨-완전한-시맨틱-웹페이지-구조",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🎯 속성 활용 고급 팁",
-        "slug": "🎯-속성-활용-고급-팁",
-        "link": "#🎯-속성-활용-고급-팁",
-        "children": [
-          {
-            "level": 3,
-            "title": "🔧 데이터 속성 (Custom Data Attributes)",
-            "slug": "🔧-데이터-속성-custom-data-attributes",
-            "link": "#🔧-데이터-속성-custom-data-attributes",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "♿ 접근성 속성",
-            "slug": "♿-접근성-속성",
-            "link": "#♿-접근성-속성",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "📋 HTML 속성 치트시트",
-        "slug": "📋-html-속성-치트시트",
-        "link": "#📋-html-속성-치트시트",
-        "children": [
-          {
-            "level": 3,
-            "title": "🌍 전역 속성 (모든 태그 사용 가능)",
-            "slug": "🌍-전역-속성-모든-태그-사용-가능",
-            "link": "#🌍-전역-속성-모든-태그-사용-가능",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔗 링크 속성",
-            "slug": "🔗-링크-속성",
-            "link": "#🔗-링크-속성",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🖼️ 이미지 속성",
-            "slug": "🖼️-이미지-속성",
-            "link": "#🖼️-이미지-속성",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🚀 실무 활용 패턴",
-        "slug": "🚀-실무-활용-패턴",
-        "link": "#🚀-실무-활용-패턴",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎮 인터랙티브 요소들",
-            "slug": "🎮-인터랙티브-요소들",
-            "link": "#🎮-인터랙티브-요소들",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📊 테이블 구조",
-            "slug": "📊-테이블-구조",
-            "link": "#📊-테이블-구조",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🎨 고급 속성 활용법",
-        "slug": "🎨-고급-속성-활용법",
-        "link": "#🎨-고급-속성-활용법",
-        "children": [
-          {
-            "level": 3,
-            "title": "🎭 조건부 속성",
-            "slug": "🎭-조건부-속성",
-            "link": "#🎭-조건부-속성",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔄 동적 콘텐츠 속성",
-            "slug": "🔄-동적-콘텐츠-속성",
-            "link": "#🔄-동적-콘텐츠-속성",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🌟 최신 HTML5 기능들",
-        "slug": "🌟-최신-html5-기능들",
-        "link": "#🌟-최신-html5-기능들",
-        "children": [
-          {
-            "level": 3,
-            "title": "📅 새로운 입력 타입들",
-            "slug": "📅-새로운-입력-타입들",
-            "link": "#📅-새로운-입력-타입들",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🎯 성능 최적화 속성",
-        "slug": "🎯-성능-최적화-속성",
-        "link": "#🎯-성능-최적화-속성",
-        "children": [
-          {
-            "level": 3,
-            "title": "⚡ 로딩 최적화",
-            "slug": "⚡-로딩-최적화",
-            "link": "#⚡-로딩-최적화",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🔒 외부 링크 보안 속성",
-        "slug": "🔒-외부-링크-보안-속성",
-        "link": "#🔒-외부-링크-보안-속성",
-        "children": [
-          {
-            "level": 3,
-            "title": "📌 속성 설명",
-            "slug": "📌-속성-설명",
-            "link": "#📌-속성-설명",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🔑 입력 데이터 보안 속성",
-        "slug": "🔑-입력-데이터-보안-속성",
-        "link": "#🔑-입력-데이터-보안-속성",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🖼️ 보안 속성 - 이미지/리소스",
-        "slug": "🖼️-보안-속성-이미지-리소스",
-        "link": "#🖼️-보안-속성-이미지-리소스",
-        "children": [
-          {
-            "level": 3,
-            "title": "속성 설명",
-            "slug": "속성-설명",
-            "link": "#속성-설명",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "📊 보안 관련 속성 관계도",
-        "slug": "📊-보안-관련-속성-관계도",
-        "link": "#📊-보안-관련-속성-관계도",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "✅ 정리",
-        "slug": "✅-정리",
-        "link": "#✅-정리",
+        "title": "📊 흐름 이해 (Mermaid 다이어그램)",
+        "slug": "📊-흐름-이해-mermaid-다이어그램",
+        "link": "#📊-흐름-이해-mermaid-다이어그램",
         "children": []
       }
     ],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819.html",
+    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "CSS 선택자와 타이포그래피 완벽 가이드",
+    "title": "🔢 Rust 정수 타입 (Integer Types)",
     "headers": [
       {
         "level": 2,
-        "title": "📋 목차",
-        "slug": "📋-목차",
-        "link": "#📋-목차",
+        "title": "1️⃣ 정수 타입 구분",
+        "slug": "_1️⃣-정수-타입-구분",
+        "link": "#_1️⃣-정수-타입-구분",
         "children": []
       },
       {
         "level": 2,
-        "title": "CSS 선택자 기초",
-        "slug": "css-선택자-기초",
-        "link": "#css-선택자-기초",
+        "title": "2️⃣ 비트 크기와 범위",
+        "slug": "_2️⃣-비트-크기와-범위",
+        "link": "#_2️⃣-비트-크기와-범위",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "3️⃣ Signed vs Unsigned",
+        "slug": "_3️⃣-signed-vs-unsigned",
+        "link": "#_3️⃣-signed-vs-unsigned",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "4️⃣ 기본 타입 (Default)",
+        "slug": "_4️⃣-기본-타입-default",
+        "link": "#_4️⃣-기본-타입-default",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "5️⃣ 시스템 종속 타입",
+        "slug": "_5️⃣-시스템-종속-타입",
+        "link": "#_5️⃣-시스템-종속-타입",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📊 Mermaid 시각화",
+        "slug": "📊-mermaid-시각화",
+        "link": "#📊-mermaid-시각화",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📝 핵심 요약",
+        "slug": "📝-핵심-요약",
+        "link": "#📝-핵심-요약",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📊 Rust vs Go 정수 타입 비교",
+        "slug": "📊-rust-vs-go-정수-타입-비교",
+        "link": "#📊-rust-vs-go-정수-타입-비교",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📊 Mermaid 시각화 – Rust vs Go 정수 타입 비교",
+        "slug": "📊-mermaid-시각화-–-rust-vs-go-정수-타입-비교",
+        "link": "#📊-mermaid-시각화-–-rust-vs-go-정수-타입-비교",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📝 핵심 요약",
+        "slug": "📝-핵심-요약-1",
+        "link": "#📝-핵심-요약-1",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "⚖️ Rust vs Go 정수 타입 – 실무 선택 가이드",
+        "slug": "⚖️-rust-vs-go-정수-타입-–-실무-선택-가이드",
+        "link": "#⚖️-rust-vs-go-정수-타입-–-실무-선택-가이드",
         "children": [
           {
             "level": 3,
-            "title": "🎯 선택자란?",
-            "slug": "🎯-선택자란",
-            "link": "#🎯-선택자란",
+            "title": "✅ Rust가 더 적절한 경우",
+            "slug": "✅-rust가-더-적절한-경우",
+            "link": "#✅-rust가-더-적절한-경우",
             "children": []
           },
           {
             "level": 3,
-            "title": "📊 CSS 선택자 관계도",
-            "slug": "📊-css-선택자-관계도",
-            "link": "#📊-css-선택자-관계도",
+            "title": "✅ Go가 더 적절한 경우",
+            "slug": "✅-go가-더-적절한-경우",
+            "link": "#✅-go가-더-적절한-경우",
             "children": []
           }
         ]
       },
       {
         "level": 2,
-        "title": "CSS 선택자 종류",
-        "slug": "css-선택자-종류",
-        "link": "#css-선택자-종류",
-        "children": [
-          {
-            "level": 3,
-            "title": "1️⃣ 기본 선택자",
-            "slug": "_1️⃣-기본-선택자",
-            "link": "#_1️⃣-기본-선택자",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔍 id vs class 차이점",
-            "slug": "🔍-id-vs-class-차이점",
-            "link": "#🔍-id-vs-class-차이점",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2️⃣ 속성 선택자",
-            "slug": "_2️⃣-속성-선택자",
-            "link": "#_2️⃣-속성-선택자",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "3️⃣ 그룹 선택자",
-            "slug": "_3️⃣-그룹-선택자",
-            "link": "#_3️⃣-그룹-선택자",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "4️⃣ 결합자 (Combinator)",
-            "slug": "_4️⃣-결합자-combinator",
-            "link": "#_4️⃣-결합자-combinator",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "CSS 타이포그래피",
-        "slug": "css-타이포그래피",
-        "link": "#css-타이포그래피",
-        "children": [
-          {
-            "level": 3,
-            "title": "🔄 상속 (Inheritance)",
-            "slug": "🔄-상속-inheritance",
-            "link": "#🔄-상속-inheritance",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "📏 사이즈 단위",
-            "slug": "📏-사이즈-단위",
-            "link": "#📏-사이즈-단위",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🔤 글꼴 속성",
-            "slug": "🔤-글꼴-속성",
-            "link": "#🔤-글꼴-속성",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "🌐 웹폰트 (Web Font)",
-            "slug": "🌐-웹폰트-web-font",
-            "link": "#🌐-웹폰트-web-font",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "스타일시트 적용 방법",
-        "slug": "스타일시트-적용-방법",
-        "link": "#스타일시트-적용-방법",
-        "children": [
-          {
-            "level": 3,
-            "title": "적용 방법별 특징",
-            "slug": "적용-방법별-특징",
-            "link": "#적용-방법별-특징",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "실습 코드 분석",
-        "slug": "실습-코드-분석",
-        "link": "#실습-코드-분석",
-        "children": [
-          {
-            "level": 3,
-            "title": "HTML 구조 분석",
-            "slug": "html-구조-분석",
-            "link": "#html-구조-분석",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CSS 코드 상세 분석",
-            "slug": "css-코드-상세-분석",
-            "link": "#css-코드-상세-분석",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "💡 학습 팁",
-        "slug": "💡-학습-팁",
-        "link": "#💡-학습-팁",
-        "children": [
-          {
-            "level": 3,
-            "title": "선택자 우선순위 (특이도)",
-            "slug": "선택자-우선순위-특이도",
-            "link": "#선택자-우선순위-특이도",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "실무 권장사항",
-            "slug": "실무-권장사항",
-            "link": "#실무-권장사항",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "디버깅 도구",
-            "slug": "디버깅-도구",
-            "link": "#디버깅-도구",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "🎯 실습 과제",
-        "slug": "🎯-실습-과제",
-        "link": "#🎯-실습-과제",
+        "title": "📝 핵심 요약",
+        "slug": "📝-핵심-요약-2",
+        "link": "#📝-핵심-요약-2",
         "children": []
       }
     ],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820.html",
+    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "CSS Layout 실습 가이드 📐",
+    "title": "📚 Rust 배우기 – Chars (문자)",
     "headers": [
       {
         "level": 2,
-        "title": "📚 목차",
-        "slug": "📚-목차",
-        "link": "#📚-목차",
+        "title": "✨ 핵심 정리",
+        "slug": "✨-핵심-정리",
+        "link": "#✨-핵심-정리",
         "children": []
       },
       {
         "level": 2,
-        "title": "HTML 기본 구조",
-        "slug": "html-기본-구조",
-        "link": "#html-기본-구조",
+        "title": "🛠️ Rust 코드 예제",
+        "slug": "🛠️-rust-코드-예제",
+        "link": "#🛠️-rust-코드-예제",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "💡 출력 결과",
+        "slug": "💡-출력-결과",
+        "link": "#💡-출력-결과",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🛠️ Rust 실습 코드",
+        "slug": "🛠️-rust-실습-코드",
+        "link": "#🛠️-rust-실습-코드",
         "children": [
           {
             "level": 3,
-            "title": "기본 HTML 템플릿",
-            "slug": "기본-html-템플릿",
-            "link": "#기본-html-템플릿",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "의미론적 HTML 구조",
-            "slug": "의미론적-html-구조",
-            "link": "#의미론적-html-구조",
+            "title": "✅ 핵심 요약",
+            "slug": "✅-핵심-요약",
+            "link": "#✅-핵심-요약",
             "children": []
           }
         ]
       },
       {
         "level": 2,
-        "title": "CSS Box Model",
-        "slug": "css-box-model",
-        "link": "#css-box-model",
-        "children": [
-          {
-            "level": 3,
-            "title": "Box Model 실습",
-            "slug": "box-model-실습",
-            "link": "#box-model-실습",
-            "children": []
-          }
-        ]
+        "title": "📊 Mermaid 시각화 – Rust 문자열과 문자 관계",
+        "slug": "📊-mermaid-시각화-–-rust-문자열과-문자-관계",
+        "link": "#📊-mermaid-시각화-–-rust-문자열과-문자-관계",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Display 속성",
-        "slug": "display-속성",
-        "link": "#display-속성",
-        "children": [
-          {
-            "level": 3,
-            "title": "Display 실습",
-            "slug": "display-실습",
-            "link": "#display-실습",
-            "children": []
-          }
-        ]
+        "title": "🧩 초보자 이해 포인트",
+        "slug": "🧩-초보자-이해-포인트",
+        "link": "#🧩-초보자-이해-포인트",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Position 속성",
-        "slug": "position-속성",
-        "link": "#position-속성",
-        "children": [
-          {
-            "level": 3,
-            "title": "Position 실습",
-            "slug": "position-실습",
-            "link": "#position-실습",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Float와 Clear",
-        "slug": "float와-clear",
-        "link": "#float와-clear",
-        "children": [
-          {
-            "level": 3,
-            "title": "Float 실습",
-            "slug": "float-실습",
-            "link": "#float-실습",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Flexbox",
-        "slug": "flexbox",
-        "link": "#flexbox",
-        "children": [
-          {
-            "level": 3,
-            "title": "Flexbox 기본 설정",
-            "slug": "flexbox-기본-설정",
-            "link": "#flexbox-기본-설정",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Flexbox 실전 예제",
-            "slug": "flexbox-실전-예제",
-            "link": "#flexbox-실전-예제",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "CSS Grid",
-        "slug": "css-grid",
-        "link": "#css-grid",
-        "children": [
-          {
-            "level": 3,
-            "title": "Grid 기본 설정",
-            "slug": "grid-기본-설정",
-            "link": "#grid-기본-설정",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Grid 고급 기법",
-            "slug": "grid-고급-기법",
-            "link": "#grid-고급-기법",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "실습 예제",
-        "slug": "실습-예제",
-        "link": "#실습-예제",
-        "children": [
-          {
-            "level": 3,
-            "title": "완전한 반응형 웹사이트",
-            "slug": "완전한-반응형-웹사이트",
-            "link": "#완전한-반응형-웹사이트",
-            "children": []
-          }
-        ]
+        "title": "📌 요약",
+        "slug": "📌-요약",
+        "link": "#📌-요약",
+        "children": []
       }
     ],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821.html",
+    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JavaScript Core 완벽 마스터 가이드 🚀",
+    "title": "🦀 Rust 문자열과 바이트/문자 개수 이해하기",
     "headers": [
       {
         "level": 2,
-        "title": "📋 목차",
-        "slug": "📋-목차",
-        "link": "#📋-목차",
+        "title": "🗝️ 핵심 개념",
+        "slug": "🗝️-핵심-개념",
+        "link": "#🗝️-핵심-개념",
         "children": []
       },
       {
         "level": 2,
-        "title": "JavaScript 개요",
-        "slug": "javascript-개요",
-        "link": "#javascript-개요",
-        "children": [
-          {
-            "level": 3,
-            "title": "JavaScript란?",
-            "slug": "javascript란",
-            "link": "#javascript란",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "웹에서 JavaScript의 역할",
-            "slug": "웹에서-javascript의-역할",
-            "link": "#웹에서-javascript의-역할",
-            "children": []
-          }
-        ]
+        "title": "🔍 예제 코드",
+        "slug": "🔍-예제-코드",
+        "link": "#🔍-예제-코드",
+        "children": []
       },
       {
         "level": 2,
-        "title": "개발 환경 설정",
-        "slug": "개발-환경-설정",
-        "link": "#개발-환경-설정",
-        "children": [
-          {
-            "level": 3,
-            "title": "1. 기본 HTML 구조",
-            "slug": "_1-기본-html-구조",
-            "link": "#_1-기본-html-구조",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2. 외부 파일로 분리하기",
-            "slug": "_2-외부-파일로-분리하기",
-            "link": "#_2-외부-파일로-분리하기",
-            "children": []
-          }
-        ]
+        "title": "📌 설명:",
+        "slug": "📌-설명",
+        "link": "#📌-설명",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Part 1: 기초 문법",
-        "slug": "part-1-기초-문법",
-        "link": "#part-1-기초-문법",
-        "children": [
-          {
-            "level": 3,
-            "title": "1. 주석 작성법",
-            "slug": "_1-주석-작성법",
-            "link": "#_1-주석-작성법",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2. 변수와 상수",
-            "slug": "_2-변수와-상수",
-            "link": "#_2-변수와-상수",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "3. 데이터 타입",
-            "slug": "_3-데이터-타입",
-            "link": "#_3-데이터-타입",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "4. Truthy와 Falsy",
-            "slug": "_4-truthy와-falsy",
-            "link": "#_4-truthy와-falsy",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "5. 템플릿 리터럴",
-            "slug": "_5-템플릿-리터럴",
-            "link": "#_5-템플릿-리터럴",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "6. 연산자",
-            "slug": "_6-연산자",
-            "link": "#_6-연산자",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "7. 조건문 - if/else",
-            "slug": "_7-조건문-if-else",
-            "link": "#_7-조건문-if-else",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "8. 반복문",
-            "slug": "_8-반복문",
-            "link": "#_8-반복문",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "9. Switch문",
-            "slug": "_9-switch문",
-            "link": "#_9-switch문",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "10. 예외 처리",
-            "slug": "_10-예외-처리",
-            "link": "#_10-예외-처리",
-            "children": []
-          }
-        ]
+        "title": "🎨 Mermaid 시각화",
+        "slug": "🎨-mermaid-시각화",
+        "link": "#🎨-mermaid-시각화",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Part 2: 고급 문법",
-        "slug": "part-2-고급-문법",
-        "link": "#part-2-고급-문법",
-        "children": [
-          {
-            "level": 3,
-            "title": "1. 함수 (Function)",
-            "slug": "_1-함수-function",
-            "link": "#_1-함수-function",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2. 화살표 함수 (Arrow Function)",
-            "slug": "_2-화살표-함수-arrow-function",
-            "link": "#_2-화살표-함수-arrow-function",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "3. 클래스 (Class)",
-            "slug": "_3-클래스-class",
-            "link": "#_3-클래스-class",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "4. 고차함수 (Higher-order Functions)",
-            "slug": "_4-고차함수-higher-order-functions",
-            "link": "#_4-고차함수-higher-order-functions",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "5. 구조 분해 할당 (Destructuring)",
-            "slug": "_5-구조-분해-할당-destructuring",
-            "link": "#_5-구조-분해-할당-destructuring",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "6. 스프레드와 나머지 연산자 (...)",
-            "slug": "_6-스프레드와-나머지-연산자",
-            "link": "#_6-스프레드와-나머지-연산자",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "실습 프로젝트",
-        "slug": "실습-프로젝트",
-        "link": "#실습-프로젝트",
-        "children": [
-          {
-            "level": 3,
-            "title": "프로젝트 1: 간단한 계산기",
-            "slug": "프로젝트-1-간단한-계산기",
-            "link": "#프로젝트-1-간단한-계산기",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "프로젝트 2: 학생 관리 시스템",
-            "slug": "프로젝트-2-학생-관리-시스템",
-            "link": "#프로젝트-2-학생-관리-시스템",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "프로젝트 3: To-Do 리스트 애플리케이션",
-            "slug": "프로젝트-3-to-do-리스트-애플리케이션",
-            "link": "#프로젝트-3-to-do-리스트-애플리케이션",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "학습 로드맵",
-        "slug": "학습-로드맵",
-        "link": "#학습-로드맵",
-        "children": [
-          {
-            "level": 3,
-            "title": "JavaScript 마스터 로드맵",
-            "slug": "javascript-마스터-로드맵",
-            "link": "#javascript-마스터-로드맵",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "학습 단계별 체크리스트",
-            "slug": "학습-단계별-체크리스트",
-            "link": "#학습-단계별-체크리스트",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "다음 학습 추천",
-            "slug": "다음-학습-추천",
-            "link": "#다음-학습-추천",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "실습 프로젝트 추천",
-            "slug": "실습-프로젝트-추천",
-            "link": "#실습-프로젝트-추천",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "마무리 및 정리",
-        "slug": "마무리-및-정리",
-        "link": "#마무리-및-정리",
-        "children": [
-          {
-            "level": 3,
-            "title": "핵심 개념 요약",
-            "slug": "핵심-개념-요약",
-            "link": "#핵심-개념-요약",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "자주하는 실수와 해결법",
-            "slug": "자주하는-실수와-해결법",
-            "link": "#자주하는-실수와-해결법",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "실습 문제와 해답",
-            "slug": "실습-문제와-해답",
-            "link": "#실습-문제와-해답",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "성능 최적화 팁",
-            "slug": "성능-최적화-팁",
-            "link": "#성능-최적화-팁",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "디버깅 기법",
-            "slug": "디버깅-기법",
-            "link": "#디버깅-기법",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "추천 학습 자료",
-            "slug": "추천-학습-자료",
-            "link": "#추천-학습-자료",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "최종 정리",
-        "slug": "최종-정리",
-        "link": "#최종-정리",
-        "children": [
-          {
-            "level": 3,
-            "title": "학습한 내용 요약",
-            "slug": "학습한-내용-요약",
-            "link": "#학습한-내용-요약",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "다음 단계 추천",
-            "slug": "다음-단계-추천",
-            "link": "#다음-단계-추천",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "마지막 조언",
-            "slug": "마지막-조언",
-            "link": "#마지막-조언",
-            "children": []
-          }
-        ]
+        "title": "✨ 핵심 요약",
+        "slug": "✨-핵심-요약",
+        "link": "#✨-핵심-요약",
+        "children": []
       }
     ],
-    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822.html",
+    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "🦀 Rust Easy Rust 006 — Floats (실수형)",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📌 Floats란?",
+        "slug": "📌-floats란",
+        "link": "#📌-floats란",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🎬 학습 타임라인 요약",
+        "slug": "🎬-학습-타임라인-요약",
+        "link": "#🎬-학습-타임라인-요약",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🧮 Rust 코드 예시",
+        "slug": "🧮-rust-코드-예시",
+        "link": "#🧮-rust-코드-예시",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🔍 Mermaid 시각화 – Float 타입 비교",
+        "slug": "🔍-mermaid-시각화-–-float-타입-비교",
+        "link": "#🔍-mermaid-시각화-–-float-타입-비교",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "💡 초보자를 위한 쉬운 설명",
+        "slug": "💡-초보자를-위한-쉬운-설명",
+        "link": "#💡-초보자를-위한-쉬운-설명",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🏢 현업에서는 어떻게 쓸까?",
+        "slug": "🏢-현업에서는-어떻게-쓸까",
+        "link": "#🏢-현업에서는-어떻게-쓸까",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📌 핵심 정리",
+        "slug": "📌-핵심-정리",
+        "link": "#📌-핵심-정리",
+        "children": []
+      }
+    ],
+    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -6238,343 +5258,6 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
-    "title": "🌱 프로그래밍 언어 러스트를 배웁시다!",
-    "headers": [
-      {
-        "level": 3,
-        "title": "Easy Rust in Korean: Intro (001편)",
-        "slug": "easy-rust-in-korean-intro-001편",
-        "link": "#easy-rust-in-korean-intro-001편",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📌 영상 핵심 요약",
-        "slug": "📌-영상-핵심-요약",
-        "link": "#📌-영상-핵심-요약",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🎯 러스트 언어 특징 정리",
-        "slug": "🎯-러스트-언어-특징-정리",
-        "link": "#🎯-러스트-언어-특징-정리",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📊 학습 구조 (Mermaid 다이어그램)",
-        "slug": "📊-학습-구조-mermaid-다이어그램",
-        "link": "#📊-학습-구조-mermaid-다이어그램",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🌟 초보자에게 전하는 메시지",
-        "slug": "🌟-초보자에게-전하는-메시지",
-        "link": "#🌟-초보자에게-전하는-메시지",
-        "children": []
-      }
-    ],
-    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "🦀 Rust 기초 강의 정리 - 주석(Comment)과 변수 경고 처리",
-    "headers": [
-      {
-        "level": 2,
-        "title": "📌 핵심 요약",
-        "slug": "📌-핵심-요약",
-        "link": "#📌-핵심-요약",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📊 흐름 이해 (Mermaid 다이어그램)",
-        "slug": "📊-흐름-이해-mermaid-다이어그램",
-        "link": "#📊-흐름-이해-mermaid-다이어그램",
-        "children": []
-      }
-    ],
-    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "🔢 Rust 정수 타입 (Integer Types)",
-    "headers": [
-      {
-        "level": 2,
-        "title": "1️⃣ 정수 타입 구분",
-        "slug": "_1️⃣-정수-타입-구분",
-        "link": "#_1️⃣-정수-타입-구분",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "2️⃣ 비트 크기와 범위",
-        "slug": "_2️⃣-비트-크기와-범위",
-        "link": "#_2️⃣-비트-크기와-범위",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "3️⃣ Signed vs Unsigned",
-        "slug": "_3️⃣-signed-vs-unsigned",
-        "link": "#_3️⃣-signed-vs-unsigned",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "4️⃣ 기본 타입 (Default)",
-        "slug": "_4️⃣-기본-타입-default",
-        "link": "#_4️⃣-기본-타입-default",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "5️⃣ 시스템 종속 타입",
-        "slug": "_5️⃣-시스템-종속-타입",
-        "link": "#_5️⃣-시스템-종속-타입",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📊 Mermaid 시각화",
-        "slug": "📊-mermaid-시각화",
-        "link": "#📊-mermaid-시각화",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📝 핵심 요약",
-        "slug": "📝-핵심-요약",
-        "link": "#📝-핵심-요약",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📊 Rust vs Go 정수 타입 비교",
-        "slug": "📊-rust-vs-go-정수-타입-비교",
-        "link": "#📊-rust-vs-go-정수-타입-비교",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📊 Mermaid 시각화 – Rust vs Go 정수 타입 비교",
-        "slug": "📊-mermaid-시각화-–-rust-vs-go-정수-타입-비교",
-        "link": "#📊-mermaid-시각화-–-rust-vs-go-정수-타입-비교",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📝 핵심 요약",
-        "slug": "📝-핵심-요약-1",
-        "link": "#📝-핵심-요약-1",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "⚖️ Rust vs Go 정수 타입 – 실무 선택 가이드",
-        "slug": "⚖️-rust-vs-go-정수-타입-–-실무-선택-가이드",
-        "link": "#⚖️-rust-vs-go-정수-타입-–-실무-선택-가이드",
-        "children": [
-          {
-            "level": 3,
-            "title": "✅ Rust가 더 적절한 경우",
-            "slug": "✅-rust가-더-적절한-경우",
-            "link": "#✅-rust가-더-적절한-경우",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "✅ Go가 더 적절한 경우",
-            "slug": "✅-go가-더-적절한-경우",
-            "link": "#✅-go가-더-적절한-경우",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "📝 핵심 요약",
-        "slug": "📝-핵심-요약-2",
-        "link": "#📝-핵심-요약-2",
-        "children": []
-      }
-    ],
-    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "📚 Rust 배우기 – Chars (문자)",
-    "headers": [
-      {
-        "level": 2,
-        "title": "✨ 핵심 정리",
-        "slug": "✨-핵심-정리",
-        "link": "#✨-핵심-정리",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🛠️ Rust 코드 예제",
-        "slug": "🛠️-rust-코드-예제",
-        "link": "#🛠️-rust-코드-예제",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "💡 출력 결과",
-        "slug": "💡-출력-결과",
-        "link": "#💡-출력-결과",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🛠️ Rust 실습 코드",
-        "slug": "🛠️-rust-실습-코드",
-        "link": "#🛠️-rust-실습-코드",
-        "children": [
-          {
-            "level": 3,
-            "title": "✅ 핵심 요약",
-            "slug": "✅-핵심-요약",
-            "link": "#✅-핵심-요약",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "📊 Mermaid 시각화 – Rust 문자열과 문자 관계",
-        "slug": "📊-mermaid-시각화-–-rust-문자열과-문자-관계",
-        "link": "#📊-mermaid-시각화-–-rust-문자열과-문자-관계",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🧩 초보자 이해 포인트",
-        "slug": "🧩-초보자-이해-포인트",
-        "link": "#🧩-초보자-이해-포인트",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📌 요약",
-        "slug": "📌-요약",
-        "link": "#📌-요약",
-        "children": []
-      }
-    ],
-    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "🦀 Rust 문자열과 바이트/문자 개수 이해하기",
-    "headers": [
-      {
-        "level": 2,
-        "title": "🗝️ 핵심 개념",
-        "slug": "🗝️-핵심-개념",
-        "link": "#🗝️-핵심-개념",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🔍 예제 코드",
-        "slug": "🔍-예제-코드",
-        "link": "#🔍-예제-코드",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📌 설명:",
-        "slug": "📌-설명",
-        "link": "#📌-설명",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🎨 Mermaid 시각화",
-        "slug": "🎨-mermaid-시각화",
-        "link": "#🎨-mermaid-시각화",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "✨ 핵심 요약",
-        "slug": "✨-핵심-요약",
-        "link": "#✨-핵심-요약",
-        "children": []
-      }
-    ],
-    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "🦀 Rust Easy Rust 006 — Floats (실수형)",
-    "headers": [
-      {
-        "level": 2,
-        "title": "📌 Floats란?",
-        "slug": "📌-floats란",
-        "link": "#📌-floats란",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🎬 학습 타임라인 요약",
-        "slug": "🎬-학습-타임라인-요약",
-        "link": "#🎬-학습-타임라인-요약",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🧮 Rust 코드 예시",
-        "slug": "🧮-rust-코드-예시",
-        "link": "#🧮-rust-코드-예시",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🔍 Mermaid 시각화 – Float 타입 비교",
-        "slug": "🔍-mermaid-시각화-–-float-타입-비교",
-        "link": "#🔍-mermaid-시각화-–-float-타입-비교",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "💡 초보자를 위한 쉬운 설명",
-        "slug": "💡-초보자를-위한-쉬운-설명",
-        "link": "#💡-초보자를-위한-쉬운-설명",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "🏢 현업에서는 어떻게 쓸까?",
-        "slug": "🏢-현업에서는-어떻게-쓸까",
-        "link": "#🏢-현업에서는-어떻게-쓸까",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "📌 핵심 정리",
-        "slug": "📌-핵심-정리",
-        "link": "#📌-핵심-정리",
-        "children": []
-      }
-    ],
-    "path": "/Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "멋사 19일차 TIL - DOM & BOM & 비동기 프로그래밍 📚",
     "headers": [
       {
@@ -7015,6 +5698,440 @@ export const SEARCH_INDEX = [
       }
     ],
     "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "멋쟁이사자처럼 21일차 📚",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Spring Core & JSP 완벽 정리",
+        "slug": "spring-core-jsp-완벽-정리",
+        "link": "#spring-core-jsp-완벽-정리",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📋 목차",
+        "slug": "📋-목차",
+        "link": "#📋-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "1. 오늘 배운 핵심 내용",
+        "slug": "_1-오늘-배운-핵심-내용",
+        "link": "#_1-오늘-배운-핵심-내용",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 학습 목표 달성도",
+            "slug": "🎯-학습-목표-달성도",
+            "link": "#🎯-학습-목표-달성도",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "✨ 핵심 키워드",
+            "slug": "✨-핵심-키워드",
+            "link": "#✨-핵심-키워드",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "2. Spring Core 기초 개념",
+        "slug": "_2-spring-core-기초-개념",
+        "link": "#_2-spring-core-기초-개념",
+        "children": [
+          {
+            "level": 3,
+            "title": "2.1 Spring Framework란? 🌱",
+            "slug": "_2-1-spring-framework란-🌱",
+            "link": "#_2-1-spring-framework란-🌱",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2.2 IoC (제어의 역전) 이해하기",
+            "slug": "_2-2-ioc-제어의-역전-이해하기",
+            "link": "#_2-2-ioc-제어의-역전-이해하기",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2.3 DI (의존성 주입) 상세 분석",
+            "slug": "_2-3-di-의존성-주입-상세-분석",
+            "link": "#_2-3-di-의존성-주입-상세-분석",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "3. DI/IoC 실습 코드 분석",
+        "slug": "_3-di-ioc-실습-코드-분석",
+        "link": "#_3-di-ioc-실습-코드-분석",
+        "children": [
+          {
+            "level": 3,
+            "title": "3.1 Spring Container 동작 흐름",
+            "slug": "_3-1-spring-container-동작-흐름",
+            "link": "#_3-1-spring-container-동작-흐름",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3.2 핵심 코드 구조",
+            "slug": "_3-2-핵심-코드-구조",
+            "link": "#_3-2-핵심-코드-구조",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "4. Spring MVC와 JSP",
+        "slug": "_4-spring-mvc와-jsp",
+        "link": "#_4-spring-mvc와-jsp",
+        "children": [
+          {
+            "level": 3,
+            "title": "4.1 MVC 패턴의 이해",
+            "slug": "_4-1-mvc-패턴의-이해",
+            "link": "#_4-1-mvc-패턴의-이해",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4.2 Spring Web MVC 동작 원리",
+            "slug": "_4-2-spring-web-mvc-동작-원리",
+            "link": "#_4-2-spring-web-mvc-동작-원리",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4.3 실습 코드 구조",
+            "slug": "_4-3-실습-코드-구조",
+            "link": "#_4-3-실습-코드-구조",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "5. 현업 적용 사례",
+        "slug": "_5-현업-적용-사례",
+        "link": "#_5-현업-적용-사례",
+        "children": [
+          {
+            "level": 3,
+            "title": "5.1 현업에서의 Spring 기술 스택",
+            "slug": "_5-1-현업에서의-spring-기술-스택",
+            "link": "#_5-1-현업에서의-spring-기술-스택",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "5.2 기업 규모별 기술 선택",
+            "slug": "_5-2-기업-규모별-기술-선택",
+            "link": "#_5-2-기업-규모별-기술-선택",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "5.3 현업에서 선호하는 개발 패턴",
+            "slug": "_5-3-현업에서-선호하는-개발-패턴",
+            "link": "#_5-3-현업에서-선호하는-개발-패턴",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "5.4 현업 개발자가 되기 위한 핵심 스킬",
+            "slug": "_5-4-현업-개발자가-되기-위한-핵심-스킬",
+            "link": "#_5-4-현업-개발자가-되기-위한-핵심-스킬",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "6. 학습 정리 및 다음 단계",
+        "slug": "_6-학습-정리-및-다음-단계",
+        "link": "#_6-학습-정리-및-다음-단계",
+        "children": [
+          {
+            "level": 3,
+            "title": "6.1 오늘 배운 내용 요약",
+            "slug": "_6-1-오늘-배운-내용-요약",
+            "link": "#_6-1-오늘-배운-내용-요약",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6.2 학습 성과 체크리스트",
+            "slug": "_6-2-학습-성과-체크리스트",
+            "link": "#_6-2-학습-성과-체크리스트",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6.3 다음 학습 로드맵",
+            "slug": "_6-3-다음-학습-로드맵",
+            "link": "#_6-3-다음-학습-로드맵",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6.4 실무 준비를 위한 추천 학습 순서",
+            "slug": "_6-4-실무-준비를-위한-추천-학습-순서",
+            "link": "#_6-4-실무-준비를-위한-추천-학습-순서",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6.5 현업 면접 대비 핵심 질문",
+            "slug": "_6-5-현업-면접-대비-핵심-질문",
+            "link": "#_6-5-현업-면접-대비-핵심-질문",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎉 마무리",
+        "slug": "🎉-마무리",
+        "link": "#🎉-마무리",
+        "children": [
+          {
+            "level": 3,
+            "title": "💪 앞으로의 학습 방향",
+            "slug": "💪-앞으로의-학습-방향",
+            "link": "#💪-앞으로의-학습-방향",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🌟 오늘의 한줄 정리",
+            "slug": "🌟-오늘의-한줄-정리",
+            "link": "#🌟-오늘의-한줄-정리",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Spring Web MVC 완전정복 가이드",
+    "headers": [
+      {
+        "level": 2,
+        "title": "🎯 학습 목표",
+        "slug": "🎯-학습-목표",
+        "link": "#🎯-학습-목표",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📚 목차",
+        "slug": "📚-목차",
+        "link": "#📚-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "1. MVC 아키텍처 패턴 이해하기",
+        "slug": "_1-mvc-아키텍처-패턴-이해하기",
+        "link": "#_1-mvc-아키텍처-패턴-이해하기",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎨 MVC란 무엇인가?",
+            "slug": "🎨-mvc란-무엇인가",
+            "link": "#🎨-mvc란-무엇인가",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📋 각 컴포넌트의 역할",
+            "slug": "📋-각-컴포넌트의-역할",
+            "link": "#📋-각-컴포넌트의-역할",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔄 MVC 처리 흐름",
+            "slug": "🔄-mvc-처리-흐름",
+            "link": "#🔄-mvc-처리-흐름",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💡 Controller의 주요 책임",
+            "slug": "💡-controller의-주요-책임",
+            "link": "#💡-controller의-주요-책임",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "2. Spring Web MVC 핵심 컴포넌트",
+        "slug": "_2-spring-web-mvc-핵심-컴포넌트",
+        "link": "#_2-spring-web-mvc-핵심-컴포넌트",
+        "children": [
+          {
+            "level": 3,
+            "title": "🏗️ Spring Web MVC 아키텍처",
+            "slug": "🏗️-spring-web-mvc-아키텍처",
+            "link": "#🏗️-spring-web-mvc-아키텍처",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔧 핵심 컴포넌트 상세 설명",
+            "slug": "🔧-핵심-컴포넌트-상세-설명",
+            "link": "#🔧-핵심-컴포넌트-상세-설명",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📝 주요 어노테이션",
+            "slug": "📝-주요-어노테이션",
+            "link": "#📝-주요-어노테이션",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "3. JSP 기반 웹 개발",
+        "slug": "_3-jsp-기반-웹-개발",
+        "link": "#_3-jsp-기반-웹-개발",
+        "children": [
+          {
+            "level": 3,
+            "title": "🌐 JSP란?",
+            "slug": "🌐-jsp란",
+            "link": "#🌐-jsp란",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📖 JSP 기본 문법",
+            "slug": "📖-jsp-기본-문법",
+            "link": "#📖-jsp-기본-문법",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💡 현대적 JSP 개발 권장사항",
+            "slug": "💡-현대적-jsp-개발-권장사항",
+            "link": "#💡-현대적-jsp-개발-권장사항",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🏗️ 실습: 회원 가입 시스템",
+            "slug": "🏗️-실습-회원-가입-시스템",
+            "link": "#🏗️-실습-회원-가입-시스템",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "4. JSP 심화 기술",
+        "slug": "_4-jsp-심화-기술",
+        "link": "#_4-jsp-심화-기술",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔄 Include 기능 활용",
+            "slug": "🔄-include-기능-활용",
+            "link": "#🔄-include-기능-활용",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔀 Forward vs Redirect",
+            "slug": "🔀-forward-vs-redirect",
+            "link": "#🔀-forward-vs-redirect",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🏷️ EL (Expression Language)",
+            "slug": "🏷️-el-expression-language",
+            "link": "#🏷️-el-expression-language",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🏷️ JSTL (JSP Standard Tag Library)",
+            "slug": "🏷️-jstl-jsp-standard-tag-library",
+            "link": "#🏷️-jstl-jsp-standard-tag-library",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "5. Thymeleaf 템플릿 엔진",
+        "slug": "_5-thymeleaf-템플릿-엔진",
+        "link": "#_5-thymeleaf-템플릿-엔진",
+        "children": [
+          {
+            "level": 3,
+            "title": "🆚 JSP vs Thymeleaf 비교",
+            "slug": "🆚-jsp-vs-thymeleaf-비교",
+            "link": "#🆚-jsp-vs-thymeleaf-비교",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔒 JSP의 보안 문제와 해결책",
+            "slug": "🔒-jsp의-보안-문제와-해결책",
+            "link": "#🔒-jsp의-보안-문제와-해결책",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🧩 Thymeleaf 레이아웃 기능",
+            "slug": "🧩-thymeleaf-레이아웃-기능",
+            "link": "#🧩-thymeleaf-레이아웃-기능",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔧 Thymeleaf 핵심 속성",
+            "slug": "🔧-thymeleaf-핵심-속성",
+            "link": "#🔧-thymeleaf-핵심-속성",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🏗️ 실습: Thymeleaf 회원 관리 시스템",
+            "slug": "🏗️-실습-thymeleaf-회원-관리-시스템",
+            "link": "#🏗️-실습-thymeleaf-회원-관리-시스템",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🎯 @ModelAttribute와 객체 바인딩",
+            "slug": "🎯-modelattribute와-객체-바인딩",
+            "link": "#🎯-modelattribute와-객체-바인딩",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -7948,6 +7065,1521 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
+    "title": "🎯 JDBC 학습 가이드 - 8월 18일 실습",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📚 목차",
+        "slug": "📚-목차",
+        "link": "#📚-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🤔 JDBC란 무엇인가?",
+        "slug": "🤔-jdbc란-무엇인가",
+        "link": "#🤔-jdbc란-무엇인가",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 왜 JDBC를 배워야 할까?",
+            "slug": "🎯-왜-jdbc를-배워야-할까",
+            "link": "#🎯-왜-jdbc를-배워야-할까",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "⚙️ 개발 환경 설정",
+        "slug": "⚙️-개발-환경-설정",
+        "link": "#⚙️-개발-환경-설정",
+        "children": [
+          {
+            "level": 3,
+            "title": "필요한 도구들",
+            "slug": "필요한-도구들",
+            "link": "#필요한-도구들",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Maven 설정 (pom.xml)",
+            "slug": "maven-설정-pom-xml",
+            "link": "#maven-설정-pom-xml",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "환경변수 설정 (.env 파일)",
+            "slug": "환경변수-설정-env-파일",
+            "link": "#환경변수-설정-env-파일",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🧠 핵심 개념 이해",
+        "slug": "🧠-핵심-개념-이해",
+        "link": "#🧠-핵심-개념-이해",
+        "children": [
+          {
+            "level": 3,
+            "title": "JDBC 4대 핵심 객체",
+            "slug": "jdbc-4대-핵심-객체",
+            "link": "#jdbc-4대-핵심-객체",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📝 객체별 역할",
+            "slug": "📝-객체별-역할",
+            "link": "#📝-객체별-역할",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🚀 실습 1: 기본 CRUD 작업",
+        "slug": "🚀-실습-1-기본-crud-작업",
+        "link": "#🚀-실습-1-기본-crud-작업",
+        "children": [
+          {
+            "level": 3,
+            "title": "1단계: 데이터베이스 연결하기",
+            "slug": "_1단계-데이터베이스-연결하기",
+            "link": "#_1단계-데이터베이스-연결하기",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2단계: 테이블 생성 (DDL)",
+            "slug": "_2단계-테이블-생성-ddl",
+            "link": "#_2단계-테이블-생성-ddl",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3단계: 데이터 삽입 (DML)",
+            "slug": "_3단계-데이터-삽입-dml",
+            "link": "#_3단계-데이터-삽입-dml",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4단계: 데이터 조회 (SELECT)",
+            "slug": "_4단계-데이터-조회-select",
+            "link": "#_4단계-데이터-조회-select",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💡 try-with-resources가 뭔가요?",
+            "slug": "💡-try-with-resources가-뭔가요",
+            "link": "#💡-try-with-resources가-뭔가요",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🛡️ 실습 2: SQL Injection 보안",
+        "slug": "🛡️-실습-2-sql-injection-보안",
+        "link": "#🛡️-실습-2-sql-injection-보안",
+        "children": [
+          {
+            "level": 3,
+            "title": "⚠️ 위험한 코드: Statement 사용",
+            "slug": "⚠️-위험한-코드-statement-사용",
+            "link": "#⚠️-위험한-코드-statement-사용",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "✅ 안전한 코드: PreparedStatement 사용",
+            "slug": "✅-안전한-코드-preparedstatement-사용",
+            "link": "#✅-안전한-코드-preparedstatement-사용",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔄 Statement vs PreparedStatement 비교",
+            "slug": "🔄-statement-vs-preparedstatement-비교",
+            "link": "#🔄-statement-vs-preparedstatement-비교",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🏗️ 실습 3: DAO 패턴 적용",
+        "slug": "🏗️-실습-3-dao-패턴-적용",
+        "link": "#🏗️-실습-3-dao-패턴-적용",
+        "children": [
+          {
+            "level": 3,
+            "title": "DAO 패턴이란?",
+            "slug": "dao-패턴이란",
+            "link": "#dao-패턴이란",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📊 데이터베이스 설계",
+            "slug": "📊-데이터베이스-설계",
+            "link": "#📊-데이터베이스-설계",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "1단계: DTO (Data Transfer Object) 정의",
+            "slug": "_1단계-dto-data-transfer-object-정의",
+            "link": "#_1단계-dto-data-transfer-object-정의",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2단계: DAO 인터페이스 정의",
+            "slug": "_2단계-dao-인터페이스-정의",
+            "link": "#_2단계-dao-인터페이스-정의",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3단계: DAO 구현체 작성",
+            "slug": "_3단계-dao-구현체-작성",
+            "link": "#_3단계-dao-구현체-작성",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎯 실습별 학습 포인트",
+        "slug": "🎯-실습별-학습-포인트",
+        "link": "#🎯-실습별-학습-포인트",
+        "children": [
+          {
+            "level": 3,
+            "title": "📋 실습 1: 기본 CRUD",
+            "slug": "📋-실습-1-기본-crud",
+            "link": "#📋-실습-1-기본-crud",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔒 실습 2: SQL Injection 보안",
+            "slug": "🔒-실습-2-sql-injection-보안",
+            "link": "#🔒-실습-2-sql-injection-보안",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🏛️ 실습 3: DAO 패턴",
+            "slug": "🏛️-실습-3-dao-패턴",
+            "link": "#🏛️-실습-3-dao-패턴",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔄 JDBC 실행 흐름",
+        "slug": "🔄-jdbc-실행-흐름",
+        "link": "#🔄-jdbc-실행-흐름",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "💡 초보자를 위한 팁",
+        "slug": "💡-초보자를-위한-팁",
+        "link": "#💡-초보자를-위한-팁",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 기억해야 할 핵심 3가지",
+            "slug": "🎯-기억해야-할-핵심-3가지",
+            "link": "#🎯-기억해야-할-핵심-3가지",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "💡 초보자를 위한 팁",
+        "slug": "💡-초보자를-위한-팁-1",
+        "link": "#💡-초보자를-위한-팁-1",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 기억해야 할 핵심 5가지",
+            "slug": "🎯-기억해야-할-핵심-5가지",
+            "link": "#🎯-기억해야-할-핵심-5가지",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🚨 자주 하는 실수들과 해결책",
+            "slug": "🚨-자주-하는-실수들과-해결책",
+            "link": "#🚨-자주-하는-실수들과-해결책",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "✅ 좋은 코딩 습관",
+            "slug": "✅-좋은-코딩-습관",
+            "link": "#✅-좋은-코딩-습관",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🎓 학습 단계별 체크리스트",
+            "slug": "🎓-학습-단계별-체크리스트",
+            "link": "#🎓-학습-단계별-체크리스트",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎓 마무리",
+        "slug": "🎓-마무리",
+        "link": "#🎓-마무리",
+        "children": [
+          {
+            "level": 3,
+            "title": "다음 단계로 가기 위한 로드맵",
+            "slug": "다음-단계로-가기-위한-로드맵",
+            "link": "#다음-단계로-가기-위한-로드맵",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔗 학습 자료 링크",
+            "slug": "🔗-학습-자료-링크",
+            "link": "#🔗-학습-자료-링크",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📝 오늘 배운 내용 최종 요약",
+            "slug": "📝-오늘-배운-내용-최종-요약",
+            "link": "#📝-오늘-배운-내용-최종-요약",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "JDBC DAO/DTO 패턴 완전 가이드",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📋 목차",
+        "slug": "📋-목차",
+        "link": "#📋-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "프로젝트 개요",
+        "slug": "프로젝트-개요",
+        "link": "#프로젝트-개요",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 학습 목표",
+            "slug": "🎯-학습-목표",
+            "link": "#🎯-학습-목표",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔧 주요 기술 스택",
+            "slug": "🔧-주요-기술-스택",
+            "link": "#🔧-주요-기술-스택",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "아키텍처 다이어그램",
+        "slug": "아키텍처-다이어그램",
+        "link": "#아키텍처-다이어그램",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "프로젝트 설정 (pom.xml)",
+        "slug": "프로젝트-설정-pom-xml",
+        "link": "#프로젝트-설정-pom-xml",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "데이터베이스 스키마",
+        "slug": "데이터베이스-스키마",
+        "link": "#데이터베이스-스키마",
+        "children": [
+          {
+            "level": 3,
+            "title": "🗄️ DDL/DML SQL",
+            "slug": "🗄️-ddl-dml-sql",
+            "link": "#🗄️-ddl-dml-sql",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "DTO (Data Transfer Object)",
+        "slug": "dto-data-transfer-object",
+        "link": "#dto-data-transfer-object",
+        "children": [
+          {
+            "level": 3,
+            "title": "📝 DTO 구조 다이어그램",
+            "slug": "📝-dto-구조-다이어그램",
+            "link": "#📝-dto-구조-다이어그램",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💻 DTO 코드 구현",
+            "slug": "💻-dto-코드-구현",
+            "link": "#💻-dto-코드-구현",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "DAO (Data Access Object) 인터페이스",
+        "slug": "dao-data-access-object-인터페이스",
+        "link": "#dao-data-access-object-인터페이스",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔄 DAO 흐름도",
+            "slug": "🔄-dao-흐름도",
+            "link": "#🔄-dao-흐름도",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💻 DAO 인터페이스 코드",
+            "slug": "💻-dao-인터페이스-코드",
+            "link": "#💻-dao-인터페이스-코드",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "데이터베이스 연결 유틸리티",
+        "slug": "데이터베이스-연결-유틸리티",
+        "link": "#데이터베이스-연결-유틸리티",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔐 환경변수 설정 (.env 파일)",
+            "slug": "🔐-환경변수-설정-env-파일",
+            "link": "#🔐-환경변수-설정-env-파일",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💻 DB 연결 유틸리티 코드",
+            "slug": "💻-db-연결-유틸리티-코드",
+            "link": "#💻-db-연결-유틸리티-코드",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "DAO 구현체 (JDBC)",
+        "slug": "dao-구현체-jdbc",
+        "link": "#dao-구현체-jdbc",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔄 JDBC 처리 흐름",
+            "slug": "🔄-jdbc-처리-흐름",
+            "link": "#🔄-jdbc-처리-흐름",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💻 UserJdbcDAO 구현",
+            "slug": "💻-userjdbcdao-구현",
+            "link": "#💻-userjdbcdao-구현",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "💻 MemoJdbcDAO 구현",
+            "slug": "💻-memojdbcdao-구현",
+            "link": "#💻-memojdbcdao-구현",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "서블릿 구현",
+        "slug": "서블릿-구현",
+        "link": "#서블릿-구현",
+        "children": [
+          {
+            "level": 3,
+            "title": "🌐 서블릿 처리 흐름",
+            "slug": "🌐-서블릿-처리-흐름",
+            "link": "#🌐-서블릿-처리-흐름",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📝 흐름 설명",
+            "slug": "📝-흐름-설명",
+            "link": "#📝-흐름-설명",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🗂️ 목차",
+        "slug": "🗂️-목차",
+        "link": "#🗂️-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🎯 HTML이란?",
+        "slug": "🎯-html이란",
+        "link": "#🎯-html이란",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔍 HTML의 특징",
+            "slug": "🔍-html의-특징",
+            "link": "#🔍-html의-특징",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🏗️ HTML 태그의 기본 구조",
+        "slug": "🏗️-html-태그의-기본-구조",
+        "link": "#🏗️-html-태그의-기본-구조",
+        "children": [
+          {
+            "level": 3,
+            "title": "📝 기본 문법 패턴",
+            "slug": "📝-기본-문법-패턴",
+            "link": "#📝-기본-문법-패턴",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📝 주요 HTML 태그들",
+        "slug": "📝-주요-html-태그들",
+        "link": "#📝-주요-html-태그들",
+        "children": [
+          {
+            "level": 3,
+            "title": "🏠 1. 문서 구조 태그",
+            "slug": "🏠-1-문서-구조-태그",
+            "link": "#🏠-1-문서-구조-태그",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "✍️ 2. 텍스트 관련 태그",
+            "slug": "✍️-2-텍스트-관련-태그",
+            "link": "#✍️-2-텍스트-관련-태그",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔗 3. 링크와 미디어 태그",
+            "slug": "🔗-3-링크와-미디어-태그",
+            "link": "#🔗-3-링크와-미디어-태그",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📋 4. 목록 태그",
+            "slug": "📋-4-목록-태그",
+            "link": "#📋-4-목록-태그",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📦 5. 컨테이너 태그",
+            "slug": "📦-5-컨테이너-태그",
+            "link": "#📦-5-컨테이너-태그",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎨 HTML 속성(Attribute)",
+        "slug": "🎨-html-속성-attribute",
+        "link": "#🎨-html-속성-attribute",
+        "children": [
+          {
+            "level": 3,
+            "title": "🌍 전역 속성 (모든 태그에서 사용 가능)",
+            "slug": "🌍-전역-속성-모든-태그에서-사용-가능",
+            "link": "#🌍-전역-속성-모든-태그에서-사용-가능",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔗 링크 전용 속성",
+            "slug": "🔗-링크-전용-속성",
+            "link": "#🔗-링크-전용-속성",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🖼️ 이미지 전용 속성",
+            "slug": "🖼️-이미지-전용-속성",
+            "link": "#🖼️-이미지-전용-속성",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "💡 실전 예제",
+        "slug": "💡-실전-예제",
+        "link": "#💡-실전-예제",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎨 나만의 자기소개 페이지 만들기",
+            "slug": "🎨-나만의-자기소개-페이지-만들기",
+            "link": "#🎨-나만의-자기소개-페이지-만들기",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📊 태그와 속성 관계도",
+        "slug": "📊-태그와-속성-관계도",
+        "link": "#📊-태그와-속성-관계도",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🏷️ 태그 분류 시스템",
+        "slug": "🏷️-태그-분류-시스템",
+        "link": "#🏷️-태그-분류-시스템",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "📱 폼(Form) 완벽 가이드",
+        "slug": "📱-폼-form-완벽-가이드",
+        "link": "#📱-폼-form-완벽-가이드",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 회원가입 폼 예제",
+            "slug": "🎯-회원가입-폼-예제",
+            "link": "#🎯-회원가입-폼-예제",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎭 시맨틱 HTML 태그",
+        "slug": "🎭-시맨틱-html-태그",
+        "link": "#🎭-시맨틱-html-태그",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎨 완전한 시맨틱 웹페이지 구조",
+            "slug": "🎨-완전한-시맨틱-웹페이지-구조",
+            "link": "#🎨-완전한-시맨틱-웹페이지-구조",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎯 속성 활용 고급 팁",
+        "slug": "🎯-속성-활용-고급-팁",
+        "link": "#🎯-속성-활용-고급-팁",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔧 데이터 속성 (Custom Data Attributes)",
+            "slug": "🔧-데이터-속성-custom-data-attributes",
+            "link": "#🔧-데이터-속성-custom-data-attributes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "♿ 접근성 속성",
+            "slug": "♿-접근성-속성",
+            "link": "#♿-접근성-속성",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📋 HTML 속성 치트시트",
+        "slug": "📋-html-속성-치트시트",
+        "link": "#📋-html-속성-치트시트",
+        "children": [
+          {
+            "level": 3,
+            "title": "🌍 전역 속성 (모든 태그 사용 가능)",
+            "slug": "🌍-전역-속성-모든-태그-사용-가능",
+            "link": "#🌍-전역-속성-모든-태그-사용-가능",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔗 링크 속성",
+            "slug": "🔗-링크-속성",
+            "link": "#🔗-링크-속성",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🖼️ 이미지 속성",
+            "slug": "🖼️-이미지-속성",
+            "link": "#🖼️-이미지-속성",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🚀 실무 활용 패턴",
+        "slug": "🚀-실무-활용-패턴",
+        "link": "#🚀-실무-활용-패턴",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎮 인터랙티브 요소들",
+            "slug": "🎮-인터랙티브-요소들",
+            "link": "#🎮-인터랙티브-요소들",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📊 테이블 구조",
+            "slug": "📊-테이블-구조",
+            "link": "#📊-테이블-구조",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎨 고급 속성 활용법",
+        "slug": "🎨-고급-속성-활용법",
+        "link": "#🎨-고급-속성-활용법",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎭 조건부 속성",
+            "slug": "🎭-조건부-속성",
+            "link": "#🎭-조건부-속성",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔄 동적 콘텐츠 속성",
+            "slug": "🔄-동적-콘텐츠-속성",
+            "link": "#🔄-동적-콘텐츠-속성",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🌟 최신 HTML5 기능들",
+        "slug": "🌟-최신-html5-기능들",
+        "link": "#🌟-최신-html5-기능들",
+        "children": [
+          {
+            "level": 3,
+            "title": "📅 새로운 입력 타입들",
+            "slug": "📅-새로운-입력-타입들",
+            "link": "#📅-새로운-입력-타입들",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎯 성능 최적화 속성",
+        "slug": "🎯-성능-최적화-속성",
+        "link": "#🎯-성능-최적화-속성",
+        "children": [
+          {
+            "level": 3,
+            "title": "⚡ 로딩 최적화",
+            "slug": "⚡-로딩-최적화",
+            "link": "#⚡-로딩-최적화",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔒 외부 링크 보안 속성",
+        "slug": "🔒-외부-링크-보안-속성",
+        "link": "#🔒-외부-링크-보안-속성",
+        "children": [
+          {
+            "level": 3,
+            "title": "📌 속성 설명",
+            "slug": "📌-속성-설명",
+            "link": "#📌-속성-설명",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔑 입력 데이터 보안 속성",
+        "slug": "🔑-입력-데이터-보안-속성",
+        "link": "#🔑-입력-데이터-보안-속성",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🖼️ 보안 속성 - 이미지/리소스",
+        "slug": "🖼️-보안-속성-이미지-리소스",
+        "link": "#🖼️-보안-속성-이미지-리소스",
+        "children": [
+          {
+            "level": 3,
+            "title": "속성 설명",
+            "slug": "속성-설명",
+            "link": "#속성-설명",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📊 보안 관련 속성 관계도",
+        "slug": "📊-보안-관련-속성-관계도",
+        "link": "#📊-보안-관련-속성-관계도",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "✅ 정리",
+        "slug": "✅-정리",
+        "link": "#✅-정리",
+        "children": []
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "CSS 선택자와 타이포그래피 완벽 가이드",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📋 목차",
+        "slug": "📋-목차",
+        "link": "#📋-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "CSS 선택자 기초",
+        "slug": "css-선택자-기초",
+        "link": "#css-선택자-기초",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 선택자란?",
+            "slug": "🎯-선택자란",
+            "link": "#🎯-선택자란",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📊 CSS 선택자 관계도",
+            "slug": "📊-css-선택자-관계도",
+            "link": "#📊-css-선택자-관계도",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "CSS 선택자 종류",
+        "slug": "css-선택자-종류",
+        "link": "#css-선택자-종류",
+        "children": [
+          {
+            "level": 3,
+            "title": "1️⃣ 기본 선택자",
+            "slug": "_1️⃣-기본-선택자",
+            "link": "#_1️⃣-기본-선택자",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔍 id vs class 차이점",
+            "slug": "🔍-id-vs-class-차이점",
+            "link": "#🔍-id-vs-class-차이점",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2️⃣ 속성 선택자",
+            "slug": "_2️⃣-속성-선택자",
+            "link": "#_2️⃣-속성-선택자",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3️⃣ 그룹 선택자",
+            "slug": "_3️⃣-그룹-선택자",
+            "link": "#_3️⃣-그룹-선택자",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4️⃣ 결합자 (Combinator)",
+            "slug": "_4️⃣-결합자-combinator",
+            "link": "#_4️⃣-결합자-combinator",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "CSS 타이포그래피",
+        "slug": "css-타이포그래피",
+        "link": "#css-타이포그래피",
+        "children": [
+          {
+            "level": 3,
+            "title": "🔄 상속 (Inheritance)",
+            "slug": "🔄-상속-inheritance",
+            "link": "#🔄-상속-inheritance",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "📏 사이즈 단위",
+            "slug": "📏-사이즈-단위",
+            "link": "#📏-사이즈-단위",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🔤 글꼴 속성",
+            "slug": "🔤-글꼴-속성",
+            "link": "#🔤-글꼴-속성",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🌐 웹폰트 (Web Font)",
+            "slug": "🌐-웹폰트-web-font",
+            "link": "#🌐-웹폰트-web-font",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "스타일시트 적용 방법",
+        "slug": "스타일시트-적용-방법",
+        "link": "#스타일시트-적용-방법",
+        "children": [
+          {
+            "level": 3,
+            "title": "적용 방법별 특징",
+            "slug": "적용-방법별-특징",
+            "link": "#적용-방법별-특징",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "실습 코드 분석",
+        "slug": "실습-코드-분석",
+        "link": "#실습-코드-분석",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTML 구조 분석",
+            "slug": "html-구조-분석",
+            "link": "#html-구조-분석",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CSS 코드 상세 분석",
+            "slug": "css-코드-상세-분석",
+            "link": "#css-코드-상세-분석",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "💡 학습 팁",
+        "slug": "💡-학습-팁",
+        "link": "#💡-학습-팁",
+        "children": [
+          {
+            "level": 3,
+            "title": "선택자 우선순위 (특이도)",
+            "slug": "선택자-우선순위-특이도",
+            "link": "#선택자-우선순위-특이도",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "실무 권장사항",
+            "slug": "실무-권장사항",
+            "link": "#실무-권장사항",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "디버깅 도구",
+            "slug": "디버깅-도구",
+            "link": "#디버깅-도구",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎯 실습 과제",
+        "slug": "🎯-실습-과제",
+        "link": "#🎯-실습-과제",
+        "children": []
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "CSS Layout 실습 가이드 📐",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📚 목차",
+        "slug": "📚-목차",
+        "link": "#📚-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "HTML 기본 구조",
+        "slug": "html-기본-구조",
+        "link": "#html-기본-구조",
+        "children": [
+          {
+            "level": 3,
+            "title": "기본 HTML 템플릿",
+            "slug": "기본-html-템플릿",
+            "link": "#기본-html-템플릿",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "의미론적 HTML 구조",
+            "slug": "의미론적-html-구조",
+            "link": "#의미론적-html-구조",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "CSS Box Model",
+        "slug": "css-box-model",
+        "link": "#css-box-model",
+        "children": [
+          {
+            "level": 3,
+            "title": "Box Model 실습",
+            "slug": "box-model-실습",
+            "link": "#box-model-실습",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Display 속성",
+        "slug": "display-속성",
+        "link": "#display-속성",
+        "children": [
+          {
+            "level": 3,
+            "title": "Display 실습",
+            "slug": "display-실습",
+            "link": "#display-실습",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Position 속성",
+        "slug": "position-속성",
+        "link": "#position-속성",
+        "children": [
+          {
+            "level": 3,
+            "title": "Position 실습",
+            "slug": "position-실습",
+            "link": "#position-실습",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Float와 Clear",
+        "slug": "float와-clear",
+        "link": "#float와-clear",
+        "children": [
+          {
+            "level": 3,
+            "title": "Float 실습",
+            "slug": "float-실습",
+            "link": "#float-실습",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Flexbox",
+        "slug": "flexbox",
+        "link": "#flexbox",
+        "children": [
+          {
+            "level": 3,
+            "title": "Flexbox 기본 설정",
+            "slug": "flexbox-기본-설정",
+            "link": "#flexbox-기본-설정",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Flexbox 실전 예제",
+            "slug": "flexbox-실전-예제",
+            "link": "#flexbox-실전-예제",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "CSS Grid",
+        "slug": "css-grid",
+        "link": "#css-grid",
+        "children": [
+          {
+            "level": 3,
+            "title": "Grid 기본 설정",
+            "slug": "grid-기본-설정",
+            "link": "#grid-기본-설정",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Grid 고급 기법",
+            "slug": "grid-고급-기법",
+            "link": "#grid-고급-기법",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "실습 예제",
+        "slug": "실습-예제",
+        "link": "#실습-예제",
+        "children": [
+          {
+            "level": 3,
+            "title": "완전한 반응형 웹사이트",
+            "slug": "완전한-반응형-웹사이트",
+            "link": "#완전한-반응형-웹사이트",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "JavaScript Core 완벽 마스터 가이드 🚀",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📋 목차",
+        "slug": "📋-목차",
+        "link": "#📋-목차",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "JavaScript 개요",
+        "slug": "javascript-개요",
+        "link": "#javascript-개요",
+        "children": [
+          {
+            "level": 3,
+            "title": "JavaScript란?",
+            "slug": "javascript란",
+            "link": "#javascript란",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "웹에서 JavaScript의 역할",
+            "slug": "웹에서-javascript의-역할",
+            "link": "#웹에서-javascript의-역할",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "개발 환경 설정",
+        "slug": "개발-환경-설정",
+        "link": "#개발-환경-설정",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 기본 HTML 구조",
+            "slug": "_1-기본-html-구조",
+            "link": "#_1-기본-html-구조",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 외부 파일로 분리하기",
+            "slug": "_2-외부-파일로-분리하기",
+            "link": "#_2-외부-파일로-분리하기",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Part 1: 기초 문법",
+        "slug": "part-1-기초-문법",
+        "link": "#part-1-기초-문법",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 주석 작성법",
+            "slug": "_1-주석-작성법",
+            "link": "#_1-주석-작성법",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 변수와 상수",
+            "slug": "_2-변수와-상수",
+            "link": "#_2-변수와-상수",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 데이터 타입",
+            "slug": "_3-데이터-타입",
+            "link": "#_3-데이터-타입",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. Truthy와 Falsy",
+            "slug": "_4-truthy와-falsy",
+            "link": "#_4-truthy와-falsy",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "5. 템플릿 리터럴",
+            "slug": "_5-템플릿-리터럴",
+            "link": "#_5-템플릿-리터럴",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6. 연산자",
+            "slug": "_6-연산자",
+            "link": "#_6-연산자",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "7. 조건문 - if/else",
+            "slug": "_7-조건문-if-else",
+            "link": "#_7-조건문-if-else",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "8. 반복문",
+            "slug": "_8-반복문",
+            "link": "#_8-반복문",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "9. Switch문",
+            "slug": "_9-switch문",
+            "link": "#_9-switch문",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "10. 예외 처리",
+            "slug": "_10-예외-처리",
+            "link": "#_10-예외-처리",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Part 2: 고급 문법",
+        "slug": "part-2-고급-문법",
+        "link": "#part-2-고급-문법",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 함수 (Function)",
+            "slug": "_1-함수-function",
+            "link": "#_1-함수-function",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 화살표 함수 (Arrow Function)",
+            "slug": "_2-화살표-함수-arrow-function",
+            "link": "#_2-화살표-함수-arrow-function",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 클래스 (Class)",
+            "slug": "_3-클래스-class",
+            "link": "#_3-클래스-class",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 고차함수 (Higher-order Functions)",
+            "slug": "_4-고차함수-higher-order-functions",
+            "link": "#_4-고차함수-higher-order-functions",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "5. 구조 분해 할당 (Destructuring)",
+            "slug": "_5-구조-분해-할당-destructuring",
+            "link": "#_5-구조-분해-할당-destructuring",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6. 스프레드와 나머지 연산자 (...)",
+            "slug": "_6-스프레드와-나머지-연산자",
+            "link": "#_6-스프레드와-나머지-연산자",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "실습 프로젝트",
+        "slug": "실습-프로젝트",
+        "link": "#실습-프로젝트",
+        "children": [
+          {
+            "level": 3,
+            "title": "프로젝트 1: 간단한 계산기",
+            "slug": "프로젝트-1-간단한-계산기",
+            "link": "#프로젝트-1-간단한-계산기",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "프로젝트 2: 학생 관리 시스템",
+            "slug": "프로젝트-2-학생-관리-시스템",
+            "link": "#프로젝트-2-학생-관리-시스템",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "프로젝트 3: To-Do 리스트 애플리케이션",
+            "slug": "프로젝트-3-to-do-리스트-애플리케이션",
+            "link": "#프로젝트-3-to-do-리스트-애플리케이션",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "학습 로드맵",
+        "slug": "학습-로드맵",
+        "link": "#학습-로드맵",
+        "children": [
+          {
+            "level": 3,
+            "title": "JavaScript 마스터 로드맵",
+            "slug": "javascript-마스터-로드맵",
+            "link": "#javascript-마스터-로드맵",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "학습 단계별 체크리스트",
+            "slug": "학습-단계별-체크리스트",
+            "link": "#학습-단계별-체크리스트",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "다음 학습 추천",
+            "slug": "다음-학습-추천",
+            "link": "#다음-학습-추천",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "실습 프로젝트 추천",
+            "slug": "실습-프로젝트-추천",
+            "link": "#실습-프로젝트-추천",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "마무리 및 정리",
+        "slug": "마무리-및-정리",
+        "link": "#마무리-및-정리",
+        "children": [
+          {
+            "level": 3,
+            "title": "핵심 개념 요약",
+            "slug": "핵심-개념-요약",
+            "link": "#핵심-개념-요약",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "자주하는 실수와 해결법",
+            "slug": "자주하는-실수와-해결법",
+            "link": "#자주하는-실수와-해결법",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "실습 문제와 해답",
+            "slug": "실습-문제와-해답",
+            "link": "#실습-문제와-해답",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "성능 최적화 팁",
+            "slug": "성능-최적화-팁",
+            "link": "#성능-최적화-팁",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "디버깅 기법",
+            "slug": "디버깅-기법",
+            "link": "#디버깅-기법",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "추천 학습 자료",
+            "slug": "추천-학습-자료",
+            "link": "#추천-학습-자료",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "최종 정리",
+        "slug": "최종-정리",
+        "link": "#최종-정리",
+        "children": [
+          {
+            "level": 3,
+            "title": "학습한 내용 요약",
+            "slug": "학습한-내용-요약",
+            "link": "#학습한-내용-요약",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "다음 단계 추천",
+            "slug": "다음-단계-추천",
+            "link": "#다음-단계-추천",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "마지막 조언",
+            "slug": "마지막-조언",
+            "link": "#마지막-조언",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "",
     "headers": [],
     "path": "/404.html",
@@ -7955,3 +8587,16 @@ export const SEARCH_INDEX = [
     "extraFields": []
   }
 ]
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ searchIndex }) => {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  })
+}
