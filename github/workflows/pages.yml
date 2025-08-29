@@ -25,13 +25,14 @@ jobs:
           node-version: 20
           cache: npm
 
-      # ✅ devDependencies(= vuepress)까지 설치
+      # ⛔️ 절대 여기서 NODE_ENV=production 설정하지 마세요
+      # devDependencies(= vuepress)까지 설치되도록 development로 설치
       - name: Install deps (include dev)
         run: npm ci || npm install
         env:
           NODE_ENV: development
 
-      # (선택) 설치 검증: devDeps 존재 여부 & vuepress 버전
+      # (진단용) vuepress가 설치되었는지 확인
       - name: Debug deps
         run: |
           node -v
@@ -39,7 +40,7 @@ jobs:
           npm pkg get devDependencies
           npx --yes vuepress@next -v
 
-      # ✅ 빌드에서만 prod + base='/TIL/' 플래그
+      # ✅ 빌드 때만 production + GitHub Pages용 base 플래그
       - name: Build VuePress (docs → docs/.vuepress/dist)
         run: npx --yes vuepress@next build docs
         env:
