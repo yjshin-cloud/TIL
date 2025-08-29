@@ -4,15 +4,16 @@
   "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "preview": "npx -y http-server docs/.vuepress/dist -p 4173",
-    "clean": "node -e \"const fs=require('fs'),p=['docs/.vuepress/.temp','docs/.vuepress/.cache'];p.forEach(d=>fs.rmSync(d,{recursive:true,force:true}))\""
+    "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "vuepress": "next",
-    "@vuepress/bundler-vite": "next",
     "@vuepress/theme-default": "next",
+    "@vuepress/bundler-vite": "next",
     "@vuepress/plugin-search": "next",
     "sass-embedded": "^1.91.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
