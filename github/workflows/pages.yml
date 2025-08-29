@@ -2,8 +2,8 @@ name: Deploy VuePress v2 to GitHub Pages
 
 on:
   push:
-    branches: [main] # 기본 브랜치
-  workflow_dispatch: # 수동 실행 버튼
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -18,27 +18,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      # devDependencies(= vuepress) 까지 설치되도록 development로 설치
+      # ✅ devDependencies(= vuepress)까지 설치
       - name: Install deps (include dev)
-        run: npm ci
+        run: npm ci || npm install
         env:
           NODE_ENV: development
 
-      # 빌드 때만 프로덕션 모드 + base='/TIL/' 강제
+      # ✅ 빌드 때만 prod + GitHub Pages용 base 플래그
       - name: Build VuePress (docs → docs/.vuepress/dist)
         run: npx vuepress@next build docs
         env:
-          GITHUB_PAGES: "true" # config.js에서 base 결정 플래그
           NODE_ENV: production
+          GITHUB_PAGES: "true"
 
       - name: Add .nojekyll
         run: touch docs/.vuepress/dist/.nojekyll
