@@ -13,9 +13,9 @@ CORS 문제 이해 및 재현
 
 ```mermaid
 flowchart TD
-    A[REST API] --> B[Resource<br/>(URI)]
-    A --> C[HTTP Method<br/>(GET, POST, DELETE...)]
-    A --> D[Representation<br/>(JSON, XML 등)]
+    A[REST API] --> B["Resource\n(URI)"]
+    A --> C["HTTP Method\n(GET, POST, DELETE...)"]
+    A --> D["Representation\n(JSON, XML 등)"]
 ```
 
 자원(Resource): URI로 식별 (/api/memos)
@@ -138,10 +138,9 @@ async function fetchMemos() {
 }
 ```
 
-브라우저 콘솔 에러:
-
-Access to fetch at 'http://localhost:8080/api/memos'
-from origin 'http://localhost:5500' has been blocked by CORS policy
+> 브라우저 콘솔 에러:
+> Access to fetch at 'http://localhost:8080/api/memos'
+> from origin 'http://localhost:5500' has been blocked by CORS policy
 
 ## ✅ CORS 해결 방법
 ```
