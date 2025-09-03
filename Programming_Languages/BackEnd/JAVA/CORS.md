@@ -190,3 +190,115 @@ memo.html (Same-Origin 테스트)
 index.html (CORS 에러 재현)
 
 @CrossOrigin 적용 후 정상 동작 확인
+
+
+<details> <summary>📌 REST API & CORS Cheat Sheet (펼치기/접기)</summary>
+
+--- 
+
+# 🚀 REST API & CORS Cheat Sheet
+
+## 1️⃣ REST API 기본
+
+```mermaid
+flowchart TD
+    A[REST API] --> B[Resource (URI)]
+    A --> C[HTTP Method (GET, POST, DELETE)]
+    A --> D[Representation (JSON)]
+```
+
+- **Resource**: `/api/memos`
+    
+- **Method**: GET / POST / DELETE
+    
+- **JSON 응답**: 상태를 표현
+    
+
+---
+
+## 2️⃣ Spring Boot API
+
+
+```java
+@RestController
+public class MemoController {
+    private final ConcurrentHashMap<Long, Memo> memos = new ConcurrentHashMap<>();
+    private final AtomicLong counter = new AtomicLong();
+
+    @GetMapping("/api/memos")  // 메모 목록 조회
+    public List<Memo> getMemos() { return new ArrayList<>(memos.values()); }
+
+    @PostMapping("/api/memos") // 메모 추가
+    public Memo createMemo(@RequestBody Memo memo) {
+        long id = counter.incrementAndGet();
+        Memo newMemo = new Memo(id, memo.content());
+        memos.put(id, newMemo);
+        return newMemo;
+    }
+
+    @DeleteMapping("/api/memos/{id}") // 메모 삭제
+    public ResponseEntity<Void> deleteMemo(@PathVariable Long id) {
+        memos.remove(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+```
+
+---
+
+## 3️⃣ CORS 개념
+
+```mermaid
+sequenceDiagram
+    participant FE as Frontend (5500)
+    participant BE as Backend (8080)
+
+    FE->>BE: fetch /api/memos 🚨
+    BE-->>FE: CORS 에러 (차단)
+    
+    Note over BE: 해결 → @CrossOrigin(origins="http://localhost:5500")
+    
+    FE->>BE: fetch /api/memos ✅
+    BE-->>FE: JSON 응답 (허용)
+```
+
+- **Same-Origin Policy**: Protocol + Host + Port 모두 같아야 허용
+    
+- **CORS (Cross-Origin Resource Sharing)**: 서버에서 예외 허용
+    
+
+---
+
+## 4️⃣ 해결 방법
+
+```
+@CrossOrigin(origins = "http://localhost:5500") @RestController public class MemoController { ... }
+```
+---
+
+## 5️⃣ 현업 Best Practice
+
+- 로컬 개발: `@CrossOrigin` 간단히 사용
+    
+- 운영 환경:
+    
+    - Spring Security에서 전역 CORS 설정
+        
+    - API Gateway / Nginx에서 처리
+        
+    - `*`(모든 출처 허용) ❌ → 특정 도메인 지정 ✅
+        
+
+---
+
+## 🔥 핵심 정리
+
+- REST API = 리소스를 URI로 관리 + HTTP 메서드로 동작 정의
+    
+- `fetch` → 다른 출처 요청 시 CORS 문제 발생
+    
+- 해결 = 서버에서 **허용 헤더**(`Access-Control-Allow-Origin`) 추가
+
+
+
+</details>
