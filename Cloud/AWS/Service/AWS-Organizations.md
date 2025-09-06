@@ -31,9 +31,9 @@ flowchart TD
     C --> F[Account C - Prod]
     C --> G[Account D - Backup]
 
-    style A fill:#9966ff,stroke:#333,stroke-width:2px
-    style B fill:#ccf2ff,stroke:#333,stroke-width:1px
-    style C fill:#ccf2ff,stroke:#333,stroke-width:1px
+    style A fill:#ff4d4d,stroke:#333,stroke-width:2px
+    style B fill:#3399ff,stroke:#333,stroke-width:1px
+    style C fill:#33cc99,stroke:#333,stroke-width:1px
 ```
 
 Management Account: 조직 전체를 관리하는 최상위 계정
