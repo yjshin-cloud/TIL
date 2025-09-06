@@ -93,7 +93,7 @@ AWS Organizations는 멀티 계정 환경에서 보안, 비용, 거버넌스를 
 ### 👉 현업에서는 AWS Control Tower와 함께 쓰여서 기업 단위 클라우드 운영의 표준이 됩니다.
 
 
-
+* 참고 블로그 : https://velog.io/@yjshin/AWS-AWS-Organizations
 
 
 
