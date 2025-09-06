@@ -31,7 +31,7 @@ flowchart TD
     C --> F[Account C - Prod]
     C --> G[Account D - Backup]
 
-    style A fill:#ffcccc,stroke:#333,stroke-width:2px
+    style A fill:#9966ff,stroke:#333,stroke-width:2px
     style B fill:#ccf2ff,stroke:#333,stroke-width:1px
     style C fill:#ccf2ff,stroke:#333,stroke-width:1px
 ```
