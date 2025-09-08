@@ -60,3 +60,5 @@ AWS Trusted Advisor = 클라우드 환경 헬스체크 도구
 5대 카테고리: 💰 비용, ⚡ 성능, 🔒 보안, 🛠️ 내결함성, 📊 서비스 제한
 
 현업에서는 비용 절감·보안 강화·가용성 확보 목적으로 가장 많이 활용
+
+* 참고 블로그 : https://velog.io/@yjshin/AWS-AWS-Trusted-Advisor
