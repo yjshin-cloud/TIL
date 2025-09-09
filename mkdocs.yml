@@ -13,6 +13,7 @@ extra:
     - icon: fontawesome/solid/book
       link: https://velog.io/@yjshin/posts
       name: Blog Home
+  generator: false # Made with Material for MkDocs 제거
 
 # 테마 설정 (Material)
 theme:
