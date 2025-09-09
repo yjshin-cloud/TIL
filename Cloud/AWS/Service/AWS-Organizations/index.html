@@ -12,26 +12,28 @@
         <meta name="author" content="YJ Shin">
       
       
-        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/">
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Cloud/AWS/Service/AWS-Organizations/">
       
       
+        <link rel="prev" href="../">
       
-        <link rel="next" href="Cloud/">
+      
+        <link rel="next" href="../AWS_Systems_Manager/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>YJ Shin TIL Blog</title>
+        <title>🌐 AWS Organizations 정리 - YJ Shin TIL Blog</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-yj-shin-til-blog" class="md-skip">
+        <a href="#aws-organizations" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              👋 Welcome to YJ Shin TIL Blog
+              🌐 AWS Organizations 정리
             
           </span>
         </div>
@@ -218,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -233,19 +235,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -256,7 +249,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -265,8 +257,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -277,13 +271,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -299,7 +291,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Cloud
@@ -313,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   
@@ -333,6 +325,8 @@
                 
   
   
+    
+  
   
   
     
@@ -342,13 +336,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -364,7 +356,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             AWS
@@ -378,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -443,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+      <a href="../../Practice/1.Create_Account/" class="md-nav__link">
         
   
   
@@ -466,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+      <a href="../../Practice/2.Create_IAM-User/" class="md-nav__link">
         
   
   
@@ -494,6 +486,8 @@
                 
   
   
+    
+  
   
   
     
@@ -503,13 +497,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
@@ -525,7 +517,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_3">
             <span class="md-nav__icon md-icon"></span>
             Service
@@ -539,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -559,10 +551,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS Organizations 정리
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -573,6 +587,119 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-aws-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ AWS Organizations란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ 주요 기능
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ 아키텍처 시각화
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ 현업 활용 사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ 정리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-organizations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Organizations는 멀티 계정 환경에서 중앙 관리를 가능하게 해주는 핵심 서비스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      현업에서는 보안·비용·운영 효율성을 높이기 위해 반드시 사용됨
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 요약
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ 요약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-control-tower" class="md-nav__link">
+    <span class="md-ellipsis">
+      👉 현업에서는 AWS Control Tower와 함께 쓰여서 기업 단위 클라우드 운영의 표준이 됩니다.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -585,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+      <a href="../AWS_Systems_Manager/" class="md-nav__link">
         
   
   
@@ -608,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+      <a href="../AWS_Trusted_Advisor/" class="md-nav__link">
         
   
   
@@ -631,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+      <a href="../Auto_Scaling/" class="md-nav__link">
         
   
   
@@ -654,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+      <a href="../CloudWatch/" class="md-nav__link">
         
   
   
@@ -677,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/EC2/" class="md-nav__link">
+      <a href="../EC2/" class="md-nav__link">
         
   
   
@@ -700,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/ELB/" class="md-nav__link">
+      <a href="../ELB/" class="md-nav__link">
         
   
   
@@ -723,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/IAM/" class="md-nav__link">
+      <a href="../IAM/" class="md-nav__link">
         
   
   
@@ -746,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/RDS/" class="md-nav__link">
+      <a href="../RDS/" class="md-nav__link">
         
   
   
@@ -769,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/S3/" class="md-nav__link">
+      <a href="../S3/" class="md-nav__link">
         
   
   
@@ -792,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/VPC/" class="md-nav__link">
+      <a href="../VPC/" class="md-nav__link">
         
   
   
@@ -883,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="DB/" class="md-nav__link">
+      <a href="../../../../DB/" class="md-nav__link">
         
   
   
@@ -958,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/" class="md-nav__link">
+      <a href="../../../../Edu/" class="md-nav__link">
         
   
   
@@ -1023,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/" class="md-nav__link">
         
   
   
@@ -1088,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
         
   
   
@@ -1153,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
         
   
   
@@ -1176,7 +1303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
         
   
   
@@ -1199,7 +1326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
         
   
   
@@ -1222,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
         
   
   
@@ -1245,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
         
   
   
@@ -1268,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
         
   
   
@@ -1341,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
         
   
   
@@ -1406,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
         
   
   
@@ -1429,7 +1556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
         
   
   
@@ -1452,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
         
   
   
@@ -1475,7 +1602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
         
   
   
@@ -1498,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
         
   
   
@@ -1571,7 +1698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
         
   
   
@@ -1594,7 +1721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
         
   
   
@@ -1617,7 +1744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
         
   
   
@@ -1640,7 +1767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
         
   
   
@@ -1713,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
         
   
   
@@ -1736,7 +1863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
         
   
   
@@ -1759,7 +1886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
         
   
   
@@ -1782,7 +1909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
         
   
   
@@ -1805,7 +1932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
         
   
   
@@ -1878,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
         
   
   
@@ -1901,7 +2028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
         
   
   
@@ -1924,7 +2051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
         
   
   
@@ -1947,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
         
   
   
@@ -1970,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
         
   
   
@@ -2043,7 +2170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
         
   
   
@@ -2066,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
         
   
   
@@ -2089,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
         
   
   
@@ -2112,7 +2239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
         
   
   
@@ -2219,7 +2346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OS/" class="md-nav__link">
+      <a href="../../../../OS/" class="md-nav__link">
         
   
   
@@ -2294,7 +2421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/" class="md-nav__link">
         
   
   
@@ -2359,7 +2486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/" class="md-nav__link">
         
   
   
@@ -2424,7 +2551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/" class="md-nav__link">
         
   
   
@@ -2489,7 +2616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
         
   
   
@@ -2554,7 +2681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
         
   
   
@@ -2577,7 +2704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
         
   
   
@@ -2600,7 +2727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
         
   
   
@@ -2623,7 +2750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
         
   
   
@@ -2646,7 +2773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
         
   
   
@@ -2669,7 +2796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
         
   
   
@@ -2692,7 +2819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
         
   
   
@@ -2715,7 +2842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
         
   
   
@@ -2738,7 +2865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
         
   
   
@@ -2761,7 +2888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
         
   
   
@@ -2784,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
         
   
   
@@ -2807,7 +2934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
         
   
   
@@ -2896,7 +3023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
         
   
   
@@ -2919,7 +3046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
         
   
   
@@ -2992,7 +3119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/" class="md-nav__link">
         
   
   
@@ -3057,7 +3184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
         
   
   
@@ -3080,7 +3207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
         
   
   
@@ -3103,7 +3230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
         
   
   
@@ -3126,7 +3253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
         
   
   
@@ -3149,7 +3276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
         
   
   
@@ -3172,7 +3299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
         
   
   
@@ -3261,7 +3388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/FrontEnd/" class="md-nav__link">
         
   
   
@@ -3326,7 +3453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
         
   
   
@@ -3349,7 +3476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
         
   
   
@@ -3408,6 +3535,107 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-aws-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ AWS Organizations란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ 주요 기능
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ 아키텍처 시각화
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ 현업 활용 사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ 정리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-organizations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Organizations는 멀티 계정 환경에서 중앙 관리를 가능하게 해주는 핵심 서비스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      현업에서는 보안·비용·운영 효율성을 높이기 위해 반드시 사용됨
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 요약
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ 요약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-control-tower" class="md-nav__link">
+    <span class="md-ellipsis">
+      👉 현업에서는 AWS Control Tower와 함께 쓰여서 기업 단위 클라우드 운영의 표준이 됩니다.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3422,11 +3650,80 @@
 
 
 
-<h1 id="welcome-to-yj-shin-til-blog">👋 Welcome to YJ Shin TIL Blog<a class="headerlink" href="#welcome-to-yj-shin-til-blog" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><strong>Today I Learned</strong><br />
-작은 기록이 모여 큰 성장을 만든다 🚀</p>
-</blockquote>
+<h1 id="aws-organizations">🌐 AWS Organizations 정리<a class="headerlink" href="#aws-organizations" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-aws-organizations">1️⃣ AWS Organizations란?<a class="headerlink" href="#1-aws-organizations" title="Permanent link">&para;</a></h2>
+<p>AWS Organizations는 여러 AWS 계정을 중앙에서 관리할 수 있는 서비스예요.
+조직 내의 모든 계정을 통합 관리하여 보안, 비용, 정책 적용을 손쉽게 할 수 있습니다.</p>
+<p>👉 쉽게 말해, 회사에서 여러 부서/팀이 각각 AWS 계정을 쓰더라도, 본사는 한 곳에서 통제할 수 있게 해주는 서비스입니다.</p>
+<hr />
+<h2 id="2">2️⃣ 주요 기능<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>👥 멀티 계정 관리 → 여러 AWS 계정을 하나의 조직 단위로 묶어서 관리</li>
+<li>🛡️ 서비스 제어 정책(SCP) → 특정 서비스·리전 사용 제한</li>
+<li>💰 통합 청구(Consolidated Billing) → 모든 계정 비용을 한 번에 관리</li>
+<li>🗂️ OU(Organizational Unit) → 계정을 그룹화해 정책을 계층적으로 적용</li>
+<li>🔒 보안 강화 → 루트 계정 최소화 + IAM 결합으로 안전한 운영</li>
+</ul>
+<hr />
+<h2 id="3">3️⃣ 아키텍처 시각화<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    A[Management Account - Root] --&gt; B[OU1 - 개발팀]
+    A --&gt; C[OU2 - 운영팀]
+    B --&gt; D[Account A - Dev]
+    B --&gt; E[Account B - Test]
+    C --&gt; F[Account C - Prod]
+    C --&gt; G[Account D - Backup]
+
+    style A fill:#ff4d4d,stroke:#333,stroke-width:2px
+    style B fill:#3399ff,stroke:#333,stroke-width:1px
+    style C fill:#33cc99,stroke:#333,stroke-width:1px
+</code></pre></div>
+<p>Management Account: 조직 전체를 관리하는 최상위 계정</p>
+<p>OU (Organizational Unit): 부서/팀 단위 그룹</p>
+<p>Member Accounts: 실제로 리소스를 운영하는 계정들</p>
+<hr />
+<p>4️⃣ 예시 정책 (SCP, Service Control Policy)</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deny&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ec2:RunInstances&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// EC2 인스턴스 생성 제한</span>
+<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Condition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;StringNotEquals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;aws:RequestedRegion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ap-northeast-2&quot;</span><span class="w"> </span><span class="c1">// 서울 리전만 허용</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>### </strong>➡️ 위 정책은 서울 리전(ap-northeast-2) 외에서는 EC2 인스턴스를 생성할 수 없도록 차단합니다.</p>
+<h2 id="5">5️⃣ 현업 활용 사례<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>🛡️ 보안팀 → 특정 리전만 사용하도록 강제 (예: GDPR 때문에 EU 리전만 허용)</li>
+<li>💰 재무팀 → 모든 계정 비용을 통합 청구로 관리 + 부서별 비용 태깅</li>
+<li>⚙️ 운영팀 → 신규 계정 생성 시 보안 설정, IAM Role, CloudTrail 자동 적용</li>
+<li>🚀 Control Tower 연계 → 멀티 계정 환경에서 표준 보안·거버넌스 체계 구축</li>
+</ul>
+<h2 id="6">6️⃣ 정리<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="aws-organizations_1">AWS Organizations는 멀티 계정 환경에서 중앙 관리를 가능하게 해주는 핵심 서비스<a class="headerlink" href="#aws-organizations_1" title="Permanent link">&para;</a></h3>
+<p>SCP를 통해 강력한 보안 통제 가능</p>
+<p>통합 청구로 비용 최적화</p>
+<h3 id="_1">현업에서는 보안·비용·운영 효율성을 높이기 위해 반드시 사용됨<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h2 id="_2">✅ 요약<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>AWS Organizations는 멀티 계정 환경에서 보안, 비용, 거버넌스를 한 번에 관리할 수 있는 핵심 서비스입니다.</p>
+<ul>
+<li>🔒 보안 강화 (SCP 정책)</li>
+<li>💰 비용 최적화 (Consolidated Billing)</li>
+<li>🛠️ 운영 효율성 (OU 구조로 계정 관리)</li>
+</ul>
+<h3 id="aws-control-tower">👉 현업에서는 AWS Control Tower와 함께 쓰여서 기업 단위 클라우드 운영의 표준이 됩니다.<a class="headerlink" href="#aws-control-tower" title="Permanent link">&para;</a></h3>
+<ul>
+<li>참고 블로그 : https://velog.io/@yjshin/AWS-AWS-Organizations</li>
+</ul>
 
 
 
@@ -3502,10 +3799,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

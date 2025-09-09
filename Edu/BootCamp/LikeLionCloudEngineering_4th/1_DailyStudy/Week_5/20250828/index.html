@@ -1,0 +1,5649 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="오늘 배운 것을 기록하는 공간 (TIL)">
+      
+      
+        <meta name="author" content="YJ Shin">
+      
+      
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/">
+      
+      
+        <link rel="prev" href="../20250827/">
+      
+      
+        <link rel="next" href="../20250829/">
+      
+      
+      <link rel="icon" href="../../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>Spring Web MVC 완전정복 가이드 - YJ Shin TIL Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spring-web-mvc" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YJ Shin TIL Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spring Web MVC 완전정복 가이드
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YJ Shin TIL Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    👋 Welcome to YJ Shin TIL Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS 계정 생성 가이드 (2025 기준)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM 사용자 생성 &amp; Root 계정 보안 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS/Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS Organizations 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 AWS Systems Manager (SSM) 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 AWS Trusted Advisor 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Auto Scaling 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 AWS CloudWatch 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/EC2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ☁️ AWS EC2 (Elastic Compute Cloud) 완벽 이해
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/ELB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Elastic Load Balancing (ELB) 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/IAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM (Identity and Access Management) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/RDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon RDS (Relational Database Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/S3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon S3 (Simple Storage Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/VPC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS VPC (Virtual Private Cloud) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    DB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../DB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Edu
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Edu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BootCamp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            BootCamp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LikeLionCloudEngineering 4th
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            LikeLionCloudEngineering 4th
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    0 Memoir
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            0 Memoir
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week1_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 1주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week2_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 2주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week3_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3주차 학습 회고록 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week4_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 4주차 회고록: JDBC와 웹 개발 기초 마스터하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week5_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 5주차 회고록 (Week 5 Retrospective)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1 DailyStudy
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            1 DailyStudy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_2" id="__nav_4_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250804/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 객체지향 프로그래밍 완전 정복 가이드 ☕
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250805/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java Calculator &amp; AI 이미지 생성기 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250806/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 자바 스레드와 분산처리 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250807/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔗 자바 의존성과 배포 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250808/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache Tomcat 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_3" id="__nav_4_2_2_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250811/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DB 관리 도구 및 클라우드 서비스 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250812/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ SQL 완벽 가이드 - 기초부터 실무까지
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250813/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL 8.0 완전 복습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250814/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 13일차 - SQL 데이터베이스 마스터 🗃️
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_4" id="__nav_4_2_2_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Week 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_4/20250818/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🎯 JDBC 학습 가이드 - 8월 18일 실습
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_4/20250819/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JDBC DAO/DTO 패턴 완전 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_4/20250820/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS 선택자와 타이포그래피 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_4/20250821/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS Layout 실습 가이드 📐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_4/20250822/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Core 완벽 마스터 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_5" id="__nav_4_2_2_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 5
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Week 5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250825/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 19일차 TIL - DOM &amp; BOM &amp; 비동기 프로그래밍 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250826/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 20일차 TIL - JavaScript 비동기 프로그래밍 완전 정리 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250827/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 21일차 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Spring Web MVC 완전정복 가이드
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Web MVC 완전정복 가이드
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 학습 목표
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. MVC 아키텍처 패턴 이해하기
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. MVC 아키텍처 패턴 이해하기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 MVC란 무엇인가?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 각 컴포넌트의 역할
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mvc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 MVC 처리 흐름
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Controller의 주요 책임
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-spring-web-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Spring Web MVC 핵심 컴포넌트
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Spring Web MVC 핵심 컴포넌트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spring-web-mvc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Spring Web MVC 아키텍처
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 핵심 컴포넌트 상세 설명
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 핵심 컴포넌트 상세 설명">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dispatcherservlet" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. DispatcherServlet (전면 컨트롤러)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-handlermapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. HandlerMapping (핸들러 매핑)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Controller (컨트롤러)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-viewresolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ViewResolver (뷰 리졸버)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. View (뷰)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 주요 어노테이션
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. JSP 기반 웹 개발
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. JSP 기반 웹 개발">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 JSP란?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 JSP 기본 문법
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 JSP 기본 문법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 스크립틀릿 &lt;% ... %&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 표현식 &lt;%= ... %&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 선언문 &lt;%! ... %&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 현대적 JSP 개발 권장사항
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: 회원 가입 시스템
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ 실습: 회원 가입 시스템">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-user-dto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. User DTO 클래스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-usercontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. UserController
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-registerformjsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 회원 가입 폼 (registerForm.jsp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-registerresultjsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 가입 결과 페이지 (registerResult.jsp)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. JSP 심화 기술
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. JSP 심화 기술">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Include 기능 활용
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Include 기능 활용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Include 방식 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: 공통 레이아웃 적용
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward-vs-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔀 Forward vs Redirect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔀 Forward vs Redirect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-vs-redirect_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Forward vs Redirect 상세 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 언제 어떤 방식을 사용할까?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-expression-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ EL (Expression Language)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏷️ EL (Expression Language)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 EL 기본 문법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 EL 주요 기능
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jstl-jsp-standard-tag-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ JSTL (JSP Standard Tag Library)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏷️ JSTL (JSP Standard Tag Library)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jstl" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 JSTL 설정
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jstl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 JSTL 주요 태그
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: 회원 목록 페이지
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-thymeleaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Thymeleaf 템플릿 엔진
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Thymeleaf 템플릿 엔진">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsp-vs-thymeleaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆚 JSP vs Thymeleaf 비교
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🆚 JSP vs Thymeleaf 비교">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 상세 비교표
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 JSP의 보안 문제와 해결책
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 JSP의 보안 문제와 해결책">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 문제점
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 해결책
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thymeleaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Thymeleaf 레이아웃 기능
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 Thymeleaf 레이아웃 기능">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 조각(Fragment) 정의
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 조각 포함 방법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 조각 포함 방식 비교
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thymeleaf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Thymeleaf 핵심 속성
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Thymeleaf 핵심 속성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#th" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 주요 th:* 속성들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thymeleaf_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: Thymeleaf 회원 관리 시스템
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ 실습: Thymeleaf 회원 관리 시스템">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-membersaddhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 회원 등록 폼 (members/add.html)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memberslisthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 회원 목록 (members/list.html)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-membercontrollerjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 컨트롤러 (MemberController.java)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 @ModelAttribute와 객체 바인딩
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 @ModelAttribute와 객체 바인딩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 핵심 개념
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 바인딩 과정
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 th:field의 장점
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250829/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSP &amp; Spring Web 학습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_6" id="__nav_4_2_2_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 6
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Week 6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250901/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot 상태 관리 &amp; 보안 종합 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250902/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RESTful API &amp; Swagger 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250903/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT 완전 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250905/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🍪 쿠키와 게시판 프로젝트 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    OS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../OS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Programming Languages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 TIL - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BackEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            BackEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Go
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2" id="__nav_6_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NomadCoders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            NomadCoders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go/NomadCoders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2_2" id="__nav_6_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started with Go Quickly and Easily
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_6_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started with Go Quickly and Easily
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 Hello World 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 Struct 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 20250816 variables constants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 함수 완전 정복 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 함수의 두 가지 핵심 기능:
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 반복문 정리: for, range, args
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 Go 언어 기초: if, else, 그리고 Variable Expression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 강의 요약 — Switch 문 (#1 7 Switch)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔎 Go 언어에서의 Low-Level Programming (포인터 기초)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 강의 #1: Arrays &amp; Slices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 – Map 데이터 구조 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JAVA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            JAVA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 REST API와 CORS 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4_2" id="__nav_6_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Easy Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Easy Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌱 프로그래밍 언어 러스트를 배웁시다!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 기초 강의 정리 - 주석(Comment)과 변수 경고 처리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔢 Rust 정수 타입 (Integer Types)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Rust 배우기 – Chars (문자)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 문자열과 바이트/문자 개수 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust Easy Rust 006 — Floats (실수형)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    FrontEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            FrontEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/FrontEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    비동기 프로그래밍 완전 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript DOM &amp; BOM 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 학습 목표
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. MVC 아키텍처 패턴 이해하기
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. MVC 아키텍처 패턴 이해하기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 MVC란 무엇인가?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 각 컴포넌트의 역할
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mvc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 MVC 처리 흐름
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Controller의 주요 책임
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-spring-web-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Spring Web MVC 핵심 컴포넌트
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Spring Web MVC 핵심 컴포넌트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spring-web-mvc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Spring Web MVC 아키텍처
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 핵심 컴포넌트 상세 설명
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 핵심 컴포넌트 상세 설명">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dispatcherservlet" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. DispatcherServlet (전면 컨트롤러)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-handlermapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. HandlerMapping (핸들러 매핑)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Controller (컨트롤러)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-viewresolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ViewResolver (뷰 리졸버)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. View (뷰)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 주요 어노테이션
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. JSP 기반 웹 개발
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. JSP 기반 웹 개발">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 JSP란?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 JSP 기본 문법
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 JSP 기본 문법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 스크립틀릿 &lt;% ... %&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 표현식 &lt;%= ... %&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 선언문 &lt;%! ... %&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 현대적 JSP 개발 권장사항
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: 회원 가입 시스템
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ 실습: 회원 가입 시스템">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-user-dto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. User DTO 클래스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-usercontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. UserController
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-registerformjsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 회원 가입 폼 (registerForm.jsp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-registerresultjsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 가입 결과 페이지 (registerResult.jsp)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. JSP 심화 기술
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. JSP 심화 기술">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Include 기능 활용
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Include 기능 활용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Include 방식 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: 공통 레이아웃 적용
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward-vs-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔀 Forward vs Redirect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔀 Forward vs Redirect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-vs-redirect_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Forward vs Redirect 상세 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 언제 어떤 방식을 사용할까?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-expression-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ EL (Expression Language)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏷️ EL (Expression Language)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 EL 기본 문법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 EL 주요 기능
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jstl-jsp-standard-tag-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ JSTL (JSP Standard Tag Library)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏷️ JSTL (JSP Standard Tag Library)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jstl" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 JSTL 설정
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jstl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 JSTL 주요 태그
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: 회원 목록 페이지
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-thymeleaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Thymeleaf 템플릿 엔진
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Thymeleaf 템플릿 엔진">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsp-vs-thymeleaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆚 JSP vs Thymeleaf 비교
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🆚 JSP vs Thymeleaf 비교">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 상세 비교표
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 JSP의 보안 문제와 해결책
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 JSP의 보안 문제와 해결책">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 문제점
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 해결책
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thymeleaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Thymeleaf 레이아웃 기능
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 Thymeleaf 레이아웃 기능">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 조각(Fragment) 정의
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 조각 포함 방법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 조각 포함 방식 비교
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thymeleaf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Thymeleaf 핵심 속성
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Thymeleaf 핵심 속성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#th" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 주요 th:* 속성들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thymeleaf_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습: Thymeleaf 회원 관리 시스템
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ 실습: Thymeleaf 회원 관리 시스템">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-membersaddhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 회원 등록 폼 (members/add.html)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memberslisthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 회원 목록 (members/list.html)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-membercontrollerjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 컨트롤러 (MemberController.java)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 @ModelAttribute와 객체 바인딩
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 @ModelAttribute와 객체 바인딩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 핵심 개념
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 바인딩 과정
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 th:field의 장점
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="spring-web-mvc">Spring Web MVC 완전정복 가이드<a class="headerlink" href="#spring-web-mvc" title="Permanent link">&para;</a></h1>
+<h2 id="_1">🎯 학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>MVC 아키텍처 패턴</strong>의 개념과 흐름을 완벽히 이해하기</li>
+<li><strong>Spring Web MVC</strong>의 핵심 컴포넌트 역할을 파악하기</li>
+<li><strong>JSP와 Thymeleaf</strong>를 활용한 동적 웹 페이지 개발하기</li>
+<li><strong>실무에서 활용되는 패턴</strong>과 베스트 프랙티스 익히기</li>
+</ul>
+<hr />
+<h2 id="_2">📚 목차<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-mvc-아키텍처-패턴-이해하기">MVC 아키텍처 패턴 이해하기</a></li>
+<li><a href="#2-spring-web-mvc-핵심-컴포넌트">Spring Web MVC 핵심 컴포넌트</a></li>
+<li><a href="#3-jsp-기반-웹-개발">JSP 기반 웹 개발</a></li>
+<li><a href="#4-jsp-심화-기술">JSP 심화 기술</a></li>
+<li><a href="#5-thymeleaf-템플릿-엔진">Thymeleaf 템플릿 엔진</a></li>
+<li><a href="#6-현업-적용-사례와-베스트-프랙티스">현업 적용 사례와 베스트 프랙티스</a></li>
+</ol>
+<hr />
+<h2 id="1-mvc">1. MVC 아키텍처 패턴 이해하기<a class="headerlink" href="#1-mvc" title="Permanent link">&para;</a></h2>
+<h3 id="mvc">🎨 MVC란 무엇인가?<a class="headerlink" href="#mvc" title="Permanent link">&para;</a></h3>
+<p>MVC(Model-View-Controller)는 애플리케이션을 세 가지 역할로 구분하는 소프트웨어 디자인 패턴입니다. 각 컴포넌트의 <strong>역할을 명확히 분리</strong>하여 코드의 재사용성을 높이고 유지보수를 용이하게 만듭니다.</p>
+<div class="highlight"><pre><span></span><code>graph TD
+    User[👤 사용자] --&gt;|요청| Controller[🎮 Controller]
+    Controller --&gt;|데이터 처리 요청| Model[📊 Model]
+    Model --&gt;|처리된 데이터| Controller
+    Controller --&gt;|데이터 전달| View[🖼️ View]
+    View --&gt;|HTML 응답| User
+
+    subgraph &quot;MVC 구성 요소&quot;
+        Controller
+        Model
+        View
+    end
+</code></pre></div>
+<h3 id="_3">📋 각 컴포넌트의 역할<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>컴포넌트</th>
+<th>역할</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Model</strong></td>
+<td>데이터와 비즈니스 로직 담당</td>
+<td><code>UserService</code>, <code>UserDTO</code>, <code>UserRepository</code></td>
+</tr>
+<tr>
+<td><strong>View</strong></td>
+<td>사용자 인터페이스(UI) 담당</td>
+<td>JSP 파일, Thymeleaf 템플릿</td>
+</tr>
+<tr>
+<td><strong>Controller</strong></td>
+<td>요청과 응답의 중개자 역할</td>
+<td><code>@Controller</code> 클래스</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mvc_1">🔄 MVC 처리 흐름<a class="headerlink" href="#mvc_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant U as 사용자
+    participant C as Controller
+    participant M as Model
+    participant V as View
+
+    U-&gt;&gt;C: 1. HTTP 요청
+    C-&gt;&gt;M: 2. 비즈니스 로직 호출
+    M--&gt;&gt;C: 3. 처리 결과 반환
+    C-&gt;&gt;V: 4. View에 데이터 전달
+    V--&gt;&gt;U: 5. HTML 응답
+</code></pre></div>
+<h3 id="controller">💡 Controller의 주요 책임<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>사용자 요청 수신</strong>: HTTP 요청을 받아 분석</li>
+<li><strong>비즈니스 로직 호출</strong>: 요청에 맞는 Model 메서드 실행</li>
+<li><strong>응답 생성</strong>: Model 결과를 View에 전달하여 응답 생성</li>
+</ol>
+<hr />
+<h2 id="2-spring-web-mvc">2. Spring Web MVC 핵심 컴포넌트<a class="headerlink" href="#2-spring-web-mvc" title="Permanent link">&para;</a></h2>
+<h3 id="spring-web-mvc_1">🏗️ Spring Web MVC 아키텍처<a class="headerlink" href="#spring-web-mvc_1" title="Permanent link">&para;</a></h3>
+<p>Spring Web MVC는 <strong>DispatcherServlet</strong>이 모든 요청을 받아 처리하는 <strong>Front Controller 패턴</strong>을 사용합니다.</p>
+<div class="highlight"><pre><span></span><code>graph LR
+    Client[클라이언트] --&gt;|HTTP 요청| DS[DispatcherServlet]
+    DS --&gt;|Handler 찾기| HM[HandlerMapping]
+    HM --&gt;|Controller 반환| DS
+    DS --&gt;|요청 처리| Controller[Controller]
+    Controller --&gt;|ModelAndView| DS
+    DS --&gt;|View 찾기| VR[ViewResolver]
+    VR --&gt;|View 반환| DS
+    DS --&gt;|렌더링| View[View]
+    View --&gt;|HTML 응답| Client
+</code></pre></div>
+<h3 id="_4">🔧 핵심 컴포넌트 상세 설명<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h4 id="1-dispatcherservlet">1. <strong>DispatcherServlet</strong> (전면 컨트롤러)<a class="headerlink" href="#1-dispatcherservlet" title="Permanent link">&para;</a></h4>
+<ul>
+<li>모든 HTTP 요청의 <strong>진입점</strong></li>
+<li>요청을 분석하여 적절한 Handler에 위임</li>
+<li><strong>설정 예시</strong>:
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- web.xml --&gt;</span>
+<span class="nt">&lt;servlet&gt;</span>
+<span class="w">    </span><span class="nt">&lt;servlet-name&gt;</span>dispatcher<span class="nt">&lt;/servlet-name&gt;</span>
+<span class="w">    </span><span class="nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="nt">&lt;/servlet-class&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+</code></pre></div></li>
+</ul>
+<h4 id="2-handlermapping">2. <strong>HandlerMapping</strong> (핸들러 매핑)<a class="headerlink" href="#2-handlermapping" title="Permanent link">&para;</a></h4>
+<ul>
+<li>요청 URL을 처리할 <strong>Controller를 찾는 역할</strong></li>
+<li><code>@RequestMapping</code> 어노테이션 기반으로 매핑</li>
+</ul>
+<h4 id="3-controller">3. <strong>Controller</strong> (컨트롤러)<a class="headerlink" href="#3-controller" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Controller</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/users/register&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">showRegisterForm</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;user/registerForm&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/users/register&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="nd">@ModelAttribute</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 비즈니스 로직 처리</span>
+<span class="w">        </span><span class="n">userService</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<span class="w">        </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;redirect:/users&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="4-viewresolver">4. <strong>ViewResolver</strong> (뷰 리졸버)<a class="headerlink" href="#4-viewresolver" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Controller가 반환한 <strong>논리적 뷰 이름</strong>을 실제 뷰 파일로 변환</li>
+<li>예시: <code>"user/list"</code> → <code>/WEB-INF/views/user/list.jsp</code></li>
+</ul>
+<h4 id="5-view">5. <strong>View</strong> (뷰)<a class="headerlink" href="#5-view" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Model 데이터를 사용하여 <strong>최종 HTML 응답</strong> 생성</li>
+</ul>
+<h3 id="_5">📝 주요 어노테이션<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>어노테이션</th>
+<th>역할</th>
+<th>사용 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Controller</code></td>
+<td>컨트롤러 클래스 지정</td>
+<td><code>@Controller public class UserController</code></td>
+</tr>
+<tr>
+<td><code>@GetMapping</code></td>
+<td>GET 요청 매핑</td>
+<td><code>@GetMapping("/users")</code></td>
+</tr>
+<tr>
+<td><code>@PostMapping</code></td>
+<td>POST 요청 매핑</td>
+<td><code>@PostMapping("/users/add")</code></td>
+</tr>
+<tr>
+<td><code>@RequestParam</code></td>
+<td>요청 파라미터 바인딩</td>
+<td><code>@RequestParam String name</code></td>
+</tr>
+<tr>
+<td><code>@ModelAttribute</code></td>
+<td>폼 데이터를 객체에 바인딩</td>
+<td><code>@ModelAttribute User user</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-jsp">3. JSP 기반 웹 개발<a class="headerlink" href="#3-jsp" title="Permanent link">&para;</a></h2>
+<h3 id="jsp">🌐 JSP란?<a class="headerlink" href="#jsp" title="Permanent link">&para;</a></h3>
+<p>JSP(JavaServer Pages)는 <strong>HTML 문서 안에 자바 코드를 삽입</strong>하여 동적인 웹 페이지를 생성하는 기술입니다.</p>
+<h3 id="jsp_1">📖 JSP 기본 문법<a class="headerlink" href="#jsp_1" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. <strong>스크립틀릿</strong> <code>&lt;% ... %&gt;</code><a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">&lt;%</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;홍길동&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;이름: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="k">%&gt;</span>
+</code></pre></div>
+<h4 id="2">2. <strong>표현식</strong> <code>&lt;%= ... %&gt;</code><a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;p&gt;</span>안녕하세요,<span class="w"> </span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">%&gt;</span>님!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>
+<h4 id="3">3. <strong>선언문</strong> <code>&lt;%! ... %&gt;</code><a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">&lt;%!</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getMessage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Welcome&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="k">%&gt;</span>
+</code></pre></div>
+<h3 id="jsp_2">💡 현대적 JSP 개발 권장사항<a class="headerlink" href="#jsp_2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>⚠️ 주의</strong>: 스크립틀릿 사용을 지양하고, <strong>EL(Expression Language)</strong>과 <strong>JSTL(JSP Standard Tag Library)</strong> 사용을 권장합니다.</p>
+</blockquote>
+<h3 id="_6">🏗️ 실습: 회원 가입 시스템<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="1-user-dto">1. User DTO 클래스<a class="headerlink" href="#1-user-dto" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">userId</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// getter/setter 생략</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2-usercontroller">2. UserController<a class="headerlink" href="#2-usercontroller" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/users&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/register&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">showRegisterForm</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;user/registerForm&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/register&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="nd">@ModelAttribute</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 사용자 등록 처리 로직</span>
+<span class="w">        </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;user/registerResult&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3-registerformjsp">3. 회원 가입 폼 (<code>registerForm.jsp</code>)<a class="headerlink" href="#3-registerformjsp" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>회원<span class="w"> </span>가입<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">    </span><span class="nt">&lt;h2&gt;</span>회원<span class="w"> </span>가입<span class="nt">&lt;/h2&gt;</span>
+<span class="w">    </span><span class="nt">&lt;form</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;/users/register&quot;</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;label&gt;</span>아이디:<span class="w"> </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;userId&quot;</span><span class="w"> </span><span class="err">required</span><span class="nt">&gt;&lt;/label&gt;&lt;br&gt;</span>
+<span class="w">        </span><span class="nt">&lt;label&gt;</span>비밀번호:<span class="w"> </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;password&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;password&quot;</span><span class="w"> </span><span class="err">required</span><span class="nt">&gt;&lt;/label&gt;&lt;br&gt;</span>
+<span class="w">        </span><span class="nt">&lt;label&gt;</span>이름:<span class="w"> </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="err">required</span><span class="nt">&gt;&lt;/label&gt;&lt;br&gt;</span>
+<span class="w">        </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>가입하기<span class="nt">&lt;/button&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h4 id="4-registerresultjsp">4. 가입 결과 페이지 (<code>registerResult.jsp</code>)<a class="headerlink" href="#4-registerresultjsp" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>가입<span class="w"> </span>완료<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">    </span><span class="nt">&lt;h2&gt;</span>가입이<span class="w"> </span>완료되었습니다!<span class="nt">&lt;/h2&gt;</span>
+<span class="w">    </span><span class="nt">&lt;p&gt;</span>아이디:<span class="w"> </span>${user.userId}<span class="nt">&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;p&gt;</span>이름:<span class="w"> </span>${user.name}<span class="nt">&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;a</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;/users&quot;</span><span class="nt">&gt;</span>회원<span class="w"> </span>목록<span class="w"> </span>보기<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<hr />
+<h2 id="4-jsp">4. JSP 심화 기술<a class="headerlink" href="#4-jsp" title="Permanent link">&para;</a></h2>
+<h3 id="include">🔄 Include 기능 활용<a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
+<p>여러 JSP 페이지에서 <strong>공통 부분을 재사용</strong>하기 위한 기능입니다.</p>
+<h4 id="include_1">📋 Include 방식 비교<a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>방식</th>
+<th>문법</th>
+<th>특징</th>
+<th>권장도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>지시어 방식</strong></td>
+<td><code>&lt;%@ include file="..." %&gt;</code></td>
+<td>컴파일 시점 포함 (정적)</td>
+<td>👥 제한적</td>
+</tr>
+<tr>
+<td><strong>액션 태그 방식</strong></td>
+<td><code>&lt;jsp:include page="..." /&gt;</code></td>
+<td>실행 시점 포함 (동적)</td>
+<td>⭐ <strong>권장</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_7">🏗️ 실습: 공통 레이아웃 적용<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><strong>헤더 파일</strong> (<code>header.jsp</code>)
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;header&gt;</span>
+<span class="w">    </span><span class="nt">&lt;h1&gt;</span>회원<span class="w"> </span>관리<span class="w"> </span>시스템<span class="nt">&lt;/h1&gt;</span>
+<span class="w">    </span><span class="nt">&lt;nav&gt;</span>
+<span class="w">        </span><span class="nt">&lt;a</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;/members&quot;</span><span class="nt">&gt;</span>회원<span class="w"> </span>목록<span class="nt">&lt;/a&gt;</span><span class="w"> </span>|
+<span class="w">        </span><span class="nt">&lt;a</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;/members/add&quot;</span><span class="nt">&gt;</span>회원<span class="w"> </span>등록<span class="nt">&lt;/a&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+</code></pre></div></p>
+<p><strong>메인 페이지</strong>에서 헤더 포함
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>회원<span class="w"> </span>목록<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">    </span><span class="k">&lt;jsp:include page=&quot;../common/header.jsp&quot; /&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;main&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- 페이지별 고유 내용 --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/main&gt;</span>
+
+<span class="w">    </span><span class="k">&lt;jsp:include page=&quot;../common/footer.jsp&quot; /&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></p>
+<h3 id="forward-vs-redirect">🔀 Forward vs Redirect<a class="headerlink" href="#forward-vs-redirect" title="Permanent link">&para;</a></h3>
+<p>웹 애플리케이션에서 <strong>페이지 이동 방식</strong>에 대한 이해는 매우 중요합니다.</p>
+<div class="highlight"><pre><span></span><code>graph TD
+    subgraph &quot;Forward (서버 내부 이동)&quot;
+        A1[클라이언트 요청] --&gt; B1[서버]
+        B1 --&gt; C1[다른 JSP로 위임]
+        C1 --&gt; D1[응답 생성]
+        D1 --&gt; E1[클라이언트에 응답]
+    end
+
+    subgraph &quot;Redirect (클라이언트 재요청)&quot;
+        A2[클라이언트 요청] --&gt; B2[서버]
+        B2 --&gt; C2[302 응답 + 새 URL]
+        C2 --&gt; D2[클라이언트]
+        D2 --&gt; E2[새 URL로 재요청]
+        E2 --&gt; F2[서버 응답]
+    end
+</code></pre></div>
+<h4 id="forward-vs-redirect_1">📊 Forward vs Redirect 상세 비교<a class="headerlink" href="#forward-vs-redirect_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>Forward</th>
+<th>Redirect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>실행 주체</strong></td>
+<td>서버 (WAS)</td>
+<td>클라이언트 (브라우저)</td>
+</tr>
+<tr>
+<td><strong>URL 변경</strong></td>
+<td>❌ 변경되지 않음</td>
+<td>✅ 변경됨</td>
+</tr>
+<tr>
+<td><strong>요청 객체</strong></td>
+<td>동일한 요청 유지</td>
+<td>새로운 요청 생성</td>
+</tr>
+<tr>
+<td><strong>요청 횟수</strong></td>
+<td>1회</td>
+<td>2회</td>
+</tr>
+<tr>
+<td><strong>속도</strong></td>
+<td>⚡ 빠름</td>
+<td>🐢 상대적으로 느림</td>
+</tr>
+<tr>
+<td><strong>주요 용도</strong></td>
+<td>단순 조회, 내부 흐름 제어</td>
+<td>데이터 변경 후 화면 전환</td>
+</tr>
+<tr>
+<td><strong>Spring 반환</strong></td>
+<td><code>return "forward:/some/url";</code></td>
+<td><code>return "redirect:/some/url";</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_8">🎯 언제 어떤 방식을 사용할까?<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Forward 사용 시기</strong>: 단순 조회, 오류 페이지 이동</li>
+<li><strong>Redirect 사용 시기</strong>: 데이터 등록/수정/삭제 후 목록 페이지 이동 (중복 제출 방지)</li>
+</ul>
+<h3 id="el-expression-language">🏷️ EL (Expression Language)<a class="headerlink" href="#el-expression-language" title="Permanent link">&para;</a></h3>
+<p>JSP에서 데이터를 더 <strong>간결하게 표현</strong>하기 위한 언어입니다.</p>
+<h4 id="el">📝 EL 기본 문법<a class="headerlink" href="#el" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- 기존 스크립틀릿 방식 --&gt;</span>
+<span class="k">&lt;%=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;userName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">%&gt;</span>
+
+<span class="cm">&lt;!-- EL 방식 (권장) --&gt;</span>
+${userName}
+</code></pre></div>
+<h4 id="el_1">🔧 EL 주요 기능<a class="headerlink" href="#el_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>기능</th>
+<th>문법</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>속성 접근</strong></td>
+<td><code>${attributeName}</code></td>
+<td>Model의 속성값 접근</td>
+</tr>
+<tr>
+<td><strong>객체 프로퍼티</strong></td>
+<td><code>${user.name}</code></td>
+<td><code>user.getName()</code> 자동 호출</td>
+</tr>
+<tr>
+<td><strong>연산</strong></td>
+<td><code>${price * 1.1}</code></td>
+<td>산술 연산 가능</td>
+</tr>
+<tr>
+<td><strong>조건 판단</strong></td>
+<td><code>${count &gt; 10}</code></td>
+<td>비교 연산</td>
+</tr>
+<tr>
+<td><strong>빈 값 확인</strong></td>
+<td><code>${empty userList}</code></td>
+<td>null/빈 컬렉션 체크</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jstl-jsp-standard-tag-library">🏷️ JSTL (JSP Standard Tag Library)<a class="headerlink" href="#jstl-jsp-standard-tag-library" title="Permanent link">&para;</a></h3>
+<p>자주 사용되는 로직을 <strong>스크립틀릿 없이 태그 형태</strong>로 사용할 수 있게 만든 표준 라이브러리입니다.</p>
+<h4 id="jstl">🔧 JSTL 설정<a class="headerlink" href="#jstl" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>⚠️ Spring Boot 3 주의사항</strong>: Jakarta EE 사용으로 URI가 변경되었습니다.</p>
+</blockquote>
+<h4 id="jstl_1">📋 JSTL 주요 태그<a class="headerlink" href="#jstl_1" title="Permanent link">&para;</a></h4>
+<p><strong>조건문</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;c:if</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;${user.age &gt;= 18}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;p&gt;</span>성인<span class="w"> </span>사용자입니다.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/c:if&gt;</span>
+</code></pre></div></p>
+<p><strong>반복문</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;c:forEach</span><span class="w"> </span><span class="na">items=</span><span class="s">&quot;${userList}&quot;</span><span class="w"> </span><span class="na">var=</span><span class="s">&quot;user&quot;</span><span class="w"> </span><span class="na">varStatus=</span><span class="s">&quot;status&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>${status.index<span class="w"> </span>+<span class="w"> </span>1}<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>${user.name}<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>${user.email}<span class="nt">&lt;/td&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/c:forEach&gt;</span>
+</code></pre></div></p>
+<h4 id="_9">🏗️ 실습: 회원 목록 페이지<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>회원<span class="w"> </span>목록<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">    </span><span class="k">&lt;jsp:include page=&quot;../common/header.jsp&quot; /&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;main&gt;</span>
+<span class="w">        </span><span class="nt">&lt;h2&gt;</span>회원<span class="w"> </span>목록<span class="nt">&lt;/h2&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;c:if</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;${empty memberList}&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;p&gt;</span>등록된<span class="w"> </span>회원이<span class="w"> </span>없습니다.<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/c:if&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;c:if</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;${not empty memberList}&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;table</span><span class="w"> </span><span class="na">border=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;thead&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;th&gt;</span>번호<span class="nt">&lt;/th&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;th&gt;</span>아이디<span class="nt">&lt;/th&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;th&gt;</span>이름<span class="nt">&lt;/th&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/thead&gt;</span>
+<span class="w">                </span><span class="nt">&lt;tbody&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;c:forEach</span><span class="w"> </span><span class="na">items=</span><span class="s">&quot;${memberList}&quot;</span><span class="w"> </span><span class="na">var=</span><span class="s">&quot;member&quot;</span><span class="w"> </span><span class="na">varStatus=</span><span class="s">&quot;status&quot;</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;td&gt;</span>${status.index<span class="w"> </span>+<span class="w"> </span>1}<span class="nt">&lt;/td&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;td&gt;</span>${member.userId}<span class="nt">&lt;/td&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;td&gt;</span>${member.name}<span class="nt">&lt;/td&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/c:forEach&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/tbody&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/table&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/c:if&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;p&gt;&lt;a</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;/members/add&quot;</span><span class="nt">&gt;</span>새<span class="w"> </span>회원<span class="w"> </span>등록<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/main&gt;</span>
+
+<span class="w">    </span><span class="k">&lt;jsp:include page=&quot;../common/footer.jsp&quot; /&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<hr />
+<h2 id="5-thymeleaf">5. Thymeleaf 템플릿 엔진<a class="headerlink" href="#5-thymeleaf" title="Permanent link">&para;</a></h2>
+<h3 id="jsp-vs-thymeleaf">🆚 JSP vs Thymeleaf 비교<a class="headerlink" href="#jsp-vs-thymeleaf" title="Permanent link">&para;</a></h3>
+<p>Spring Boot 3.x부터는 <strong>Thymeleaf가 기본 뷰 기술</strong>로 권장됩니다.</p>
+<h4 id="_10">📊 상세 비교표<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>JSP</th>
+<th>Thymeleaf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>핵심 개념</strong></td>
+<td>HTML에 Java 코드 삽입</td>
+<td>HTML 태그에 <code>th:*</code> 속성 추가</td>
+</tr>
+<tr>
+<td><strong>실행 방식</strong></td>
+<td>서블릿으로 변환 및 컴파일</td>
+<td>템플릿 파서가 HTML 분석 처리</td>
+</tr>
+<tr>
+<td><strong>템플릿 형태</strong></td>
+<td>스크립틀릿 포함으로 순수 HTML 아님</td>
+<td><strong>내추럴 템플릿</strong>: 브라우저에서 직접 열어도 정상</td>
+</tr>
+<tr>
+<td><strong>Spring Boot</strong></td>
+<td>WAR 패키징 + 외부 WAS 필요</td>
+<td><strong>JAR 단독 실행 가능</strong> (권장)</td>
+</tr>
+<tr>
+<td><strong>주요 문법</strong></td>
+<td>EL + JSTL</td>
+<td><code>th:text</code>, <code>th:if</code>, <code>th:each</code> 등</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jsp_3">🔒 JSP의 보안 문제와 해결책<a class="headerlink" href="#jsp_3" title="Permanent link">&para;</a></h3>
+<h4 id="_11">⚠️ 문제점<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code>http://서버주소/user/list.jsp
+</code></pre></div>
+- 컨트롤러를 거치지 않고 뷰에 직접 접근 가능
+- 데이터가 없어서 화면이 깨지거나 오류 발생</p>
+<h4 id="_12">✅ 해결책<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code>/WEB-INF/views/user/list.jsp
+</code></pre></div>
+- <code>/WEB-INF/</code> 하위는 외부 URL 직접 접근 차단
+- 오직 <code>DispatcherServlet</code>을 통한 서버 내부 Forward만 허용</p>
+<h3 id="thymeleaf">🧩 Thymeleaf 레이아웃 기능<a class="headerlink" href="#thymeleaf" title="Permanent link">&para;</a></h3>
+<h4 id="1-fragment">1. <strong>조각(Fragment) 정의</strong><a class="headerlink" href="#1-fragment" title="Permanent link">&para;</a></h4>
+<p><strong>헤더 조각</strong> (<code>_layout/header.html</code>)
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:fragment</span><span class="o">=</span><span class="s">&quot;header-fragment&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>회원 관리 시스템<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/css/style.css&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h4 id="2_1">2. <strong>조각 포함 방법</strong><a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:replace</span><span class="o">=</span><span class="s">&quot;~{_layout/header :: header-fragment}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+        <span class="cm">&lt;!-- 페이지 내용 --&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="_13">📋 조각 포함 방식 비교<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>속성</th>
+<th>동작</th>
+<th>사용 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>th:insert</code></td>
+<td>태그 <strong>내부에</strong> 프래그먼트 삽입</td>
+<td><code>&lt;div th:insert="..."&gt;</code></td>
+</tr>
+<tr>
+<td><code>th:replace</code></td>
+<td>태그 <strong>자체를</strong> 프래그먼트로 대체</td>
+<td><code>&lt;head th:replace="..."&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="thymeleaf_1">🔧 Thymeleaf 핵심 속성<a class="headerlink" href="#thymeleaf_1" title="Permanent link">&para;</a></h3>
+<h4 id="th">📝 주요 <code>th:*</code> 속성들<a class="headerlink" href="#th" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>속성</th>
+<th>역할</th>
+<th>사용 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>th:text</code></td>
+<td>텍스트 내용 설정</td>
+<td><code>&lt;p th:text="${user.name}"&gt;기본값&lt;/p&gt;</code></td>
+</tr>
+<tr>
+<td><code>th:if</code></td>
+<td>조건부 렌더링</td>
+<td><code>&lt;div th:if="${not #lists.isEmpty(userList)}"&gt;</code></td>
+</tr>
+<tr>
+<td><code>th:each</code></td>
+<td>반복문</td>
+<td><code>&lt;tr th:each="user : ${userList}"&gt;</code></td>
+</tr>
+<tr>
+<td><code>th:object</code></td>
+<td>폼 객체 바인딩</td>
+<td><code>&lt;form th:object="${member}"&gt;</code></td>
+</tr>
+<tr>
+<td><code>th:field</code></td>
+<td>폼 필드 바인딩</td>
+<td><code>&lt;input th:field="*{name}"&gt;</code></td>
+</tr>
+<tr>
+<td><code>th:href</code></td>
+<td>링크 URL 설정</td>
+<td><code>&lt;a th:href="@{/members}"&gt;목록&lt;/a&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="thymeleaf_2">🏗️ 실습: Thymeleaf 회원 관리 시스템<a class="headerlink" href="#thymeleaf_2" title="Permanent link">&para;</a></h3>
+<h4 id="1-membersaddhtml">1. <strong>회원 등록 폼</strong> (<code>members/add.html</code>)<a class="headerlink" href="#1-membersaddhtml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:replace</span><span class="o">=</span><span class="s">&quot;~{_layout/header :: header-fragment}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-4&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>회원 등록<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">th:action</span><span class="o">=</span><span class="s">&quot;@{/members/add}&quot;</span> <span class="na">th:object</span><span class="o">=</span><span class="s">&quot;${member}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mt-3&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-3&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;userId&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>아이디<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;*{userId}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-3&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>이름<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;*{name}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-3&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>이메일<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;*{email}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>등록하기<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/members}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-secondary&quot;</span><span class="p">&gt;</span>목록으로<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="2-memberslisthtml">2. <strong>회원 목록</strong> (<code>members/list.html</code>)<a class="headerlink" href="#2-memberslisthtml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:replace</span><span class="o">=</span><span class="s">&quot;~{_layout/header :: header-fragment}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-4&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-between align-items-center mb-3&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>회원 목록<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/members/add}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-success&quot;</span><span class="p">&gt;</span>새 회원 등록<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="cm">&lt;!-- 빈 목록 처리 --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${#lists.isEmpty(memberList)}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alert alert-info&quot;</span><span class="p">&gt;</span>
+            등록된 회원이 없습니다.
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="cm">&lt;!-- 회원 목록 테이블 --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${not #lists.isEmpty(memberList)}&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-striped&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">thead</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table-dark&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>번호<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>아이디<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>이름<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>이메일<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>등록일<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;member, status : ${memberList}&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${status.index + 1}&quot;</span><span class="p">&gt;</span>1<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${member.userId}&quot;</span><span class="p">&gt;</span>user01<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${member.name}&quot;</span><span class="p">&gt;</span>홍길동<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${member.email}&quot;</span><span class="p">&gt;</span>hong@example.com<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#temporals.format(member.createdAt, &#39;yyyy-MM-dd&#39;)}&quot;</span><span class="p">&gt;</span>2024-08-28<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="3-membercontrollerjava">3. <strong>컨트롤러</strong> (<code>MemberController.java</code>)<a class="headerlink" href="#3-membercontrollerjava" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/members&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberController</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="n">memberService</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@GetMapping</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="n">memberList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberService</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
+<span class="w">        </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;memberList&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">memberList</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;members/list&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/add&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">addForm</span><span class="p">(</span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;member&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Member</span><span class="p">());</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;members/add&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/add&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="nd">@ModelAttribute</span><span class="w"> </span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">memberService</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">member</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;redirect:/members&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// PRG 패턴</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="modelattribute">🎯 @ModelAttribute와 객체 바인딩<a class="headerlink" href="#modelattribute" title="Permanent link">&para;</a></h3>
+<h4 id="_14">💡 핵심 개념<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Controller</strong>: <code>@ModelAttribute</code>로 폼 데이터를 DTO 객체로 자동 바인딩</li>
+<li><strong>Thymeleaf</strong>: <code>th:object</code>와 <code>th:field</code>로 객체와 폼 필드를 연결</li>
+</ol>
+<h4 id="_15">🔄 바인딩 과정<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[&quot;HTML Form&quot;] --&gt;|&quot;th:field&quot;| B[&quot;Member DTO&quot;]
+    B --&gt;|&quot;@ModelAttribute&quot;| C[&quot;Controller Method&quot;]
+    C --&gt;|&quot;비즈니스 로직&quot;| D[&quot;Service Layer&quot;]
+</code></pre></div>
+<h4 id="thfield">📝 <code>th:field</code>의 장점<a class="headerlink" href="#thfield" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>자동 생성</strong>: <code>id</code>, <code>name</code>, <code>value</code> 속성을 자동 생성</li>
+<li><strong>코드 간소화</strong>: 중복 코드 제거</li>
+<li><strong>타입 안전성</strong>: 컴파일 타임에 필드명 검증</li>
+</ul>
+<p><strong>기존 방식</strong>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;${member.name}&quot;</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<p><strong>Thymeleaf 방식</strong>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;*{name}&quot;</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- 자동으로 id=&quot;name&quot; name=&quot;name&quot; value=&quot;...&quot; 생성 --&gt;</span>
+</code></pre></div></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/yjshin-cloud/TIL" target="_blank" rel="noopener" title="GitHub Repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://velog.io/@yjshin/posts" target="_blank" rel="noopener" title="Blog Home" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M384 512H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h304c26.5 0 48 21.5 48 48v288c0 20.9-13.4 38.7-32 45.3V448c17.7 0 32 14.3 32 32s-14.3 32-32 32zM96 384c-17.7 0-32 14.3-32 32s14.3 32 32 32h256v-64zm32-232c0 13.3 10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24H152c-13.3 0-24 10.7-24 24m24 72c-13.3 0-24 10.7-24 24s10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

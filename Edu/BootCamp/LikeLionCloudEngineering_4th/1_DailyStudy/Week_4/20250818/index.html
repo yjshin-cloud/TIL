@@ -1,0 +1,5417 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="오늘 배운 것을 기록하는 공간 (TIL)">
+      
+      
+        <meta name="author" content="YJ Shin">
+      
+      
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/">
+      
+      
+        <link rel="prev" href="../../Week_3/20250814/">
+      
+      
+        <link rel="next" href="../20250819/">
+      
+      
+      <link rel="icon" href="../../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>🎯 JDBC 학습 가이드 - 8월 18일 실습 - YJ Shin TIL Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jdbc-8-18" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YJ Shin TIL Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🎯 JDBC 학습 가이드 - 8월 18일 실습
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YJ Shin TIL Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    👋 Welcome to YJ Shin TIL Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS 계정 생성 가이드 (2025 기준)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM 사용자 생성 &amp; Root 계정 보안 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS/Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS Organizations 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 AWS Systems Manager (SSM) 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 AWS Trusted Advisor 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Auto Scaling 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 AWS CloudWatch 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/EC2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ☁️ AWS EC2 (Elastic Compute Cloud) 완벽 이해
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/ELB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Elastic Load Balancing (ELB) 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/IAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM (Identity and Access Management) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/RDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon RDS (Relational Database Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/S3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon S3 (Simple Storage Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/VPC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS VPC (Virtual Private Cloud) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    DB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../DB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Edu
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Edu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BootCamp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            BootCamp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LikeLionCloudEngineering 4th
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            LikeLionCloudEngineering 4th
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    0 Memoir
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            0 Memoir
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week1_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 1주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week2_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 2주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week3_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3주차 학습 회고록 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week4_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 4주차 회고록: JDBC와 웹 개발 기초 마스터하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week5_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 5주차 회고록 (Week 5 Retrospective)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1 DailyStudy
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            1 DailyStudy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_2" id="__nav_4_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250804/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 객체지향 프로그래밍 완전 정복 가이드 ☕
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250805/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java Calculator &amp; AI 이미지 생성기 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250806/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 자바 스레드와 분산처리 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250807/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔗 자바 의존성과 배포 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_2/20250808/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache Tomcat 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_3" id="__nav_4_2_2_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250811/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DB 관리 도구 및 클라우드 서비스 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250812/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ SQL 완벽 가이드 - 기초부터 실무까지
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250813/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL 8.0 완전 복습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_3/20250814/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 13일차 - SQL 데이터베이스 마스터 🗃️
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_4" id="__nav_4_2_2_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Week 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🎯 JDBC 학습 가이드 - 8월 18일 실습
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    🎯 JDBC 학습 가이드 - 8월 18일 실습
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jdbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤔 JDBC란 무엇인가?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤔 JDBC란 무엇인가?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jdbc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 왜 JDBC를 배워야 할까?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ 개발 환경 설정
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ 개발 환경 설정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      필요한 도구들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-pomxml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maven 설정 (pom.xml)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    <span class="md-ellipsis">
+      환경변수 설정 (.env 파일)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 핵심 개념 이해
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 핵심 개념 이해">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jdbc-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      JDBC 4대 핵심 객체
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 객체별 역할
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 실습 1: 기본 CRUD 작업
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 실습 1: 기본 CRUD 작업">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1단계: 데이터베이스 연결하기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2단계: 테이블 생성 (DDL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      3단계: 데이터 삽입 (DML)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      4단계: 데이터 조회 (SELECT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-with-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 try-with-resources가 뭔가요?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sql-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 실습 2: SQL Injection 보안
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ 실습 2: SQL Injection 보안">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 위험한 코드: Statement 사용
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparedstatement" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 안전한 코드: PreparedStatement 사용
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statement-vs-preparedstatement" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Statement vs PreparedStatement 비교
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습 3: DAO 패턴 적용
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ 실습 3: DAO 패턴 적용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAO 패턴이란?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 데이터베이스 설계
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-dto-data-transfer-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      1단계: DTO (Data Transfer Object) 정의
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2단계: DAO 인터페이스 정의
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3단계: DAO 구현체 작성
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 실습별 학습 포인트
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 실습별 학습 포인트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crud_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 실습 1: 기본 CRUD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sql-injection_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 실습 2: SQL Injection 보안
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏛️ 실습 3: DAO 패턴
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jdbc_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 JDBC 실행 흐름
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 초보자를 위한 팁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 초보자를 위한 팁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 기억해야 할 핵심 3가지
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 초보자를 위한 팁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 초보자를 위한 팁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 기억해야 할 핵심 5가지
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 자주 하는 실수들과 해결책
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 좋은 코딩 습관
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 학습 단계별 체크리스트
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 마무리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 마무리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      다음 단계로 가기 위한 로드맵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 학습 자료 링크
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 오늘 배운 내용 최종 요약
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250819/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JDBC DAO/DTO 패턴 완전 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250820/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS 선택자와 타이포그래피 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250821/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS Layout 실습 가이드 📐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250822/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Core 완벽 마스터 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_5" id="__nav_4_2_2_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 5
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Week 5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_5/20250825/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 19일차 TIL - DOM &amp; BOM &amp; 비동기 프로그래밍 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_5/20250826/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 20일차 TIL - JavaScript 비동기 프로그래밍 완전 정리 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_5/20250827/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 21일차 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_5/20250828/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Web MVC 완전정복 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_5/20250829/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSP &amp; Spring Web 학습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_6" id="__nav_4_2_2_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 6
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Week 6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250901/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot 상태 관리 &amp; 보안 종합 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250902/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RESTful API &amp; Swagger 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250903/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT 완전 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_6/20250905/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🍪 쿠키와 게시판 프로젝트 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    OS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../OS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Programming Languages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 TIL - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BackEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            BackEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Go
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2" id="__nav_6_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NomadCoders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            NomadCoders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go/NomadCoders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2_2" id="__nav_6_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started with Go Quickly and Easily
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_6_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started with Go Quickly and Easily
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 Hello World 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 Struct 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 20250816 variables constants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 함수 완전 정복 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 함수의 두 가지 핵심 기능:
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 반복문 정리: for, range, args
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 Go 언어 기초: if, else, 그리고 Variable Expression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 강의 요약 — Switch 문 (#1 7 Switch)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔎 Go 언어에서의 Low-Level Programming (포인터 기초)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 강의 #1: Arrays &amp; Slices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 – Map 데이터 구조 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JAVA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            JAVA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 REST API와 CORS 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4_2" id="__nav_6_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Easy Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Easy Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌱 프로그래밍 언어 러스트를 배웁시다!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 기초 강의 정리 - 주석(Comment)과 변수 경고 처리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔢 Rust 정수 타입 (Integer Types)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Rust 배우기 – Chars (문자)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 문자열과 바이트/문자 개수 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust Easy Rust 006 — Floats (실수형)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    FrontEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            FrontEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/FrontEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    비동기 프로그래밍 완전 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript DOM &amp; BOM 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jdbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤔 JDBC란 무엇인가?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤔 JDBC란 무엇인가?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jdbc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 왜 JDBC를 배워야 할까?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ 개발 환경 설정
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ 개발 환경 설정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      필요한 도구들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-pomxml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maven 설정 (pom.xml)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    <span class="md-ellipsis">
+      환경변수 설정 (.env 파일)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 핵심 개념 이해
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 핵심 개념 이해">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jdbc-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      JDBC 4대 핵심 객체
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 객체별 역할
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 실습 1: 기본 CRUD 작업
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 실습 1: 기본 CRUD 작업">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1단계: 데이터베이스 연결하기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2단계: 테이블 생성 (DDL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      3단계: 데이터 삽입 (DML)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      4단계: 데이터 조회 (SELECT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-with-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 try-with-resources가 뭔가요?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sql-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 실습 2: SQL Injection 보안
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ 실습 2: SQL Injection 보안">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 위험한 코드: Statement 사용
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparedstatement" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 안전한 코드: PreparedStatement 사용
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statement-vs-preparedstatement" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Statement vs PreparedStatement 비교
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 실습 3: DAO 패턴 적용
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ 실습 3: DAO 패턴 적용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAO 패턴이란?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 데이터베이스 설계
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-dto-data-transfer-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      1단계: DTO (Data Transfer Object) 정의
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2단계: DAO 인터페이스 정의
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3단계: DAO 구현체 작성
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 실습별 학습 포인트
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 실습별 학습 포인트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crud_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 실습 1: 기본 CRUD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sql-injection_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 실습 2: SQL Injection 보안
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏛️ 실습 3: DAO 패턴
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jdbc_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 JDBC 실행 흐름
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 초보자를 위한 팁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 초보자를 위한 팁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 기억해야 할 핵심 3가지
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 초보자를 위한 팁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 초보자를 위한 팁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 기억해야 할 핵심 5가지
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 자주 하는 실수들과 해결책
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 좋은 코딩 습관
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 학습 단계별 체크리스트
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 마무리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 마무리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      다음 단계로 가기 위한 로드맵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 학습 자료 링크
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 오늘 배운 내용 최종 요약
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="jdbc-8-18">🎯 JDBC 학습 가이드 - 8월 18일 실습<a class="headerlink" href="#jdbc-8-18" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>멋쟁이 사자처럼 14일차</strong> | Java Database Connectivity 완전 정복</p>
+</blockquote>
+<h2 id="_1">📚 목차<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#jdbc란-무엇인가">JDBC란 무엇인가?</a></li>
+<li><a href="#개발-환경-설정">개발 환경 설정</a></li>
+<li><a href="#핵심-개념-이해">핵심 개념 이해</a></li>
+<li><a href="#실습-1-기본-crud-작업">실습 1: 기본 CRUD 작업</a></li>
+<li><a href="#실습-2-sql-injection-보안">실습 2: SQL Injection 보안</a></li>
+<li><a href="#실습-3-dao-패턴-적용">실습 3: DAO 패턴 적용</a></li>
+<li><a href="#실습-4-복잡한-주문-시스템">실습 4: 복잡한 주문 시스템</a></li>
+<li><a href="#마무리">마무리</a></li>
+</ol>
+<hr />
+<h2 id="jdbc">🤔 JDBC란 무엇인가?<a class="headerlink" href="#jdbc" title="Permanent link">&para;</a></h2>
+<p><strong>JDBC (Java Database Connectivity)</strong>는 자바 프로그램에서 데이터베이스에 연결하고 SQL을 실행할 수 있게 해주는 표준 API입니다.</p>
+<h3 id="jdbc_1">🎯 왜 JDBC를 배워야 할까?<a class="headerlink" href="#jdbc_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>데이터베이스 연동</strong>: 자바 애플리케이션이 MySQL, Oracle 등의 DB와 소통</li>
+<li><strong>SQL 실행</strong>: SELECT, INSERT, UPDATE, DELETE 등 SQL 명령어 실행</li>
+<li><strong>표준화</strong>: 어떤 데이터베이스를 사용하든 비슷한 방법으로 접근 가능</li>
+</ul>
+<hr />
+<h2 id="_2">⚙️ 개발 환경 설정<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">필요한 도구들<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Java 17</strong>: 최신 LTS 버전</li>
+<li><strong>Maven</strong>: 프로젝트 관리 도구</li>
+<li><strong>MySQL</strong>: 데이터베이스 (Aiven 클라우드 DB 사용)</li>
+<li><strong>IntelliJ IDEA</strong>: 개발 환경</li>
+</ul>
+<h3 id="maven-pomxml">Maven 설정 (pom.xml)<a class="headerlink" href="#maven-pomxml" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span><span class="w"> </span>
+<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 </span>
+<span class="s">         http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>dev.example<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>jdbc-demo<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;properties&gt;</span>
+<span class="w">        </span><span class="nt">&lt;maven.compiler.source&gt;</span>17<span class="nt">&lt;/maven.compiler.source&gt;</span>
+<span class="w">        </span><span class="nt">&lt;maven.compiler.target&gt;</span>17<span class="nt">&lt;/maven.compiler.target&gt;</span>
+<span class="w">        </span><span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/properties&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;dependencies&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- MySQL 드라이버 --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">            </span><span class="nt">&lt;groupId&gt;</span>com.mysql<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;artifactId&gt;</span>mysql-connector-j<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;version&gt;</span>9.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/dependency&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- 환경변수 관리 --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">            </span><span class="nt">&lt;groupId&gt;</span>io.github.cdimascio<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;artifactId&gt;</span>dotenv-java<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;version&gt;</span>3.2.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<h3 id="env">환경변수 설정 (.env 파일)<a class="headerlink" href="#env" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Aiven에서 제공한 DB 접속 정보로 교체하세요</span>
+<span class="nv">DB_URL</span><span class="o">=</span>jdbc:mysql://&lt;aiven-host&gt;:&lt;port&gt;/&lt;db-name&gt;?allowPublicKeyRetrieval<span class="o">=</span><span class="nb">true</span>
+<span class="nv">DB_USER</span><span class="o">=</span>&lt;aiven-user&gt;
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>&lt;aiven-password&gt;
+</code></pre></div>
+<hr />
+<h2 id="_4">🧠 핵심 개념 이해<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="jdbc-4">JDBC 4대 핵심 객체<a class="headerlink" href="#jdbc-4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[DriverManager] --&gt; B[Connection]
+    B --&gt; C[Statement/PreparedStatement]
+    C --&gt; D[ResultSet]
+
+    A1[드라이버 관리&lt;br/&gt;DB 연결 생성]
+    B1[DB 연결 세션&lt;br/&gt;트랜잭션 관리]
+    C1[SQL 실행&lt;br/&gt;쿼리 처리]
+    D1[결과 집합&lt;br/&gt;데이터 조회]
+
+    A -.-&gt; A1
+    B -.-&gt; B1
+    C -.-&gt; C1
+    D -.-&gt; D1
+</code></pre></div>
+<h3 id="_5">📝 객체별 역할<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>객체</th>
+<th>역할</th>
+<th>주요 메서드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DriverManager</strong></td>
+<td>JDBC 드라이버 관리, DB 연결 생성</td>
+<td><code>getConnection()</code></td>
+</tr>
+<tr>
+<td><strong>Connection</strong></td>
+<td>DB 세션 관리, 트랜잭션 제어</td>
+<td><code>setAutoCommit()</code>, <code>commit()</code>, <code>rollback()</code></td>
+</tr>
+<tr>
+<td><strong>Statement</strong></td>
+<td>SQL 문자열 직접 실행</td>
+<td><code>executeUpdate()</code>, <code>executeQuery()</code></td>
+</tr>
+<tr>
+<td><strong>PreparedStatement</strong></td>
+<td>매개변수 바인딩으로 안전한 SQL 실행</td>
+<td><code>setString()</code>, <code>setInt()</code>, <code>executeQuery()</code></td>
+</tr>
+<tr>
+<td><strong>ResultSet</strong></td>
+<td>SELECT 결과 집합 순회</td>
+<td><code>next()</code>, <code>getString()</code>, <code>getInt()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-crud">🚀 실습 1: 기본 CRUD 작업<a class="headerlink" href="#1-crud" title="Permanent link">&para;</a></h2>
+<h3 id="1">1단계: 데이터베이스 연결하기<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 필요한 라이브러리들을 불러옵니다</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.github.cdimascio.dotenv.Dotenv</span><span class="p">;</span><span class="w">  </span><span class="c1">// .env 파일을 읽기 위한 라이브러리</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.*</span><span class="p">;</span><span class="w">                         </span><span class="c1">// JDBC 관련 모든 클래스들</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BasicJDBCDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="c1">// 1️⃣ 환경변수(.env 파일)에서 데이터베이스 접속 정보를 가져옵니다</span>
+<span class="w">        </span><span class="c1">// 왜 환경변수를 사용할까? </span>
+<span class="w">        </span><span class="c1">// → 코드에 직접 비밀번호를 적으면 보안에 위험하기 때문입니다!</span>
+<span class="w">        </span><span class="n">Dotenv</span><span class="w"> </span><span class="n">dotenv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dotenv</span><span class="p">.</span><span class="na">configure</span><span class="p">()</span><span class="w">    </span><span class="c1">// Dotenv 설정을 시작</span>
+<span class="w">                              </span><span class="p">.</span><span class="na">ignoreIfMissing</span><span class="p">()</span><span class="w">  </span><span class="c1">// .env 파일이 없어도 에러가 나지 않도록 설정</span>
+<span class="w">                              </span><span class="p">.</span><span class="na">load</span><span class="p">();</span><span class="w">            </span><span class="c1">// .env 파일을 실제로 읽어들임</span>
+
+<span class="w">        </span><span class="c1">// .env 파일에서 각각의 값들을 가져와서 변수에 저장</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dotenv</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;DB_URL&quot;</span><span class="p">);</span><span class="w">      </span><span class="c1">// 데이터베이스 주소 (어디에 연결할지)</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dotenv</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;DB_USER&quot;</span><span class="p">);</span><span class="w">    </span><span class="c1">// 사용자 이름 (누구로 로그인할지)</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">pass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dotenv</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;DB_PASSWORD&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 비밀번호 (어떤 비밀번호로 로그인할지)</span>
+
+<span class="w">        </span><span class="c1">// 2️⃣ try-with-resources 구문으로 데이터베이스에 연결합니다</span>
+<span class="w">        </span><span class="c1">// 이 구문을 사용하면 블록이 끝날 때 자동으로 연결을 끊어줍니다 (매우 중요!)</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">pass</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="cm">/*</span>
+<span class="cm">             * DriverManager.getConnection()의 역할:</span>
+<span class="cm">             * - MySQL 드라이버를 찾아서 로드</span>
+<span class="cm">             * - 주어진 URL, 사용자명, 비밀번호로 데이터베이스에 연결</span>
+<span class="cm">             * - 성공하면 Connection 객체를 반환</span>
+<span class="cm">             */</span>
+
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;✅ 데이터베이스 연결 성공!&quot;</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// 여기서 실제 SQL 작업들을 수행합니다</span>
+<span class="w">            </span><span class="c1">// (테이블 생성, 데이터 삽입, 조회 등)</span>
+
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 데이터베이스 연결이나 SQL 실행 중 문제가 발생했을 때 실행됩니다</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;❌ 연결 실패: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w"> </span><span class="c1">// 자세한 에러 정보를 출력</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// try-with-resources 덕분에 여기서 자동으로 conn.close()가 호출됩니다!</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-ddl">2단계: 테이블 생성 (DDL)<a class="headerlink" href="#2-ddl" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 3️⃣ 트랜잭션을 수동으로 관리하기 위해 자동 커밋을 끕니다</span>
+<span class="c1">// autoCommit이 true이면 SQL 하나 실행할 때마다 바로 저장됩니다</span>
+<span class="c1">// false로 설정하면 우리가 직접 commit()을 호출해야 저장됩니다</span>
+<span class="n">conn</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+<span class="c1">// 4️⃣ DDL(Data Definition Language): 테이블의 구조를 정의하는 SQL</span>
+<span class="c1">// CREATE, DROP, ALTER 등이 DDL에 속합니다</span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Statement</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Statement 객체는 SQL 문자열을 그대로 실행하는 도구입니다</span>
+<span class="cm">     * - DDL처럼 고정된 SQL을 실행할 때 주로 사용</span>
+<span class="cm">     * - 사용자 입력이 들어가는 곳에는 사용하면 안됩니다 (보안 위험!)</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="c1">// 기존에 같은 이름의 테이블이 있다면 삭제합니다</span>
+<span class="w">    </span><span class="c1">// IF EXISTS를 붙이면 테이블이 없어도 에러가 나지 않습니다</span>
+<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="s">&quot;DROP TABLE IF EXISTS members&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 새로운 members 테이블을 생성합니다</span>
+<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">        CREATE TABLE members (</span>
+<span class="s">            id BIGINT PRIMARY KEY AUTO_INCREMENT,        -- 자동 증가하는 고유 번호 (기본키)</span>
+<span class="s">            name VARCHAR(100) NOT NULL,                  -- 이름 (최대 100글자, 필수)</span>
+<span class="s">            email VARCHAR(200) NOT NULL UNIQUE,          -- 이메일 (최대 200글자, 필수, 중복 불가)</span>
+<span class="s">            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- 생성 시간 (자동으로 현재 시간 입력)</span>
+<span class="s">        )</span>
+<span class="s">    &quot;&quot;&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * executeUpdate() 메서드:</span>
+<span class="cm">     * - INSERT, UPDATE, DELETE, CREATE, DROP 등에 사용</span>
+<span class="cm">     * - 영향받은 행의 수를 int로 반환 (CREATE, DROP은 0 반환)</span>
+<span class="cm">     * - SELECT에는 사용할 수 없음 (SELECT는 executeQuery() 사용)</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;✅ 테이블 생성 완료!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="3-dml">3단계: 데이터 삽입 (DML)<a class="headerlink" href="#3-dml" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 5️⃣ DML(Data Manipulation Language): 데이터를 조작하는 SQL</span>
+<span class="c1">// INSERT, UPDATE, DELETE가 DML에 속합니다</span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Statement</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * INSERT 문 설명:</span>
+<span class="cm">     * - INTO members(컬럼명들): 어떤 테이블의 어떤 컬럼에 넣을지 지정</span>
+<span class="cm">     * - VALUES (값들): 실제로 넣을 데이터들</span>
+<span class="cm">     * - id는 AUTO_INCREMENT라서 자동으로 1, 2, 3... 이렇게 들어갑니다</span>
+<span class="cm">     * - created_at은 DEFAULT CURRENT_TIMESTAMP라서 현재 시간이 자동으로 들어갑니다</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="c1">// 첫 번째 회원 정보 삽입</span>
+<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="s">&quot;INSERT INTO members(name, email) VALUES (&#39;Alice&#39;,&#39;alice@example.com&#39;)&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 두 번째 회원 정보 삽입  </span>
+<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="s">&quot;INSERT INTO members(name, email) VALUES (&#39;Bob&#39;,&#39;bob@example.com&#39;)&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 세 번째 회원 정보 삽입</span>
+<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="s">&quot;INSERT INTO members(name, email) VALUES (&#39;Charlie&#39;,&#39;charlie@example.com&#39;)&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * 왜 여러 번 executeUpdate()를 호출했을까?</span>
+<span class="cm">     * - 간단한 예시이기 때문입니다</span>
+<span class="cm">     * - 실무에서는 PreparedStatement의 batch 기능을 사용해서 한 번에 처리합니다</span>
+<span class="cm">     * - 또는 반복문을 사용해서 더 효율적으로 처리합니다</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;✅ 데이터 삽입 완료!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4-select">4단계: 데이터 조회 (SELECT)<a class="headerlink" href="#4-select" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 6️⃣ SELECT: 데이터베이스에서 데이터를 조회하는 SQL</span>
+<span class="c1">// try-with-resources에 Statement와 ResultSet을 모두 선언합니다</span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Statement</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="w">     </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="s">&quot;SELECT id, name, email, created_at FROM members ORDER BY id&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * executeQuery() vs executeUpdate() 차이점:</span>
+<span class="cm">     * - executeQuery(): SELECT문에 사용, ResultSet을 반환 (데이터를 가져올 때)</span>
+<span class="cm">     * - executeUpdate(): INSERT, UPDATE, DELETE, CREATE, DROP에 사용, int를 반환 (데이터를 변경할 때)</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n📋 회원 목록:&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 7️⃣ ResultSet으로 조회 결과를 하나씩 읽어옵니다</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * rs.next()의 동작 방식:</span>
+<span class="cm">         * - 처음에는 첫 번째 행 이전을 가리키고 있습니다</span>
+<span class="cm">         * - next()를 호출하면 다음 행으로 이동합니다</span>
+<span class="cm">         * - 더 이상 행이 없으면 false를 반환해서 while 루프가 종료됩니다</span>
+<span class="cm">         * </span>
+<span class="cm">         * 데이터 타입별 메서드:</span>
+<span class="cm">         * - rs.getLong(): BIGINT 컬럼값을 long으로 가져옴</span>
+<span class="cm">         * - rs.getString(): VARCHAR, TEXT 컬럼값을 String으로 가져옴  </span>
+<span class="cm">         * - rs.getInt(): INT 컬럼값을 int로 가져옴</span>
+<span class="cm">         * - rs.getTimestamp(): TIMESTAMP 컬럼값을 Timestamp로 가져옴</span>
+<span class="cm">         */</span>
+
+<span class="w">        </span><span class="c1">// 컬럼 이름으로 데이터를 가져와서 출력합니다</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;ID: %d | 이름: %s | 이메일: %s | 가입일: %s%n&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rs</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),</span><span class="w">           </span><span class="c1">// id 컬럼의 값을 long으로 가져옴</span>
+<span class="w">            </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span><span class="w">       </span><span class="c1">// name 컬럼의 값을 String으로 가져옴</span>
+<span class="w">            </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">),</span><span class="w">      </span><span class="c1">// email 컬럼의 값을 String으로 가져옴</span>
+<span class="w">            </span><span class="n">rs</span><span class="p">.</span><span class="na">getTimestamp</span><span class="p">(</span><span class="s">&quot;created_at&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// created_at 컬럼의 값을 Timestamp로 가져옴</span>
+
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * printf()의 %d, %s, %n 의미:</span>
+<span class="cm">         * - %d: 정수(decimal) 출력</span>
+<span class="cm">         * - %s: 문자열(string) 출력  </span>
+<span class="cm">         * - %n: 줄바꿈 (운영체제에 맞는 줄바꿈 문자)</span>
+<span class="cm">         */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 8️⃣ 모든 변경사항을 데이터베이스에 실제로 저장합니다</span>
+<span class="n">conn</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * 트랜잭션이란?</span>
+<span class="cm"> * - 여러 개의 SQL을 하나의 단위로 묶어서 처리하는 것</span>
+<span class="cm"> * - 모든 SQL이 성공하면 commit()으로 저장</span>
+<span class="cm"> * - 하나라도 실패하면 rollback()으로 모든 변경사항 취소</span>
+<span class="cm"> * - 은행 송금을 생각해보세요: 출금과 입금이 모두 성공해야 완료!</span>
+<span class="cm"> */</span>
+</code></pre></div>
+<h3 id="try-with-resources">💡 try-with-resources가 뭔가요?<a class="headerlink" href="#try-with-resources" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// ❌ 전통적인 방법: 수동으로 자원 해제 (번거롭고 실수하기 쉬움)</span>
+<span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 데이터베이스 연결</span>
+<span class="w">    </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">pass</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 실제 작업 수행</span>
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 에러 처리</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 반드시 연결을 끊어야 합니다 (메모리 누수 방지)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">conn</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">conn</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// 수동으로 연결 해제</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ✅ try-with-resources 방법: 자동으로 자원 해제 (안전하고 간편함)</span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">pass</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * try-with-resources의 장점:</span>
+<span class="cm">     * 1. 자동 해제: 블록이 끝나면 자동으로 close() 호출</span>
+<span class="cm">     * 2. 예외 안전성: 에러가 나도 반드시 자원이 해제됨</span>
+<span class="cm">     * 3. 코드 간소화: finally 블록이 필요 없음</span>
+<span class="cm">     * </span>
+<span class="cm">     * 조건: AutoCloseable 인터페이스를 구현한 객체만 사용 가능</span>
+<span class="cm">     * → Connection, Statement, ResultSet 모두 이 조건을 만족합니다</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="c1">// 실제 작업 수행</span>
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="p">}</span><span class="w"> </span><span class="c1">// 여기서 자동으로 conn.close() 호출됨!</span>
+<span class="c1">// 에러가 발생해도 반드시 close()가 호출되므로 안전합니다</span>
+</code></pre></div>
+<hr />
+<h2 id="2-sql-injection">🛡️ 실습 2: SQL Injection 보안<a class="headerlink" href="#2-sql-injection" title="Permanent link">&para;</a></h2>
+<h3 id="statement">⚠️ 위험한 코드: Statement 사용<a class="headerlink" href="#statement" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 🚨 절대 이렇게 하면 안 되는 위험한 코드입니다!</span>
+
+<span class="c1">// 사용자가 입력한 값들 (웹 폼, 콘솔 입력 등에서 온 값)</span>
+<span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;admin&#39; OR &#39;1&#39;=&#39;1&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// 악의적인 입력!</span>
+<span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;anything&quot;</span><span class="p">;</span>
+
+<span class="c1">// 위험한 방법: 사용자 입력을 직접 문자열에 붙여서 SQL 만들기</span>
+<span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM users WHERE username=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39; AND password=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * 실제로 만들어지는 SQL:</span>
+<span class="cm"> * SELECT * FROM users WHERE username=&#39;admin&#39; OR &#39;1&#39;=&#39;1&#39; AND password=&#39;anything&#39;</span>
+<span class="cm"> * </span>
+<span class="cm"> * 문제점 분석:</span>
+<span class="cm"> * 1. username=&#39;admin&#39; → admin 사용자를 찾거나</span>
+<span class="cm"> * 2. &#39;1&#39;=&#39;1&#39; → 이 조건은 항상 참이므로</span>
+<span class="cm"> * 3. 결국 모든 사용자 정보가 조회됩니다!</span>
+<span class="cm"> * </span>
+<span class="cm"> * 이것이 바로 SQL Injection 공격입니다!</span>
+<span class="cm"> * 해커가 로그인 없이도 모든 데이터에 접근할 수 있게 됩니다.</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 위험한 SQL 실행 (실제로는 하면 안 됩니다!)</span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Statement</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="w">     </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">sql</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;❌ 해킹 성공! 로그인 우회됨: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="c1">// 해커가 아무 비밀번호나 입력해도 로그인됩니다!</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="preparedstatement">✅ 안전한 코드: PreparedStatement 사용<a class="headerlink" href="#preparedstatement" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// ✅ 이렇게 해야 안전합니다!</span>
+
+<span class="c1">// 같은 악의적인 입력</span>
+<span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;admin&#39; OR &#39;1&#39;=&#39;1&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;anything&quot;</span><span class="p">;</span>
+
+<span class="c1">// 안전한 방법: ? 자리표시자(placeholder)를 사용한 SQL</span>
+<span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM users WHERE username=? AND password=?&quot;</span><span class="p">;</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * PreparedStatement의 동작 원리:</span>
+<span class="cm">     * 1. SQL 구조를 미리 분석하고 컴파일 (prepare)</span>
+<span class="cm">     * 2. ? 자리에 들어갈 값들을 별도로 바인딩</span>
+<span class="cm">     * 3. 데이터베이스가 값을 &#39;데이터&#39;로만 처리, &#39;SQL 코드&#39;로 인식하지 않음</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="c1">// 첫 번째 ?에 username 값을 안전하게 바인딩</span>
+<span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1번째 ? 자리에 username 넣기</span>
+
+<span class="w">    </span><span class="c1">// 두 번째 ?에 password 값을 안전하게 바인딩  </span>
+<span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span><span class="w">  </span><span class="c1">// 2번째 ? 자리에 password 넣기</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * setString()이 하는 일:</span>
+<span class="cm">     * - 문자열 안의 특수문자들을 자동으로 이스케이프 처리</span>
+<span class="cm">     * - &#39;admin&#39; OR &#39;1&#39;=&#39;1&#39; → &#39;admin\&#39; OR \&#39;1\&#39;=\&#39;1\&#39; </span>
+<span class="cm">     * - 결국 username으로 &quot;admin&#39; OR &#39;1&#39;=&#39;1&quot; 라는 이상한 이름을 찾게 됨</span>
+<span class="cm">     * - 그런 사용자는 없으므로 로그인 실패!</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;🔒 실행될 SQL: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sql</span><span class="p">);</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;🔒 파라미터: [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, ******]&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;✅ 정상 로그인: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;❌ 로그인 실패 - 해킹 시도가 차단되었습니다!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="statement-vs-preparedstatement">🔄 Statement vs PreparedStatement 비교<a class="headerlink" href="#statement-vs-preparedstatement" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph LR
+    subgraph Statement [Statement - 위험]
+        A1[사용자 입력] --&gt; A2[문자열 연결]
+        A2 --&gt; A3[SQL 실행]
+        A3 --&gt; A4[🚨 인젝션 취약]
+    end
+
+    subgraph PreparedStatement [PreparedStatement - 안전]
+        B1[사용자 입력] --&gt; B2[파라미터 바인딩]
+        B2 --&gt; B3[SQL 실행]
+        B3 --&gt; B4[✅ 인젝션 방지]
+    end
+</code></pre></div>
+<hr />
+<h2 id="3-dao">🏗️ 실습 3: DAO 패턴 적용<a class="headerlink" href="#3-dao" title="Permanent link">&para;</a></h2>
+<h3 id="dao">DAO 패턴이란?<a class="headerlink" href="#dao" title="Permanent link">&para;</a></h3>
+<p><strong>DAO (Data Access Object)</strong>는 데이터베이스 접근 로직을 별도 클래스로 분리하는 디자인 패턴입니다.</p>
+<h3 id="_6">📊 데이터베이스 설계<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>erDiagram
+    MEMBERS {
+        BIGINT id PK
+        VARCHAR username
+        VARCHAR email
+        VARCHAR grade
+        TIMESTAMP created_at
+    }
+
+    PRODUCTS {
+        BIGINT id PK
+        VARCHAR name
+        INT price
+        TIMESTAMP created_at
+    }
+
+    ORDERS {
+        BIGINT id PK
+        BIGINT member_id FK
+        TIMESTAMP ordered_at
+    }
+
+    ORDER_ITEMS {
+        BIGINT id PK
+        BIGINT order_id FK
+        BIGINT product_id FK
+        INT quantity
+        INT unit_price
+    }
+
+    MEMBERS ||--o{ ORDERS : &quot;주문하다&quot;
+    ORDERS ||--o{ ORDER_ITEMS : &quot;포함하다&quot;
+    PRODUCTS ||--o{ ORDER_ITEMS : &quot;주문되다&quot;
+</code></pre></div>
+<h3 id="1-dto-data-transfer-object">1단계: DTO (Data Transfer Object) 정의<a class="headerlink" href="#1-dto-data-transfer-object" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 📦 DTO란 데이터를 담아서 전달하는 상자 같은 객체입니다</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Java 17의 record 문법:</span>
+<span class="cm"> * - 예전에는 class를 만들고 getter, setter, equals, hashCode 등을 직접 작성해야 했음</span>
+<span class="cm"> * - record는 이 모든 것을 자동으로 만들어줍니다!</span>
+<span class="cm"> * - 불변(immutable) 객체: 한 번 만들어지면 값을 바꿀 수 없어서 안전함</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 회원 정보를 담는 DTO</span>
+<span class="kd">record</span> <span class="nc">Member</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * 이 한 줄이 다음과 같은 코드를 자동 생성합니다:</span>
+<span class="cm">     * - private final Long id; (필드들)</span>
+<span class="cm">     * - public Long id() { return id; } (getter 메서드들)</span>
+<span class="cm">     * - public boolean equals(Object o) (동등성 비교)</span>
+<span class="cm">     * - public int hashCode() (해시코드)</span>
+<span class="cm">     * - public String toString() (문자열 변환)</span>
+<span class="cm">     * - 생성자: new Member(1L, &quot;alice&quot;, &quot;alice@example.com&quot;, &quot;BASIC&quot;)</span>
+<span class="cm">     */</span>
+<span class="p">}</span>
+
+<span class="c1">// 상품 정보를 담는 DTO  </span>
+<span class="kd">record</span> <span class="nc">Product</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// price는 원화 기준 정수</span>
+
+<span class="c1">// 주문 헤더 정보를 담는 DTO</span>
+<span class="kd">record</span> <span class="nc">OrderHeader</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">memberId</span><span class="p">,</span><span class="w"> </span><span class="n">Timestamp</span><span class="w"> </span><span class="n">orderedAt</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="c1">// 주문 상품 정보를 담는 DTO</span>
+<span class="kd">record</span> <span class="nc">OrderItem</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">productId</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">quantity</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">unitPrice</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="c1">// 주문 요약 정보를 담는 DTO (여러 테이블을 JOIN한 결과)</span>
+<span class="kd">record</span> <span class="nc">OrderSummary</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">memberName</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">itemCount</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">totalAmount</span><span class="p">,</span><span class="w"> </span><span class="n">Timestamp</span><span class="w"> </span><span class="n">orderedAt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * 이 DTO는 실제 테이블과 1:1 대응되지 않습니다</span>
+<span class="cm">     * 여러 테이블을 JOIN해서 나온 결과를 담기 위한 용도입니다</span>
+<span class="cm">     * 예: orders + members + order_items 테이블을 합쳐서 주문 요약 정보 생성</span>
+<span class="cm">     */</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-dao">2단계: DAO 인터페이스 정의<a class="headerlink" href="#2-dao" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 🏗️ DAO (Data Access Object) 패턴이란?</span>
+<span class="c1">// 데이터베이스 접근 로직을 별도 클래스로 분리하는 설계 패턴입니다</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * 왜 인터페이스를 먼저 정의할까?</span>
+<span class="cm"> * 1. 추상화: 구체적인 구현 방법을 숨기고, 무엇을 할 수 있는지만 정의</span>
+<span class="cm"> * 2. 확장성: 나중에 JDBC → JPA로 바꿔도 인터페이스는 그대로 사용 가능</span>
+<span class="cm"> * 3. 테스트: 가짜 구현체를 만들어서 테스트하기 쉬움</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 회원 데이터 접근을 담당하는 DAO 인터페이스</span>
+<span class="kd">interface</span> <span class="nc">MemberDAO</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * save(): 새로운 회원을 데이터베이스에 저장</span>
+<span class="cm">     * - Member 객체를 받아서 INSERT 실행</span>
+<span class="cm">     * - 자동 생성된 ID를 Long으로 반환</span>
+<span class="cm">     * - Connection을 매개변수로 받는 이유: 트랜잭션 관리를 호출자가 담당</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * findById(): ID로 특정 회원 한 명을 찾기</span>
+<span class="cm">     * - Optional&lt;Member&gt;를 반환하는 이유: 해당 ID의 회원이 없을 수도 있으니까</span>
+<span class="cm">     * - Optional.empty(): 회원이 없을 때</span>
+<span class="cm">     * - Optional.of(member): 회원이 있을 때</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * findAll(): 모든 회원 목록 가져오기</span>
+<span class="cm">     * - List&lt;Member&gt;로 반환: 여러 명의 회원을 담은 리스트</span>
+<span class="cm">     * - 빈 리스트가 반환될 수 있음 (회원이 아무도 없을 때)</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 상품 데이터 접근을 담당하는 DAO 인터페이스 (회원 DAO와 구조가 비슷함)</span>
+<span class="kd">interface</span> <span class="nc">ProductDAO</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">Product</span><span class="w"> </span><span class="n">product</span><span class="p">,</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 주문 데이터 접근을 담당하는 DAO 인터페이스</span>
+<span class="kd">interface</span> <span class="nc">OrderDAO</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * placeOrder(): 주문하기 (복잡한 비즈니스 로직)</span>
+<span class="cm">     * - memberId: 누가 주문하는지</span>
+<span class="cm">     * - productIdToQty: 어떤 상품을 몇 개씩 주문하는지 (Map으로 표현)</span>
+<span class="cm">     *   예: {1L: 2, 3L: 1} → 상품1번을 2개, 상품3번을 1개</span>
+<span class="cm">     * - 여러 테이블에 데이터를 삽입해야 하므로 트랜잭션 필수!</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">memberId</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">productIdToQty</span><span class="p">,</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * findOrderSummaries(): 주문 요약 목록 조회 (복잡한 JOIN 쿼리)</span>
+<span class="cm">     * - 여러 테이블을 JOIN해서 사람이 보기 좋은 형태로 데이터 조합</span>
+<span class="cm">     * - 주문번호, 주문자명, 주문 상품 개수, 총 금액 등을 한 번에 조회</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderSummary</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findOrderSummaries</span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="3-dao_1">3단계: DAO 구현체 작성<a class="headerlink" href="#3-dao_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 🔧 실제로 JDBC를 사용해서 데이터베이스 작업을 수행하는 구현체</span>
+
+<span class="kd">class</span> <span class="nc">JdbcMemberDAO</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberDAO</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// INSERT 후 자동 생성된 ID를 가져오는 SQL</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT INTO members(username, email, grade) VALUES(?, ?, ?)&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * prepareStatement()에 두 번째 매개변수 설명:</span>
+<span class="cm">         * - Statement.RETURN_GENERATED_KEYS: 자동 증가된 ID 값을 반환하도록 설정</span>
+<span class="cm">         * - 이 설정이 없으면 INSERT 후에 생성된 ID를 알 수 없습니다</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">Statement</span><span class="p">.</span><span class="na">RETURN_GENERATED_KEYS</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="c1">// ? 자리표시자에 실제 값들을 바인딩 (순서대로 1, 2, 3...)</span>
+<span class="w">            </span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">username</span><span class="p">());</span><span class="w">  </span><span class="c1">// 첫 번째 ? 자리에 사용자명</span>
+<span class="w">            </span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">email</span><span class="p">());</span><span class="w">     </span><span class="c1">// 두 번째 ? 자리에 이메일</span>
+<span class="w">            </span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">grade</span><span class="p">());</span><span class="w">     </span><span class="c1">// 세 번째 ? 자리에 등급</span>
+
+<span class="w">            </span><span class="cm">/*</span>
+<span class="cm">             * executeUpdate() 실행:</span>
+<span class="cm">             * - INSERT, UPDATE, DELETE에 사용하는 메서드</span>
+<span class="cm">             * - 영향받은 행의 개수를 int로 반환 (여기서는 1이 반환됨)</span>
+<span class="cm">             * - SELECT에는 executeQuery()를 사용해야 함!</span>
+<span class="cm">             */</span>
+<span class="w">            </span><span class="n">ps</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
+
+<span class="w">            </span><span class="c1">// 자동 생성된 ID 값을 가져오기</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">getGeneratedKeys</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/*</span>
+<span class="cm">                 * getGeneratedKeys(): </span>
+<span class="cm">                 * - AUTO_INCREMENT로 자동 생성된 키 값들을 ResultSet으로 반환</span>
+<span class="cm">                 * - 보통 ID 하나만 생성되므로 rs.next() 한 번만 호출</span>
+<span class="cm">                 * - rs.getLong(1): 첫 번째 컬럼(생성된 ID)을 long으로 가져옴</span>
+<span class="cm">                 */</span>
+<span class="w">                </span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 생성된 ID 반환</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 특정 ID로 회원 한 명을 찾는 SQL</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT id, username, email, grade FROM members WHERE id = ?&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ps</span><span class="p">.</span><span class="na">setLong</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">  </span><span class="c1">// ? 자리에 찾고자 하는 ID 값 바인딩</span>
+
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/*</span>
+<span class="cm">                 * 조회 결과 처리:</span>
+<span class="cm">                 * - rs.next()가 false면 해당 ID의 회원이 없음 → Optional.empty() 반환</span>
+<span class="cm">                 * - rs.next()가 true면 회원이 존재 → Member 객체로 만들어서 Optional.of()로 감싸서 반환</span>
+<span class="cm">                 */</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span><span class="w">  </span><span class="c1">// 회원이 없을 때</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="c1">// 회원이 있을 때: ResultSet에서 데이터를 꺼내서 Member 객체 생성</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Member</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),</span><span class="w">           </span><span class="c1">// id 컬럼값</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">),</span><span class="w">   </span><span class="c1">// username 컬럼값</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">),</span><span class="w">      </span><span class="c1">// email 컬럼값</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;grade&quot;</span><span class="p">)</span><span class="w">       </span><span class="c1">// grade 컬럼값</span>
+<span class="w">                </span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 모든 회원을 ID 순으로 정렬해서 가져오는 SQL</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT id, username, email, grade FROM members ORDER BY id&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
+<span class="w">             </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="cm">/*</span>
+<span class="cm">             * 여러 행의 결과를 처리하는 방법:</span>
+<span class="cm">             * 1. 빈 ArrayList 생성</span>
+<span class="cm">             * 2. while (rs.next()) 루프로 모든 행을 순회</span>
+<span class="cm">             * 3. 각 행마다 Member 객체를 만들어서 리스트에 추가</span>
+<span class="cm">             * 4. 완성된 리스트 반환</span>
+<span class="cm">             */</span>
+
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span><span class="c1">// 회원들을 담을 빈 리스트</span>
+
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 다음 행이 있는 동안 반복</span>
+<span class="w">                </span><span class="c1">// 현재 행의 데이터로 Member 객체 생성</span>
+<span class="w">                </span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Member</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">),</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">),</span>
+<span class="w">                    </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;grade&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">members</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">member</span><span class="p">);</span><span class="w">  </span><span class="c1">// 리스트에 추가</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">members</span><span class="p">;</span><span class="w">  </span><span class="c1">// 모든 회원이 담긴 리스트 반환</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="_7">🎯 실습별 학습 포인트<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="1-crud_1">📋 실습 1: 기본 CRUD<a class="headerlink" href="#1-crud_1" title="Permanent link">&para;</a></h3>
+<p><strong>목표</strong>: JDBC 기본 사용법 익히기</p>
+<p><strong>핵심 개념</strong>:
+- Database 연결 방법
+- try-with-resources로 자원 관리
+- DDL, DML, SELECT 기본 실행</p>
+<p><strong>체크포인트</strong>:
+- [ ] 데이터베이스 연결 성공
+- [ ] 테이블 생성 확인
+- [ ] 데이터 삽입/조회 확인</p>
+<h3 id="2-sql-injection_1">🔒 실습 2: SQL Injection 보안<a class="headerlink" href="#2-sql-injection_1" title="Permanent link">&para;</a></h3>
+<p><strong>목표</strong>: 보안 취약점 이해하고 방지하기</p>
+<p><strong>위험한 입력 예시</strong>:
+<div class="highlight"><pre><span></span><code>username: admin&#39; OR &#39;1&#39;=&#39;1
+password: anything
+</code></pre></div></p>
+<p><strong>학습 포인트</strong>:
+- Statement의 보안 위험성
+- PreparedStatement의 안전성
+- 파라미터 바인딩의 중요성</p>
+<h3 id="3-dao_2">🏛️ 실습 3: DAO 패턴<a class="headerlink" href="#3-dao_2" title="Permanent link">&para;</a></h3>
+<p><strong>목표</strong>: 코드 구조화와 재사용성 향상</p>
+<p><strong>아키텍처 흐름</strong>:</p>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[Main 메서드] --&gt; B[DAO 인터페이스]
+    B --&gt; C[JDBC 구현체]
+    C --&gt; D[Database]
+
+    E[DTO] --&gt; B
+    F[Connection] --&gt; C
+
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+</code></pre></div>
+<p><strong>장점</strong>:
+- 코드 재사용성 증가
+- 비즈니스 로직과 DB 로직 분리
+- 테스트 용이성 향상
+- JPA 전환 시 구현체만 교체하면 됨</p>
+<hr />
+<h2 id="jdbc_2">🔄 JDBC 실행 흐름<a class="headerlink" href="#jdbc_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant App as Java Application
+    participant DM as DriverManager
+    participant Conn as Connection
+    participant PS as PreparedStatement
+    participant DB as Database
+
+    App-&gt;&gt;DM: getConnection(url, user, pass)
+    DM-&gt;&gt;Conn: 연결 생성
+    Conn--&gt;&gt;App: Connection 반환
+
+    App-&gt;&gt;Conn: prepareStatement(sql)
+    Conn-&gt;&gt;PS: PreparedStatement 생성
+    PS--&gt;&gt;App: PreparedStatement 반환
+
+    App-&gt;&gt;PS: setString(1, &quot;value&quot;)
+    App-&gt;&gt;PS: executeQuery()
+    PS-&gt;&gt;DB: SQL 실행
+    DB--&gt;&gt;PS: ResultSet 반환
+    PS--&gt;&gt;App: 결과 반환
+
+    Note over App: try-with-resources로&lt;br/&gt;자동 자원 해제
+</code></pre></div>
+<hr />
+<h2 id="_8">💡 초보자를 위한 팁<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="3">🎯 기억해야 할 핵심 3가지<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>try-with-resources 사용</strong>: 자원 해제를 자동화</li>
+<li><strong>PreparedStatement 선택</strong>: 보안과 성능을 위해</li>
+<li><strong>트랜잭션 관리</strong>: <code>setAutoCommit(false)</code>, <code>commit()</code>, <code>rollback()</code></li>
+</ol>
+<h2 id="_9">💡 초보자를 위한 팁<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="5">🎯 기억해야 할 핵심 5가지<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>try-with-resources 사용</strong>: 자원 해제를 자동화
+   <div class="highlight"><pre><span></span><code><span class="c1">// ✅ 좋은 예시</span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">pass</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 작업 수행</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// 자동으로 연결 해제</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>PreparedStatement 선택</strong>: 보안과 성능을 위해
+   <div class="highlight"><pre><span></span><code><span class="c1">// ❌ 위험: Statement + 문자열 연결</span>
+<span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM users WHERE name=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">userName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">;</span>
+
+<span class="c1">// ✅ 안전: PreparedStatement + 파라미터 바인딩</span>
+<span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM users WHERE name=?&quot;</span><span class="p">;</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">userName</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>트랜잭션 관리</strong>: 데이터 일관성 보장
+   <div class="highlight"><pre><span></span><code><span class="n">conn</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w">  </span><span class="c1">// 수동 트랜잭션 시작</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 여러 SQL 작업 수행</span>
+<span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span><span class="w">  </span><span class="c1">// 모든 작업 성공 시 저장</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">rollback</span><span class="p">();</span><span class="w">  </span><span class="c1">// 실패 시 모든 변경사항 취소</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예외 처리</strong>: SQLException 반드시 처리
+   <div class="highlight"><pre><span></span><code><span class="c1">// 모든 JDBC 메서드는 SQLException을 던질 수 있음</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// JDBC 작업</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w">  </span><span class="c1">// 에러 정보 출력</span>
+<span class="w">    </span><span class="c1">// 필요시 적절한 에러 처리 로직 추가</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>올바른 데이터 타입 매칭</strong>:
+   <div class="highlight"><pre><span></span><code><span class="c1">// 데이터베이스 타입 → Java 타입 매칭</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">);</span><span class="w">           </span><span class="c1">// BIGINT → long</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span><span class="w">       </span><span class="c1">// VARCHAR → String  </span>
+<span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">&quot;price&quot;</span><span class="p">);</span><span class="w">         </span><span class="c1">// INT → int</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">getTimestamp</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">);</span><span class="w">    </span><span class="c1">// TIMESTAMP → Timestamp</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="_10">🚨 자주 하는 실수들과 해결책<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>❌ 실수</th>
+<th>✅ 해결책</th>
+<th>📝 설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection을 수동으로 close()</td>
+<td>try-with-resources 사용</td>
+<td>자동으로 자원 해제됨</td>
+</tr>
+<tr>
+<td>Statement로 사용자 입력 처리</td>
+<td>PreparedStatement 사용</td>
+<td>SQL Injection 방지</td>
+</tr>
+<tr>
+<td>ResultSet에서 next() 없이 접근</td>
+<td>while(rs.next()) 또는 if(rs.next())</td>
+<td>첫 번째 행으로 이동 후 데이터 접근</td>
+</tr>
+<tr>
+<td>executeQuery()와 executeUpdate() 혼동</td>
+<td>SELECT는 Query, 나머지는 Update</td>
+<td>Query는 데이터 조회, Update는 데이터 변경</td>
+</tr>
+<tr>
+<td>트랜잭션 관리 누락</td>
+<td>setAutoCommit(false) + commit/rollback</td>
+<td>데이터 일관성 보장</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">✅ 좋은 코딩 습관<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>1. 의미있는 변수명 사용</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// ❌ 나쁜 예시</span>
+<span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM m WHERE i = ?&quot;</span><span class="p">;</span>
+<span class="n">PreparedStatement</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+<span class="c1">// ✅ 좋은 예시  </span>
+<span class="n">String</span><span class="w"> </span><span class="n">findMemberSql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM members WHERE id = ?&quot;</span><span class="p">;</span>
+<span class="n">PreparedStatement</span><span class="w"> </span><span class="n">findMemberStmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">findMemberSql</span><span class="p">);</span>
+</code></pre></div></p>
+<p><strong>2. 주석으로 SQL의 의도 설명</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// 회원 등급별 주문 통계를 조회하는 복잡한 쿼리</span>
+<span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    SELECT </span>
+<span class="s">        m.grade,                           -- 회원 등급</span>
+<span class="s">        COUNT(DISTINCT o.id) AS order_count,  -- 주문 건수</span>
+<span class="s">        SUM(oi.quantity * oi.unit_price) AS total_sales  -- 총 매출액</span>
+<span class="s">    FROM members m</span>
+<span class="s">        LEFT JOIN orders o ON m.id = o.member_id</span>
+<span class="s">        LEFT JOIN order_items oi ON o.id = oi.order_id</span>
+<span class="s">    GROUP BY m.grade</span>
+<span class="s">    ORDER BY total_sales DESC</span>
+<span class="s">&quot;&quot;&quot;</span><span class="p">;</span>
+</code></pre></div></p>
+<p><strong>3. 에러 상황에 대한 명확한 메시지</strong>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// JDBC 작업</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 구체적인 에러 메시지와 함께 로깅</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;회원 정보 저장 중 오류 발생: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;SQL State: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getSQLState</span><span class="p">());</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error Code: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getErrorCode</span><span class="p">());</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="_12">🎓 학습 단계별 체크리스트<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p><strong>🥉 초급 (현재 단계)</strong>
+- [ ] 데이터베이스 연결 성공
+- [ ] 기본 CRUD 작업 (CREATE, READ, UPDATE, DELETE)
+- [ ] try-with-resources 사용법 이해
+- [ ] PreparedStatement vs Statement 차이점 이해
+- [ ] ResultSet으로 조회 결과 처리</p>
+<p><strong>🥈 중급 (다음 목표)</strong><br />
+- [ ] 트랜잭션 관리 (commit/rollback)
+- [ ] DAO 패턴 구현
+- [ ] JOIN 쿼리 작성 및 처리
+- [ ] Batch 처리로 성능 최적화
+- [ ] 예외 처리 및 로깅</p>
+<p><strong>🥇 고급 (최종 목표)</strong>
+- [ ] Connection Pool 사용
+- [ ] Spring JDBC Template 활용<br />
+- [ ] JPA/Hibernate 전환
+- [ ] 성능 튜닝 및 모니터링
+- [ ] 실제 웹 애플리케이션 연동</p>
+<hr />
+<h2 id="_13">🎓 마무리<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">다음 단계로 가기 위한 로드맵<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[JDBC 기초] --&gt; B[Spring JDBC]
+    B --&gt; C[MyBatis]
+    C --&gt; D[JPA/Hibernate]
+    D --&gt; E[Spring Data JPA]
+
+    style A fill:#ffcdd2
+    style B fill:#f8bbd9
+    style C fill:#e1bee7
+    style D fill:#d1c4e9
+    style E fill:#c5cae9
+</code></pre></div>
+<h3 id="_15">🔗 학습 자료 링크<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>프로젝트</strong>: <a href="https://github.com/yjshin-cloud/250818_jbbc">GitHub Repository</a></li>
+</ul>
+<h3 id="_16">📝 오늘 배운 내용 최종 요약<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><strong>🎯 핵심 학습 내용</strong></p>
+<ol>
+<li><strong>JDBC 기초</strong>: 자바에서 데이터베이스에 연결하고 SQL을 실행하는 표준 방법</li>
+<li>DriverManager로 연결 생성</li>
+<li>Connection으로 세션 관리  </li>
+<li>Statement/PreparedStatement로 SQL 실행</li>
+<li>
+<p>ResultSet으로 결과 처리</p>
+</li>
+<li>
+<p><strong>보안</strong>: SQL Injection 공격 방지</p>
+</li>
+<li>Statement의 위험성: 문자열 연결로 인한 코드 삽입 가능</li>
+<li>PreparedStatement의 안전성: 파라미터 바인딩으로 안전한 처리</li>
+<li>
+<p>실무에서는 반드시 PreparedStatement 사용!</p>
+</li>
+<li>
+<p><strong>아키텍처</strong>: DAO 패턴으로 코드 구조화</p>
+</li>
+<li>DTO: 데이터 전달 전용 객체 (Java 17 record 활용)</li>
+<li>DAO Interface: 데이터 접근 메서드 정의</li>
+<li>DAO Implementation: 실제 JDBC 구현체</li>
+<li>
+<p>장점: 코드 재사용성, 유지보수성, 테스트 용이성</p>
+</li>
+<li>
+<p><strong>실무 적용</strong>: 트랜잭션과 예외 처리</p>
+</li>
+<li>setAutoCommit(false)로 수동 트랜잭션</li>
+<li>commit()으로 저장, rollback()으로 취소</li>
+<li>try-with-resources로 자동 자원 해제</li>
+<li>SQLException 적절한 처리</li>
+</ol>
+<p><strong>🚀 실무에서 이렇게 활용됩니다</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 전형적인 실무 코드 패턴</span>
+<span class="nd">@Service</span><span class="w">  </span><span class="c1">// Spring Framework에서</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberService</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MemberDAO</span><span class="w"> </span><span class="n">memberDAO</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Transactional</span><span class="w">  </span><span class="c1">// 선언적 트랜잭션 (Spring)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nf">registerMember</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 비즈니스 로직: 중복 검사, 유효성 검증 등</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">memberDAO</span><span class="p">.</span><span class="na">findByEmail</span><span class="p">(</span><span class="n">email</span><span class="p">).</span><span class="na">isPresent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;이미 존재하는 이메일입니다&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// DAO를 통한 데이터 저장</span>
+<span class="w">        </span><span class="n">Member</span><span class="w"> </span><span class="n">newMember</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Member</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BASIC&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">memberDAO</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">newMember</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>🔄 다음 학습 단계</strong></p>
+<ol>
+<li><strong>Spring JDBC</strong>: 더 간편한 JDBC 사용법</li>
+<li><strong>MyBatis</strong>: SQL 매퍼 프레임워크</li>
+<li><strong>JPA/Hibernate</strong>: 객체 관계 매핑 (ORM)</li>
+<li><strong>Spring Data JPA</strong>: 코드 없이 데이터 접근</li>
+</ol>
+<hr />
+<blockquote>
+<p>💪 <strong>학습 완료!</strong> 이제 자바로 데이터베이스를 다루는 기초를 마스터했습니다. 다음 단계는 Spring Framework와 함께 더 효율적인 개발 방법을 익혀보세요!</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/yjshin-cloud/TIL" target="_blank" rel="noopener" title="GitHub Repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://velog.io/@yjshin/posts" target="_blank" rel="noopener" title="Blog Home" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M384 512H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h304c26.5 0 48 21.5 48 48v288c0 20.9-13.4 38.7-32 45.3V448c17.7 0 32 14.3 32 32s-14.3 32-32 32zM96 384c-17.7 0-32 14.3-32 32s14.3 32 32 32h256v-64zm32-232c0 13.3 10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24H152c-13.3 0-24 10.7-24 24m24 72c-13.3 0-24 10.7-24 24s10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,5081 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="오늘 배운 것을 기록하는 공간 (TIL)">
+      
+      
+        <meta name="author" content="YJ Shin">
+      
+      
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Programming_Languages/FrontEnd/JS/DOM%26BOM/">
+      
+      
+        <link rel="prev" href="../ASYNC/">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>JavaScript DOM & BOM 완벽 가이드 📚 - YJ Shin TIL Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-dom-bom" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YJ Shin TIL Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JavaScript DOM &amp; BOM 완벽 가이드 📚
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YJ Shin TIL Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    👋 Welcome to YJ Shin TIL Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS 계정 생성 가이드 (2025 기준)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM 사용자 생성 &amp; Root 계정 보안 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS/Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS Organizations 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 AWS Systems Manager (SSM) 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 AWS Trusted Advisor 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Auto Scaling 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 AWS CloudWatch 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/EC2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ☁️ AWS EC2 (Elastic Compute Cloud) 완벽 이해
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/ELB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Elastic Load Balancing (ELB) 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/IAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM (Identity and Access Management) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/RDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon RDS (Relational Database Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/S3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon S3 (Simple Storage Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Cloud/AWS/Service/VPC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS VPC (Virtual Private Cloud) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    DB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Edu
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Edu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BootCamp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            BootCamp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LikeLionCloudEngineering 4th
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            LikeLionCloudEngineering 4th
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    0 Memoir
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            0 Memoir
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 1주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 2주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3주차 학습 회고록 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 4주차 회고록: JDBC와 웹 개발 기초 마스터하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 5주차 회고록 (Week 5 Retrospective)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1 DailyStudy
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            1 DailyStudy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_2" id="__nav_4_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 객체지향 프로그래밍 완전 정복 가이드 ☕
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java Calculator &amp; AI 이미지 생성기 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 자바 스레드와 분산처리 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔗 자바 의존성과 배포 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache Tomcat 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_3" id="__nav_4_2_2_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DB 관리 도구 및 클라우드 서비스 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ SQL 완벽 가이드 - 기초부터 실무까지
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL 8.0 완전 복습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 13일차 - SQL 데이터베이스 마스터 🗃️
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_4" id="__nav_4_2_2_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Week 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🎯 JDBC 학습 가이드 - 8월 18일 실습
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JDBC DAO/DTO 패턴 완전 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS 선택자와 타이포그래피 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS Layout 실습 가이드 📐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Core 완벽 마스터 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_5" id="__nav_4_2_2_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 5
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Week 5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 19일차 TIL - DOM &amp; BOM &amp; 비동기 프로그래밍 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 20일차 TIL - JavaScript 비동기 프로그래밍 완전 정리 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 21일차 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Web MVC 완전정복 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSP &amp; Spring Web 학습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_6" id="__nav_4_2_2_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 6
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Week 6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot 상태 관리 &amp; 보안 종합 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RESTful API &amp; Swagger 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT 완전 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🍪 쿠키와 게시판 프로젝트 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    OS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../OS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Programming Languages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 TIL - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BackEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            BackEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Go
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2" id="__nav_6_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NomadCoders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            NomadCoders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go/NomadCoders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2_2" id="__nav_6_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started with Go Quickly and Easily
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_6_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started with Go Quickly and Easily
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 Hello World 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 Struct 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 20250816 variables constants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 함수 완전 정복 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 함수의 두 가지 핵심 기능:
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 반복문 정리: for, range, args
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 Go 언어 기초: if, else, 그리고 Variable Expression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 강의 요약 — Switch 문 (#1 7 Switch)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔎 Go 언어에서의 Low-Level Programming (포인터 기초)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 강의 #1: Arrays &amp; Slices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 – Map 데이터 구조 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JAVA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            JAVA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/JAVA/CORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 REST API와 CORS 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/JAVA/JWT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4_2" id="__nav_6_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Easy Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Easy Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌱 프로그래밍 언어 러스트를 배웁시다!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 기초 강의 정리 - 주석(Comment)과 변수 경고 처리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔢 Rust 정수 타입 (Integer Types)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Rust 배우기 – Chars (문자)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 문자열과 바이트/문자 개수 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust Easy Rust 006 — Floats (실수형)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    FrontEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            FrontEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/FrontEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASYNC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    비동기 프로그래밍 완전 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    JavaScript DOM &amp; BOM 완벽 가이드 📚
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript DOM &amp; BOM 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dom-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. DOM과 BOM 개념 이해
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DOM과 BOM 개념 이해">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom-document-object-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM (Document Object Model)이란? 🌳
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom-browser-object-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOM (Browser Object Model)이란? 🌐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom-vs-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM vs BOM 주요 차이점
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. DOM 구조와 작동 원리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. DOM 구조와 작동 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 트리 구조 🌲
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 조작의 핵심 메서드들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. DOM 조작 실습
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DOM 조작 실습">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      동적 요소 추가/삭제 예제 분석
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 고급 활용 예제
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 고급 활용 예제">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      실시간 시계 만들기 (DOM + BOM 종합)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      로컬 스토리지 활용 예제
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 성능 최적화 팁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 성능 최적화 팁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 조작 최적화
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-delegation" class="md-nav__link">
+    <span class="md-ellipsis">
+      이벤트 위임 (Event Delegation)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 디버깅과 문제 해결
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 디버깅과 문제 해결">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      자주 발생하는 오류들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      디버깅 도구 활용
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 마무리 및 추가 학습 자료
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 마무리 및 추가 학습 자료">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      핵심 요약
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      다음 단계 학습 주제
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      연습 문제
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      유용한 참고 자료
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 조작 과정 시각화
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. BOM 개념과 활용
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. BOM 개념과 활용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOM의 주요 객체들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOM 활용 예제
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dom-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. DOM과 BOM 개념 이해
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DOM과 BOM 개념 이해">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom-document-object-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM (Document Object Model)이란? 🌳
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom-browser-object-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOM (Browser Object Model)이란? 🌐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom-vs-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM vs BOM 주요 차이점
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. DOM 구조와 작동 원리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. DOM 구조와 작동 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 트리 구조 🌲
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 조작의 핵심 메서드들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. DOM 조작 실습
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DOM 조작 실습">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      동적 요소 추가/삭제 예제 분석
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 고급 활용 예제
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 고급 활용 예제">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      실시간 시계 만들기 (DOM + BOM 종합)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      로컬 스토리지 활용 예제
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 성능 최적화 팁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 성능 최적화 팁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 조작 최적화
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-delegation" class="md-nav__link">
+    <span class="md-ellipsis">
+      이벤트 위임 (Event Delegation)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 디버깅과 문제 해결
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 디버깅과 문제 해결">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      자주 발생하는 오류들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      디버깅 도구 활용
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 마무리 및 추가 학습 자료
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 마무리 및 추가 학습 자료">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      핵심 요약
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      다음 단계 학습 주제
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      연습 문제
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      유용한 참고 자료
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      DOM 조작 과정 시각화
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. BOM 개념과 활용
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. BOM 개념과 활용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOM의 주요 객체들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOM 활용 예제
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="javascript-dom-bom">JavaScript DOM &amp; BOM 완벽 가이드 📚<a class="headerlink" href="#javascript-dom-bom" title="Permanent link">&para;</a></h1>
+<h2 id="_1">목차<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-dom과-bom-개념-이해">DOM과 BOM 개념 이해</a></li>
+<li><a href="#2-dom-구조와-작동-원리">DOM 구조와 작동 원리</a></li>
+<li><a href="#3-dom-조작-실습">DOM 조작 실습</a></li>
+<li><a href="#4-bom-개념과-활용">BOM 개념과 활용</a></li>
+</ol>
+<hr />
+<h2 id="1-dom-bom">1. DOM과 BOM 개념 이해<a class="headerlink" href="#1-dom-bom" title="Permanent link">&para;</a></h2>
+<h3 id="dom-document-object-model">DOM (Document Object Model)이란? 🌳<a class="headerlink" href="#dom-document-object-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>문서 객체 모델</strong>: HTML과 XML 문서를 프로그래밍 언어로 조작할 수 있게 해주는 인터페이스</li>
+<li>웹 페이지의 <strong>구조화된 표현</strong>을 제공하여 JavaScript가 HTML 요소들을 찾고, 변경하고, 삭제할 수 있게 함</li>
+<li>문서를 <strong>트리 구조</strong>로 표현하여 각 요소에 접근 가능</li>
+</ul>
+<h3 id="bom-browser-object-model">BOM (Browser Object Model)이란? 🌐<a class="headerlink" href="#bom-browser-object-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>브라우저 객체 모델</strong>: 브라우저의 창(window)과 관련된 객체들을 제어하는 모델</li>
+<li>브라우저의 <strong>창, 탭, 주소창, 히스토리</strong> 등을 JavaScript로 제어</li>
+<li>DOM과 달리 <strong>표준이 없어</strong> 브라우저마다 조금씩 다름</li>
+</ul>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[웹 브라우저] --&gt; B[BOM - Browser Object Model]
+    A --&gt; C[DOM - Document Object Model]
+
+    B --&gt; D[window 객체]
+    B --&gt; E[location 객체]
+    B --&gt; F[history 객체]
+    B --&gt; G[navigator 객체]
+    B --&gt; H[screen 객체]
+
+    C --&gt; I[document 객체]
+    C --&gt; J[HTML 요소들]
+    C --&gt; K[이벤트]
+    C --&gt; L[스타일]
+
+    I --&gt; M[getElementsById]
+    I --&gt; N[querySelector]
+    I --&gt; O[createElement]
+
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+</code></pre></div>
+<h3 id="dom-vs-bom">DOM vs BOM 주요 차이점<a class="headerlink" href="#dom-vs-bom" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>DOM</th>
+<th>BOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>정의</strong></td>
+<td>문서 객체 모델</td>
+<td>브라우저 객체 모델</td>
+</tr>
+<tr>
+<td><strong>주 객체</strong></td>
+<td><code>document</code></td>
+<td><code>window</code></td>
+</tr>
+<tr>
+<td><strong>담당 영역</strong></td>
+<td>HTML 문서 내용</td>
+<td>브라우저 창과 환경</td>
+</tr>
+<tr>
+<td><strong>표준화</strong></td>
+<td>W3C 표준 존재</td>
+<td>표준 없음 (브라우저마다 차이)</td>
+</tr>
+<tr>
+<td><strong>주요 기능</strong></td>
+<td>요소 추가/삭제/수정</td>
+<td>새 창 열기, 주소 변경, 알림</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-dom">2. DOM 구조와 작동 원리<a class="headerlink" href="#2-dom" title="Permanent link">&para;</a></h2>
+<h3 id="dom">DOM 트리 구조 🌲<a class="headerlink" href="#dom" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[Document] --&gt; B[html]
+    B --&gt; C[head]
+    B --&gt; D[body]
+
+    C --&gt; E[title]
+    C --&gt; F[meta]
+
+    D --&gt; G[div]
+    D --&gt; H[script]
+
+    G --&gt; I[h1]
+    G --&gt; J[p]
+    G --&gt; K[button]
+
+    I --&gt; L[&quot;텍스트: 제목&quot;]
+    J --&gt; M[&quot;텍스트: 내용&quot;]
+    K --&gt; N[&quot;텍스트: 클릭&quot;]
+
+    style A fill:#ffebee
+    style B fill:#fff3e0
+    style C fill:#e8f5e8
+    style D fill:#e8f5e8
+</code></pre></div>
+<h3 id="dom_1">DOM 조작의 핵심 메서드들<a class="headerlink" href="#dom_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. 요소 선택하기 (Finding Elements)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myId&#39;</span><span class="p">);</span><span class="w">        </span><span class="c1">// ID로 찾기</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">&#39;myClass&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 클래스로 찾기</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">element2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#myId&#39;</span><span class="p">);</span><span class="w">      </span><span class="c1">// CSS 선택자로 찾기</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">elements2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.myClass&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// CSS 선택자로 모두 찾기</span>
+
+<span class="c1">// 2. 요소 생성하기 (Creating Elements)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">newDiv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span><span class="w">          </span><span class="c1">// 새로운 div 요소 생성</span>
+<span class="nx">newDiv</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;새로운 내용&#39;</span><span class="p">;</span><span class="w">                    </span><span class="c1">// 텍스트 내용 설정</span>
+<span class="nx">newDiv</span><span class="p">.</span><span class="nx">className</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;new-class&#39;</span><span class="p">;</span><span class="w">                        </span><span class="c1">// 클래스 설정</span>
+
+<span class="c1">// 3. 요소 추가하기 (Adding Elements)</span>
+<span class="nx">parentElement</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">newDiv</span><span class="p">);</span><span class="w">                     </span><span class="c1">// 마지막 자식으로 추가</span>
+<span class="nx">parentElement</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">newDiv</span><span class="p">,</span><span class="w"> </span><span class="nx">referenceElement</span><span class="p">);</span><span class="w"> </span><span class="c1">// 특정 위치에 추가</span>
+
+<span class="c1">// 4. 요소 삭제하기 (Removing Elements)</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span><span class="w">                                      </span><span class="c1">// 요소 자체를 삭제</span>
+<span class="nx">parentElement</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">childElement</span><span class="p">);</span><span class="w">              </span><span class="c1">// 자식 요소 삭제</span>
+</code></pre></div>
+<hr />
+<h2 id="3-dom">3. DOM 조작 실습<a class="headerlink" href="#3-dom" title="Permanent link">&para;</a></h2>
+<h3 id="_2">동적 요소 추가/삭제 예제 분석<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>다음은 실습 파일에서 가져온 핵심 코드입니다:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;ko&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>요소 추가 및 삭제 실습<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="c">/* 스타일링 코드 - 사용자 인터페이스를 예쁘게 만들기 위함 */</span>
+<span class="w">        </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w">  </span><span class="c">/* 글꼴을 산세리프로 설정 */</span>
+<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w">            </span><span class="c">/* 바깥쪽 여백 20픽셀 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">.</span><span class="nc">container</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="kt">px</span><span class="p">;</span><span class="w">         </span><span class="c">/* 최대 너비 500픽셀 */</span>
+<span class="w">            </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w">             </span><span class="c">/* 가운데 정렬 */</span>
+<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span><span class="w">   </span><span class="c">/* 회색 테두리 */</span>
+<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="kt">px</span><span class="p">;</span><span class="w">            </span><span class="c">/* 안쪽 여백 25픽셀 */</span>
+<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span><span class="w">       </span><span class="c">/* 모서리 둥글게 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">.</span><span class="nc">controls</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w">            </span><span class="c">/* 플렉스 레이아웃 사용 */</span>
+<span class="w">            </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w">               </span><span class="c">/* 요소 간 간격 10픽셀 */</span>
+<span class="w">            </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w">     </span><span class="c">/* 아래쪽 여백 20픽셀 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">item-input</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">flex-grow</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">            </span><span class="c">/* 남은 공간을 모두 차지 */</span>
+<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w">           </span><span class="c">/* 안쪽 여백 10픽셀 */</span>
+<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;</span><span class="w">  </span><span class="c">/* 연한 회색 테두리 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nt">button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w">      </span><span class="c">/* 위아래 10px, 좌우 15px 여백 */</span>
+<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w">            </span><span class="c">/* 테두리 없음 */</span>
+<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w">            </span><span class="c">/* 텍스트 색상 흰색 */</span>
+<span class="w">            </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span><span class="w">         </span><span class="c">/* 마우스 오버 시 포인터 커서 */</span>
+<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="w">      </span><span class="c">/* 모서리 둥글게 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">add-btn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">dodgerblue</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">      </span><span class="c">/* 추가 버튼 파란색 */</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">remove-first-btn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">orange</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c">/* 첫 삭제 버튼 주황색 */</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">remove-last-btn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">crimson</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c">/* 마지막 삭제 버튼 빨간색 */</span>
+
+<span class="w">        </span><span class="p">#</span><span class="nn">item-list</span><span class="w"> </span><span class="nt">li</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w">                    </span><span class="c">/* 각 리스트 아이템 여백 */</span>
+<span class="w">            </span><span class="k">border-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#eee</span><span class="p">;</span><span class="w">    </span><span class="c">/* 아래쪽 구분선 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">item-list</span><span class="w"> </span><span class="nt">li</span><span class="p">:</span><span class="nd">first-child</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w">                </span><span class="c">/* 첫 번째 아이템 굵게 */</span>
+<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span><span class="w">                     </span><span class="c">/* 첫 번째 아이템 초록색 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">item-list</span><span class="w"> </span><span class="nt">li</span><span class="p">:</span><span class="nd">last-child</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w">                </span><span class="c">/* 마지막 아이템 굵게 */</span>
+<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w">                       </span><span class="c">/* 마지막 아이템 빨간색 */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>동적 요소 추가 및 삭제<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+        <span class="cm">&lt;!-- 사용자 입력을 받는 컨트롤 영역 --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;controls&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;item-input&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;추가할 아이템 내용 입력...&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;add-btn&quot;</span><span class="p">&gt;</span>추가<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="cm">&lt;!-- 삭제 버튼들 --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;remove-first-btn&quot;</span><span class="p">&gt;</span>첫 아이템 삭제<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;remove-last-btn&quot;</span><span class="p">&gt;</span>마지막 아이템 삭제<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="cm">&lt;!-- 아이템들이 표시될 리스트 --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;item-list&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>(기본 아이템)<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="err">/* ========================================================================</span>
+         * 🎯 DOM 요소 동적 제어 (생성, 추가, 삭제)
+         * ========================================================================
+         * 
+         * JavaScript의 가장 강력한 기능 중 하나는 HTML 문서를 실시간으로 변경하는 것입니다.
+         * &#39;createElement&#39;로 새 요소를 만들고, &#39;appendChild&#39;로 문서에 추가하며,
+         * &#39;remove&#39;로 기존 요소를 제거하여 사용자와 상호작용하는 동적인 페이지를 만들 수 있습니다.
+         */
+
+        // --- 1단계: 조작에 필요한 HTML 요소들 미리 선택하기 ---
+        const list = document.getElementById(&#39;item-list&#39;);           // 아이템들이 들어갈 ul 요소
+        const itemInput = document.getElementById(&#39;item-input&#39;);     // 사용자 입력을 받을 input 요소
+        const addBtn = document.getElementById(&#39;add-btn&#39;);           // 추가 기능: 모든 아이템 삭제 버튼
+const clearAllBtn = document.createElement(&#39;button&#39;);
+clearAllBtn.textContent = &#39;모든 아이템 삭제&#39;;
+clearAllBtn.style.backgroundColor = &#39;#d32f2f&#39;;
+clearAllBtn.style.color = &#39;white&#39;;
+clearAllBtn.style.border = &#39;none&#39;;
+clearAllBtn.style.padding = &#39;10px 15px&#39;;
+clearAllBtn.style.borderRadius = &#39;5px&#39;;
+clearAllBtn.style.cursor = &#39;pointer&#39;;
+clearAllBtn.style.marginTop = &#39;10px&#39;;
+clearAllBtn.style.marginRight = &#39;10px&#39;;
+
+clearAllBtn.addEventListener(&#39;click&#39;, () =&gt; {
+    if (itemCount === 0) {
+        alert(&#39;삭제할 아이템이 없습니다.&#39;);
+        return;
+    }
+
+    const shouldDelete = confirm(`정말로 모든 아이템(${itemCount}개)을 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.`);
+    if (shouldDelete) {
+        // 모든 자식 요소 제거
+        while (list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
+        updateItemCount();
+
+        // BOM 활용: 페이지 새로고침 여부 묻기
+        setTimeout(() =&gt; {
+            const shouldRefresh = confirm(&#39;모든 아이템이 삭제되었습니다. 페이지를 새로고침하시겠습니까?&#39;);
+            if (shouldRefresh) {
+                location.reload(); // 페이지 새로고침 (BOM 사용)
+            }
+        }, 500);
+    }
+});
+
+// 현재 URL 정보 표시 버튼 (BOM 활용 예제)
+const showInfoBtn = document.createElement(&#39;button&#39;);
+showInfoBtn.textContent = &#39;페이지 정보 보기&#39;;
+showInfoBtn.style.backgroundColor = &#39;#1976d2&#39;;
+showInfoBtn.style.color = &#39;white&#39;;
+showInfoBtn.style.border = &#39;none&#39;;
+showInfoBtn.style.padding = &#39;10px 15px&#39;;
+showInfoBtn.style.borderRadius = &#39;5px&#39;;
+showInfoBtn.style.cursor = &#39;pointer&#39;;
+showInfoBtn.style.marginTop = &#39;10px&#39;;
+
+showInfoBtn.addEventListener(&#39;click&#39;, () =&gt; {
+    // BOM의 여러 객체들을 활용하여 정보 수집
+    const pageInfo = `
+📄 페이지 정보:
+• URL: ${location.href}
+• 도메인: ${location.hostname}
+• 경로: ${location.pathname}
+• 프로토콜: ${location.protocol}
+
+🖥️ 브라우저 정보:
+• 사용자 에이전트: ${navigator.userAgent}
+• 언어: ${navigator.language}
+• 플랫폼: ${navigator.platform}
+• 온라인 상태: ${navigator.onLine ? &#39;연결됨&#39; : &#39;연결 안됨&#39;}
+
+🖱️ 화면 정보:
+• 화면 크기: ${screen.width} × ${screen.height}
+• 사용 가능 크기: ${screen.availWidth} × ${screen.availHeight}
+• 브라우저 창 크기: ${window.innerWidth} × ${window.innerHeight}
+
+⏰ 현재 시간: ${new Date().toLocaleString(&#39;ko-KR&#39;)}
+    `;
+
+    alert(pageInfo);
+});
+
+// 버튼들을 컨테이너에 추가
+const buttonContainer = document.querySelector(&#39;.container&#39;);
+buttonContainer.appendChild(clearAllBtn);
+buttonContainer.appendChild(showInfoBtn);
+
+// 키보드 단축키 추가 (BOM의 이벤트 활용)
+document.addEventListener(&#39;keydown&#39;, (event) =&gt; {
+    // Ctrl + A: 아이템 추가에 포커스
+    if (event.ctrlKey <span class="err">&amp;&amp;</span> event.key === &#39;a&#39;) {
+        event.preventDefault(); // 기본 &quot;모두 선택&quot; 동작 방지
+        itemInput.focus();
+        itemInput.select(); // 입력창 내용 모두 선택
+    }
+
+    // Ctrl + D: 모든 아이템 삭제
+    if (event.ctrlKey <span class="err">&amp;&amp;</span> event.key === &#39;d&#39;) {
+        event.preventDefault(); // 기본 &quot;북마크 추가&quot; 동작 방지
+        clearAllBtn.click();
+    }
+
+    // F1: 도움말 표시
+    if (event.key === &#39;F1&#39;) {
+        event.preventDefault();
+        const helpText = `
+🔥 단축키 도움말:
+
+• Enter: 아이템 추가
+• Ctrl + A: 입력창에 포커스
+• Ctrl + D: 모든 아이템 삭제
+• F1: 이 도움말 표시
+• F5: 페이지 새로고침
+
+💡 사용 팁:
+• 입력창에 텍스트를 입력하고 Enter를 누르면 빠르게 추가됩니다.
+• 각 아이템 옆의 ❌ 버튼으로 개별 삭제가 가능합니다.
+• 같은 내용의 아이템을 추가하려 하면 확인 메시지가 나타납니다.
+        `;
+        alert(helpText);
+    }
+});
+
+// 페이지 떠날 때 확인 (사용자가 실수로 페이지를 닫는 것을 방지)
+window.addEventListener(&#39;beforeunload&#39;, (event) =&gt; {
+    if (itemCount &gt; 1) { // 기본 아이템 외에 추가된 아이템이 있으면
+        event.preventDefault();
+        event.returnValue = &#39;&#39;; // Chrome에서 필요
+        return &#39;&#39;; // 다른 브라우저에서 필요
+    }
+});
+
+// 초기 개수 설정
+updateItemCount();
+
+/* 
+ * 🎓 학습 포인트 정리:
+ * 
+ * 1. DOM 조작:
+ *    - createElement(): 새 요소 생성
+ *    - appendChild(): 요소 추가
+ *    - remove(), removeChild(): 요소 삭제
+ *    - textContent, innerHTML: 내용 설정
+ *    - style 속성: 스타일 동적 변경
+ * 
+ * 2. BOM 활용:
+ *    - window.alert(), confirm(), prompt(): 사용자 상호작용
+ *    - location: URL 정보 및 페이지 이동
+ *    - navigator: 브라우저 정보
+ *    - screen: 화면 정보
+ *    - setTimeout(), setInterval(): 타이머 함수
+ * 
+ * 3. 이벤트 처리:
+ *    - addEventListener(): 이벤트 리스너 등록
+ *    - 키보드 이벤트, 마우스 이벤트
+ *    - event.preventDefault(): 기본 동작 방지
+ *    - event.stopPropagation(): 이벤트 버블링 방지
+ * 
+ * 4. 프로그래밍 패턴:
+ *    - 함수 분리를 통한 코드 재사용성
+ *    - 입력 검증 및 오류 처리
+ *    - 사용자 경험 개선 (확인 메시지, 단축키 등)
+ */
+</code></pre></div>
+<hr />
+<h2 id="6">6. 고급 활용 예제<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="dom-bom">실시간 시계 만들기 (DOM + BOM 종합)<a class="headerlink" href="#dom-bom" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * 🕐 실시간 시계 만들기 예제</span>
+<span class="cm"> * DOM 조작과 BOM의 타이머 함수를 조합한 실용적인 예제</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 시계를 표시할 요소 생성</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">clockContainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+<span class="nx">clockContainer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">    position: fixed;</span>
+<span class="sb">    top: 20px;</span>
+<span class="sb">    right: 20px;</span>
+<span class="sb">    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</span>
+<span class="sb">    color: white;</span>
+<span class="sb">    padding: 15px 20px;</span>
+<span class="sb">    border-radius: 10px;</span>
+<span class="sb">    font-family: &#39;Courier New&#39;, monospace;</span>
+<span class="sb">    font-size: 18px;</span>
+<span class="sb">    font-weight: bold;</span>
+<span class="sb">    box-shadow: 0 4px 15px rgba(0,0,0,0.3);</span>
+<span class="sb">    z-index: 1000;</span>
+<span class="sb">`</span><span class="p">;</span>
+
+<span class="c1">// body에 시계 추가</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">clockContainer</span><span class="p">);</span>
+
+<span class="c1">// 시간 업데이트 함수</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateClock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">now</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()).</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()).</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()).</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()).</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">timeString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">year</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">month</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">date</span><span class="si">}</span><span class="sb">&lt;br&gt;</span><span class="si">${</span><span class="nx">hours</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">minutes</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">seconds</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">clockContainer</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">timeString</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 1초마다 시계 업데이트</span>
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">updateClock</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span>
+<span class="nx">updateClock</span><span class="p">();</span><span class="w"> </span><span class="c1">// 즉시 한 번 실행</span>
+</code></pre></div>
+<h3 id="_3">로컬 스토리지 활용 예제<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * 💾 로컬 스토리지를 활용한 데이터 저장</span>
+<span class="cm"> * (주의: Claude.ai 환경에서는 localStorage가 지원되지 않으므로 </span>
+<span class="cm"> *  실제 웹 환경에서만 동작합니다)</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 실제 웹 환경에서 사용할 수 있는 코드 예제:</span>
+<span class="cm">/*</span>
+<span class="cm">// 아이템들을 로컬 스토리지에 저장하는 함수</span>
+<span class="cm">function saveItemsToStorage() {</span>
+<span class="cm">    const items = Array.from(list.children).map(li =&gt; </span>
+<span class="cm">        li.textContent.replace(&#39;❌&#39;, &#39;&#39;).trim()</span>
+<span class="cm">    );</span>
+<span class="cm">    localStorage.setItem(&#39;todoItems&#39;, JSON.stringify(items));</span>
+<span class="cm">}</span>
+
+<span class="cm">// 로컬 스토리지에서 아이템들을 불러오는 함수</span>
+<span class="cm">function loadItemsFromStorage() {</span>
+<span class="cm">    const saved = localStorage.getItem(&#39;todoItems&#39;);</span>
+<span class="cm">    if (saved) {</span>
+<span class="cm">        const items = JSON.parse(saved);</span>
+<span class="cm">        items.forEach(itemText =&gt; {</span>
+<span class="cm">            if (itemText) {</span>
+<span class="cm">                const newLi = document.createElement(&#39;li&#39;);</span>
+<span class="cm">                newLi.textContent = itemText;</span>
+<span class="cm">                // 삭제 버튼 추가 로직...</span>
+<span class="cm">                list.appendChild(newLi);</span>
+<span class="cm">            }</span>
+<span class="cm">        });</span>
+<span class="cm">        updateItemCount();</span>
+<span class="cm">    }</span>
+<span class="cm">}</span>
+
+<span class="cm">// 페이지 로드 시 저장된 아이템들 불러오기</span>
+<span class="cm">window.addEventListener(&#39;load&#39;, loadItemsFromStorage);</span>
+
+<span class="cm">// 아이템 추가/삭제 시마다 저장</span>
+<span class="cm">// (기존 addItem 함수와 삭제 함수들에 saveItemsToStorage() 추가)</span>
+<span class="cm">*/</span>
+
+<span class="c1">// 메모리 기반 저장소 (localStorage 대체용)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">memoryStorage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="nx">setItem</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">getItem</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">removeItem</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="ow">delete</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">clear</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 메모리 저장소를 활용한 아이템 저장/불러오기</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">saveItemsToMemory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">li</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;❌&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">trim</span><span class="p">()</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="nx">memoryStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;todoItems&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">items</span><span class="p">));</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;아이템들이 메모리에 저장되었습니다:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">loadItemsFromMemory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">saved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">memoryStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;todoItems&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">saved</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">saved</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;메모리에서 아이템들을 불러왔습니다:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">items</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[];</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="7">7. 성능 최적화 팁<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="dom_2">DOM 조작 최적화<a class="headerlink" href="#dom_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * 🚀 성능 최적화 팁들</span>
+<span class="cm"> */</span>
+
+<span class="c1">// ❌ 나쁜 예: 반복문에서 DOM을 여러 번 조작</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">addMultipleItemsBad</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">item</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">list</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span><span class="w"> </span><span class="c1">// 매번 DOM 업데이트 발생</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// ✅ 좋은 예: DocumentFragment 사용으로 성능 개선</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">addMultipleItemsGood</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createDocumentFragment</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">item</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span><span class="w"> </span><span class="c1">// 메모리상에서만 작업</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">list</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">fragment</span><span class="p">);</span><span class="w"> </span><span class="c1">// 한 번에 DOM 업데이트</span>
+<span class="p">}</span>
+
+<span class="c1">// 사용 예제</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">sampleItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;아이템 1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;아이템 2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;아이템 3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;아이템 4&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;아이템 5&#39;</span><span class="p">];</span>
+<span class="nx">addMultipleItemsGood</span><span class="p">(</span><span class="nx">sampleItems</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="event-delegation">이벤트 위임 (Event Delegation)<a class="headerlink" href="#event-delegation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * 🎯 이벤트 위임을 통한 성능 개선</span>
+<span class="cm"> * 각 아이템마다 이벤트 리스너를 추가하는 대신,</span>
+<span class="cm"> * 부모 요소에 하나의 리스너만 추가하여 관리</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 부모 요소(list)에 이벤트 리스너 등록</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 클릭된 요소가 삭제 버튼인지 확인</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;❌&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">listItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">listItem</span><span class="p">.</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;❌&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">trim</span><span class="p">();</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">shouldDelete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">confirm</span><span class="p">(</span><span class="sb">`&quot;</span><span class="si">${</span><span class="nx">itemText</span><span class="si">}</span><span class="sb">&quot;을(를) 삭제하시겠습니까?`</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">shouldDelete</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">listItem</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+<span class="w">            </span><span class="nx">updateItemCount</span><span class="p">();</span>
+<span class="w">            </span><span class="nx">saveItemsToMemory</span><span class="p">();</span><span class="w"> </span><span class="c1">// 메모리에 저장</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<hr />
+<h2 id="8">8. 디버깅과 문제 해결<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="_4">자주 발생하는 오류들<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * 🐛 자주 발생하는 오류들과 해결 방법</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 1. null 참조 오류</span>
+<span class="c1">// ❌ 문제: 요소를 찾지 못했을 때</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;nonExistentId&#39;</span><span class="p">);</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;텍스트&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// TypeError: Cannot set property &#39;textContent&#39; of null</span>
+
+<span class="c1">// ✅ 해결: 요소 존재 여부 확인</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;someId&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">element</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;텍스트&#39;</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;요소를 찾을 수 없습니다: someId&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 2. 타이밍 문제</span>
+<span class="c1">// ❌ 문제: DOM이 로드되기 전에 접근</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myElement&#39;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// null 오류 가능</span>
+
+<span class="c1">// ✅ 해결: DOM 로드 완료 후 실행</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myElement&#39;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// 또는 window.onload 사용</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 모든 리소스(이미지, 스타일시트 등)가 로드된 후 실행</span>
+<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myElement&#39;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// 3. 이벤트 리스너 중복 등록 방지</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">setupEventListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ❌ 문제: 함수가 여러 번 호출되면 이벤트 리스너가 중복 등록됨</span>
+<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handleClick</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// ✅ 해결: 기존 리스너 제거 후 새로 등록</span>
+<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handleClick</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handleClick</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 4. 메모리 누수 방지</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">timer</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">startTimer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 기존 타이머가 있다면 정리</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;타이머 실행 중...&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">stopTimer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 페이지를 떠날 때 정리</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;beforeunload&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">stopTimer</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+<h3 id="_5">디버깅 도구 활용<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * 🔍 디버깅에 유용한 기법들</span>
+<span class="cm"> */</span>
+
+<span class="c1">// 1. console 객체 활용</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;일반 로그:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">variable</span><span class="p">);</span><span class="w">           </span><span class="c1">// 일반 정보</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">&#39;경고 메시지:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">warning</span><span class="p">);</span><span class="w">         </span><span class="c1">// 경고</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;에러 메시지:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span><span class="w">          </span><span class="c1">// 에러</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span><span class="w">                         </span><span class="c1">// 배열/객체를 표 형태로 출력</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;성능측정&#39;</span><span class="p">);</span><span class="w">                     </span><span class="c1">// 성능 측정 시작</span>
+<span class="c1">// ... 측정하고 싶은 코드 ...</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;성능측정&#39;</span><span class="p">);</span><span class="w">                  </span><span class="c1">// 성능 측정 종료</span>
+
+<span class="c1">// 2. 요소 검사</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">inspectElement</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="s1">&#39;요소 정보:&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;태그명:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">tagName</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ID:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;클래스:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;내용:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">textContent</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;스타일:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">element</span><span class="p">));</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;부모:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;자식들:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">children</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// 3. DOM 트리 시각화</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">visualizeDOMTree</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;  &#39;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="nx">depth</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">indent</span><span class="si">}${</span><span class="nx">element</span><span class="p">.</span><span class="nx">tagName</span><span class="si">}${</span><span class="nx">element</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}${</span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">visualizeDOMTree</span><span class="p">(</span><span class="nx">child</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// 사용 예: visualizeDOMTree(document.body);</span>
+</code></pre></div>
+<hr />
+<h2 id="9">9. 마무리 및 추가 학습 자료<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<h3 id="_6">핵심 요약<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mindmap
+  root((JavaScript DOM &amp; BOM))
+    DOM
+      요소 선택
+        getElementById
+        querySelector
+        getElementsByClassName
+      요소 조작
+        createElement
+        appendChild
+        remove
+        textContent
+        innerHTML
+      이벤트 처리
+        addEventListener
+        이벤트 객체
+        이벤트 위임
+    BOM
+      window 객체
+        alert, confirm
+        setTimeout, setInterval
+        open, close
+      location 객체
+        href, reload
+        hostname, pathname
+      navigator 객체
+        userAgent
+        language
+        onLine
+      history 객체
+        back, forward
+        go
+    최적화
+      DocumentFragment
+      이벤트 위임
+      성능 측정
+      메모리 관리
+</code></pre></div>
+<h3 id="_7">다음 단계 학습 주제<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>ES6+ 문법과 DOM</strong></li>
+<li>Arrow Functions와 이벤트 처리</li>
+<li>Template Literals와 HTML 생성</li>
+<li>
+<p>Destructuring과 요소 속성 관리</p>
+</li>
+<li>
+<p><strong>고급 DOM 조작</strong></p>
+</li>
+<li>Shadow DOM</li>
+<li>Custom Elements</li>
+<li>
+<p>Web Components</p>
+</li>
+<li>
+<p><strong>비동기 프로그래밍과 DOM</strong></p>
+</li>
+<li>Fetch API와 동적 콘텐츠 로딩</li>
+<li>Promise/async-await와 DOM 조작</li>
+<li>
+<p>무한 스크롤, 지연 로딩</p>
+</li>
+<li>
+<p><strong>성능 최적화</strong></p>
+</li>
+<li>Virtual DOM 개념</li>
+<li>Intersection Observer API</li>
+<li>메모리 프로파일링</li>
+</ol>
+<h3 id="_8">연습 문제<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>초급</strong>: 간단한 할 일 목록 만들기</li>
+<li><strong>중급</strong>: 드래그 앤 드롭으로 순서 변경 가능한 목록</li>
+<li><strong>고급</strong>: 무한 스크롤이 있는 이미지 갤러리</li>
+<li><strong>심화</strong>: 단일 페이지 애플리케이션(SPA) 라우터 구현</li>
+</ol>
+<h3 id="_9">유용한 참고 자료<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/API/Document_Object_Model">MDN Web Docs - DOM</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/API/Window">MDN Web Docs - BOM</a></li>
+<li><a href="https://ko.javascript.info/dom-nodes">JavaScript.info - DOM 조작</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG21/quickref/">웹 접근성 가이드라인</a></li>
+</ul>
+<hr />
+<blockquote>
+<p>💡 <strong>학습 팁</strong>: DOM과 BOM은 실습을 통해 익히는 것이 가장 효과적입니다. 작은 프로젝트부터 시작하여 점진적으로 복잡한 기능을 추가해보세요!</p>
+</blockquote>
+<hr />
+<p><em>이 가이드는 2025년 8월 25일 기준으로 작성되었습니다. 
+웹 표준은 지속적으로 발전하므로 최신 정보는 공식 문서를 참조하시기 바랍니다.</em> 버튼</p>
+<div class="highlight"><pre><span></span><code>const removeFirstBtn = document.getElementById(&#39;remove-first-btn&#39;); // 첫 아이템 삭제 버튼
+        const removeLastBtn = document.getElementById(&#39;remove-last-btn&#39;);   // 마지막 아이템 삭제 버튼
+
+        // --- 2단계: &#39;추가&#39; 버튼에 클릭 이벤트 설정 ---
+        addBtn.addEventListener(&#39;click&#39;, () =&gt; {
+            // 사용자가 입력한 텍스트를 가져오고 앞뒤 공백을 제거
+            const newItemText = itemInput.value.trim();
+
+            // 입력값이 비어있지 않은 경우에만 아이템을 추가
+            if (newItemText !== &#39;&#39;) {
+                /* 💡 Part 1: document.createElement(&#39;태그이름&#39;)으로 요소 생성하기
+                 * - 메모리상에 지정된 태그(예: &#39;li&#39;, &#39;div&#39;)의 새로운 HTML 요소 객체를 만듭니다.
+                 * - 이 단계에서는 아직 화면에 보이지 않습니다. (재료만 준비한 상태)
+                 */
+                const newLi = document.createElement(&#39;li&#39;);  // 새로운 li 요소 생성
+
+                // 생성된 요소에 내용(textContent)을 채워 넣습니다.
+                newLi.textContent = newItemText;
+
+                /* 💡 Part 2: 부모요소.appendChild(자식요소)로 DOM에 추가하기
+                 * - 생성된 요소(newLi)를 부모 요소(list)의 마지막 자식으로 추가합니다.
+                 * - 이 코드가 실행되는 순간, 새로운 요소가 화면에 나타납니다. (준비한 재료를 조립)
+                 */
+                list.appendChild(newLi);
+
+                // 사용자 편의를 위해 입력창을 비우고 다시 포커스를 줍니다.
+                itemInput.value = &#39;&#39;;      // 입력창 내용 지우기
+                itemInput.focus();         // 입력창에 다시 포커스 주기
+            } else {
+                // 입력값이 없으면 사용자에게 알림
+                alert(&#39;추가할 아이템의 내용을 입력해주세요!&#39;);
+            }
+        });
+
+        // 입력창에서 Enter 키를 눌렀을 때도 추가 버튼이 클릭되도록 처리
+        itemInput.addEventListener(&#39;keyup&#39;, (event) =&gt; {
+            if (event.key === &#39;Enter&#39;) {   // Enter 키가 눌렸다면
+                addBtn.click();            // 추가 버튼 클릭 이벤트 실행
+            }
+        });
+
+        /* 💡 Part 3: 요소.remove()로 DOM에서 삭제하기
+         * - 선택된 요소를 DOM 트리에서 완전히 제거합니다.
+         * - 사용이 간편하고 직관적입니다.
+         */
+
+        // --- 3단계: &#39;첫 아이템 삭제&#39; 버튼에 클릭 이벤트 설정 ---
+        removeFirstBtn.addEventListener(&#39;click&#39;, () =&gt; {
+            // list.firstElementChild: list의 첫 번째 자식 요소를 선택합니다.
+            const firstItem = list.firstElementChild;
+
+            if (firstItem) {           // 첫 번째 자식이 존재하면
+                firstItem.remove();    // 제거합니다.
+            } else {
+                alert(&#39;삭제할 아이템이 없습니다.&#39;);
+            }
+        });
+
+        // --- 4단계: &#39;마지막 아이템 삭제&#39; 버튼에 클릭 이벤트 설정 ---
+        removeLastBtn.addEventListener(&#39;click&#39;, () =&gt; {
+            // list.lastElementChild: list의 마지막 자식 요소를 선택합니다.
+            const lastItem = list.lastElementChild;
+
+            if (lastItem) {            // 마지막 자식이 존재하면
+                lastItem.remove();     // 제거합니다.
+            } else {
+                alert(&#39;삭제할 아이템이 없습니다.&#39;);
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<h3 id="dom_3">DOM 조작 과정 시각화<a class="headerlink" href="#dom_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant User as 👤 사용자
+    participant Input as 📝 입력창
+    participant JS as ⚡ JavaScript
+    participant DOM as 🌳 DOM
+    participant Browser as 🖥️ 브라우저
+
+    User-&gt;&gt;Input: 텍스트 입력
+    User-&gt;&gt;JS: &quot;추가&quot; 버튼 클릭
+    JS-&gt;&gt;JS: input.value 읽기
+    JS-&gt;&gt;DOM: createElement(&#39;li&#39;)
+    DOM-&gt;&gt;JS: 새 li 요소 반환
+    JS-&gt;&gt;DOM: newLi.textContent 설정
+    JS-&gt;&gt;DOM: list.appendChild(newLi)
+    DOM-&gt;&gt;Browser: 화면 업데이트
+    Browser-&gt;&gt;User: 새 아이템 표시
+</code></pre></div>
+<hr />
+<h2 id="4-bom">4. BOM 개념과 활용<a class="headerlink" href="#4-bom" title="Permanent link">&para;</a></h2>
+<h3 id="bom">BOM의 주요 객체들<a class="headerlink" href="#bom" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[window 객체] --&gt; B[document]
+    A --&gt; C[location]
+    A --&gt; D[history]
+    A --&gt; E[navigator]
+    A --&gt; F[screen]
+    A --&gt; G[setTimeout/setInterval]
+
+    B --&gt; B1[DOM 조작]
+    C --&gt; C1[URL 제어]
+    D --&gt; D1[페이지 히스토리]
+    E --&gt; E1[브라우저 정보]
+    F --&gt; F1[화면 정보]
+    G --&gt; G1[타이머 함수]
+
+    style A fill:#ffcdd2
+    style B fill:#f8bbd9
+    style C fill:#e1bee7
+    style D fill:#d1c4e9
+    style E fill:#c5cae9
+    style F fill:#bbdefb
+    style G fill:#b2dfdb
+</code></pre></div>
+<h3 id="bom_1">BOM 활용 예제<a class="headerlink" href="#bom_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. window 객체 - 브라우저 창 제어</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;안녕하세요!&#39;</span><span class="p">);</span><span class="w">                    </span><span class="c1">// 경고창 표시</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">confirm</span><span class="p">(</span><span class="s1">&#39;정말로 삭제하시겠습니까?&#39;</span><span class="p">);</span><span class="w">       </span><span class="c1">// 확인창 표시</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">userInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;이름을 입력하세요:&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 입력창 표시</span>
+
+<span class="c1">// 새 창 열기</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">newWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span>
+<span class="w">    </span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// URL</span>
+<span class="w">    </span><span class="s1">&#39;_blank&#39;</span><span class="p">,</span><span class="w">                  </span><span class="c1">// 창 이름 (_blank는 새 탭)</span>
+<span class="w">    </span><span class="s1">&#39;width=800,height=600&#39;</span><span class="w">     </span><span class="c1">// 창 옵션</span>
+<span class="p">);</span>
+
+<span class="c1">// 2. location 객체 - 현재 페이지 URL 정보와 제어</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">);</span><span class="w">     </span><span class="c1">// 현재 페이지의 전체 URL</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">hostname</span><span class="p">);</span><span class="w"> </span><span class="c1">// 도메인 이름 (예: www.google.com)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">);</span><span class="w"> </span><span class="c1">// 경로 부분 (예: /search)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">);</span><span class="w">   </span><span class="c1">// 쿼리 문자열 (예: ?q=javascript)</span>
+
+<span class="c1">// 페이지 이동</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://www.naver.com&#39;</span><span class="p">;</span><span class="w">        </span><span class="c1">// 새 페이지로 이동</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span><span class="w">                              </span><span class="c1">// 페이지 새로고침</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;https://www.daum.net&#39;</span><span class="p">);</span><span class="w">       </span><span class="c1">// 히스토리 없이 페이지 교체</span>
+
+<span class="c1">// 3. history 객체 - 브라우저 히스토리 제어</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span><span class="w">          </span><span class="c1">// 뒤로 가기 (브라우저 뒤로 가기 버튼과 같음)</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">forward</span><span class="p">();</span><span class="w">       </span><span class="c1">// 앞으로 가기</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="o">-</span><span class="mf">2</span><span class="p">);</span><span class="w">          </span><span class="c1">// 2단계 뒤로 가기</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w">           </span><span class="c1">// 1단계 앞으로 가기</span>
+
+<span class="c1">// 4. navigator 객체 - 브라우저 정보</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">);</span><span class="w">    </span><span class="c1">// 브라우저 정보 문자열</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">);</span><span class="w">     </span><span class="c1">// 브라우저 언어 (예: ko-KR)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">platform</span><span class="p">);</span><span class="w">     </span><span class="c1">// 운영체제 정보</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">onLine</span><span class="p">);</span><span class="w">       </span><span class="c1">// 인터넷 연결 상태 (true/false)</span>
+
+<span class="c1">// 5. screen 객체 - 사용자 화면 정보</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">width</span><span class="p">);</span><span class="w">           </span><span class="c1">// 화면 너비 (픽셀)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span><span class="w">          </span><span class="c1">// 화면 높이 (픽셀)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">availWidth</span><span class="p">);</span><span class="w">      </span><span class="c1">// 사용 가능한 화면 너비</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">availHeight</span><span class="p">);</span><span class="w">     </span><span class="c1">// 사용 가능한 화면 높이</span>
+
+<span class="c1">// 6. 타이머 함수들</span>
+<span class="c1">// setTimeout: 일정 시간 후 한 번 실행</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">timeoutId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;3초 후에 실행됩니다!&#39;</span><span class="p">);</span>
+<span class="p">},</span><span class="w"> </span><span class="mf">3000</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3000ms = 3초</span>
+
+<span class="c1">// setInterval: 일정 시간마다 반복 실행</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">intervalId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;2초마다 반복 실행됩니다!&#39;</span><span class="p">);</span>
+<span class="p">},</span><span class="w"> </span><span class="mf">2000</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2000ms = 2초</span>
+
+<span class="c1">// 타이머 취소</span>
+<span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeoutId</span><span class="p">);</span><span class="w">   </span><span class="c1">// setTimeout 취소</span>
+<span class="nx">clearInterval</span><span class="p">(</span><span class="nx">intervalId</span><span class="p">);</span><span class="w"> </span><span class="c1">// setInterval 취소</span>
+</code></pre></div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/yjshin-cloud/TIL" target="_blank" rel="noopener" title="GitHub Repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://velog.io/@yjshin/posts" target="_blank" rel="noopener" title="Blog Home" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M384 512H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h304c26.5 0 48 21.5 48 48v288c0 20.9-13.4 38.7-32 45.3V448c17.7 0 32 14.3 32 32s-14.3 32-32 32zM96 384c-17.7 0-32 14.3-32 32s14.3 32 32 32h256v-64zm32-232c0 13.3 10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24H152c-13.3 0-24 10.7-24 24m24 72c-13.3 0-24 10.7-24 24s10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

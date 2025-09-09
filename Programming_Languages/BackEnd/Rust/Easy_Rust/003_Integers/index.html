@@ -12,26 +12,28 @@
         <meta name="author" content="YJ Shin">
       
       
-        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/">
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/">
       
       
+        <link rel="prev" href="../002_Comments/">
       
-        <link rel="next" href="Cloud/">
+      
+        <link rel="next" href="../004_Chars_1/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>YJ Shin TIL Blog</title>
+        <title>🔢 Rust 정수 타입 (Integer Types) - YJ Shin TIL Blog</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-yj-shin-til-blog" class="md-skip">
+        <a href="#rust-integer-types" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              👋 Welcome to YJ Shin TIL Blog
+              🔢 Rust 정수 타입 (Integer Types)
             
           </span>
         </div>
@@ -218,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -233,19 +235,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -256,7 +249,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -313,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/" class="md-nav__link">
+      <a href="../../../../../Cloud/" class="md-nav__link">
         
   
   
@@ -378,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/" class="md-nav__link">
         
   
   
@@ -443,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
         
   
   
@@ -466,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
         
   
   
@@ -539,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/" class="md-nav__link">
         
   
   
@@ -562,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
         
   
   
@@ -585,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
         
   
   
@@ -608,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
         
   
   
@@ -631,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
         
   
   
@@ -654,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
         
   
   
@@ -677,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/EC2/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/EC2/" class="md-nav__link">
         
   
   
@@ -700,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/ELB/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/ELB/" class="md-nav__link">
         
   
   
@@ -723,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/IAM/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/IAM/" class="md-nav__link">
         
   
   
@@ -746,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/RDS/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/RDS/" class="md-nav__link">
         
   
   
@@ -769,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/S3/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/S3/" class="md-nav__link">
         
   
   
@@ -792,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/VPC/" class="md-nav__link">
+      <a href="../../../../../Cloud/AWS/Service/VPC/" class="md-nav__link">
         
   
   
@@ -883,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="DB/" class="md-nav__link">
+      <a href="../../../../../DB/" class="md-nav__link">
         
   
   
@@ -958,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/" class="md-nav__link">
+      <a href="../../../../../Edu/" class="md-nav__link">
         
   
   
@@ -1023,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/" class="md-nav__link">
         
   
   
@@ -1088,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
         
   
   
@@ -1153,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
         
   
   
@@ -1176,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
         
   
   
@@ -1199,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
         
   
   
@@ -1222,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
         
   
   
@@ -1245,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
         
   
   
@@ -1268,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
         
   
   
@@ -1341,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
         
   
   
@@ -1406,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
         
   
   
@@ -1429,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
         
   
   
@@ -1452,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
         
   
   
@@ -1475,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
         
   
   
@@ -1498,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
         
   
   
@@ -1571,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
         
   
   
@@ -1594,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
         
   
   
@@ -1617,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
         
   
   
@@ -1640,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
         
   
   
@@ -1713,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
         
   
   
@@ -1736,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
         
   
   
@@ -1759,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
         
   
   
@@ -1782,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
         
   
   
@@ -1805,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
         
   
   
@@ -1878,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
         
   
   
@@ -1901,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
         
   
   
@@ -1924,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
         
   
   
@@ -1947,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
         
   
   
@@ -1970,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
         
   
   
@@ -2043,7 +2035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
         
   
   
@@ -2066,7 +2058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
         
   
   
@@ -2089,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
         
   
   
@@ -2112,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
+      <a href="../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
         
   
   
@@ -2219,7 +2211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OS/" class="md-nav__link">
+      <a href="../../../../../OS/" class="md-nav__link">
         
   
   
@@ -2246,8 +2238,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -2258,13 +2252,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -2280,7 +2272,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Programming Languages
@@ -2294,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/" class="md-nav__link">
+      <a href="../../../../" class="md-nav__link">
         
   
   
@@ -2314,6 +2306,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2323,13 +2317,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
@@ -2345,7 +2337,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             BackEnd
@@ -2359,7 +2351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   
@@ -2424,7 +2416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/" class="md-nav__link">
+      <a href="../../../Go/" class="md-nav__link">
         
   
   
@@ -2489,7 +2481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/" class="md-nav__link">
         
   
   
@@ -2554,7 +2546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
         
   
   
@@ -2577,7 +2569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
         
   
   
@@ -2600,7 +2592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
         
   
   
@@ -2623,7 +2615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
         
   
   
@@ -2646,7 +2638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
         
   
   
@@ -2669,7 +2661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
         
   
   
@@ -2692,7 +2684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
         
   
   
@@ -2715,7 +2707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
         
   
   
@@ -2738,7 +2730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
         
   
   
@@ -2761,7 +2753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
         
   
   
@@ -2784,7 +2776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
         
   
   
@@ -2807,7 +2799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+      <a href="../../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
         
   
   
@@ -2896,7 +2888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+      <a href="../../../JAVA/CORS/" class="md-nav__link">
         
   
   
@@ -2919,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+      <a href="../../../JAVA/JWT/" class="md-nav__link">
         
   
   
@@ -2947,6 +2939,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2956,13 +2950,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
@@ -2978,7 +2970,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_4">
             <span class="md-nav__icon md-icon"></span>
             Rust
@@ -2992,7 +2984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -3012,6 +3004,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3021,13 +3015,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_4_2" id="__nav_6_2_4_2_label" tabindex="0">
@@ -3043,7 +3035,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_4_2">
             <span class="md-nav__icon md-icon"></span>
             Easy Rust
@@ -3057,7 +3049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+      <a href="../001_Intro/" class="md-nav__link">
         
   
   
@@ -3080,7 +3072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+      <a href="../002_Comments/" class="md-nav__link">
         
   
   
@@ -3100,10 +3092,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🔢 Rust 정수 타입 (Integer Types)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3114,6 +3128,251 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ 정수 타입 구분
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ 비트 크기와 범위
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-signed-vs-unsigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Signed vs Unsigned
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ 기본 타입 (Default)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ 시스템 종속 타입
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Mermaid 시각화
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 핵심 요약
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-vs-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Rust vs Go 정수 타입 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 코드 예시 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid-rust-vs-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Mermaid 시각화 – Rust vs Go 정수 타입 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 핵심 요약
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-vs-go_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚖️ Rust vs Go 정수 타입 – 실무 선택 가이드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚖️ Rust vs Go 정수 타입 – 실무 선택 가이드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Rust가 더 적절한 경우
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Rust가 더 적절한 경우">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      시스템 프로그래밍 / 임베디드 개발
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cc" class="md-nav__link">
+    <span class="md-ellipsis">
+      C/C++ 대체재로 적합
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      안전성 중심 개발
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      대규모 데이터 처리
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Go가 더 적절한 경우
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Go가 더 적절한 경우">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      백엔드 서버 / 웹 서비스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      빠른 개발 사이클
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      클라우드/분산 시스템
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      정수 타입 단순화로 네트워크, 분산 환경 코드 작성이 더 수월
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 핵심 요약
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3126,7 +3385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+      <a href="../004_Chars_1/" class="md-nav__link">
         
   
   
@@ -3149,7 +3408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+      <a href="../005_Chars_2/" class="md-nav__link">
         
   
   
@@ -3172,7 +3431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+      <a href="../006_Floats/" class="md-nav__link">
         
   
   
@@ -3261,7 +3520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/" class="md-nav__link">
+      <a href="../../../../FrontEnd/" class="md-nav__link">
         
   
   
@@ -3326,7 +3585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+      <a href="../../../../FrontEnd/JS/ASYNC/" class="md-nav__link">
         
   
   
@@ -3349,7 +3608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+      <a href="../../../../FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
         
   
   
@@ -3408,6 +3667,239 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ 정수 타입 구분
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ 비트 크기와 범위
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-signed-vs-unsigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Signed vs Unsigned
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ 기본 타입 (Default)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ 시스템 종속 타입
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Mermaid 시각화
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 핵심 요약
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-vs-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Rust vs Go 정수 타입 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 코드 예시 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid-rust-vs-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Mermaid 시각화 – Rust vs Go 정수 타입 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 핵심 요약
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-vs-go_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚖️ Rust vs Go 정수 타입 – 실무 선택 가이드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚖️ Rust vs Go 정수 타입 – 실무 선택 가이드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Rust가 더 적절한 경우
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Rust가 더 적절한 경우">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      시스템 프로그래밍 / 임베디드 개발
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cc" class="md-nav__link">
+    <span class="md-ellipsis">
+      C/C++ 대체재로 적합
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      안전성 중심 개발
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      대규모 데이터 처리
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Go가 더 적절한 경우
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Go가 더 적절한 경우">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      백엔드 서버 / 웹 서비스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      빠른 개발 사이클
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      클라우드/분산 시스템
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      정수 타입 단순화로 네트워크, 분산 환경 코드 작성이 더 수월
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 핵심 요약
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3422,11 +3914,268 @@
 
 
 
-<h1 id="welcome-to-yj-shin-til-blog">👋 Welcome to YJ Shin TIL Blog<a class="headerlink" href="#welcome-to-yj-shin-til-blog" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><strong>Today I Learned</strong><br />
-작은 기록이 모여 큰 성장을 만든다 🚀</p>
-</blockquote>
+<h1 id="rust-integer-types">🔢 Rust 정수 타입 (Integer Types)<a class="headerlink" href="#rust-integer-types" title="Permanent link">&para;</a></h1>
+<p>Rust는 다른 언어(Java, Python, JavaScript 등)와 달리 정수 타입(Integer Types) 을 매우 세분화해서 제공합니다.
+이 덕분에 프로그램에서 메모리 크기, 음수 허용 여부 등을 명확히 지정할 수 있습니다.</p>
+<h2 id="1">1️⃣ 정수 타입 구분<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Signed 정수 (iN)</strong></td>
+<td>음수/양수 모두 표현 가능</td>
+<td><code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code>, <code>isize</code></td>
+</tr>
+<tr>
+<td><strong>Unsigned 정수 (uN)</strong></td>
+<td>음수 없음, 0 이상만 표현</td>
+<td><code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code>, <code>usize</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">2️⃣ 비트 크기와 범위<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>타입</th>
+<th>크기</th>
+<th>값의 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>i8</strong></td>
+<td>8비트</td>
+<td>-128 \~ 127</td>
+</tr>
+<tr>
+<td><strong>u8</strong></td>
+<td>8비트</td>
+<td>0 \~ 255</td>
+</tr>
+<tr>
+<td><strong>i16</strong></td>
+<td>16비트</td>
+<td>-32,768 \~ 32,767</td>
+</tr>
+<tr>
+<td><strong>u16</strong></td>
+<td>16비트</td>
+<td>0 \~ 65,535</td>
+</tr>
+<tr>
+<td><strong>i32</strong></td>
+<td>32비트</td>
+<td>-2,147,483,648 \~ 2,147,483,647</td>
+</tr>
+<tr>
+<td><strong>u32</strong></td>
+<td>32비트</td>
+<td>0 \~ 4,294,967,295</td>
+</tr>
+<tr>
+<td><strong>i64</strong></td>
+<td>64비트</td>
+<td>-2^63 \~ 2^63 - 1</td>
+</tr>
+<tr>
+<td><strong>u64</strong></td>
+<td>64비트</td>
+<td>0 \~ 2^64 - 1</td>
+</tr>
+<tr>
+<td><strong>i128</strong></td>
+<td>128비트</td>
+<td>매우 큰 범위</td>
+</tr>
+<tr>
+<td><strong>u128</strong></td>
+<td>128비트</td>
+<td>매우 큰 범위</td>
+</tr>
+<tr>
+<td><strong>isize</strong></td>
+<td>시스템 종속</td>
+<td>32비트 시스템 = i32<br>64비트 시스템 = i64</td>
+</tr>
+<tr>
+<td><strong>usize</strong></td>
+<td>시스템 종속</td>
+<td>32비트 시스템 = u32<br>64비트 시스템 = u64</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-signed-vs-unsigned">3️⃣ Signed vs Unsigned<a class="headerlink" href="#3-signed-vs-unsigned" title="Permanent link">&para;</a></h2>
+<p>Signed (i) : +와 - 모두 허용
+예) i32 → -10, 0, 42</p>
+<p>Unsigned (u) : - 불가능, 0 이상만 허용
+예) u32 → 0, 10, 255</p>
+<p>예를 들어 나이(age) 같은 값은 음수가 될 수 없으므로 u8이나 u16을 쓰는 게 적절합니다.</p>
+<h2 id="4-default">4️⃣ 기본 타입 (Default)<a class="headerlink" href="#4-default" title="Permanent link">&para;</a></h2>
+<p>fn main() {
+    let x = 42; // 타입 지정 안 하면 i32가 기본
+    let y: u8 = 200; // 명시적으로 타입 지정
+    println!("x = {}, y = {}", x, y);
+}</p>
+<p>Rust에서 정수를 선언할 때 기본 타입은 i32</p>
+<p>타입을 명시하지 않으면 i32로 컴파일됨</p>
+<h2 id="5">5️⃣ 시스템 종속 타입<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>isize, usize 는 컴퓨터 아키텍처(32bit / 64bit)에 따라 크기가 달라짐</p>
+<p>주로 메모리 주소, 포인터 크기 등과 관련된 연산에서 사용</p>
+<h2 id="mermaid">📊 Mermaid 시각화<a class="headerlink" href="#mermaid" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    A[정수 타입] --&gt; B[Signed 정수 iN]
+    A --&gt; C[Unsigned 정수 uN]
+
+    B --&gt; B1[i8: -128 ~ 127]
+    B --&gt; B2[i16: -32,768 ~ 32,767]
+    B --&gt; B3[i32: 기본 타입, 많이 사용]
+    B --&gt; B4[i64]
+    B --&gt; B5[i128]
+    B --&gt; B6[isize: 시스템 종속]
+
+    C --&gt; C1[u8: 0 ~ 255]
+    C --&gt; C2[u16: 0 ~ 65,535]
+    C --&gt; C3[u32]
+    C --&gt; C4[u64]
+    C --&gt; C5[u128]
+    C --&gt; C6[usize: 시스템 종속]
+</code></pre></div>
+<h2 id="_1">📝 핵심 요약<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Rust는 정수 타입을 세분화하여 메모리 효율성을 높임</p>
+<p>Signed(i) : 음수/양수 모두 가능</p>
+<p>Unsigned(u) : 음수 불가능, 0 이상만 가능</p>
+<p>기본 정수 타입은 i32</p>
+<p>isize/usize 는 시스템 아키텍처(32bit/64bit)에 따라 달라짐</p>
+<h2 id="rust-vs-go">📊 Rust vs Go 정수 타입 비교<a class="headerlink" href="#rust-vs-go" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>Rust</th>
+<th>Go</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Signed 정수</strong></td>
+<td><code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code>, <code>isize</code></td>
+<td><code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code>, <code>int</code></td>
+</tr>
+<tr>
+<td><strong>Unsigned 정수</strong></td>
+<td><code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code>, <code>usize</code></td>
+<td><code>uint8</code>(=byte), <code>uint16</code>, <code>uint32</code>, <code>uint64</code>, <code>uint</code></td>
+</tr>
+<tr>
+<td><strong>기본 타입</strong></td>
+<td><code>i32</code></td>
+<td><code>int</code> (32bit 또는 64bit)</td>
+</tr>
+<tr>
+<td><strong>플랫폼 종속 타입</strong></td>
+<td><code>isize</code>, <code>usize</code> (아키텍처에 따라 크기 결정)</td>
+<td><code>int</code>, <code>uint</code> (아키텍처에 따라 크기 결정)</td>
+</tr>
+<tr>
+<td><strong>최대 크기 지원</strong></td>
+<td>128비트 (<code>i128</code>, <code>u128</code>)</td>
+<td>64비트 (<code>int64</code>, <code>uint64</code>)</td>
+</tr>
+<tr>
+<td><strong>문자 관련 타입</strong></td>
+<td><code>char</code> (4바이트 유니코드)</td>
+<td><code>rune</code>(=int32), <code>byte</code>(=uint8)</td>
+</tr>
+<tr>
+<td><strong>타입 안정성</strong></td>
+<td>엄격, 암묵적 변환 불가</td>
+<td>비교적 단순, 변환 필요 시 명시적 처리</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">📌 코드 예시 비교<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>✅ Rust
+<div class="highlight"><pre><span></span><code>fn main() {
+    let a: i32 = -10;
+    let b: u8 = 200;
+    let c = 100; // 기본 i32
+    println!(&quot;a = {}, b = {}, c = {}&quot;, a, b, c);
+}
+</code></pre></div>
+✅ Go
+<div class="highlight"><pre><span></span><code>package main
+import &quot;fmt&quot;
+
+func main() {
+    var a int32 = -10
+    var b uint8 = 200
+    c := 100 // 기본 int
+    fmt.Println(&quot;a =&quot;, a, &quot;b =&quot;, b, &quot;c =&quot;, c)
+}
+</code></pre></div></p>
+<h2 id="mermaid-rust-vs-go">📊 Mermaid 시각화 – Rust vs Go 정수 타입 비교<a class="headerlink" href="#mermaid-rust-vs-go" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    A[Rust 정수 타입] --&gt; B[i8, i16, i32, i64, i128]
+    A --&gt; C[u8, u16, u32, u64, u128]
+    A --&gt; D[isize, usize]
+    A --&gt; E[기본 타입: i32]
+
+    F[Go 정수 타입] --&gt; G[int8, int16, int32, int64]
+    F --&gt; H[uint8, uint16, uint32, uint64]
+    F --&gt; I[int, uint - 플랫폼 종속]
+    F --&gt; J[rune = int32]
+    F --&gt; K[byte = uint8]
+    F --&gt; L[기본 타입: int]
+
+    A -. 비교 .-&gt; F
+</code></pre></div>
+<h2 id="_3">📝 핵심 요약<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Rust → 더 다양한 정수 타입 제공 (i128, u128까지 지원)</p>
+<p>Go → 단순한 타입 체계, 기본적으로 int와 uint 중심</p>
+<p>Rust는 엄격한 타입 안전성, Go는 실용적 단순성에 초점</p>
+<h2 id="rust-vs-go_1">⚖️ Rust vs Go 정수 타입 – 실무 선택 가이드<a class="headerlink" href="#rust-vs-go_1" title="Permanent link">&para;</a></h2>
+<h3 id="rust">✅ Rust가 더 적절한 경우<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h3>
+<h4 id="_4">시스템 프로그래밍 / 임베디드 개발<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>Rust는 i8 ~ i128, u8 ~ u128, isize/usize까지 세분화된 타입 제공</p>
+<p>메모리 제어와 성능 최적화가 필요한 저수준 프로그래밍에 강함</p>
+<h4 id="cc">C/C++ 대체재로 적합<a class="headerlink" href="#cc" title="Permanent link">&para;</a></h4>
+<h4 id="_5">안전성 중심 개발<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>Rust는 타입 혼합 연산 불가, 반드시 명시적 변환 필요</p>
+<p>런타임 에러보다 컴파일 타임 안전성 보장</p>
+<p>금융, 블록체인, 보안 소프트웨어에 유리</p>
+<h4 id="_6">대규모 데이터 처리<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>초대형 숫자(i128, u128) 지원 → 고정밀 연산 가능</p>
+<p>과학 계산, 암호학 등 큰 정수 계산에 적합</p>
+<h3 id="go">✅ Go가 더 적절한 경우<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
+<h4 id="_7">백엔드 서버 / 웹 서비스<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>Go의 정수 타입은 단순 (int, uint, int64 중심)</p>
+<p>대부분의 웹 서비스 로직에 64비트 정수면 충분</p>
+<p>오히려 Rust처럼 타입이 많으면 복잡도가 증가</p>
+<h4 id="_8">빠른 개발 사이클<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>Go는 개발자 경험(DX) 중시 → 타입 고민 줄이고 빠르게 코딩 가능</p>
+<p>스타트업, 프로토타입, 마이크로서비스 개발에 적합</p>
+<h4 id="_9">클라우드/분산 시스템<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>Go는 goroutine + 채널 기반 동시성 지원</p>
+<h4 id="_10">정수 타입 단순화로 네트워크, 분산 환경 코드 작성이 더 수월<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>📊 정리 비교
+| 상황                 | Rust            | Go                    |
+| ------------------ | --------------- | --------------------- |
+| <strong>시스템 프로그래밍</strong>      | ✅ 저수준 메모리 제어 필요 | ❌                     |
+| <strong>임베디드 / IoT</strong>     | ✅ 세밀한 타입 제어     | ❌                     |
+| <strong>금융 / 보안 / 블록체인</strong> | ✅ 정밀 연산, 안전성    | ❌                     |
+| <strong>웹 서비스 / API 서버</strong> | ❌               | ✅ 단순 int로 충분          |
+| <strong>클라우드 / 분산 처리</strong>   | ❌               | ✅ goroutine, 단순 타입 구조 |
+| <strong>프로토타입 / 빠른 개발</strong>  | ❌               | ✅ 빠른 개발 사이클           |</p>
+<h2 id="_11">📝 핵심 요약<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Rust → “성능 + 안전성 + 세밀한 타입 제어”가 필요할 때 최적</p>
+<p>Go → “생산성 + 단순성 + 네트워크/분산 처리”가 필요할 때 최적</p>
 
 
 
@@ -3502,10 +4251,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

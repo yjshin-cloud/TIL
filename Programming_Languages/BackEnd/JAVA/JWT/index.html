@@ -12,26 +12,28 @@
         <meta name="author" content="YJ Shin">
       
       
-        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/">
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Programming_Languages/BackEnd/JAVA/JWT/">
       
       
+        <link rel="prev" href="../CORS/">
       
-        <link rel="next" href="Cloud/">
+      
+        <link rel="next" href="../../Rust/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>YJ Shin TIL Blog</title>
+        <title>JWT - YJ Shin TIL Blog</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-yj-shin-til-blog" class="md-skip">
+        <a href="#1-jwt" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              👋 Welcome to YJ Shin TIL Blog
+              JWT
             
           </span>
         </div>
@@ -218,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -233,19 +235,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -256,7 +249,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -313,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/" class="md-nav__link">
+      <a href="../../../../Cloud/" class="md-nav__link">
         
   
   
@@ -378,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/" class="md-nav__link">
         
   
   
@@ -443,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
         
   
   
@@ -466,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
         
   
   
@@ -539,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/" class="md-nav__link">
         
   
   
@@ -562,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
         
   
   
@@ -585,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
         
   
   
@@ -608,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
         
   
   
@@ -631,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
         
   
   
@@ -654,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
         
   
   
@@ -677,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/EC2/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/EC2/" class="md-nav__link">
         
   
   
@@ -700,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/ELB/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/ELB/" class="md-nav__link">
         
   
   
@@ -723,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/IAM/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/IAM/" class="md-nav__link">
         
   
   
@@ -746,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/RDS/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/RDS/" class="md-nav__link">
         
   
   
@@ -769,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/S3/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/S3/" class="md-nav__link">
         
   
   
@@ -792,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/VPC/" class="md-nav__link">
+      <a href="../../../../Cloud/AWS/Service/VPC/" class="md-nav__link">
         
   
   
@@ -883,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="DB/" class="md-nav__link">
+      <a href="../../../../DB/" class="md-nav__link">
         
   
   
@@ -958,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/" class="md-nav__link">
+      <a href="../../../../Edu/" class="md-nav__link">
         
   
   
@@ -1023,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/" class="md-nav__link">
         
   
   
@@ -1088,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
         
   
   
@@ -1153,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
         
   
   
@@ -1176,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
         
   
   
@@ -1199,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
         
   
   
@@ -1222,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
         
   
   
@@ -1245,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
         
   
   
@@ -1268,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
         
   
   
@@ -1341,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
         
   
   
@@ -1406,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
         
   
   
@@ -1429,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
         
   
   
@@ -1452,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
         
   
   
@@ -1475,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
         
   
   
@@ -1498,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
         
   
   
@@ -1571,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
         
   
   
@@ -1594,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
         
   
   
@@ -1617,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
         
   
   
@@ -1640,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
         
   
   
@@ -1713,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
         
   
   
@@ -1736,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
         
   
   
@@ -1759,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
         
   
   
@@ -1782,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
         
   
   
@@ -1805,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
         
   
   
@@ -1878,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
         
   
   
@@ -1901,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
         
   
   
@@ -1924,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
         
   
   
@@ -1947,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
         
   
   
@@ -1970,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
         
   
   
@@ -2043,7 +2035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
         
   
   
@@ -2066,7 +2058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
         
   
   
@@ -2089,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
         
   
   
@@ -2112,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
         
   
   
@@ -2219,7 +2211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OS/" class="md-nav__link">
+      <a href="../../../../OS/" class="md-nav__link">
         
   
   
@@ -2246,8 +2238,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -2258,13 +2252,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -2280,7 +2272,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Programming Languages
@@ -2294,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   
@@ -2314,6 +2306,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2323,13 +2317,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
@@ -2345,7 +2337,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             BackEnd
@@ -2359,7 +2351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -2424,7 +2416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/" class="md-nav__link">
+      <a href="../../Go/" class="md-nav__link">
         
   
   
@@ -2489,7 +2481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/" class="md-nav__link">
         
   
   
@@ -2554,7 +2546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
         
   
   
@@ -2577,7 +2569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
         
   
   
@@ -2600,7 +2592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
         
   
   
@@ -2623,7 +2615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
         
   
   
@@ -2646,7 +2638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
         
   
   
@@ -2669,7 +2661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
         
   
   
@@ -2692,7 +2684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
         
   
   
@@ -2715,7 +2707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
         
   
   
@@ -2738,7 +2730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
         
   
   
@@ -2761,7 +2753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
         
   
   
@@ -2784,7 +2776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
         
   
   
@@ -2807,7 +2799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+      <a href="../../Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
         
   
   
@@ -2851,6 +2843,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2860,13 +2854,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
@@ -2882,7 +2874,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_3">
             <span class="md-nav__icon md-icon"></span>
             JAVA
@@ -2896,7 +2888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+      <a href="../CORS/" class="md-nav__link">
         
   
   
@@ -2916,10 +2908,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    JWT
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2930,6 +2942,117 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ JWT란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-jwt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ JWT 구조 (3부분으로 나뉨)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ JWT 구조 (3부분으로 나뉨)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-base64" class="md-nav__link">
+    <span class="md-ellipsis">
+      👉 그래서 JWT는 위조 방지 기능이 있습니다. (단, 내용 자체는 Base64로 인코딩되므로 누구나 볼 수 있어요 → 민감한 정보는 넣으면 안 됨!)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ JWT 인증 로직 (흐름도)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ JWT의 장단점
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣ JWT의 장단점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 장점
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ 단점
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-spring-boot-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Spring Boot에서 JWT 인증 구조 (흔한 패턴)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 정리
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2992,7 +3115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+      <a href="../../Rust/" class="md-nav__link">
         
   
   
@@ -3057,7 +3180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+      <a href="../../Rust/Easy_Rust/001_Intro/" class="md-nav__link">
         
   
   
@@ -3080,7 +3203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+      <a href="../../Rust/Easy_Rust/002_Comments/" class="md-nav__link">
         
   
   
@@ -3103,7 +3226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+      <a href="../../Rust/Easy_Rust/003_Integers/" class="md-nav__link">
         
   
   
@@ -3126,7 +3249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+      <a href="../../Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
         
   
   
@@ -3149,7 +3272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+      <a href="../../Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
         
   
   
@@ -3172,7 +3295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+      <a href="../../Rust/Easy_Rust/006_Floats/" class="md-nav__link">
         
   
   
@@ -3261,7 +3384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/" class="md-nav__link">
+      <a href="../../../FrontEnd/" class="md-nav__link">
         
   
   
@@ -3326,7 +3449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+      <a href="../../../FrontEnd/JS/ASYNC/" class="md-nav__link">
         
   
   
@@ -3349,7 +3472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+      <a href="../../../FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
         
   
   
@@ -3405,8 +3528,107 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ JWT란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-jwt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ JWT 구조 (3부분으로 나뉨)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ JWT 구조 (3부분으로 나뉨)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-base64" class="md-nav__link">
+    <span class="md-ellipsis">
+      👉 그래서 JWT는 위조 방지 기능이 있습니다. (단, 내용 자체는 Base64로 인코딩되므로 누구나 볼 수 있어요 → 민감한 정보는 넣으면 안 됨!)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ JWT 인증 로직 (흐름도)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ JWT의 장단점
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣ JWT의 장단점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 장점
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ 단점
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-spring-boot-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Spring Boot에서 JWT 인증 구조 (흔한 패턴)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 정리
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3422,11 +3644,72 @@
 
 
 
-<h1 id="welcome-to-yj-shin-til-blog">👋 Welcome to YJ Shin TIL Blog<a class="headerlink" href="#welcome-to-yj-shin-til-blog" title="Permanent link">&para;</a></h1>
+  <h1>JWT</h1>
+
+<h2 id="1-jwt">1️⃣ JWT란?<a class="headerlink" href="#1-jwt" title="Permanent link">&para;</a></h2>
+<p>JSON 객체를 안전하게 주고받기 위한 토큰(Token) 형식.</p>
+<p>사용자가 로그인하면 서버가 JWT를 만들어서 사용자에게 줍니다.</p>
+<p>이후 사용자가 서버에 요청할 때마다 이 JWT를 함께 보내면, 서버는 그 안에 담긴 정보를 확인하고 사용자를 인증합니다.</p>
+<p>즉, 세션/쿠키 방식 대신 토큰으로 인증하는 것.</p>
+<h2 id="2-jwt-3">2️⃣ JWT 구조 (3부분으로 나뉨)<a class="headerlink" href="#2-jwt-3" title="Permanent link">&para;</a></h2>
+<p>JWT는 보통 이렇게 생겼습니다 👇</p>
 <blockquote>
-<p><strong>Today I Learned</strong><br />
-작은 기록이 모여 큰 성장을 만든다 🚀</p>
+<p>aaaaaa.bbbbbb.cccccc</p>
 </blockquote>
+<p>세 부분을 . 으로 구분해요:</p>
+<p>Header (헤더)</p>
+<p>토큰의 타입(JWT)과 서명(Signature)에 어떤 알고리즘을 쓸지 정의.
+<div class="highlight"><pre><span></span><code>{
+  &quot;alg&quot;: &quot;HS256&quot;,
+  &quot;typ&quot;: &quot;JWT&quot;
+}
+</code></pre></div></p>
+<p>Payload (페이로드)</p>
+<p>실제 데이터(클레임, Claim)가 담깁니다.</p>
+<p>보통 유저 ID, 권한(role), 토큰 만료 시간(exp) 같은 정보.
+<div class="highlight"><pre><span></span><code>{
+  &quot;sub&quot;: &quot;user123&quot;,       // 사용자 ID
+  &quot;role&quot;: &quot;ROLE_USER&quot;,    // 권한
+  &quot;exp&quot;: 1735977600       // 만료 시간 (Unix time)
+}
+</code></pre></div></p>
+<p>Signature (서명)</p>
+<p>Header + Payload + 서버 비밀키(secret key)를 이용해 만든 암호화 값.</p>
+<p>누군가 Payload를 위조하면 이 서명이 맞지 않기 때문에 변조 여부를 검증할 수 있습니다.</p>
+<h3 id="jwt-base64">👉 그래서 JWT는 위조 방지 기능이 있습니다. (단, 내용 자체는 Base64로 인코딩되므로 누구나 볼 수 있어요 → 민감한 정보는 넣으면 안 됨!)<a class="headerlink" href="#jwt-base64" title="Permanent link">&para;</a></h3>
+<h2 id="3-jwt">3️⃣ JWT 인증 로직 (흐름도)<a class="headerlink" href="#3-jwt" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+  participant Client as 클라이언트 (브라우저/앱)
+  participant Server as 서버 (Spring Boot)
+  participant DB as 데이터베이스
+
+  Client-&gt;&gt;Server: 로그인 요청 (아이디/비번)
+  Server-&gt;&gt;DB: 사용자 인증 확인
+  DB--&gt;&gt;Server: 인증 성공
+  Server--&gt;&gt;Client: JWT 발급 (Header.Payload.Signature)
+
+  Client-&gt;&gt;Server: 요청 시 JWT 포함 (Authorization: Bearer {토큰})
+  Server-&gt;&gt;Server: JWT 서명 검증 + 만료 시간 확인
+  Server--&gt;&gt;Client: 요청 처리 결과 반환
+</code></pre></div>
+<h2 id="4-jwt">4️⃣ JWT의 장단점<a class="headerlink" href="#4-jwt" title="Permanent link">&para;</a></h2>
+<h3 id="_1">✅ 장점<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>서버가 별도로 세션을 저장하지 않아도 됨 → 확장성이 좋음 (무상태, Stateless).</p>
+<p>다른 서비스(마이크로서비스, 외부 API)와 쉽게 연동 가능.</p>
+<h3 id="_2">❌ 단점<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>토큰 안에 정보가 많으면 길이가 길어져서 요청마다 전송 시 성능 저하.</p>
+<p>발급된 토큰은 중간에 무효화(revoke) 하기 어렵습니다 (보통 Redis 같은 별도 저장소로 관리).</p>
+<h2 id="5-spring-boot-jwt">5️⃣ Spring Boot에서 JWT 인증 구조 (흔한 패턴)<a class="headerlink" href="#5-spring-boot-jwt" title="Permanent link">&para;</a></h2>
+<p>사용자가 /login 요청 → 서버에서 아이디/비번 확인.</p>
+<p>인증 성공 시 JWT 발급 → 클라이언트에게 응답.</p>
+<p>클라이언트는 이후 요청마다 Authorization: Bearer <JWT> 헤더에 토큰 넣음.</p>
+<p>서버는 매 요청마다 JWT 검증 필터를 통과시켜 유저 인증 후 Controller 로직 실행.</p>
+<p>토큰 만료되면 재발급(refresh token) 로직을 사용.</p>
+<h2 id="_3">🚀 정리<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>JWT는 Header.Payload.Signature 로 구성된 인증 토큰.</p>
+<p>서버가 토큰을 발급하고, 클라이언트는 매 요청 시 토큰을 들고 옴.</p>
+<p>서버는 서명 검증을 통해 변조 여부를 확인하고, 사용자 인증을 처리.</p>
+<p>세션을 저장하지 않아도 돼서 확장성이 좋지만, 토큰 폐기 어려움이 단점.</p>
 
 
 
@@ -3502,10 +3785,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>
