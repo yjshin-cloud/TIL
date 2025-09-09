@@ -12,26 +12,28 @@
         <meta name="author" content="YJ Shin">
       
       
-        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/">
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Cloud/AWS/Practice/1.Create_Account/">
       
       
+        <link rel="prev" href="../../">
       
-        <link rel="next" href="Cloud/">
+      
+        <link rel="next" href="../2.Create_IAM-User/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>YJ Shin TIL Blog</title>
+        <title>🌐 AWS 계정 생성 가이드 (2025 기준) - YJ Shin TIL Blog</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-yj-shin-til-blog" class="md-skip">
+        <a href="#aws-2025" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              👋 Welcome to YJ Shin TIL Blog
+              🌐 AWS 계정 생성 가이드 (2025 기준)
             
           </span>
         </div>
@@ -218,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -233,19 +235,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -256,7 +249,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -265,8 +257,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -277,13 +271,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -299,7 +291,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Cloud
@@ -313,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   
@@ -333,6 +325,8 @@
                 
   
   
+    
+  
   
   
     
@@ -342,13 +336,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -364,7 +356,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             AWS
@@ -378,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -398,6 +390,8 @@
                 
   
   
+    
+  
   
   
     
@@ -407,13 +401,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -429,7 +421,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             Practice
@@ -440,10 +432,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS 계정 생성 가이드 (2025 기준)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -454,6 +468,149 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 계정 생성 전체 흐름 요약
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 따라하기: 계정 생성 절차
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 따라하기: 계정 생성 절차">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 1. AWS 홈페이지 접속
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 2. 이메일 주소 &amp; 계정 이름 입력
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 3. 이메일 인증
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 4. 비밀번호 설정
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 5. 요금제 선택
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 6. 결제 정보 입력
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 7. 휴대폰 인증 (2단계 인증)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 8. 콘솔 접속 완료 🎉
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗺️ Mermaid 시각화 (계정 생성 플로우)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 팁 &amp; 주의사항
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 요약
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -466,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+      <a href="../2.Create_IAM-User/" class="md-nav__link">
         
   
   
@@ -539,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/" class="md-nav__link">
+      <a href="../../Service/" class="md-nav__link">
         
   
   
@@ -562,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+      <a href="../../Service/AWS-Organizations/" class="md-nav__link">
         
   
   
@@ -585,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+      <a href="../../Service/AWS_Systems_Manager/" class="md-nav__link">
         
   
   
@@ -608,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+      <a href="../../Service/AWS_Trusted_Advisor/" class="md-nav__link">
         
   
   
@@ -631,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+      <a href="../../Service/Auto_Scaling/" class="md-nav__link">
         
   
   
@@ -654,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+      <a href="../../Service/CloudWatch/" class="md-nav__link">
         
   
   
@@ -677,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/EC2/" class="md-nav__link">
+      <a href="../../Service/EC2/" class="md-nav__link">
         
   
   
@@ -700,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/ELB/" class="md-nav__link">
+      <a href="../../Service/ELB/" class="md-nav__link">
         
   
   
@@ -723,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/IAM/" class="md-nav__link">
+      <a href="../../Service/IAM/" class="md-nav__link">
         
   
   
@@ -746,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/RDS/" class="md-nav__link">
+      <a href="../../Service/RDS/" class="md-nav__link">
         
   
   
@@ -769,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/S3/" class="md-nav__link">
+      <a href="../../Service/S3/" class="md-nav__link">
         
   
   
@@ -792,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/VPC/" class="md-nav__link">
+      <a href="../../Service/VPC/" class="md-nav__link">
         
   
   
@@ -883,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="DB/" class="md-nav__link">
+      <a href="../../../../DB/" class="md-nav__link">
         
   
   
@@ -958,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/" class="md-nav__link">
+      <a href="../../../../Edu/" class="md-nav__link">
         
   
   
@@ -1023,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/" class="md-nav__link">
         
   
   
@@ -1088,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
         
   
   
@@ -1153,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
         
   
   
@@ -1176,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
         
   
   
@@ -1199,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
         
   
   
@@ -1222,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
         
   
   
@@ -1245,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
         
   
   
@@ -1268,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
         
   
   
@@ -1341,7 +1498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
         
   
   
@@ -1406,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
         
   
   
@@ -1429,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
         
   
   
@@ -1452,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
         
   
   
@@ -1475,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
         
   
   
@@ -1498,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
         
   
   
@@ -1571,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
         
   
   
@@ -1594,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
         
   
   
@@ -1617,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
         
   
   
@@ -1640,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
         
   
   
@@ -1713,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
         
   
   
@@ -1736,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
         
   
   
@@ -1759,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
         
   
   
@@ -1782,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
         
   
   
@@ -1805,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
         
   
   
@@ -1878,7 +2035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
         
   
   
@@ -1901,7 +2058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
         
   
   
@@ -1924,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
         
   
   
@@ -1947,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
         
   
   
@@ -1970,7 +2127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
         
   
   
@@ -2043,7 +2200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
         
   
   
@@ -2066,7 +2223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
         
   
   
@@ -2089,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
         
   
   
@@ -2112,7 +2269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
+      <a href="../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
         
   
   
@@ -2219,7 +2376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OS/" class="md-nav__link">
+      <a href="../../../../OS/" class="md-nav__link">
         
   
   
@@ -2294,7 +2451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/" class="md-nav__link">
         
   
   
@@ -2359,7 +2516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/" class="md-nav__link">
         
   
   
@@ -2424,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/" class="md-nav__link">
         
   
   
@@ -2489,7 +2646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
         
   
   
@@ -2554,7 +2711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
         
   
   
@@ -2577,7 +2734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
         
   
   
@@ -2600,7 +2757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
         
   
   
@@ -2623,7 +2780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
         
   
   
@@ -2646,7 +2803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
         
   
   
@@ -2669,7 +2826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
         
   
   
@@ -2692,7 +2849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
         
   
   
@@ -2715,7 +2872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
         
   
   
@@ -2738,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
         
   
   
@@ -2761,7 +2918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
         
   
   
@@ -2784,7 +2941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
         
   
   
@@ -2807,7 +2964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
         
   
   
@@ -2896,7 +3053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
         
   
   
@@ -2919,7 +3076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
         
   
   
@@ -2992,7 +3149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/" class="md-nav__link">
         
   
   
@@ -3057,7 +3214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
         
   
   
@@ -3080,7 +3237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
         
   
   
@@ -3103,7 +3260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
         
   
   
@@ -3126,7 +3283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
         
   
   
@@ -3149,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
         
   
   
@@ -3172,7 +3329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
         
   
   
@@ -3261,7 +3418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/FrontEnd/" class="md-nav__link">
         
   
   
@@ -3326,7 +3483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
         
   
   
@@ -3349,7 +3506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+      <a href="../../../../Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
         
   
   
@@ -3408,6 +3565,137 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 계정 생성 전체 흐름 요약
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 따라하기: 계정 생성 절차
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 따라하기: 계정 생성 절차">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 1. AWS 홈페이지 접속
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 2. 이메일 주소 &amp; 계정 이름 입력
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 3. 이메일 인증
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 4. 비밀번호 설정
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 5. 요금제 선택
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 6. 결제 정보 입력
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 7. 휴대폰 인증 (2단계 인증)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 8. 콘솔 접속 완료 🎉
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗺️ Mermaid 시각화 (계정 생성 플로우)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 팁 &amp; 주의사항
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 요약
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3422,11 +3710,143 @@
 
 
 
-<h1 id="welcome-to-yj-shin-til-blog">👋 Welcome to YJ Shin TIL Blog<a class="headerlink" href="#welcome-to-yj-shin-til-blog" title="Permanent link">&para;</a></h1>
+<h1 id="aws-2025">🌐 AWS 계정 생성 가이드 (2025 기준)<a class="headerlink" href="#aws-2025" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Today I Learned</strong><br />
-작은 기록이 모여 큰 성장을 만든다 🚀</p>
+<p>📝 작성자: [yjshin@Velog]<br />
+📌 주제: AWS 계정 생성 절차를 쉽게 따라하는 단계별 안내서<br />
+📅 업데이트: 2025년 기준 최신 UI 반영</p>
 </blockquote>
+<hr />
+<h2 id="_1">✅ 계정 생성 전체 흐름 요약<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1️⃣</td>
+<td>AWS 공식 홈페이지 접속 및 계정 생성 시작</td>
+</tr>
+<tr>
+<td>2️⃣</td>
+<td>이메일 및 계정 이름 입력</td>
+</tr>
+<tr>
+<td>3️⃣</td>
+<td>이메일 인증 코드 확인 및 입력</td>
+</tr>
+<tr>
+<td>4️⃣</td>
+<td>비밀번호 설정 (루트 계정)</td>
+</tr>
+<tr>
+<td>5️⃣</td>
+<td>요금제 선택 (Free Tier 권장)</td>
+</tr>
+<tr>
+<td>6️⃣</td>
+<td>연락처 및 결제 카드 정보 입력</td>
+</tr>
+<tr>
+<td>7️⃣</td>
+<td>휴대폰 번호 인증 (SMS)</td>
+</tr>
+<tr>
+<td>8️⃣</td>
+<td>AWS 콘솔 접속 완료 🎉</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_2">🧭 따라하기: 계정 생성 절차<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1-aws">🔹 1. AWS 홈페이지 접속<a class="headerlink" href="#1-aws" title="Permanent link">&para;</a></h3>
+<ul>
+<li>👉 https://aws.amazon.com/ko/ 로 접속</li>
+<li>🟦 <strong>"무료 계정 생성"</strong> 버튼 클릭</li>
+</ul>
+<h3 id="2">🔹 2. 이메일 주소 &amp; 계정 이름 입력<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>📧 이메일: <code>your.email+aws@gmail.com</code> 형태 추천</li>
+<li>🧾 계정 이름: 개인이 알아보기 쉬운 이름으로 입력</li>
+</ul>
+<h3 id="3">🔹 3. 이메일 인증<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>📥 받은 편지함에서 6자리 인증 코드 확인</li>
+<li>🔐 AWS 페이지에 코드 입력 후 계속</li>
+</ul>
+<h3 id="4">🔹 4. 비밀번호 설정<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🔒 보안성 높은 비밀번호 설정</li>
+<li>✅ 루트 사용자 기준</li>
+</ul>
+<h3 id="5">🔹 5. 요금제 선택<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>💸 <strong>Free Tier (무료 요금제)</strong> 선택 권장</li>
+<li>🧑 개인 / 비즈니스 선택 후 이용 약관 동의</li>
+</ul>
+<h3 id="6">🔹 6. 결제 정보 입력<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>💳 신용카드 또는 체크카드 정보 입력 (필수)</li>
+<li>📌 모든 동의 항목 체크 필수</li>
+</ul>
+<h3 id="7-2">🔹 7. 휴대폰 인증 (2단계 인증)<a class="headerlink" href="#7-2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>📱 전화번호 입력 → 인증코드 SMS 수신</li>
+<li>🔐 4자리 코드 입력 → 본인 인증 완료</li>
+</ul>
+<h3 id="8">🔹 8. 콘솔 접속 완료 🎉<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🖥️ <strong>AWS Management Console</strong>로 이동</li>
+<li>✅ 로그인 → 클라우드 서비스 이용 시작!</li>
+</ul>
+<hr />
+<h2 id="mermaid">🗺️ Mermaid 시각화 (계정 생성 플로우)<a class="headerlink" href="#mermaid" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    A[🌍 AWS 홈페이지 접속] --&gt; B[✍️ 계정 생성 클릭]
+    B --&gt; C[📧 이메일 + 계정 이름 입력]
+    C --&gt; D[📩 인증 코드 입력]
+    D --&gt; E[🔐 비밀번호 설정]
+    E --&gt; F[💸 요금제 선택 + 약관 동의]
+    F --&gt; G[📝 연락처 + 💳 카드 입력]
+    G --&gt; H[📱 휴대폰 SMS 인증]
+    H --&gt; I[✅ 콘솔 접속 완료]
+</code></pre></div>
+<h2 id="_3">💡 팁 &amp; 주의사항<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>💡 항목</th>
+<th>📝 설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 이메일 팁</td>
+<td><code>yourname+001@gmail.com</code> → 여러 계정 테스트에 유리</td>
+</tr>
+<tr>
+<td>✅ 요금제 선택</td>
+<td><strong>프리 티어</strong>는 6개월 무료 + 실습에 충분</td>
+</tr>
+<tr>
+<td>✅ 결제 정보</td>
+<td>카드 등록 시 <strong>전체 동의</strong> 체크 필수</td>
+</tr>
+<tr>
+<td>✅ SMS 인증</td>
+<td>필수 보안 절차 (2단계 인증)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">📌 요약<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>AWS 계정 생성은
+"이메일 → 인증 → 설정 → 카드 등록 → 인증 완료 → 콘솔 접속"
+단계로 아주 쉽고 빠르게 완료됩니다.
+이제 당신도 클라우드 세상에 입문하셨습니다! 🚀</p>
+<p>https://velog.io/@yjshin/1.-AWS-계정-생성-2025</p>
 
 
 
@@ -3502,10 +3922,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

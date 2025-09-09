@@ -12,26 +12,28 @@
         <meta name="author" content="YJ Shin">
       
       
-        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/">
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/">
       
       
+        <link rel="prev" href="../10_20250827_Structs/">
       
-        <link rel="next" href="Cloud/">
+      
+        <link rel="next" href="../2_20250817_Functions_Part1/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>YJ Shin TIL Blog</title>
+        <title>1 20250816 variables constants - YJ Shin TIL Blog</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-yj-shin-til-blog" class="md-skip">
+        <a href="#1" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              👋 Welcome to YJ Shin TIL Blog
+              1 20250816 variables constants
             
           </span>
         </div>
@@ -218,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -233,19 +235,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../../.." class="md-nav__link">
         
   
   
@@ -256,7 +249,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -313,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/" class="md-nav__link">
+      <a href="../../../../../../Cloud/" class="md-nav__link">
         
   
   
@@ -378,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/" class="md-nav__link">
         
   
   
@@ -443,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
         
   
   
@@ -466,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
         
   
   
@@ -539,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/" class="md-nav__link">
         
   
   
@@ -562,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
         
   
   
@@ -585,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
         
   
   
@@ -608,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
         
   
   
@@ -631,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
         
   
   
@@ -654,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
         
   
   
@@ -677,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/EC2/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/EC2/" class="md-nav__link">
         
   
   
@@ -700,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/ELB/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/ELB/" class="md-nav__link">
         
   
   
@@ -723,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/IAM/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/IAM/" class="md-nav__link">
         
   
   
@@ -746,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/RDS/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/RDS/" class="md-nav__link">
         
   
   
@@ -769,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/S3/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/S3/" class="md-nav__link">
         
   
   
@@ -792,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Cloud/AWS/Service/VPC/" class="md-nav__link">
+      <a href="../../../../../../Cloud/AWS/Service/VPC/" class="md-nav__link">
         
   
   
@@ -883,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="DB/" class="md-nav__link">
+      <a href="../../../../../../DB/" class="md-nav__link">
         
   
   
@@ -958,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/" class="md-nav__link">
+      <a href="../../../../../../Edu/" class="md-nav__link">
         
   
   
@@ -1023,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/" class="md-nav__link">
         
   
   
@@ -1088,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/" class="md-nav__link">
         
   
   
@@ -1153,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/" class="md-nav__link">
         
   
   
@@ -1176,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week1_Memoir/" class="md-nav__link">
         
   
   
@@ -1199,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week2_Memoir/" class="md-nav__link">
         
   
   
@@ -1222,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week3_Memoir/" class="md-nav__link">
         
   
   
@@ -1245,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week4_Memoir/" class="md-nav__link">
         
   
   
@@ -1268,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir/Week5_Memoir/" class="md-nav__link">
         
   
   
@@ -1341,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/" class="md-nav__link">
         
   
   
@@ -1406,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250804/" class="md-nav__link">
         
   
   
@@ -1429,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250805/" class="md-nav__link">
         
   
   
@@ -1452,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250806/" class="md-nav__link">
         
   
   
@@ -1475,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250807/" class="md-nav__link">
         
   
   
@@ -1498,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_2/20250808/" class="md-nav__link">
         
   
   
@@ -1571,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250811/" class="md-nav__link">
         
   
   
@@ -1594,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250812/" class="md-nav__link">
         
   
   
@@ -1617,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250813/" class="md-nav__link">
         
   
   
@@ -1640,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_3/20250814/" class="md-nav__link">
         
   
   
@@ -1713,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250818/" class="md-nav__link">
         
   
   
@@ -1736,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250819/" class="md-nav__link">
         
   
   
@@ -1759,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250820/" class="md-nav__link">
         
   
   
@@ -1782,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250821/" class="md-nav__link">
         
   
   
@@ -1805,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_4/20250822/" class="md-nav__link">
         
   
   
@@ -1878,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250825/" class="md-nav__link">
         
   
   
@@ -1901,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250826/" class="md-nav__link">
         
   
   
@@ -1924,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250827/" class="md-nav__link">
         
   
   
@@ -1947,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250828/" class="md-nav__link">
         
   
   
@@ -1970,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_5/20250829/" class="md-nav__link">
         
   
   
@@ -2043,7 +2035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250901/" class="md-nav__link">
         
   
   
@@ -2066,7 +2058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250902/" class="md-nav__link">
         
   
   
@@ -2089,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250903/" class="md-nav__link">
         
   
   
@@ -2112,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
+      <a href="../../../../../../Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_6/20250905/" class="md-nav__link">
         
   
   
@@ -2219,7 +2211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OS/" class="md-nav__link">
+      <a href="../../../../../../OS/" class="md-nav__link">
         
   
   
@@ -2246,8 +2238,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -2258,13 +2252,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -2280,7 +2272,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Programming Languages
@@ -2294,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/" class="md-nav__link">
+      <a href="../../../../../" class="md-nav__link">
         
   
   
@@ -2314,6 +2306,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2323,13 +2317,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
@@ -2345,7 +2337,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             BackEnd
@@ -2359,7 +2351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/" class="md-nav__link">
+      <a href="../../../../" class="md-nav__link">
         
   
   
@@ -2379,6 +2371,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2388,13 +2382,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
@@ -2410,7 +2402,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_2">
             <span class="md-nav__icon md-icon"></span>
             Go
@@ -2424,7 +2416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   
@@ -2444,6 +2436,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2453,13 +2447,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_2_2" id="__nav_6_2_2_2_label" tabindex="0">
@@ -2475,7 +2467,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             NomadCoders
@@ -2489,7 +2481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -2509,6 +2501,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2518,13 +2512,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_2_2_2" id="__nav_6_2_2_2_2_label" tabindex="0">
@@ -2540,7 +2532,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_6_2_2_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_6_2_2_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             Getting Started with Go Quickly and Easily
@@ -2554,7 +2546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -2577,7 +2569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+      <a href="../0_20250816_HelloWorld/" class="md-nav__link">
         
   
   
@@ -2600,7 +2592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+      <a href="../10_20250827_Structs/" class="md-nav__link">
         
   
   
@@ -2620,10 +2612,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    1 20250816 variables constants
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2634,6 +2646,267 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ 기본 개념 정리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ 기본 개념 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 변수 vs 상수 비교표
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ 변수 (Variables) 완벽 가이드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ 변수 (Variables) 완벽 가이드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 변수 선언 방법 3가지
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 코드 예제: 변수 선언 방법들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 실행 결과
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ 상수 (Constants) 완벽 가이드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3️⃣ 상수 (Constants) 완벽 가이드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 상수의 특징
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 코드 예제: 상수 사용법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ 상수 변경 시도 - 컴파일 에러
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ 변수 vs 상수 실행 흐름 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ 타입 시스템과 추론
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5️⃣ 타입 시스템과 추론">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Go의 타입 추론 메커니즘
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 타입 추론 예제
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 실행 결과
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ 실무 활용 패턴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ 실무 활용 패턴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 프로젝트에서 상수 활용하기
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ 주요 특징 및 주의사항
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7️⃣ 주요 특징 및 주의사항">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 중요한 규칙들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 베스트 프랙티스
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8️⃣ 학습 체크리스트
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9️⃣ 다음 학습 주제
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 참고 자료
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2646,7 +2919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+      <a href="../2_20250817_Functions_Part1/" class="md-nav__link">
         
   
   
@@ -2669,7 +2942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+      <a href="../3_20250818_Functions_Part2/" class="md-nav__link">
         
   
   
@@ -2692,7 +2965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+      <a href="../4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
         
   
   
@@ -2715,7 +2988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+      <a href="../5_20250820_If_with_a_Twist/" class="md-nav__link">
         
   
   
@@ -2738,7 +3011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+      <a href="../6_20250821_Switch/" class="md-nav__link">
         
   
   
@@ -2761,7 +3034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+      <a href="../7_20250822_Pointers/" class="md-nav__link">
         
   
   
@@ -2784,7 +3057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+      <a href="../8_20250825_Arrays_and_Slices/" class="md-nav__link">
         
   
   
@@ -2807,7 +3080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+      <a href="../9_20250826_Maps/" class="md-nav__link">
         
   
   
@@ -2896,7 +3169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+      <a href="../../../../JAVA/CORS/" class="md-nav__link">
         
   
   
@@ -2919,7 +3192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+      <a href="../../../../JAVA/JWT/" class="md-nav__link">
         
   
   
@@ -2992,7 +3265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+      <a href="../../../../Rust/" class="md-nav__link">
         
   
   
@@ -3057,7 +3330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+      <a href="../../../../Rust/Easy_Rust/001_Intro/" class="md-nav__link">
         
   
   
@@ -3080,7 +3353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+      <a href="../../../../Rust/Easy_Rust/002_Comments/" class="md-nav__link">
         
   
   
@@ -3103,7 +3376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+      <a href="../../../../Rust/Easy_Rust/003_Integers/" class="md-nav__link">
         
   
   
@@ -3126,7 +3399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+      <a href="../../../../Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
         
   
   
@@ -3149,7 +3422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+      <a href="../../../../Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
         
   
   
@@ -3172,7 +3445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+      <a href="../../../../Rust/Easy_Rust/006_Floats/" class="md-nav__link">
         
   
   
@@ -3261,7 +3534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/" class="md-nav__link">
+      <a href="../../../../../FrontEnd/" class="md-nav__link">
         
   
   
@@ -3326,7 +3599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+      <a href="../../../../../FrontEnd/JS/ASYNC/" class="md-nav__link">
         
   
   
@@ -3349,7 +3622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+      <a href="../../../../../FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
         
   
   
@@ -3405,8 +3678,257 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ 기본 개념 정리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ 기본 개념 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 변수 vs 상수 비교표
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ 변수 (Variables) 완벽 가이드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ 변수 (Variables) 완벽 가이드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 변수 선언 방법 3가지
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 코드 예제: 변수 선언 방법들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 실행 결과
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ 상수 (Constants) 완벽 가이드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3️⃣ 상수 (Constants) 완벽 가이드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 상수의 특징
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 코드 예제: 상수 사용법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ 상수 변경 시도 - 컴파일 에러
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ 변수 vs 상수 실행 흐름 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ 타입 시스템과 추론
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5️⃣ 타입 시스템과 추론">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Go의 타입 추론 메커니즘
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 타입 추론 예제
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 실행 결과
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ 실무 활용 패턴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ 실무 활용 패턴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ 프로젝트에서 상수 활용하기
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ 주요 특징 및 주의사항
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7️⃣ 주요 특징 및 주의사항">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 중요한 규칙들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 베스트 프랙티스
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8️⃣ 학습 체크리스트
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9️⃣ 다음 학습 주제
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 참고 자료
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3422,10 +3944,389 @@
 
 
 
-<h1 id="welcome-to-yj-shin-til-blog">👋 Welcome to YJ Shin TIL Blog<a class="headerlink" href="#welcome-to-yj-shin-til-blog" title="Permanent link">&para;</a></h1>
+  <h1>1 20250816 variables constants</h1>
+
+<p>v# 📚 Go 언어 - Variables &amp; Constants 완벽 가이드</p>
 <blockquote>
-<p><strong>Today I Learned</strong><br />
-작은 기록이 모여 큰 성장을 만든다 🚀</p>
+<p>🎯 <strong>목표</strong>: Go 언어의 변수와 상수를 완벽하게 이해하고 실무에서 활용할 수 있도록 학습</p>
+</blockquote>
+<hr />
+<h2 id="1">1️⃣ 기본 개념 정리<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="vs">📊 변수 vs 상수 비교표<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>변수 (Variable)</th>
+<th>상수 (Constant)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>정의</strong></td>
+<td>값을 저장하는 공간</td>
+<td>변경 불가능한 값</td>
+</tr>
+<tr>
+<td><strong>값 변경</strong></td>
+<td>✅ 가능</td>
+<td>❌ 불가능</td>
+</tr>
+<tr>
+<td><strong>키워드</strong></td>
+<td><code>var</code> 또는 <code>:=</code></td>
+<td><code>const</code></td>
+</tr>
+<tr>
+<td><strong>타입 지정</strong></td>
+<td>명시적/추론 가능</td>
+<td>명시적/추론 가능</td>
+</tr>
+<tr>
+<td><strong>사용 시점</strong></td>
+<td>런타임에 값 할당 가능</td>
+<td>컴파일 시점에 값 결정</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-variables">2️⃣ 변수 (Variables) 완벽 가이드<a class="headerlink" href="#2-variables" title="Permanent link">&para;</a></h2>
+<h3 id="3">🔍 변수 선언 방법 3가지<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[변수 선언 방법] --&gt; B[&quot;방법 1: var + 타입 명시&quot;]
+    A --&gt; C[&quot;방법 2: var + 타입 추론&quot;]
+    A --&gt; D[&quot;방법 3: 축약형 :=&quot;]
+
+    B --&gt; B1[&quot;var name string = &#39;Go&#39;&quot;]
+    C --&gt; C1[&quot;var name = &#39;Go&#39;&quot;]
+    D --&gt; D1[&quot;name := &#39;Go&#39;&quot;]
+
+    D --&gt; E[⚠️ 함수 내부에서만 사용]
+
+    style A fill:#e3f2fd
+    style E fill:#ffebee
+</code></pre></div>
+<h3 id="_1">💻 코드 예제: 변수 선언 방법들<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+
+<span class="c1">// 전역 변수 (패키지 레벨)</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">globalVar</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;전역 변수&quot;</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 방법 1: var + 타입 명시</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;nico&quot;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">age</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">25</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">isStudent</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">    </span><span class="c1">// 방법 2: var + 타입 추론</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">city</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Seoul&quot;</span><span class="w">        </span><span class="c1">// string으로 추론</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">temperature</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">25.5</span><span class="w">    </span><span class="c1">// float64로 추론</span>
+
+<span class="w">    </span><span class="c1">// 방법 3: 축약형 := (함수 내부에서만 사용 가능)</span>
+<span class="w">    </span><span class="nx">country</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;Korea&quot;</span><span class="w">        </span><span class="c1">// string으로 추론</span>
+<span class="w">    </span><span class="nx">score</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">95</span><span class="w">              </span><span class="c1">// int로 추론</span>
+
+<span class="w">    </span><span class="c1">// 값 변경 가능 ✅</span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Lynn&quot;</span>
+<span class="w">    </span><span class="nx">age</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span>
+
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;이름:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;나이:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;학생 여부:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">isStudent</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;도시:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">city</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;온도:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">temperature</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;국가:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">country</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;점수:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">score</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_2">🚀 실행 결과<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>이름: Lynn
+나이: 30
+학생 여부: true
+도시: Seoul
+온도: 25.5
+국가: Korea
+점수: 95
+</code></pre></div>
+<hr />
+<h2 id="3-constants">3️⃣ 상수 (Constants) 완벽 가이드<a class="headerlink" href="#3-constants" title="Permanent link">&para;</a></h2>
+<h3 id="_3">🔒 상수의 특징<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mindmap
+  root((상수 Constant))
+    특징
+      값 변경 불가
+      컴파일 시점 결정
+      메모리 효율적
+    선언 방법
+      const name = &quot;value&quot;
+      const name string = &quot;value&quot;
+    사용 용도
+      설정값
+      고정된 계산값
+      열거형 대체
+</code></pre></div>
+<h3 id="_4">💻 코드 예제: 상수 사용법<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// 타입 없는 상수 (추천)</span>
+<span class="w">    </span><span class="nx">AppName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;My Go App&quot;</span>
+<span class="w">    </span><span class="nx">Version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span>
+<span class="w">    </span><span class="nx">MaxUsers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1000</span>
+<span class="w">    </span><span class="nx">Pi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.14159</span>
+
+<span class="w">    </span><span class="c1">// 타입 명시 상수</span>
+<span class="w">    </span><span class="nx">DatabaseURL</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;localhost:5432&quot;</span>
+<span class="w">    </span><span class="nx">Port</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">8080</span>
+<span class="w">    </span><span class="nx">Debug</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;앱 이름:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">AppName</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;버전:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Version</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;최대 사용자:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">MaxUsers</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;파이:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Pi</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;DB URL:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">DatabaseURL</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;포트:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Port</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;디버그 모드:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Debug</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// ❌ 상수 값 변경 시도 (컴파일 에러)</span>
+<span class="w">    </span><span class="c1">// AppName = &quot;New App&quot;  // cannot assign to AppName</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="-">❌ 상수 변경 시도 - 컴파일 에러<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;nico&quot;</span>
+
+<span class="w">    </span><span class="c1">// ❌ 컴파일 에러 발생</span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Lynn&quot;</span><span class="w"> </span><span class="c1">// Error: cannot assign to name</span>
+
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>에러 메시지:</strong>
+<div class="highlight"><pre><span></span><code>cannot assign to name (declared const)
+</code></pre></div></p>
+<hr />
+<h2 id="4-vs">4️⃣ 변수 vs 상수 실행 흐름 비교<a class="headerlink" href="#4-vs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    %% 변수 흐름 (왼쪽)
+    A1[변수 선언: var name := Go] --&gt; B1[메모리 공간 할당]
+    B1 --&gt; C1[값 저장: Go]
+    C1 --&gt; D1[값 변경 가능 ✅]
+    D1 --&gt; E1[name = Golang]
+    E1 --&gt; F1[새로운 값으로 업데이트]
+
+    %% 상수 흐름 (오른쪽)
+    A2[상수 선언: const name = Go] --&gt; B2[컴파일 시 값 결정]
+    B2 --&gt; C2[프로그램에 값 임베딩]
+    C2 --&gt; D2[값 변경 시도 ❌]
+    D2 --&gt; E2[컴파일 에러 발생]
+
+    %% 비교 연결
+    A1 -. 비교 .-&gt; A2
+    F1 -. 결과 .-&gt; E2
+</code></pre></div>
+<hr />
+<h2 id="5">5️⃣ 타입 시스템과 추론<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="go">🔍 Go의 타입 추론 메커니즘<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[값 할당] --&gt; B{타입 명시?}
+    B --&gt;|Yes| C[명시된 타입 사용]
+    B --&gt;|No| D[값 기반 타입 추론]
+
+    D --&gt; E[&quot;42 → int&quot;]
+    D --&gt; F[&quot;3.14 → float64&quot;]
+    D --&gt; G[&quot;&#39;Hello&#39; → string&quot;]
+    D --&gt; H[&quot;true → bool&quot;]
+
+    style D fill:#fff3e0
+    style E fill:#e8f5e8
+    style F fill:#e8f5e8
+    style G fill:#e8f5e8
+    style H fill:#e8f5e8
+</code></pre></div>
+<h3 id="_5">💻 타입 추론 예제<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 타입 추론 예제</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">number</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span><span class="w">          </span><span class="c1">// int로 추론</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">price</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">99.99</span><span class="w">        </span><span class="c1">// float64로 추론</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="w">    </span><span class="c1">// string으로 추론</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">active</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w">        </span><span class="c1">// bool로 추론</span>
+
+<span class="w">    </span><span class="c1">// 축약형도 동일하게 추론</span>
+<span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">100</span><span class="w">            </span><span class="c1">// int</span>
+<span class="w">    </span><span class="nx">rate</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">0.85</span><span class="w">           </span><span class="c1">// float64</span>
+
+<span class="w">    </span><span class="c1">// 타입 확인 (%T 포맷터 사용)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;number 타입: %T, 값: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">number</span><span class="p">,</span><span class="w"> </span><span class="nx">number</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;price 타입: %T, 값: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;message 타입: %T, 값: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;active 타입: %T, 값: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">active</span><span class="p">,</span><span class="w"> </span><span class="nx">active</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;count 타입: %T, 값: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;rate 타입: %T, 값: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rate</span><span class="p">,</span><span class="w"> </span><span class="nx">rate</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_6">🚀 실행 결과<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>number 타입: int, 값: 42
+price 타입: float64, 값: 99.99
+message 타입: string, 값: Hello
+active 타입: bool, 값: true
+count 타입: int, 값: 100
+rate 타입: float64, 값: 0.85
+</code></pre></div>
+<hr />
+<h2 id="6">6️⃣ 실무 활용 패턴<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">🏗️ 프로젝트에서 상수 활용하기<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+
+<span class="c1">// 설정 관련 상수</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// 서버 설정</span>
+<span class="w">    </span><span class="nx">DefaultPort</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">8080</span>
+<span class="w">    </span><span class="nx">MaxConnections</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1000</span>
+<span class="w">    </span><span class="nx">TimeoutSeconds</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span>
+
+<span class="w">    </span><span class="c1">// 비즈니스 규칙</span>
+<span class="w">    </span><span class="nx">MaxUsernameLength</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">50</span>
+<span class="w">    </span><span class="nx">MinPasswordLength</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">8</span>
+<span class="w">    </span><span class="nx">MaxFileSize</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w">  </span><span class="c1">// 10MB</span>
+<span class="p">)</span>
+
+<span class="c1">// 에러 메시지 상수</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="nx">ErrInvalidInput</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;입력값이 올바르지 않습니다&quot;</span>
+<span class="w">    </span><span class="nx">ErrUserNotFound</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;사용자를 찾을 수 없습니다&quot;</span>
+<span class="w">    </span><span class="nx">ErrPermissionDenied</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;권한이 없습니다&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 변수로 동적 데이터 관리</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="nx">currentUsers</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nx">serverStatus</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;running&quot;</span>
+<span class="w">        </span><span class="nx">lastUpdate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;2025-08-16&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;=== 서버 설정 ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;포트: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">DefaultPort</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;최대 연결: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">MaxConnections</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;타임아웃: %d초\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">TimeoutSeconds</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;\n=== 현재 상태 ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;현재 사용자: %d명\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">currentUsers</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;서버 상태: %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">serverStatus</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;마지막 업데이트: %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">lastUpdate</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 상수를 이용한 유효성 검사 예제</span>
+<span class="w">    </span><span class="nx">username</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;user123&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">username</span><span class="p">)</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">MaxUsernameLength</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">ErrInvalidInput</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;사용자명 &#39;%s&#39;가 등록되었습니다.\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">username</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="7">7️⃣ 주요 특징 및 주의사항<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">⚠️ 중요한 규칙들<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[Go 변수/상수 규칙] --&gt; B[&quot;:= 축약형&quot;]
+    A --&gt; C[&quot;const 상수&quot;]
+    A --&gt; D[&quot;var 변수&quot;]
+
+    B --&gt; B1[&quot;✅ 함수 내부에서만 사용&quot;]
+    B --&gt; B2[&quot;✅ 선언과 동시에 초기화&quot;]
+    B --&gt; B3[&quot;❌ 재선언 불가&quot;]
+
+    C --&gt; C1[&quot;✅ 컴파일 시점에 값 결정&quot;]
+    C --&gt; C2[&quot;❌ 런타임에 값 변경 불가&quot;]
+    C --&gt; C3[&quot;✅ 메모리 효율적&quot;]
+
+    D --&gt; D1[&quot;✅ 전역/지역 모두 가능&quot;]
+    D --&gt; D2[&quot;✅ 런타임에 값 변경 가능&quot;]
+    D --&gt; D3[&quot;✅ 초기화 없이 선언 가능&quot;]
+
+    style B1 fill:#c8e6c9
+    style B3 fill:#ffcdd2
+    style C2 fill:#ffcdd2
+</code></pre></div>
+<h3 id="_9">💡 베스트 프랙티스<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>상수 사용 권장 상황</strong>:</li>
+<li>설정값 (포트, 타임아웃 등)</li>
+<li>에러 메시지</li>
+<li>고정된 계산값</li>
+<li>
+<p>열거형 값들</p>
+</li>
+<li>
+<p><strong>변수 사용 권장 상황</strong>:</p>
+</li>
+<li>사용자 입력값</li>
+<li>계산 결과</li>
+<li>상태 정보</li>
+<li>
+<p>동적으로 변경되는 데이터</p>
+</li>
+<li>
+<p><strong>축약형(<code>:=</code>) 사용 팁</strong>:</p>
+</li>
+<li>함수 내부에서 짧고 명확한 변수명에 사용</li>
+<li>타입이 명확할 때 사용</li>
+<li>초기값이 있을 때만 사용</li>
+</ol>
+<hr />
+<h2 id="8">8️⃣ 학습 체크리스트<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] 변수와 상수의 차이점 이해</li>
+<li>[ ] <code>var</code>, <code>const</code>, <code>:=</code> 각각의 사용법 숙지</li>
+<li>[ ] 타입 추론 메커니즘 이해</li>
+<li>[ ] 축약형(<code>:=</code>)의 제한사항 파악</li>
+<li>[ ] 실무에서 상수 활용 방법 이해</li>
+<li>[ ] 컴파일 에러와 런타임 에러 구분</li>
+</ul>
+<hr />
+<h2 id="9">9️⃣ 다음 학습 주제<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>journey
+    title Go 언어 학습 진행도
+    section 완료 ✅
+      Hello World: 5: 완료
+      Variables &amp; Constants: 5: 완료
+    section 다음 학습 📚
+      데이터 타입: 4: 다음
+      함수: 3: 예정
+      조건문과 반복문: 3: 예정
+    section 고급 주제 🚀
+      구조체: 2: 예정
+      인터페이스: 2: 예정
+      고루틴: 1: 예정
+</code></pre></div>
+<hr />
+<h2 id="_10">📚 참고 자료<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://golang.org/ref/spec#Variables">Go 공식 문서 - Variables</a></li>
+<li><a href="https://golang.org/ref/spec#Constants">Go 공식 문서 - Constants</a></li>
+<li><a href="https://golang.org/doc/effective_go#constants">Effective Go - Constants</a></li>
+</ul>
+<hr />
+<blockquote>
+<p>🎉 <strong>축하합니다!</strong> Go 언어의 변수와 상수를 완벽하게 마스터했습니다!<br />
+다음 단계로 데이터 타입을 학습해보세요! 🚀</p>
 </blockquote>
 
 
@@ -3502,10 +4403,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>
