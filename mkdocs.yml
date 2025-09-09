@@ -1,11 +1,79 @@
+# 사이트 기본 정보
 site_name: YJ Shin TIL Blog
+site_description: 오늘 배운 것을 기록하는 공간 (TIL)
+site_author: YJ Shin
+site_url: https://yjshin-cloud.github.io/TIL/
+
+# 🔗 상단 네비게이션에 링크 추가
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yjshin-cloud/TIL
+      name: GitHub Repo
+    - icon: fontawesome/solid/book
+      link: https://velog.io/@yjshin/posts
+      name: Blog Home
+
+# 테마 설정 (Material)
 theme:
   name: material
   language: ko
   features:
-    - navigation.expand
-    - navigation.sections
-    - search.highlight
-    - search.suggest
+    - navigation.instant # 페이지 로딩 빠르게
+    - navigation.expand # 사이드바 기본 확장
+    - navigation.sections # 섹션 구분 표시
+    - navigation.top # 상단 "맨 위로" 버튼
+    - search.highlight # 검색어 하이라이트
+    - search.suggest # 검색 자동완성
+    - content.code.copy # 코드 블록 복사 버튼
+  palette:
+    - scheme: default # 라이트 모드
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로 전환
+    - scheme: slate # 다크 모드
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로 전환
+
+# 플러그인
 plugins:
   - search
+  - tags
+
+# 마크다운 확장 (Material 권장)
+markdown_extensions:
+  - admonition # 경고/정보 박스
+  - footnotes # 각주
+  - toc:
+      permalink: true # 제목에 링크 아이콘
+  - pymdownx.highlight # 코드블록 하이라이트
+  - pymdownx.superfences # 코드블록 안에 또 코드블록 가능
+  - pymdownx.tabbed: # 탭 UI
+      alternate_style: true
+  - pymdownx.details # 접기/펼치기 블록
+  - pymdownx.emoji: # 이모지 지원
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - attr_list # 마크다운 요소에 속성 추가
+  - md_in_html # HTML 안에 마크다운 허용
+
+# 사이트 네비게이션
+nav:
+  - 홈: index.md
+  - AWS:
+      - EC2: aws/ec2.md
+      - S3: aws/s3.md
+      - VPC: aws/vpc.md
+  - Spring:
+      - JWT: spring/jwt.md
+      - MVC 패턴: spring/mvc.md
+      - Security: spring/security.md
+  - Cloud:
+      - CloudFormation: cloud/cfn.md
+      - Organizations: cloud/org.md
+  - About:
+      - 소개: about.md
