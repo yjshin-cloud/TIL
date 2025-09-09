@@ -1,0 +1,11 @@
+site_name: YJ Shin TIL Blog
+theme:
+  name: material
+  language: ko
+  features:
+    - navigation.expand
+    - navigation.sections
+    - search.highlight
+    - search.suggest
+plugins:
+  - search
