@@ -14,8 +14,9 @@
 
 ## 🔗 Quick Links
 
-[![Velog](https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white)](https://velog.io/@yjshin/posts)  
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yjshin-cloud/TIL)
+[![Velog](https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white)](https://velog.io/@yjshin/posts)
+[![Tistory](https://img.shields.io/badge/Tistory-FF6A00?style=for-the-badge&logo=tistory&logoColor=white)](https://deeprun.tistory.com/category/Cloud%20Engineering%20Bootcamp)
 
 ---
 
