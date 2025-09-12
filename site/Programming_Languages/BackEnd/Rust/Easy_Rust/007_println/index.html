@@ -12,13 +12,13 @@
         <meta name="author" content="YJ Shin">
       
       
-        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/">
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Programming_Languages/BackEnd/Rust/Easy_Rust/007_println/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../006_Floats/">
       
       
-        <link rel="next" href="../002_Comments/">
+        <link rel="next" href="../../../../FrontEnd/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>🌱 프로그래밍 언어 러스트를 배웁시다! - YJ Shin TIL Blog</title>
+        <title>🦀 Rust 기초 배우기: 007_println! 매크로 - YJ Shin TIL Blog</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#rust-007_println" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🌱 프로그래밍 언어 러스트를 배웁시다!
+              🦀 Rust 기초 배우기: 007_println! 매크로
             
           </span>
         </div>
@@ -3092,32 +3092,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    🌱 프로그래밍 언어 러스트를 배웁시다!
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../001_Intro/" class="md-nav__link">
         
   
   
@@ -3128,71 +3106,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#easy-rust-in-korean-intro-001" class="md-nav__link">
-    <span class="md-ellipsis">
-      Easy Rust in Korean: Intro (001편)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      📌 영상 핵심 요약
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎯 러스트 언어 특징 정리
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mermaid" class="md-nav__link">
-    <span class="md-ellipsis">
-      📊 학습 구조 (Mermaid 다이어그램)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      🌟 초보자에게 전하는 메시지
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3317,10 +3230,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../007_println/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 기초 배우기: 007_println! 매크로
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3331,6 +3266,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#println" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 println! 매크로란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 개념 시각화 (Mermaid)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#println_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏢 현업에서 println! 활용 사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 결론:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3563,27 +3554,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#easy-rust-in-korean-intro-001" class="md-nav__link">
+  <a href="#println" class="md-nav__link">
     <span class="md-ellipsis">
-      Easy Rust in Korean: Intro (001편)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      📌 영상 핵심 요약
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎯 러스트 언어 특징 정리
+      📌 println! 매크로란?
     </span>
   </a>
   
@@ -3592,16 +3565,25 @@
         <li class="md-nav__item">
   <a href="#mermaid" class="md-nav__link">
     <span class="md-ellipsis">
-      📊 학습 구조 (Mermaid 다이어그램)
+      🔎 개념 시각화 (Mermaid)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#println_1" class="md-nav__link">
     <span class="md-ellipsis">
-      🌟 초보자에게 전하는 메시지
+      🏢 현업에서 println! 활용 사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 결론:
     </span>
   </a>
   
@@ -3623,74 +3605,76 @@
 
 
 
-<h1 id="_1">🌱 프로그래밍 언어 러스트를 배웁시다!<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h3 id="easy-rust-in-korean-intro-001">Easy Rust in Korean: Intro (001편)<a class="headerlink" href="#easy-rust-in-korean-intro-001" title="Permanent link">&para;</a></h3>
+<h1 id="rust-007_println">🦀 Rust 기초 배우기: 007_println! 매크로<a class="headerlink" href="#rust-007_println" title="Permanent link">&para;</a></h1>
 <hr />
-<h2 id="_2">📌 영상 핵심 요약<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Rust의 가장 기본이자 중요한 출력 함수인 <strong><code>println!</code> 매크로</strong>를 다룹니다.<br />
+초보자도 이해할 수 있도록 코드와 주석을 자세히 달았으며,<br />
+마지막에는 현업에서 어떻게 사용되는지도 정리했습니다.</p>
+<hr />
+<h2 id="println">📌 println! 매크로란?<a class="headerlink" href="#println" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><strong>(00:01)</strong><br />
-  👋 강의자 소개: 1년 전 러스트 강의를 시작. 서울에서 개발자로 활동 중.</p>
-</li>
-<li>
-<p><strong>(00:01 ~ 01:07)</strong><br />
-  📖 쉬운 영어 문장과 한국어 설명을 조합하여 누구나 쉽게 배울 수 있도록 제작.</p>
-</li>
-<li>
-<p><strong>(01:07)</strong><br />
-  🔎 한국어 러스트 강의 자료의 부족을 지적. 유튜브에는 짧은 영상만 존재.<br />
-  👉 본 강의는 한국어로 체계적으로 배울 수 있는 드문 자료.</p>
-</li>
-<li>
-<p><strong>(02:12)</strong><br />
-  💻 러스트 설치 없이 웹 기반으로 코드 작성 &amp; 실행 가능.<br />
-  ✔ 설치 시 더 빠른 실행과 풍부한 기능 제공.</p>
-</li>
-<li>
-<p><strong>(03:18)</strong><br />
-  🔄 코드 실행 결과 공유가 쉬움.<br />
-  → 초보자가 피드백을 받고 학습하기 좋은 환경.</p>
-</li>
-<li>
-<p><strong>(04:23)</strong><br />
-  ⚡ 러스트 언어의 핵심 장점  </p>
-</li>
-<li><strong>빠른 성능</strong> (C/C++ 수준)  </li>
-<li>
-<p><strong>높은 안전성</strong> (메모리 에러 방지)</p>
-</li>
-<li>
-<p><strong>(05:28)</strong><br />
-  ✅ 강력한 컴파일러: 잘못된 코드와 타입 오류를 빠르게 잡아줌.<br />
-  → 초보자가 실수하면서도 올바르게 학습할 수 있음.</p>
-</li>
-<li>
-<p><strong>(마무리)</strong><br />
-  🏢 러스트 재단과 다양한 기업이 러스트를 채택 중.<br />
-  앞으로가 기대되는 언어이며, 다음 영상부터 본격적인 튜토리얼 진행 예정.</p>
-</li>
+<li>Rust에서 콘솔에 텍스트를 출력할 때 사용하는 <strong>매크로(Macro)</strong>  </li>
+<li>함수(<code>function</code>)와 다르게, <strong>코드를 자동으로 변환해주는 특수한 도구</strong>  </li>
+<li>문자열, 숫자, 변수 값을 쉽게 출력할 수 있음  </li>
 </ul>
 <hr />
-<h2 id="_3">🎯 러스트 언어 특징 정리<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>안전성(Safety):</strong> 메모리 관리 오류를 방지.</li>
-<li><strong>성능(Performance):</strong> C/C++에 버금가는 속도.</li>
-<li><strong>동시성(Concurrency):</strong> 안전한 멀티스레드 프로그래밍 지원.</li>
-<li><strong>컴파일 타임 검사:</strong> 잘못된 코드 실행 전 오류 감지.</li>
-</ul>
-<hr />
-<h2 id="mermaid">📊 학습 구조 (Mermaid 다이어그램)<a class="headerlink" href="#mermaid" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>graph TD
-    A[Intro: 러스트 소개] --&gt; B[환경 구축: 설치 없이 체험]
-    B --&gt; C[코드 작성 &amp; 실행]
-    C --&gt; D[피드백 &amp; 오류 확인]
-    D --&gt; E[러스트 장점 이해]
-    E --&gt; F[실제 프로젝트 적용]
+<h2 id="mermaid">🔎 개념 시각화 (Mermaid)<a class="headerlink" href="#mermaid" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    A[개발자 작성 코드&lt;br/&gt;println!(&quot;Hello, Rust!&quot;)] --&gt; B[println! 매크로 내부 변환]
+    B --&gt; C[실제 Rust 표준 라이브러리 코드로 변환]
+    C --&gt; D[운영체제(OS) 콘솔 출력 시스템 호출]
+    D --&gt; E[콘솔에 &quot;Hello, Rust!&quot; 표시]
 </code></pre></div>
-<h2 id="_4">🌟 초보자에게 전하는 메시지<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>러스트는 배우기 까다로울 수 있지만, <strong>"빠르면서 안전하다"</strong>는 강력한 매력을 지닌 언어입니다.</p>
-<p>본 강의는 설치 없이도 쉽게 실습할 수 있으니 부담 없이 따라오기만 해도 됩니다.</p>
-<p>꾸준히 따라가면 어느새 안정적이고 성능 좋은 프로그램을 만들 수 있게 될 거예요 🚀</p>
+<hr />
+<p>🖥 코드 예시와 주석
+<div class="highlight"><pre><span></span><code><span class="c1">// 프로그램 시작 지점 (모든 Rust 프로그램은 main 함수에서 시작)</span>
+<span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// println! 매크로: &quot;Hello, Rust!&quot;라는 문자열을 콘솔에 출력</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello, Rust!&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 중괄호 {} 안에는 변수 값을 넣을 수 있음</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;철수&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 변수 name 선언, 값은 &quot;철수&quot;</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;안녕하세요, {}님!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// {} 안에 name 값이 들어가서 출력됨</span>
+
+<span class="w">    </span><span class="c1">// 숫자 출력도 가능</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"> </span><span class="c1">// 변수 age 선언, 값은 25</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;나이는 {}살 입니다.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 여러 개의 값을 출력할 수도 있음</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;서울&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}님은 {}에 살고 있고, 나이는 {}살입니다.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">city</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>💡 한 줄씩 주석 설명</p>
+<p>fn main() { ... }
+→ Rust 프로그램의 시작점, 실행하면 제일 먼저 실행됨</p>
+<p>println!("Hello, Rust!");
+→ 따옴표 안의 문자열을 콘솔에 그대로 출력</p>
+<p>let name = "철수";
+→ let 키워드로 변수를 선언 (name이라는 이름, 값은 "철수")</p>
+<p>println!("안녕하세요, {}님!", name);
+→ {}는 자리 표시자(placeholder), 실행 시 name 값이 들어감</p>
+<p>let age = 25;
+→ 정수 값을 담는 변수 선언</p>
+<p>println!("나이는 {}살 입니다.", age);
+→ {} 안에 age 값이 들어가서 "나이는 25살 입니다." 출력</p>
+<p>println!("{}님은 {}에 살고 있고, 나이는 {}살입니다.", name, city, age);
+→ 여러 개의 변수를 순서대로 {}에 채워 넣을 수 있음</p>
+<hr />
+<h2 id="println_1">🏢 현업에서 println! 활용 사례<a class="headerlink" href="#println_1" title="Permanent link">&para;</a></h2>
+<p>디버깅(Debugging)
+→ 프로그램 실행 중 변수 값이 제대로 들어오는지 확인할 때 가장 많이 사용
+→ 예: 서버 프로그램에서 요청이 제대로 들어왔는지 로그를 찍을 때</p>
+<p>로그 출력
+→ 실제 현업에서는 println! 대신 로깅 라이브러리(log, env_logger 등)를 사용
+→ 하지만 기본 개념은 동일: 콘솔에 출력하여 개발자가 흐름을 확인</p>
+<p>학습 &amp; 테스트 코드 작성
+→ 초보자가 Rust 문법을 익히거나 간단한 프로그램을 만들 때 필수 도구
+→ 예: 알고리즘 문제 풀이 결과를 출력할 때</p>
+<hr />
+<h2 id="_1">✅ 결론:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>println!은 Rust의 "Hello, World!" 수준의 기초지만, 모든 프로그램의 디버깅과 로그의 출발점입니다.
+처음에는 단순 출력만 하지만, 나중에는 에러 추적, 시스템 로그 관리 같은 실무 작업으로 확장됩니다.</p>
 
 
 
