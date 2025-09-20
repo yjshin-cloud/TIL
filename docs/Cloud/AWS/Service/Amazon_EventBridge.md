@@ -46,6 +46,9 @@ flowchart TD
     B -->|Rule 4| F["Step Functions"]
 ```
 
+<img width="3840" height="1722" alt="Untitled diagram _ Mermaid Chart-2025-09-20-125635" src="https://github.com/user-attachments/assets/d1c99b37-2a53-4bbe-a164-736900fd78e1" />
+
+
 ---
 
 ## 4️⃣ 특징
