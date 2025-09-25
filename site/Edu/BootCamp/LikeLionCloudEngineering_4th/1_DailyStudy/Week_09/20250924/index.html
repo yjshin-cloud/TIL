@@ -1,0 +1,6375 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="오늘 배운 것을 기록하는 공간 (TIL)">
+      
+      
+        <meta name="author" content="YJ Shin">
+      
+      
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy/Week_09/20250924/">
+      
+      
+        <link rel="prev" href="../20250923/">
+      
+      
+        <link rel="next" href="../../../../../../OS/">
+      
+      
+      <link rel="icon" href="../../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>AWS 클라우드 완전 가이드 🚀 - YJ Shin TIL Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-header__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YJ Shin TIL Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AWS 클라우드 완전 가이드 🚀
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../.." title="YJ Shin TIL Blog" class="md-nav__button md-logo" aria-label="YJ Shin TIL Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YJ Shin TIL Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    👋 Welcome to YJ Shin TIL Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Practice/1.Create_Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS 계정 생성 가이드 (2025 기준)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Practice/2.Create_IAM-User/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM 사용자 생성 &amp; Root 계정 보안 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud/AWS/Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS-Organizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS Organizations 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Artifact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📑 AWS Artifact 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_CloudTrail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📜 AWS CloudTrail 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_EBS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💾 AWS EBS (Elastic Block Store) 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Fargate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🐳 AWS Fargate 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Macie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔎 Amazon Macie 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔔 AWS SNS (Simple Notification Service) 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_SQS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📬 AWS SQS (Simple Queue Service) 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Systems_Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 AWS Systems Manager (SSM) 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/AWS_Trusted_Advisor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 AWS Trusted Advisor 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/Amazon_Cognito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    👤 Amazon Cognito 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/Amazon_EventBridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔔 Amazon EventBridge 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/Amazon_GuardDuty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛡️ Amazon GuardDuty 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/Auto_Scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Auto Scaling 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/CloudWatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 AWS CloudWatch 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/EC2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ☁️ AWS EC2 (Elastic Compute Cloud) 완벽 이해
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/ELB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚖️ AWS Elastic Load Balancing (ELB) 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/IAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔐 AWS IAM (Identity and Access Management) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/RDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon RDS (Relational Database Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/S3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ Amazon S3 (Simple Storage Service) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Cloud/AWS/Service/VPC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 AWS VPC (Virtual Private Cloud) 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    DB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../DB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Edu
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Edu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BootCamp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            BootCamp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LikeLionCloudEngineering 4th
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            LikeLionCloudEngineering 4th
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    0 Memoir
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            0 Memoir
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/0_Memoir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week01_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 1주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week02_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 2주차 회고록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week03_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3주차 학습 회고록 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week04_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 4주차 회고록: JDBC와 웹 개발 기초 마스터하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0_Memoir/Week05_Memoir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 5주차 회고록 (Week 5 Retrospective)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1 DailyStudy
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            1 DailyStudy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Edu/BootCamp/LikeLionCloudEngineering_4th/1_DailyStudy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_2" id="__nav_4_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 02
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week 02
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_02/20250804/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 객체지향 프로그래밍 완전 정복 가이드 ☕
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_02/20250805/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java Calculator &amp; AI 이미지 생성기 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_02/20250806/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 자바 스레드와 분산처리 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_02/20250807/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔗 자바 의존성과 배포 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_02/20250808/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache Tomcat 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_3" id="__nav_4_2_2_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 03
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week 03
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_03/20250811/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DB 관리 도구 및 클라우드 서비스 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_03/20250812/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🗄️ SQL 완벽 가이드 - 기초부터 실무까지
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_03/20250813/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL 8.0 완전 복습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_03/20250814/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 13일차 - SQL 데이터베이스 마스터 🗃️
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_4" id="__nav_4_2_2_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 04
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Week 04
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_04/20250818/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🎯 JDBC 학습 가이드 - 8월 18일 실습
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_04/20250819/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JDBC DAO/DTO 패턴 완전 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_04/20250820/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS 선택자와 타이포그래피 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_04/20250821/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS Layout 실습 가이드 📐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_04/20250822/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Core 완벽 마스터 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_5" id="__nav_4_2_2_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 05
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Week 05
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_05/20250825/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 19일차 TIL - DOM &amp; BOM &amp; 비동기 프로그래밍 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_05/20250826/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋사 20일차 TIL - JavaScript 비동기 프로그래밍 완전 정리 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_05/20250827/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    멋쟁이사자처럼 21일차 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_05/20250828/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Web MVC 완전정복 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_05/20250829/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSP &amp; Spring Web 학습 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_6" id="__nav_4_2_2_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 06
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Week 06
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_06/20250901/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot 상태 관리 &amp; 보안 종합 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_06/20250902/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RESTful API &amp; Swagger 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_06/20250903/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT 완전 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_06/20250905/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🍪 쿠키와 게시판 프로젝트 완벽 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_7" id="__nav_4_2_2_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 07
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Week 07
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_07/20250910/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 네트워크 기초 완전 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_8" id="__nav_4_2_2_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 08
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Week 08
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Week_08/20250917/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🐳 Docker 가상화 및 컨테이너 관리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3_9" id="__nav_4_2_2_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Week 09
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_2_3_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            Week 09
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250922/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker 완전 정복 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20250923/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker를 활용한 웹 개발 완전 가이드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AWS 클라우드 완전 가이드 🚀
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS 클라우드 완전 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 클라우드가 뭔가요? ☁️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 클라우드가 뭔가요? ☁️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏠 집에 있는 컴퓨터 vs 클라우드 컴퓨터
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 클라우드 vs 전통적인 방식 비교
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 클라우드의 장단점 ⚖️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 클라우드의 장단점 ⚖️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 장점 (좋은 점들)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ 단점 (조심해야 할 점들)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚫 클라우드가 맞지 않는 경우
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 클라우드 서비스 종류 📦
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 클라우드 서비스 종류 📦">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏢 건물로 비유해보자!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 서비스 모델 비교표
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. AWS 기본 개념 🌍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. AWS 기본 개념 🌍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗺️ AWS는 전세계에 컴퓨터를 두고 있어요!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 AWS 용어 쉽게 이해하기
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 현업에서 많이 쓰는 AWS 서비스 💼
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 현업에서 많이 쓰는 AWS 서비스 💼">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔥 실제 회사에서 가장 많이 쓰는 AWS 서비스들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      💼 현업 실사용 예시
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 업종별 AWS 활용법
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 클라우드 설계 패턴 🏗️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 클라우드 설계 패턴 🏗️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 로드 밸런싱 패턴 (트래픽 분산)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 자동 확장/축소 패턴
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗄️ 데이터베이스 복제 패턴
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 보안 패턴 (방화벽)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 AWS 시작하기
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 AWS 시작하기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      1단계: AWS 계정 만들기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2단계: 무료 서비스 체험해보기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3단계: 비용 관리하기
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 실전 프로젝트: 간단한 웹사이트 만들기
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 실전 프로젝트: 간단한 웹사이트 만들기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로젝트 구조
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      단계별 구축 과정
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔮 클라우드의 미래
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔮 클라우드의 미래">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 클라우드 시장 전망
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 앞으로 주목해야 할 기술들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 더 공부하고 싶다면?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 더 공부하고 싶다면?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 AWS 자격증 로드맵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 추천 학습 리소스
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎉 마무리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎉 마무리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 핵심 포인트 정리
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 실무 꿀팁 모음
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌍 글로벌 vs 국내 클라우드 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 업종별 AWS 도입 현황
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔮 클라우드 트렌드와 미래
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 커리어 패스: 클라우드 엔지니어가 되는 법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 실전 면접 질문 모음
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎊 축하합니다! 완주하셨네요!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎊 축하합니다! 완주하셨네요!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 지금까지 배운 것들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌈 마지막 격려의 말
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      📞 도움이 필요할 때
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 도움이 필요할 때">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆘 문제 해결 리소스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      📱 유용한 앱들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    OS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../OS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Programming Languages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 TIL - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BackEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            BackEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Go
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2" id="__nav_6_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NomadCoders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            NomadCoders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Go/NomadCoders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2_2_2" id="__nav_6_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started with Go Quickly and Easily
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_6_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started with Go Quickly and Easily
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/0_20250816_HelloWorld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 Hello World 완벽 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/10_20250827_Structs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 Struct 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/1_20250816_variables_constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 20250816 variables constants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/2_20250817_Functions_Part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 함수 완전 정복 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/3_20250818_Functions_Part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 함수의 두 가지 핵심 기능:
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/4_20250819_for%2Crange%2Cargs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 반복문 정리: for, range, args
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/5_20250820_If_with_a_Twist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌟 Go 언어 기초: if, else, 그리고 Variable Expression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/6_20250821_Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 강의 요약 — Switch 문 (#1 7 Switch)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/7_20250822_Pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔎 Go 언어에서의 Low-Level Programming (포인터 기초)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/8_20250825_Arrays_and_Slices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go 언어 강의 #1: Arrays &amp; Slices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Go/NomadCoders/Getting_Started_with_Go_Quickly_and_Easily/9_20250826_Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Go 언어 – Map 데이터 구조 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JAVA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            JAVA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/JAVA/CORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 REST API와 CORS 정리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/JAVA/JWT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/BackEnd/Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4_2" id="__nav_6_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Easy Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Easy Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/001_Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌱 프로그래밍 언어 러스트를 배웁시다!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/002_Comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 기초 강의 정리 - 주석(Comment)과 변수 경고 처리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/003_Integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔢 Rust 정수 타입 (Integer Types)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/004_Chars_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Rust 배우기 – Chars (문자)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/005_Chars_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 문자열과 바이트/문자 개수 이해하기
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/006_Floats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust Easy Rust 006 — Floats (실수형)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/BackEnd/Rust/Easy_Rust/007_println/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🦀 Rust 기초 배우기: 007_println! 매크로
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    FrontEnd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            FrontEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming_Languages/FrontEnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/JS/ASYNC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    비동기 프로그래밍 완전 가이드 🚀
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Programming_Languages/FrontEnd/JS/DOM%26BOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript DOM &amp; BOM 완벽 가이드 📚
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 목차
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 클라우드가 뭔가요? ☁️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 클라우드가 뭔가요? ☁️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏠 집에 있는 컴퓨터 vs 클라우드 컴퓨터
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 클라우드 vs 전통적인 방식 비교
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 클라우드의 장단점 ⚖️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 클라우드의 장단점 ⚖️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 장점 (좋은 점들)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ 단점 (조심해야 할 점들)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚫 클라우드가 맞지 않는 경우
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 클라우드 서비스 종류 📦
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 클라우드 서비스 종류 📦">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏢 건물로 비유해보자!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 서비스 모델 비교표
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. AWS 기본 개념 🌍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. AWS 기본 개념 🌍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗺️ AWS는 전세계에 컴퓨터를 두고 있어요!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 AWS 용어 쉽게 이해하기
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 현업에서 많이 쓰는 AWS 서비스 💼
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 현업에서 많이 쓰는 AWS 서비스 💼">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔥 실제 회사에서 가장 많이 쓰는 AWS 서비스들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      💼 현업 실사용 예시
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 업종별 AWS 활용법
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 클라우드 설계 패턴 🏗️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 클라우드 설계 패턴 🏗️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 로드 밸런싱 패턴 (트래픽 분산)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 자동 확장/축소 패턴
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗄️ 데이터베이스 복제 패턴
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 보안 패턴 (방화벽)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 AWS 시작하기
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 AWS 시작하기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      1단계: AWS 계정 만들기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2단계: 무료 서비스 체험해보기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3단계: 비용 관리하기
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 실전 프로젝트: 간단한 웹사이트 만들기
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 실전 프로젝트: 간단한 웹사이트 만들기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로젝트 구조
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      단계별 구축 과정
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔮 클라우드의 미래
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔮 클라우드의 미래">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 클라우드 시장 전망
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 앞으로 주목해야 할 기술들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 더 공부하고 싶다면?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 더 공부하고 싶다면?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 AWS 자격증 로드맵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 추천 학습 리소스
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎉 마무리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎉 마무리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 핵심 포인트 정리
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 실무 꿀팁 모음
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌍 글로벌 vs 국내 클라우드 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 업종별 AWS 도입 현황
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔮 클라우드 트렌드와 미래
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 커리어 패스: 클라우드 엔지니어가 되는 법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 실전 면접 질문 모음
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎊 축하합니다! 완주하셨네요!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎊 축하합니다! 완주하셨네요!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 지금까지 배운 것들
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌈 마지막 격려의 말
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      📞 도움이 필요할 때
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 도움이 필요할 때">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆘 문제 해결 리소스
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      📱 유용한 앱들
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aws">AWS 클라우드 완전 가이드 🚀<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_1">📖 목차<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-클라우드가-뭔가요">클라우드가 뭔가요?</a></li>
+<li><a href="#2-클라우드의-장단점">클라우드의 장단점</a></li>
+<li><a href="#3-클라우드-서비스-종류">클라우드 서비스 종류</a></li>
+<li><a href="#4-aws-기본-개념">AWS 기본 개념</a></li>
+<li><a href="#5-현업에서-많이-쓰는-aws-서비스">현업에서 많이 쓰는 AWS 서비스</a></li>
+<li><a href="#6-클라우드-설계-패턴">클라우드 설계 패턴</a></li>
+</ol>
+<hr />
+<h2 id="1">1. 클라우드가 뭔가요? ☁️<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="vs">🏠 집에 있는 컴퓨터 vs 클라우드 컴퓨터<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[내 집 컴퓨터 🏠] --&gt; B[직접 관리해야 함 😰]
+    A --&gt; C[고장나면 내가 고쳐야 함 🔧]
+    A --&gt; D[전기세 내가 냄 💡]
+
+    E[클라우드 컴퓨터 ☁️] --&gt; F[Amazon이 관리해줌 😊]
+    E --&gt; G[고장나면 Amazon이 고쳐줌 🛠️]
+    E --&gt; H[쓴 만큼만 돈 내면 됨 💰]
+</code></pre></div>
+<p><strong>쉽게 말하면:</strong> 클라우드는 인터넷으로 컴퓨터를 빌려쓰는 것입니다!</p>
+<h3 id="vs_1">📊 클라우드 vs 전통적인 방식 비교<a class="headerlink" href="#vs_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>전통적인 방식 (온프레미스)</th>
+<th>클라우드 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>컴퓨터 구입</strong></td>
+<td>직접 사야함 (비싸요! 💸)</td>
+<td>빌려쓰면 됨 (저렴! 💝)</td>
+</tr>
+<tr>
+<td><strong>관리</strong></td>
+<td>내가 직접 해야함 😅</td>
+<td>Amazon이 대신 해줌 😎</td>
+</tr>
+<tr>
+<td><strong>확장</strong></td>
+<td>새 컴퓨터 사야함 🛒</td>
+<td>클릭 한 번으로 OK ⚡</td>
+</tr>
+<tr>
+<td><strong>고장</strong></td>
+<td>내가 고쳐야함 🔧</td>
+<td>Amazon이 고쳐줌 🛠️</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2">2. 클라우드의 장단점 ⚖️<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="_2">✅ 장점 (좋은 점들)<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mindmap
+  root((클라우드 장점))
+    💰 비용절약
+      초기비용 없음
+      쓴만큼만 지불
+    ⚡ 빠른 확장
+      클릭 한번으로 확장
+      자동으로 조절 가능
+    🌍 전세계 서비스
+      어디서든 접속 가능
+      해외 고객도 빠르게
+    🛡️ 안전함
+      Amazon이 보안 관리
+      자동 백업
+</code></pre></div>
+<h3 id="_3">❌ 단점 (조심해야 할 점들)<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[클라우드 단점] --&gt; B[인터넷 필요 📶]
+    A --&gt; C[생각보다 비쌀 수 있음 💸]
+    A --&gt; D[의존성 증가 📱]
+    A --&gt; E[보안 우려 🔒]
+
+    B --&gt; B1[인터넷이 끊어지면 못씀]
+    C --&gt; C1[많이 쓰면 비용 증가]
+    D --&gt; D1[Amazon에 너무 의존]
+    E --&gt; E1[데이터가 Amazon에 있음]
+</code></pre></div>
+<h3 id="_4">🚫 클라우드가 맞지 않는 경우<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>인터넷이 자주 끊어지는 곳</strong> 📡</li>
+<li><strong>매우 빠른 반응이 필요한 게임</strong> 🎮</li>
+<li><strong>정부 기밀문서</strong> 🔐</li>
+<li><strong>매우 오래된 프로그램</strong> 💾</li>
+</ol>
+<hr />
+<h2 id="3">3. 클라우드 서비스 종류 📦<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="_5">🏢 건물로 비유해보자!<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    subgraph &quot;전통적인 방식 (온프레미스)&quot;
+        A1[땅 구매 🏞️]
+        A2[건물 건설 🏗️]
+        A3[인테리어 🎨]
+        A4[가구 배치 🪑]
+        A5[직원 입주 👨‍💼]
+    end
+
+    subgraph &quot;IaaS - 땅만 빌리기&quot;
+        B1[AWS가 땅 제공 🏞️]
+        B2[내가 건물 건설 🏗️]
+        B3[내가 인테리어 🎨]
+        B4[내가 가구 배치 🪑]
+        B5[내가 직원 관리 👨‍💼]
+    end
+
+    subgraph &quot;PaaS - 건물까지 빌리기&quot;
+        C1[AWS가 땅 제공 🏞️]
+        C2[AWS가 건물 건설 🏗️]
+        C3[내가 인테리어 🎨]
+        C4[내가 가구 배치 🪑]
+        C5[내가 직원 관리 👨‍💼]
+    end
+
+    subgraph &quot;SaaS - 다 준비된 사무실 빌리기&quot;
+        D1[AWS가 땅 제공 🏞️]
+        D2[AWS가 건물 건설 🏗️]
+        D3[AWS가 인테리어 🎨]
+        D4[AWS가 가구 배치 🪑]
+        D5[내가 직원만 입주 👨‍💼]
+    end
+</code></pre></div>
+<h3 id="_6">📋 서비스 모델 비교표<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>서비스 모델</th>
+<th>내가 할 일</th>
+<th>AWS가 할 일</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IaaS</strong></td>
+<td>많음 😅</td>
+<td>적음</td>
+<td>EC2 (가상컴퓨터)</td>
+</tr>
+<tr>
+<td><strong>PaaS</strong></td>
+<td>보통 😐</td>
+<td>보통</td>
+<td>Elastic Beanstalk</td>
+</tr>
+<tr>
+<td><strong>SaaS</strong></td>
+<td>적음 😊</td>
+<td>많음</td>
+<td>Gmail, Netflix</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-aws">4. AWS 기본 개념 🌍<a class="headerlink" href="#4-aws" title="Permanent link">&para;</a></h2>
+<h3 id="aws_1">🗺️ AWS는 전세계에 컴퓨터를 두고 있어요!<a class="headerlink" href="#aws_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    subgraph &quot;AWS 글로벌 인프라&quot;
+        A[리전 Region 🌍] --&gt; B[가용영역 AZ 🏢]
+        A --&gt; C[가용영역 AZ 🏢]
+        A --&gt; D[가용영역 AZ 🏢]
+
+        E[엣지 로케이션 📡] --&gt; F[빠른 배송 ⚡]
+    end
+
+    B --&gt; B1[데이터센터 1 💻]
+    B --&gt; B2[데이터센터 2 💻]
+    C --&gt; C1[데이터센터 3 💻]
+    D --&gt; D1[데이터센터 4 💻]
+</code></pre></div>
+<h3 id="aws_2">📍 AWS 용어 쉽게 이해하기<a class="headerlink" href="#aws_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>리전 (Region)</strong> 🌍: 나라/대륙 단위 (예: 서울, 도쿄, 미국 서부)</li>
+<li><strong>가용영역 (AZ)</strong> 🏢: 각 리전 안의 데이터센터 건물들</li>
+<li><strong>엣지 로케이션</strong> 📡: 빠른 배송을 위한 중간 창고 같은 곳</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🎯 AWS 리전 선택 기준 (코드가 아니라 선택 기준이에요!)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">choose_aws_region</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS 리전을 선택할 때 고려사항</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">considerations</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;거리&quot;</span><span class="p">:</span> <span class="s2">&quot;고객과 가까운 곳을 선택 (빠른 속도)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;법률&quot;</span><span class="p">:</span> <span class="s2">&quot;데이터 보관 법률 확인&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;서비스&quot;</span><span class="p">:</span> <span class="s2">&quot;필요한 AWS 서비스가 있는지 확인&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;비용&quot;</span><span class="p">:</span> <span class="s2">&quot;리전마다 가격이 다름&quot;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">considerations</span>
+</code></pre></div>
+<hr />
+<h2 id="5-aws">5. 현업에서 많이 쓰는 AWS 서비스 💼<a class="headerlink" href="#5-aws" title="Permanent link">&para;</a></h2>
+<h3 id="aws_3">🔥 실제 회사에서 가장 많이 쓰는 AWS 서비스들<a class="headerlink" href="#aws_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    subgraph &quot;컴퓨팅 (컴퓨터 빌리기)&quot;
+        A1[EC2 💻] --&gt; A2[가상 컴퓨터 대여]
+        A3[Lambda ⚡] --&gt; A4[코드만 실행]
+    end
+
+    subgraph &quot;스토리지 (저장소)&quot;
+        B1[S3 🗄️] --&gt; B2[파일 저장소]
+        B3[EBS 💾] --&gt; B4[하드디스크]
+    end
+
+    subgraph &quot;데이터베이스 (DB)&quot;
+        C1[RDS 🗃️] --&gt; C2[관계형 데이터베이스]
+        C3[DynamoDB ⚡] --&gt; C4[빠른 NoSQL DB]
+    end
+
+    subgraph &quot;네트워킹 (인터넷 연결)&quot;
+        D1[VPC 🏠] --&gt; D2[가상 사설망]
+        D3[CloudFront 🌐] --&gt; D4[빠른 배송 네트워크]
+    end
+</code></pre></div>
+<h3 id="_7">💼 현업 실사용 예시<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🏢 실제 회사에서 이렇게 사용해요!</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RealWorldAWSUsage</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    현업에서 실제로 AWS를 이렇게 써요!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">startup_company</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        스타트업 회사의 AWS 사용법</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;EC2&quot;</span><span class="p">:</span> <span class="s2">&quot;웹사이트 서버 운영 (처음에는 작은 서버로 시작)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;S3&quot;</span><span class="p">:</span> <span class="s2">&quot;사용자가 올린 사진, 동영상 저장&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;RDS&quot;</span><span class="p">:</span> <span class="s2">&quot;회원정보, 게시글 정보 저장&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CloudFront&quot;</span><span class="p">:</span> <span class="s2">&quot;전세계 사용자에게 빠른 서비스 제공&quot;</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">medium_company</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        중간 규모 회사의 AWS 사용법</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;Auto Scaling&quot;</span><span class="p">:</span> <span class="s2">&quot;사용자 많아지면 서버 자동 증가&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Lambda&quot;</span><span class="p">:</span> <span class="s2">&quot;밤에 자동으로 데이터 정리 작업&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CloudWatch&quot;</span><span class="p">:</span> <span class="s2">&quot;서버 상태 24시간 모니터링&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;IAM&quot;</span><span class="p">:</span> <span class="s2">&quot;직원마다 다른 권한 부여&quot;</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">large_enterprise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        대기업의 AWS 사용법</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;Multi-Region&quot;</span><span class="p">:</span> <span class="s2">&quot;여러 나라에 서버 분산&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Disaster Recovery&quot;</span><span class="p">:</span> <span class="s2">&quot;재해 대비 백업 시스템&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Machine Learning&quot;</span><span class="p">:</span> <span class="s2">&quot;AI로 고객 분석&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Big Data&quot;</span><span class="p">:</span> <span class="s2">&quot;수억 건의 데이터 분석&quot;</span>
+        <span class="p">}</span>
+</code></pre></div>
+<h3 id="aws_4">🎯 업종별 AWS 활용법<a class="headerlink" href="#aws_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>업종</th>
+<th>주로 쓰는 AWS 서비스</th>
+<th>실제 용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>게임회사</strong> 🎮</td>
+<td>EC2, Auto Scaling, DynamoDB</td>
+<td>게임서버, 사용자 급증 대응</td>
+</tr>
+<tr>
+<td><strong>쇼핑몰</strong> 🛒</td>
+<td>S3, CloudFront, RDS</td>
+<td>상품사진 저장, 빠른 로딩</td>
+</tr>
+<tr>
+<td><strong>금융회사</strong> 🏦</td>
+<td>VPC, KMS, CloudTrail</td>
+<td>보안 강화, 거래 기록</td>
+</tr>
+<tr>
+<td><strong>미디어</strong> 📺</td>
+<td>S3, CloudFront, MediaConvert</td>
+<td>동영상 저장, 스트리밍</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6">6. 클라우드 설계 패턴 🏗️<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="_8">🔄 로드 밸런싱 패턴 (트래픽 분산)<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[사용자들 👥] --&gt; B[로드 밸런서 ⚖️]
+    B --&gt; C[웹서버 1 💻]
+    B --&gt; D[웹서버 2 💻]
+    B --&gt; E[웹서버 3 💻]
+
+    C --&gt; F[데이터베이스 🗃️]
+    D --&gt; F
+    E --&gt; F
+
+    style B fill:#f9f,stroke:#333,stroke-width:4px
+    style F fill:#bbf,stroke:#333,stroke-width:2px
+</code></pre></div>
+<p><strong>🎯 이렇게 하면 좋은 점:</strong>
+- 한 서버가 고장나도 다른 서버가 대신함
+- 사용자가 많아져도 빠르게 처리 가능
+- 서버 한 대당 부담이 줄어듦</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 📊 로드 밸런서의 역할 (의사코드)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_balancer</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    로드 밸런서가 하는 일</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;서버1&quot;</span><span class="p">,</span> <span class="s2">&quot;서버2&quot;</span><span class="p">,</span> <span class="s2">&quot;서버3&quot;</span><span class="p">]</span>  <span class="c1"># 사용 가능한 서버들</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">user_request</span> <span class="o">=</span> <span class="n">get_user_request</span><span class="p">()</span>  <span class="c1"># 사용자 요청 받기</span>
+
+        <span class="c1"># 가장 한가한 서버 찾기</span>
+        <span class="n">least_busy_server</span> <span class="o">=</span> <span class="n">find_least_busy_server</span><span class="p">(</span><span class="n">servers</span><span class="p">)</span>
+
+        <span class="c1"># 해당 서버로 요청 전달</span>
+        <span class="n">send_request_to_server</span><span class="p">(</span><span class="n">user_request</span><span class="p">,</span> <span class="n">least_busy_server</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;사용자 요청을 </span><span class="si">{</span><span class="n">least_busy_server</span><span class="si">}</span><span class="s2">로 보냈어요! 📤&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_9">📈 자동 확장/축소 패턴<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    subgraph &quot;평소 (사용자 적음)&quot;
+        A1[서버 1대 💻] --&gt; B1[충분히 빠름 ✅]
+    end
+
+    subgraph &quot;바쁠 때 (사용자 많음)&quot;
+        A2[서버 3대 💻💻💻] --&gt; B2[여전히 빠름 ✅]
+    end
+
+    subgraph &quot;한가할 때 (사용자 적음)&quot;
+        A3[서버 1대 💻] --&gt; B3[비용 절약 💰]
+    end
+
+    C[자동 스케일링 🤖] --&gt; A1
+    C --&gt; A2
+    C --&gt; A3
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🤖 자동 확장의 원리</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">auto_scaling</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS Auto Scaling이 하는 일</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cpu_usage</span> <span class="o">=</span> <span class="n">get_current_cpu_usage</span><span class="p">()</span>  <span class="c1"># 현재 CPU 사용률 확인</span>
+
+    <span class="k">if</span> <span class="n">cpu_usage</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>  <span class="c1"># CPU 사용률이 80% 넘으면</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;서버가 바빠요! 서버를 더 추가할게요! 🆙&quot;</span><span class="p">)</span>
+        <span class="n">add_new_server</span><span class="p">()</span>  <span class="c1"># 새 서버 추가</span>
+
+    <span class="k">elif</span> <span class="n">cpu_usage</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>  <span class="c1"># CPU 사용률이 20% 미만이면</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;서버가 한가해요! 서버를 줄여서 돈을 절약할게요! 💰&quot;</span><span class="p">)</span>
+        <span class="n">remove_server</span><span class="p">()</span>  <span class="c1"># 서버 제거</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;서버 상태가 적당해요! 😊&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_10">🗄️ 데이터베이스 복제 패턴<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[&quot;앱 사용자 📱&quot;] --&gt; B[&quot;로드 밸런서 ⚖️&quot;]
+
+    B --&gt; C[&quot;읽기 요청 📖&quot;]
+    B --&gt; D[&quot;쓰기 요청 ✍️&quot;]
+
+    C --&gt; E[&quot;읽기 전용 DB 1 📚&quot;]
+    C --&gt; F[&quot;읽기 전용 DB 2 📚&quot;]
+
+    D --&gt; G[&quot;메인 DB (쓰기/읽기) 🗃️&quot;]
+
+    G --&gt; E
+    G --&gt; F
+
+    style G fill:#f99,stroke:#333,stroke-width:4px
+    style E fill:#9f9,stroke:#333,stroke-width:2px
+    style F fill:#9f9,stroke:#333,stroke-width:2px
+</code></pre></div>
+<p><strong>🎯 이렇게 하는 이유:</strong>
+- 읽기 작업이 더 빨라짐
+- 메인 DB가 고장나도 데이터를 잃지 않음
+- 많은 사용자가 동시에 데이터를 볼 수 있음</p>
+<h3 id="_11">🛡️ 보안 패턴 (방화벽)<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[인터넷 🌐] --&gt; B[WAF 방화벽 🛡️]
+
+    B --&gt; C{안전한 요청인가? 🤔}
+
+    C --&gt;|안전함 ✅| D[로드 밸런서 ⚖️]
+    C --&gt;|위험함 ❌| E[차단! 🚫]
+
+    D --&gt; F[웹서버들 💻💻💻]
+    F --&gt; G[데이터베이스 🗃️]
+
+    subgraph &quot;프라이빗 영역 (외부 접근 불가)&quot;
+        F
+        G
+    end
+
+    style B fill:#f96,stroke:#333,stroke-width:4px
+    style E fill:#f66,stroke:#333,stroke-width:3px
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🛡️ AWS 보안의 핵심 원칙</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aws_security_best_practices</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS 보안 모범 사례</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">security_rules</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;최소 권한 원칙&quot;</span><span class="p">:</span> <span class="s2">&quot;꼭 필요한 권한만 부여하기&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;다중 인증&quot;</span><span class="p">:</span> <span class="s2">&quot;비밀번호 + 핸드폰 인증&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;암호화&quot;</span><span class="p">:</span> <span class="s2">&quot;중요한 데이터는 암호화해서 저장&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;모니터링&quot;</span><span class="p">:</span> <span class="s2">&quot;24시간 접속 기록 감시&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;백업&quot;</span><span class="p">:</span> <span class="s2">&quot;데이터를 여러 곳에 백업&quot;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">security_rules</span>
+
+<span class="c1"># 🔐 실제 보안 설정 예시</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_security</span><span class="p">():</span>
+    <span class="c1"># 1. VPC로 가상 사설망 만들기</span>
+    <span class="n">create_vpc</span><span class="p">()</span>  <span class="c1"># 우리만의 인터넷 공간 생성</span>
+
+    <span class="c1"># 2. 보안 그룹으로 방화벽 설정</span>
+    <span class="n">security_group</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;인바운드&quot;</span><span class="p">:</span> <span class="s2">&quot;외부에서 들어오는 트래픽 규칙&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;아웃바운드&quot;</span><span class="p">:</span> <span class="s2">&quot;내부에서 나가는 트래픽 규칙&quot;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># 3. IAM으로 사용자 권한 관리</span>
+    <span class="n">create_iam_users</span><span class="p">()</span>  <span class="c1"># 각 직원마다 다른 권한 부여</span>
+</code></pre></div>
+<hr />
+<h2 id="aws_5">🚀 AWS 시작하기<a class="headerlink" href="#aws_5" title="Permanent link">&para;</a></h2>
+<h3 id="1-aws">1단계: AWS 계정 만들기<a class="headerlink" href="#1-aws" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 📝 AWS 계정 만들 때 필요한 것들</span>
+<span class="n">account_requirements</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;이메일&quot;</span><span class="p">:</span> <span class="s2">&quot;본인 이메일 주소&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;비밀번호&quot;</span><span class="p">:</span> <span class="s2">&quot;강력한 비밀번호 (대소문자, 숫자, 특수문자 포함)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;전화번호&quot;</span><span class="p">:</span> <span class="s2">&quot;본인 인증용&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;신용카드&quot;</span><span class="p">:</span> <span class="s2">&quot;무료 한도 초과 시 과금용 (처음엔 공짜!)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;주소&quot;</span><span class="p">:</span> <span class="s2">&quot;정확한 주소&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2_1">2단계: 무료 서비스 체험해보기<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[&quot;AWS 무료 계정 🆓&quot;] --&gt; B[&quot;EC2 (가상컴퓨터) 💻&quot;]
+    A --&gt; C[&quot;S3 (파일 저장소) 🗄️&quot;]
+    A --&gt; D[&quot;RDS (데이터베이스) 🗃️&quot;]
+    A --&gt; E[&quot;Lambda (서버리스) ⚡&quot;]
+
+    B --&gt; B1[&quot;월 750시간 무료&quot;]
+    C --&gt; C1[&quot;5GB 저장공간 무료&quot;]
+    D --&gt; D1[&quot;20GB DB 무료&quot;]
+    E --&gt; E1[&quot;월 100만건 실행 무료&quot;]
+</code></pre></div>
+<h3 id="3_1">3단계: 비용 관리하기<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 💰 AWS 비용 관리 꿀팁</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">manage_aws_costs</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS 비용을 절약하는 방법들</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cost_saving_tips</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;무료 한도 모니터링&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS Budgets으로 무료 한도 확인&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;리소스 정리&quot;</span><span class="p">:</span> <span class="s2">&quot;안 쓰는 서버나 저장소 삭제하기&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;예약 인스턴스&quot;</span><span class="p">:</span> <span class="s2">&quot;오래 쓸 서버는 미리 예약해서 할인받기&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;스팟 인스턴스&quot;</span><span class="p">:</span> <span class="s2">&quot;남는 서버 저렴하게 사용하기&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;자동 스케일링&quot;</span><span class="p">:</span> <span class="s2">&quot;필요할 때만 서버 증가시키기&quot;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">cost_saving_tips</span>
+
+<span class="c1"># 🚨 비용 알림 설정하기</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_billing_alerts</span><span class="p">():</span>
+    <span class="c1"># 1. CloudWatch에서 비용 모니터링 설정</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;월 사용료가 10달러 넘으면 이메일로 알려주세요! 📧&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 2. AWS Budgets으로 예산 설정</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;이번 달 예산은 20달러로 설정했어요! 💰&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="_12">🎯 실전 프로젝트: 간단한 웹사이트 만들기<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">프로젝트 구조<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[사용자 👤] --&gt; B[Route 53 DNS 🌐]
+    B --&gt; C[CloudFront CDN 📡]
+    C --&gt; D[S3 정적 웹사이트 🗄️]
+
+    A --&gt; E[Application Load Balancer ⚖️]
+    E --&gt; F[EC2 웹서버 💻]
+    F --&gt; G[RDS 데이터베이스 🗃️]
+
+    subgraph &quot;프론트엔드 (화면)&quot;
+        C
+        D
+    end
+
+    subgraph &quot;백엔드 (서버)&quot;
+        F
+        G
+    end
+</code></pre></div>
+<h3 id="_14">단계별 구축 과정<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🛠️ 웹사이트 구축 단계</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_website_on_aws</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS에 웹사이트 만드는 단계별 가이드</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">step1</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;제목&quot;</span><span class="p">:</span> <span class="s2">&quot;1단계: 도메인 준비&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;설명&quot;</span><span class="p">:</span> <span class="s2">&quot;Route 53에서 도메인 구매 또는 연결&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;예시&quot;</span><span class="p">:</span> <span class="s2">&quot;mywebsite.com&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">step2</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;제목&quot;</span><span class="p">:</span> <span class="s2">&quot;2단계: 웹서버 만들기&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;설명&quot;</span><span class="p">:</span> <span class="s2">&quot;EC2에서 Ubuntu 서버 생성&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;코드&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        # EC2 인스턴스 설정</span>
+<span class="s2">        인스턴스 타입: t2.micro (무료)</span>
+<span class="s2">        운영체제: Ubuntu 20.04</span>
+<span class="s2">        보안그룹: HTTP(80), HTTPS(443) 열기</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">step3</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;제목&quot;</span><span class="p">:</span> <span class="s2">&quot;3단계: 데이터베이스 설정&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;설명&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS에서 MySQL 데이터베이스 생성&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;코드&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        # RDS 설정</span>
+<span class="s2">        엔진: MySQL 8.0</span>
+<span class="s2">        인스턴스 클래스: db.t2.micro (무료)</span>
+<span class="s2">        스토리지: 20GB (무료 한도 내)</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">step4</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;제목&quot;</span><span class="p">:</span> <span class="s2">&quot;4단계: 파일 저장소 설정&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;설명&quot;</span><span class="p">:</span> <span class="s2">&quot;S3에 이미지, CSS, JS 파일 저장&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;코드&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        # S3 버킷 설정</span>
+<span class="s2">        버킷 이름: my-website-files</span>
+<span class="s2">        퍼블릭 액세스: 웹사이트 파일만 공개</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">step1</span><span class="p">,</span> <span class="n">step2</span><span class="p">,</span> <span class="n">step3</span><span class="p">,</span> <span class="n">step4</span><span class="p">]</span>
+</code></pre></div>
+<hr />
+<h2 id="_15">🔮 클라우드의 미래<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="_16">📈 클라우드 시장 전망<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[2024년 클라우드 시장] --&gt; B[전세계 212조원 💰]
+    A --&gt; C[국내 14.6조원 🇰🇷]
+
+    D[2028년 예상] --&gt; E[국내 24.6조원 📈]
+    D --&gt; F[연평균 14% 성장 🚀]
+
+    G[주요 트렌드] --&gt; H[AI/ML 확산 🤖]
+    G --&gt; I[멀티클라우드 🌐]
+    G --&gt; J[서버리스 확산 ⚡]
+    G --&gt; K[엣지 컴퓨팅 📡]
+</code></pre></div>
+<h3 id="_17">🎯 앞으로 주목해야 할 기술들<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>기술</th>
+<th>설명</th>
+<th>AWS 서비스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI/ML</strong> 🤖</td>
+<td>인공지능, 머신러닝</td>
+<td>SageMaker, Bedrock</td>
+</tr>
+<tr>
+<td><strong>서버리스</strong> ⚡</td>
+<td>서버 관리 없이 코드만 실행</td>
+<td>Lambda, Fargate</td>
+</tr>
+<tr>
+<td><strong>컨테이너</strong> 📦</td>
+<td>앱을 패키지로 묶어서 배포</td>
+<td>ECS, EKS</td>
+</tr>
+<tr>
+<td><strong>IoT</strong> 🌐</td>
+<td>사물인터넷 (스마트홈, 자율주행)</td>
+<td>IoT Core</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_18">📚 더 공부하고 싶다면?<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h3 id="aws_6">🎓 AWS 자격증 로드맵<a class="headerlink" href="#aws_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[입문자 👶] --&gt; B[AWS Cloud Practitioner]
+    B --&gt; C[솔루션 아키텍트 Associate]
+    C --&gt; D[개발자 Associate]
+    C --&gt; E[시스템 관리자 Associate]
+
+    D --&gt; F[솔루션 아키텍트 Professional]
+    E --&gt; F
+
+    style B fill:#9f9,stroke:#333,stroke-width:2px
+    style C fill:#99f,stroke:#333,stroke-width:2px
+    style F fill:#f99,stroke:#333,stroke-width:2px
+</code></pre></div>
+<h3 id="_19">📖 추천 학습 리소스<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>AWS 공식 문서</strong> 📄</li>
+<li>https://docs.aws.amazon.com/ko_kr/</li>
+<li>
+<p>가장 정확하고 최신 정보</p>
+</li>
+<li>
+<p><strong>AWS Training</strong> 🎯</p>
+</li>
+<li>무료 온라인 강의 제공</li>
+<li>
+<p>실습 환경도 함께 제공</p>
+</li>
+<li>
+<p><strong>AWS 무료 워크샵</strong> 🛠️</p>
+</li>
+<li>실제 프로젝트 체험 가능</li>
+<li>단계별 가이드 제공</li>
+</ol>
+<hr />
+<h2 id="_20">🎉 마무리<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<h3 id="_21">🌟 핵심 포인트 정리<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🎯 AWS 클라우드 핵심 정리</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aws_summary</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    이것만은 꼭 기억하세요!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">key_points</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;클라우드란?&quot;</span><span class="p">:</span> <span class="s2">&quot;인터넷으로 컴퓨터를 빌려쓰는 것&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;AWS 장점&quot;</span><span class="p">:</span> <span class="s2">&quot;비용절약, 빠른 확장, 전세계 서비스&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;핵심 서비스&quot;</span><span class="p">:</span> <span class="s2">&quot;EC2(컴퓨터), S3(저장소), RDS(데이터베이스)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;보안&quot;</span><span class="p">:</span> <span class="s2">&quot;항상 최소 권한 원칙으로!&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;비용관리&quot;</span><span class="p">:</span> <span class="s2">&quot;무료 한도 체크하고 알림 설정하기&quot;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">key_points</span>
+
+<span class="c1"># 🚀 첫 시작 추천 순서</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">getting_started_roadmap</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS를 처음 시작하는 사람들을 위한 로드맵</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">roadmap</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;1주차&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;목표&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS 계정 만들고 기본 개념 이해하기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;할일&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;AWS 무료 계정 생성 🆓&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;AWS 관리 콘솔 둘러보기 👀&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;EC2로 첫 번째 가상서버 만들어보기 💻&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;비용 알림 설정하기 💰&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;2주차&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;목표&quot;</span><span class="p">:</span> <span class="s2">&quot;스토리지와 데이터베이스 체험하기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;할일&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;S3에 파일 업로드해보기 📁&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;RDS로 데이터베이스 만들어보기 🗃️&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;간단한 웹페이지 S3에 호스팅해보기 🌐&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;3주차&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;목표&quot;</span><span class="p">:</span> <span class="s2">&quot;네트워킹과 보안 이해하기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;할일&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;VPC로 가상 네트워크 만들어보기 🏠&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;보안그룹으로 방화벽 설정하기 🛡️&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;IAM으로 사용자 권한 관리하기 👥&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;4주차&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;목표&quot;</span><span class="p">:</span> <span class="s2">&quot;실전 프로젝트 완성하기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;할일&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;로드밸런서 설정해보기 ⚖️&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Auto Scaling 설정해보기 📈&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;CloudWatch로 모니터링 설정하기 📊&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;간단한 3-tier 웹 애플리케이션 구축하기 🏗️&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">roadmap</span>
+</code></pre></div>
+<h3 id="_22">💡 실무 꿀팁 모음<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🍯 현업에서 쓰는 AWS 꿀팁들</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aws_pro_tips</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    실제 현업에서 일하는 개발자들의 꿀팁</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pro_tips</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;비용 절약 팁&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;예약 인스턴스&quot;</span><span class="p">:</span> <span class="s2">&quot;1년 이상 쓸 서버는 미리 예약해서 최대 75% 할인&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;스팟 인스턴스&quot;</span><span class="p">:</span> <span class="s2">&quot;경매 방식으로 최대 90% 할인 (갑자기 꺼질 수 있음)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;스케줄링&quot;</span><span class="p">:</span> <span class="s2">&quot;개발 서버는 밤에 자동으로 끄기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;태그 활용&quot;</span><span class="p">:</span> <span class="s2">&quot;모든 리소스에 태그 달아서 비용 추적하기&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;보안 팁&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;MFA 필수&quot;</span><span class="p">:</span> <span class="s2">&quot;루트 계정에는 반드시 다중 인증 설정&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;키 로테이션&quot;</span><span class="p">:</span> <span class="s2">&quot;액세스 키는 정기적으로 갱신하기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CloudTrail&quot;</span><span class="p">:</span> <span class="s2">&quot;모든 API 호출 기록 남기기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;최소 권한&quot;</span><span class="p">:</span> <span class="s2">&quot;꼭 필요한 권한만 부여하기&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;성능 최적화 팁&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;CDN 활용&quot;</span><span class="p">:</span> <span class="s2">&quot;정적 파일은 CloudFront로 빠르게 배송&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;캐싱&quot;</span><span class="p">:</span> <span class="s2">&quot;ElastiCache로 자주 쓰는 데이터 캐싱&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DB 최적화&quot;</span><span class="p">:</span> <span class="s2">&quot;읽기 전용 복제본으로 읽기 성능 향상&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;리전 선택&quot;</span><span class="p">:</span> <span class="s2">&quot;사용자와 가까운 리전 선택&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;운영 팁&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;자동화&quot;</span><span class="p">:</span> <span class="s2">&quot;반복 작업은 Lambda나 Systems Manager로 자동화&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;모니터링&quot;</span><span class="p">:</span> <span class="s2">&quot;CloudWatch 알람으로 이상 상황 즉시 감지&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;백업&quot;</span><span class="p">:</span> <span class="s2">&quot;자동 백업 설정으로 데이터 손실 방지&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;인프라 코드&quot;</span><span class="p">:</span> <span class="s2">&quot;Terraform이나 CloudFormation으로 인프라 코드화&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">pro_tips</span>
+
+<span class="c1"># 🚨 자주 하는 실수들 (이것만은 피하세요!)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">common_aws_mistakes</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS 초보자들이 자주 하는 실수들</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">mistakes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;비용 관련 실수&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;무료 한도 모니터링 안하기 💸&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;안 쓰는 리소스 삭제 안하기 🗑️&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;NAT Gateway를 불필요하게 많이 만들기 💰&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;데이터 전송 비용 간과하기 📡&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;보안 관련 실수&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;루트 계정으로 모든 일 하기 🔓&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;보안그룹을 0.0.0.0/0으로 열어두기 🌐&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;액세스 키를 코드에 하드코딩하기 🔑&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;S3 버킷을 실수로 퍼블릭으로 만들기 📂&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;운영 관련 실수&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;백업 설정 안하기 💾&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;모니터링 알람 설정 안하기 📊&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;로그 수집 안하기 📝&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;재해 복구 계획 세우지 않기 🆘&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">mistakes</span>
+</code></pre></div>
+<h3 id="vs_2">🌍 글로벌 vs 국내 클라우드 비교<a class="headerlink" href="#vs_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>graph TD
+    subgraph &quot;글로벌 클라우드 (AWS, Azure, GCP)&quot;
+        A1[장점 ✅]
+        A1 --&gt; A2[서비스 종류 많음 📦]
+        A1 --&gt; A3[전세계 리전 🌍]
+        A1 --&gt; A4[최신 기술 빠르게 도입 🚀]
+        A1 --&gt; A5[생태계 풍부 🌱]
+
+        B1[단점 ❌]
+        B1 --&gt; B2[데이터 해외 저장 우려 🌊]
+        B1 --&gt; B3[한국어 지원 부족 🗣️]
+        B1 --&gt; B4[규제 대응 복잡 📋]
+    end
+
+    subgraph &quot;국내 클라우드 (네이버, KT, NHN 등)&quot;
+        C1[장점 ✅]
+        C1 --&gt; C2[데이터 국내 저장 🏠]
+        C1 --&gt; C3[한국어 지원 완벽 💬]
+        C1 --&gt; C4[국내 법규 준수 📜]
+        C1 --&gt; C5[정부 지원 정책 🏛️]
+
+        D1[단점 ❌]
+        D1 --&gt; D2[서비스 종류 제한적 📦]
+        D1 --&gt; D3[해외 진출 시 불리 🌍]
+        D1 --&gt; D4[생태계 규모 작음 🌿]
+    end
+</code></pre></div>
+<h3 id="aws_7">📊 업종별 AWS 도입 현황<a class="headerlink" href="#aws_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 📈 한국 기업들의 AWS 도입 현황</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">korea_aws_adoption</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    한국 기업들이 어떻게 AWS를 도입하고 있는지</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">adoption_by_industry</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;금융업&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;도입률&quot;</span><span class="p">:</span> <span class="s2">&quot;92%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;주요 사례&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;토스뱅크&quot;</span><span class="p">,</span> <span class="s2">&quot;KB국민은행&quot;</span><span class="p">,</span> <span class="s2">&quot;신한은행&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;주요 용도&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;비계정계 시스템 (고객 상담, 마케팅)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;AI 챗봇 서비스&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;마이데이터 분석&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;재해복구 시스템&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;특징&quot;</span><span class="p">:</span> <span class="s2">&quot;보안과 규제 준수가 최우선&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;게임업&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;도입률&quot;</span><span class="p">:</span> <span class="s2">&quot;95%+&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;주요 사례&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;넥슨&quot;</span><span class="p">,</span> <span class="s2">&quot;엔씨소프트&quot;</span><span class="p">,</span> <span class="s2">&quot;넷마블&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;주요 용도&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;게임 서버 운영&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;사용자 급증 시 자동 확장&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;글로벌 서비스&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;빅데이터 분석&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;특징&quot;</span><span class="p">:</span> <span class="s2">&quot;트래픽 변동이 크고 글로벌 서비스 필요&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;이커머스&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;도입률&quot;</span><span class="p">:</span> <span class="s2">&quot;80%+&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;주요 사례&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;쿠팡&quot;</span><span class="p">,</span> <span class="s2">&quot;11번가&quot;</span><span class="p">,</span> <span class="s2">&quot;G마켓&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;주요 용도&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;상품 이미지 저장 (S3)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;빠른 로딩 (CloudFront)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;개인화 추천 시스템&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;실시간 재고 관리&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;특징&quot;</span><span class="p">:</span> <span class="s2">&quot;고객 경험과 속도가 핵심&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;스타트업&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;도입률&quot;</span><span class="p">:</span> <span class="s2">&quot;90%+&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;주요 사례&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;배달의민족&quot;</span><span class="p">,</span> <span class="s2">&quot;토스&quot;</span><span class="p">,</span> <span class="s2">&quot;당근마켓&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;주요 용도&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;빠른 서비스 론칭&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;초기 비용 절약&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;자동 확장&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;DevOps 구축&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;특징&quot;</span><span class="p">:</span> <span class="s2">&quot;빠른 성장과 비용 효율성 중요&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">adoption_by_industry</span>
+
+<span class="c1"># 🎯 성공 사례 분석</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">success_stories</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    실제 성공 사례들로 배우는 AWS 활용법</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cases</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;토스뱅크&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;도전과제&quot;</span><span class="p">:</span> <span class="s2">&quot;기존 은행 대비 10배 빠른 계좌 개설&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AWS 활용&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;마이크로서비스 아키텍처로 서비스 분리&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Container 기반으로 빠른 배포&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Auto Scaling으로 트래픽 대응&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;AI/ML로 사기 거래 탐지&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;결과&quot;</span><span class="p">:</span> <span class="s2">&quot;3분만에 계좌 개설, 99.9% 가용성 달성&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;배달의민족&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;도전과제&quot;</span><span class="p">:</span> <span class="s2">&quot;주문 폭증 시 서버 다운 방지&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AWS 활용&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ElastiCache로 주문 데이터 캐싱&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;RDS Read Replica로 DB 성능 향상&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;SQS로 주문 처리 안정성 확보&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Lambda로 이벤트 기반 처리&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;결과&quot;</span><span class="p">:</span> <span class="s2">&quot;피크 시간대에도 안정적인 서비스 제공&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;당근마켓&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;도전과제&quot;</span><span class="p">:</span> <span class="s2">&quot;전국 서비스 확장과 이미지 처리&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AWS 활용&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;S3로 수백만 장의 상품 사진 저장&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;CloudFront로 빠른 이미지 로딩&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;EC2 Spot Instance로 비용 절약&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Rekognition으로 부적절한 이미지 필터링&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;결과&quot;</span><span class="p">:</span> <span class="s2">&quot;월 2천만 사용자, 비용 50% 절감&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">cases</span>
+</code></pre></div>
+<h3 id="_23">🔮 클라우드 트렌드와 미래<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>timeline
+    title AWS 클라우드 발전 역사와 미래
+
+    2006 : AWS 시작
+         : S3, EC2 출시
+
+    2010 : 클라우드 대중화
+         : Netflix가 AWS 전면 도입
+
+    2015 : 컨테이너 시대
+         : Docker, Kubernetes 확산
+
+    2020 : 서버리스 확산
+         : Lambda, Fargate 대중화
+
+    2023 : AI 혁명
+         : ChatGPT 등장, AI 서비스 급성장
+
+    2025 : 멀티클라우드 시대
+         : 하이브리드 클라우드 일반화
+
+    2030 : 엣지 컴퓨팅
+         : IoT, 자율주행차 연결
+</code></pre></div>
+<h3 id="_24">🎓 커리어 패스: 클라우드 엔지니어가 되는 법<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 💼 클라우드 엔지니어 커리어 로드맵</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cloud_engineer_career</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    클라우드 엔지니어가 되기 위한 단계별 가이드</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">career_path</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;초급 (0-1년)&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;필요 스킬&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;AWS 기본 서비스 이해 (EC2, S3, RDS)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Linux 기본 명령어&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;네트워킹 기초 (IP, DNS, HTTP)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;기본 프로그래밍 (Python or Java)&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;목표 자격증&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS Cloud Practitioner&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;예상 연봉&quot;</span><span class="p">:</span> <span class="s2">&quot;3000-4000만원&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;중급 (1-3년)&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;필요 스킬&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Infrastructure as Code (Terraform)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Container 기술 (Docker, Kubernetes)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;CI/CD 파이프라인 구축&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;모니터링 및 로깅 (CloudWatch, ELK)&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;목표 자격증&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS Solutions Architect Associate&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;예상 연봉&quot;</span><span class="p">:</span> <span class="s2">&quot;4000-6000만원&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;고급 (3-5년)&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;필요 스킬&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;멀티 클라우드 아키텍처 설계&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;보안 및 규정 준수&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;비용 최적화 전략&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;팀 리딩 및 멘토링&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;목표 자격증&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS Solutions Architect Professional&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;예상 연봉&quot;</span><span class="p">:</span> <span class="s2">&quot;6000-8000만원&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;전문가 (5년+)&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;필요 스킬&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;엔터프라이즈 아키텍처 설계&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;디지털 전환 컨설팅&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;AI/ML 파이프라인 구축&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;비즈니스 이해 및 전략 수립&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;목표 자격증&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS Specialty 자격증들&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;예상 연봉&quot;</span><span class="p">:</span> <span class="s2">&quot;8000만원 이상&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">career_path</span>
+
+<span class="c1"># 📚 학습 리소스 추천</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">learning_resources</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS를 배우기 위한 추천 리소스들</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">resources</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;무료 리소스&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;AWS 공식 문서&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.aws.amazon.com/ko_kr/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AWS Training&quot;</span><span class="p">:</span> <span class="s2">&quot;무료 온라인 강의 제공&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AWS Educate&quot;</span><span class="p">:</span> <span class="s2">&quot;학생을 위한 무료 크레딧&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;YouTube&quot;</span><span class="p">:</span> <span class="s2">&quot;A Cloud Guru, AWS 공식 채널&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;유료 리소스&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A Cloud Guru&quot;</span><span class="p">:</span> <span class="s2">&quot;체계적인 온라인 강의&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Udemy&quot;</span><span class="p">:</span> <span class="s2">&quot;실습 중심 강의&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Linux Academy&quot;</span><span class="p">:</span> <span class="s2">&quot;실습 환경 제공&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Coursera&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS 전문 과정&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;실습 환경&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;AWS Free Tier&quot;</span><span class="p">:</span> <span class="s2">&quot;12개월 무료 사용&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AWS Sandbox&quot;</span><span class="p">:</span> <span class="s2">&quot;실습용 임시 계정&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Katacoda&quot;</span><span class="p">:</span> <span class="s2">&quot;브라우저 기반 실습&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;개인 프로젝트&quot;</span><span class="p">:</span> <span class="s2">&quot;직접 만들어보기&quot;</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;커뮤니티&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;AWS 한국 사용자 그룹&quot;</span><span class="p">:</span> <span class="s2">&quot;정기 모임 및 세미나&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AWS re:Invent&quot;</span><span class="p">:</span> <span class="s2">&quot;연례 컨퍼런스&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Stack Overflow&quot;</span><span class="p">:</span> <span class="s2">&quot;기술 질문 답변&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Reddit r/aws&quot;</span><span class="p">:</span> <span class="s2">&quot;글로벌 커뮤니티&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">resources</span>
+</code></pre></div>
+<h3 id="_25">🎯 실전 면접 질문 모음<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 💼 AWS 관련 면접에서 자주 나오는 질문들</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aws_interview_questions</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    실제 면접에서 나오는 AWS 질문들과 답변 가이드</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">questions</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;기초 질문&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Q1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;질문&quot;</span><span class="p">:</span> <span class="s2">&quot;클라우드 컴퓨팅이 무엇인가요?&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;답변 포인트&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;인터넷을 통해 컴퓨팅 리소스를 제공하는 서비스&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;필요한 만큼 사용하고 사용한 만큼 지불&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;확장성, 유연성, 비용 효율성이 장점&quot;</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;질문&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS의 핵심 서비스 3가지를 설명해주세요.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;답변 포인트&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;EC2: 가상 서버 서비스&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;S3: 객체 스토리지 서비스&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;RDS: 관리형 데이터베이스 서비스&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;중급 질문&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Q1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;질문&quot;</span><span class="p">:</span> <span class="s2">&quot;Auto Scaling의 동작 원리를 설명해주세요.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;답변 포인트&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;CloudWatch 메트릭 기반으로 동작&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;CPU, 메모리, 네트워크 사용률 모니터링&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;임계값 초과 시 인스턴스 자동 추가/제거&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;비용 최적화와 가용성 확보&quot;</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;질문&quot;</span><span class="p">:</span> <span class="s2">&quot;VPC의 구성 요소들을 설명해주세요.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;답변 포인트&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;Subnet: 네트워크 분할&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Internet Gateway: 인터넷 연결&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Route Table: 트래픽 라우팅&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Security Group: 인스턴스 방화벽&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;고급 질문&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Q1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;질문&quot;</span><span class="p">:</span> <span class="s2">&quot;멀티 AZ 배포의 장단점을 설명해주세요.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;답변 포인트&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;장점: 고가용성, 재해 복구&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;단점: 비용 증가, 복잡성&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;RDS, ELB 등에서 지원&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;지연시간 고려 필요&quot;</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;질문&quot;</span><span class="p">:</span> <span class="s2">&quot;서버리스 아키텍처의 특징을 설명해주세요.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;답변 포인트&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;서버 관리 불필요&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;자동 확장&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;이벤트 기반 실행&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Lambda, API Gateway 활용&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">questions</span>
+
+<span class="c1"># 🏆 면접 준비 체크리스트</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">interview_preparation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AWS 관련 면접 준비 체크리스트</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">checklist</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;기술적 준비&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;□ AWS 핵심 서비스 10개 이상 설명 가능&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 실제 프로젝트 경험 정리&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 장애 대응 경험 정리&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 비용 최적화 사례 준비&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 보안 관련 지식 정리&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;실습 준비&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;□ 간단한 3-tier 아키텍처 구축 경험&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ CI/CD 파이프라인 구축 경험&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ Infrastructure as Code 경험&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 모니터링 및 로깅 설정 경험&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 트러블슈팅 경험&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;소프트 스킬&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;□ 기술을 비전문가에게 쉽게 설명하는 능력&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 문제 해결 과정을 논리적으로 설명&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 팀워크 및 협업 경험 정리&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 학습 의지와 성장 마인드 어필&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;□ 비즈니스 이해도 표현&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">checklist</span>
+</code></pre></div>
+<hr />
+<h2 id="_26">🎊 축하합니다! 완주하셨네요!<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">🎯 지금까지 배운 것들<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🌟 여러분이 지금까지 배운 것들을 정리해보세요!</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">what_you_learned</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    이 가이드를 통해 여러분이 습득한 지식들</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">knowledge_gained</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;기본 개념&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;✅ 클라우드 컴퓨팅이 무엇인지 이해&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ AWS의 핵심 서비스들 파악&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 클라우드의 장단점 이해&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 서비스 모델(IaaS, PaaS, SaaS) 구분&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;실무 지식&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;✅ 현업에서 많이 쓰는 AWS 서비스 파악&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 클라우드 설계 패턴 이해&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 비용 최적화 방법 학습&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 보안 모범 사례 습득&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;실전 스킬&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;✅ AWS 계정 생성 및 기본 설정&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 간단한 웹사이트 배포 방법&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 모니터링 및 알림 설정&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 트러블슈팅 기본기&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;미래 준비&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;✅ 클라우드 엔지니어 커리어 패스 이해&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ AWS 자격증 로드맵 파악&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 지속적인 학습 방향 설정&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;✅ 실무 면접 준비 완료&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">knowledge_gained</span>
+
+<span class="c1"># 🚀 다음 단계 추천</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">next_steps</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    이제 무엇을 해야 할까요?</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">recommendations</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;즉시 실행&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;1. AWS 무료 계정 만들기 (아직 안 했다면)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2. EC2로 첫 번째 서버 생성해보기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;3. S3에 파일 업로드해보기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;4. 비용 알림 설정하기&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;1주일 내&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;1. 간단한 정적 웹사이트를 S3에 호스팅&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2. CloudFront로 CDN 설정해보기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;3. Route 53으로 도메인 연결해보기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;4. RDS로 데이터베이스 만들어보기&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;1개월 내&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;1. 3-tier 웹 애플리케이션 구축하기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2. Auto Scaling 설정해보기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;3. CloudWatch로 모니터링 설정하기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;4. AWS Cloud Practitioner 자격증 준비&quot;</span>
+        <span class="p">],</span>
+
+        <span class="s2">&quot;3개월 내&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;1. Infrastructure as Code (Terraform) 학습&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2. Container 기술 (Docker, ECS) 학습&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;3. CI/CD 파이프라인 구축해보기&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;4. AWS Solutions Architect Associate 준비&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">recommendations</span>
+</code></pre></div>
+<h3 id="_28">🌈 마지막 격려의 말<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">final_message</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    클라우드 여정을 시작하는 여러분께</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    🎉 축하합니다! 클라우드 컴퓨팅의 첫걸음을 떼셨네요!</span>
+
+<span class="s2">    기억하세요:</span>
+
+<span class="s2">    ☁️ 클라우드는 더 이상 선택이 아닌 필수입니다</span>
+<span class="s2">    📚 지속적인 학습이 성공의 열쇠입니다</span>
+<span class="s2">    🛠️ 이론보다는 직접 실습하며 배우세요</span>
+<span class="s2">    🤝 커뮤니티에 참여하여 동료들과 함께 성장하세요</span>
+<span class="s2">    💪 처음엔 어려워도 포기하지 마세요</span>
+
+<span class="s2">    AWS는 계속 발전하고 있고, 새로운 서비스들이 매년 수백 개씩 추가됩니다.</span>
+<span class="s2">    완벽해지려고 하지 말고, 필요한 것부터 차근차근 배워가세요.</span>
+
+<span class="s2">    여러분의 클라우드 여정을 응원합니다! 🚀</span>
+
+<span class="s2">    Happy Cloud Computing! ☁️✨</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">final_message</span><span class="p">())</span>
+</code></pre></div>
+<hr />
+<h2 id="_29">📞 도움이 필요할 때<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<h3 id="_30">🆘 문제 해결 리소스<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>AWS 공식 지원</strong>: https://aws.amazon.com/ko/support/</li>
+<li><strong>AWS 한국 사용자 그룹</strong>: 정기 모임 및 Q&amp;A</li>
+<li><strong>Stack Overflow</strong>: 기술적 질문</li>
+<li><strong>AWS re:Post</strong>: AWS 공식 Q&amp;A 커뮤니티</li>
+</ul>
+<h3 id="_31">📱 유용한 앱들<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>AWS Console Mobile</strong>: 이동 중에도 AWS 관리</li>
+<li><strong>AWS Cost Explorer</strong>: 비용 모니터링</li>
+<li><strong>AWS Personal Health Dashboard</strong>: 서비스 상태 확인</li>
+</ul>
+<hr />
+<p><em>"클라우드의 끝은 없다. 계속 배우고, 계속 성장하자!" ☁️🚀</em></p>
+<hr />
+<p><strong>작성일</strong>: 2025년 9월 25일<br />
+<strong>버전</strong>: 1.0<br />
+<strong>대상</strong>: 클라우드 입문자 
+<strong>키워드</strong>: AWS, 클라우드 컴퓨팅, 초보자 가이드, 실무 활용</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/yjshin-cloud/TIL" target="_blank" rel="noopener" title="GitHub Repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://velog.io/@yjshin/posts" target="_blank" rel="noopener" title="Blog Home" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M384 512H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h304c26.5 0 48 21.5 48 48v288c0 20.9-13.4 38.7-32 45.3V448c17.7 0 32 14.3 32 32s-14.3 32-32 32zM96 384c-17.7 0-32 14.3-32 32s14.3 32 32 32h256v-64zm32-232c0 13.3 10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24H152c-13.3 0-24 10.7-24 24m24 72c-13.3 0-24 10.7-24 24s10.7 24 24 24h176c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
