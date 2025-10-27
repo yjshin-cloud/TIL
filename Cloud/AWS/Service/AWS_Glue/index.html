@@ -12,13 +12,13 @@
         <meta name="author" content="YJ Shin">
       
       
-        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Cloud/AWS/Service/AWS_Trusted_Advisor/">
+        <link rel="canonical" href="https://yjshin-cloud.github.io/TIL/Cloud/AWS/Service/AWS_Glue/">
       
       
-        <link rel="prev" href="../AWS_Transfer_Family/">
+        <link rel="prev" href="../AWS_Global_Accelerator/">
       
       
-        <link rel="next" href="../Amazon_Cognito/">
+        <link rel="next" href="../AWS_Kinesis/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>🌟 AWS Trusted Advisor 정리 - YJ Shin TIL Blog</title>
+        <title>🧩 AWS Glue 정리 - YJ Shin TIL Blog</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-trusted-advisor" class="md-skip">
+        <a href="#aws-glue" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🌟 AWS Trusted Advisor 정리
+              🧩 AWS Glue 정리
             
           </span>
         </div>
@@ -954,10 +954,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../AWS_Glue/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🧩 AWS Glue 정리
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -968,6 +990,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-aws-glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ AWS Glue란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ 주요 기능
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ 아키텍처 시각화
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ 주요 구성 요소
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-glue-etl" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Glue 동작 과정 (ETL 프로세스)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ 현업 활용 사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ Glue와 관련 서비스 비교
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 정리
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1138,32 +1252,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    🌟 AWS Trusted Advisor 정리
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../AWS_Trusted_Advisor/" class="md-nav__link">
         
   
   
@@ -1174,122 +1266,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#aws-trusted-advisor_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      📌 AWS Trusted Advisor란?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      ✅ 주요 점검 항목 (5가지 카테고리)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="✅ 주요 점검 항목 (5가지 카테고리)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      💰 비용 최적화 (Cost Optimization)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚡ 성능 (Performance)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔒 보안 (Security)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fault-tolerance" class="md-nav__link">
-    <span class="md-ellipsis">
-      🛠️ 내결함성 (Fault Tolerance)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      📊 서비스 제한 (Service Limits)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mermaid" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎨 시각화 (Mermaid 다이어그램)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      💼 현업 활용 사례
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      📖 정리
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4915,78 +4891,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aws-trusted-advisor_1" class="md-nav__link">
+  <a href="#1-aws-glue" class="md-nav__link">
     <span class="md-ellipsis">
-      📌 AWS Trusted Advisor란?
+      1️⃣ AWS Glue란?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ 주요 점검 항목 (5가지 카테고리)
+      2️⃣ 주요 기능
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="✅ 주요 점검 항목 (5가지 카테고리)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      💰 비용 최적화 (Cost Optimization)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚡ 성능 (Performance)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔒 보안 (Security)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fault-tolerance" class="md-nav__link">
-    <span class="md-ellipsis">
-      🛠️ 내결함성 (Fault Tolerance)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      📊 서비스 제한 (Service Limits)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mermaid" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      🎨 시각화 (Mermaid 다이어그램)
+      3️⃣ 아키텍처 시각화
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ 주요 구성 요소
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-glue-etl" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Glue 동작 과정 (ETL 프로세스)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ 현업 활용 사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ Glue와 관련 서비스 비교
     </span>
   </a>
   
@@ -4995,16 +4956,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      💼 현업 활용 사례
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      📖 정리
+      ✅ 정리
     </span>
   </a>
   
@@ -5026,45 +4978,182 @@
 
 
 
-<h1 id="aws-trusted-advisor">🌟 AWS Trusted Advisor 정리<a class="headerlink" href="#aws-trusted-advisor" title="Permanent link">&para;</a></h1>
-<h2 id="aws-trusted-advisor_1">📌 AWS Trusted Advisor란?<a class="headerlink" href="#aws-trusted-advisor_1" title="Permanent link">&para;</a></h2>
-<p>AWS Trusted Advisor는 클라우드 환경을 점검해 주는 온라인 도우미 서비스입니다.
-비용 절감, 성능 최적화, 보안 강화, 내결함성 확보, 서비스 제한 확인 등의 모범 사례(Best Practices)를 기반으로 리소스를 분석하고 개선 방안을 제안해 줍니다.</p>
-<p>즉, AWS 계정과 리소스 상태를 진단해주는 헬스체크 서비스라고 이해하면 됩니다. 🩺</p>
-<h2 id="5">✅ 주요 점검 항목 (5가지 카테고리)<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="cost-optimization">💰 비용 최적화 (Cost Optimization)<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h3>
-<p>사용하지 않는 EC2 인스턴스</p>
-<p>미사용 Elastic IP</p>
-<p>낮은 활용도의 RDS 인스턴스
-→ 비용을 줄일 수 있는 리소스 추천</p>
-<h3 id="performance">⚡ 성능 (Performance)<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
-<p>서비스 지연이나 병목을 줄이기 위한 권장사항</p>
-<p>Auto Scaling 그룹, 로드 밸런서 설정 검토</p>
-<h3 id="security">🔒 보안 (Security)<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
-<p>S3 버킷 퍼블릭 접근 여부</p>
-<p>IAM Root 계정 MFA 적용 여부</p>
-<p>보안 그룹의 과도한 접근 허용 규칙 확인</p>
-<h3 id="fault-tolerance">🛠️ 내결함성 (Fault Tolerance)<a class="headerlink" href="#fault-tolerance" title="Permanent link">&para;</a></h3>
-<p>백업 및 복구 설정 검토</p>
-<p>여러 AZ에 걸쳐 있는지 확인</p>
-<p>Elastic Load Balancer 설정 점검</p>
-<h3 id="service-limits">📊 서비스 제한 (Service Limits)<a class="headerlink" href="#service-limits" title="Permanent link">&para;</a></h3>
-<p>EC2 인스턴스, EIP, VPC, RDS 등 서비스별 한도(Quota) 초과 여부 알림</p>
-<h2 id="mermaid">🎨 시각화 (Mermaid 다이어그램)<a class="headerlink" href="#mermaid" title="Permanent link">&para;</a></h2>
-<p><img width="1441" height="317" alt="image" src="https://github.com/user-attachments/assets/7ecb2746-1aad-4df8-ac73-4e9061ebe2d6" /></p>
-<h2 id="_1">💼 현업 활용 사례<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>비용 관리팀: 미사용 리소스를 찾아 클라우드 비용 절감</p>
-<p>보안팀: IAM, S3, 보안 그룹 등을 보안 모범사례에 맞게 관리</p>
-<p>운영팀/인프라팀: Auto Scaling, 멀티 AZ 배포 여부 등을 확인해 가용성 강화</p>
-<p>클라우드 거버넌스: 서비스 한도 초과로 인한 장애 방지</p>
-<p>특히 Enterprise Support를 사용하면 더 많은 세부 항목의 Trusted Advisor 점검을 받을 수 있습니다.</p>
-<h2 id="_2">📖 정리<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>AWS Trusted Advisor = 클라우드 환경 헬스체크 도구</p>
-<p>5대 카테고리: 💰 비용, ⚡ 성능, 🔒 보안, 🛠️ 내결함성, 📊 서비스 제한</p>
-<p>현업에서는 비용 절감·보안 강화·가용성 확보 목적으로 가장 많이 활용</p>
-<ul>
-<li>참고 블로그 : https://velog.io/@yjshin/AWS-AWS-Trusted-Advisor</li>
-</ul>
+<h1 id="aws-glue">🧩 AWS Glue 정리<a class="headerlink" href="#aws-glue" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-aws-glue">1️⃣ AWS Glue란?<a class="headerlink" href="#1-aws-glue" title="Permanent link">&para;</a></h2>
+<p>AWS Glue는
+데이터를 수집, 정제, 변환, 통합(ETL) 하는 과정을 자동화해주는
+서버리스 데이터 통합 서비스 (Serverless ETL Service) 입니다.</p>
+<p>👉 쉽게 말해,
+“S3, RDS, Redshift 등에 흩어진 데이터를 자동으로 정리해주는 AWS의 데이터 파이프라인 도우미” 입니다.</p>
+<hr />
+<h2 id="2">2️⃣ 주요 기능<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기능</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📦 <strong>ETL (Extract, Transform, Load)</strong></td>
+<td>데이터를 추출 → 변환 → 대상 저장소로 로드</td>
+</tr>
+<tr>
+<td>🧠 <strong>데이터 카탈로그 (Glue Data Catalog)</strong></td>
+<td>데이터의 메타데이터(스키마, 테이블 구조) 자동 관리</td>
+</tr>
+<tr>
+<td>🔄 <strong>Glue Crawler</strong></td>
+<td>S3, RDS, DynamoDB 등의 데이터 소스를 자동 스캔하여 스키마 생성</td>
+</tr>
+<tr>
+<td>⚙️ <strong>서버리스 실행</strong></td>
+<td>인프라 관리 없이 자동 확장되는 Spark 기반 클러스터로 처리</td>
+</tr>
+<tr>
+<td>🧱 <strong>Job / Trigger 관리</strong></td>
+<td>정기 실행, 조건부 실행, 이벤트 기반 자동 실행 가능</td>
+</tr>
+<tr>
+<td>🔍 <strong>Glue Studio / DataBrew</strong></td>
+<td>GUI 기반 데이터 시각화 및 정제 도구 (비개발자도 사용 가능)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3">3️⃣ 아키텍처 시각화<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<hr />
+<div class="highlight"><pre><span></span><code>flowchart TD
+    A[&quot;데이터 소스 (S3, RDS, DynamoDB, On-Premise)&quot;] --&gt; B[&quot;Glue Crawler (스키마 자동 탐색)&quot;]
+    B --&gt; C[&quot;Glue Data Catalog (메타데이터 저장소)&quot;]
+    C --&gt; D[&quot;Glue ETL Job (Spark 기반 변환 작업)&quot;]
+    D --&gt; E[&quot;대상 저장소 (S3, Redshift, Athena 등)&quot;]
+    E --&gt; F[&quot;Amazon Athena / QuickSight (분석 및 시각화)&quot;]
+</code></pre></div>
+<p><img width="496" height="1324" alt="image" src="https://github.com/user-attachments/assets/a19f2b2c-ed38-41f5-af06-074d8d2497e3" /></p>
+<hr />
+<h2 id="4">4️⃣ 주요 구성 요소<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Glue Data Catalog</strong></td>
+<td>데이터베이스와 테이블 메타데이터를 저장하는 중앙 저장소</td>
+</tr>
+<tr>
+<td><strong>Glue Crawler</strong></td>
+<td>원본 데이터를 스캔해 자동으로 카탈로그 생성</td>
+</tr>
+<tr>
+<td><strong>Glue Job</strong></td>
+<td>ETL 스크립트를 실행하는 단위 (Python / PySpark 기반)</td>
+</tr>
+<tr>
+<td><strong>Trigger</strong></td>
+<td>Job을 예약 실행하거나 이벤트 기반으로 실행</td>
+</tr>
+<tr>
+<td><strong>Glue Studio</strong></td>
+<td>GUI 기반 ETL 설계 도구</td>
+</tr>
+<tr>
+<td><strong>Glue DataBrew</strong></td>
+<td>코드 없이 시각적으로 데이터 정제 및 분석 준비</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-glue-etl">5️⃣ Glue 동작 과정 (ETL 프로세스)<a class="headerlink" href="#5-glue-etl" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant Source as 데이터 소스(S3, RDS 등)
+    participant Crawler as Glue Crawler
+    participant Catalog as Glue Data Catalog
+    participant Job as Glue ETL Job
+    participant Target as 대상 저장소(S3/Redshift)
+
+    Source-&gt;&gt;Crawler: 데이터 스캔 요청
+    Crawler-&gt;&gt;Catalog: 메타데이터 생성/업데이트
+    Job-&gt;&gt;Source: 원본 데이터 추출 (Extract)
+    Job-&gt;&gt;Job: 데이터 변환 (Transform)
+    Job-&gt;&gt;Target: 결과 저장 (Load)
+</code></pre></div>
+<p><img width="2399" height="942" alt="image" src="https://github.com/user-attachments/assets/29a668d9-6f60-4326-af03-d353547d1020" /></p>
+<hr />
+<h2 id="6">6️⃣ 현업 활용 사례<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>산업</th>
+<th>활용 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏦 <strong>금융</strong></td>
+<td>거래 로그 정제 및 Redshift 분석용 데이터로 변환</td>
+</tr>
+<tr>
+<td>🏭 <strong>제조/IoT</strong></td>
+<td>공장 센서 데이터 정제 후 S3에 저장 → Athena 분석</td>
+</tr>
+<tr>
+<td>🛒 <strong>이커머스</strong></td>
+<td>고객 행동 로그 → 분석용 테이블 자동 생성</td>
+</tr>
+<tr>
+<td>🧠 <strong>데이터 분석팀</strong></td>
+<td>Glue DataBrew로 데이터 전처리 후 SageMaker 학습에 활용</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-glue">7️⃣ Glue와 관련 서비스 비교<a class="headerlink" href="#7-glue" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>서비스</th>
+<th>주요 기능</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS Glue</strong></td>
+<td>ETL 자동화</td>
+<td>서버리스, Spark 기반, 대규모 데이터 처리</td>
+</tr>
+<tr>
+<td><strong>AWS Data Pipeline</strong></td>
+<td>배치 워크플로우</td>
+<td>EC2 기반, 관리형 스케줄러</td>
+</tr>
+<tr>
+<td><strong>AWS Lambda</strong></td>
+<td>실시간 처리</td>
+<td>이벤트 기반 데이터 변환 (소규모)</td>
+</tr>
+<tr>
+<td><strong>AWS Step Functions</strong></td>
+<td>워크플로우 관리</td>
+<td>Glue Job 간 순서 제어 및 상태 관리</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_1">✅ 정리<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>AWS Glue = 서버리스 데이터 ETL 서비스</p>
+<p>구성요소: Crawler, Data Catalog, Job, Trigger, DataBrew</p>
+<p>핵심기능: 데이터 정제·통합·자동화</p>
+<p>현업활용: 로그 분석, 데이터 파이프라인 구축, 머신러닝 데이터 준비</p>
+<p>👉 한마디로,
+“AWS Glue는 데이터를 자동으로 정리해주는 클라우드 기반 데이터 청소기” 입니다.</p>
 
 
 
